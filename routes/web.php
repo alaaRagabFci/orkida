@@ -43,6 +43,10 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
     Route::Post('/sliders/store', 'SliderController@store');
     Route::Post('/sliders/update', 'SliderController@update');
     Route::Resource('/sliders', 'SliderController');
+    //Orders
+    Route::Resource('/orders', 'OrderController');
+    //Messages
+    Route::Resource('/messages', 'MessageController');
 });
 
 Auth::routes();
