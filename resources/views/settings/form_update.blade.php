@@ -29,6 +29,18 @@
 </div>
 
 <div class="form-group">
+    <label for="exampleInputPassword1">latitude</label>
+    <input type="text" name="latitude" required class="form-control">
+    <span class="help-block with-errors errorName"></span>
+</div>
+
+<div class="form-group">
+    <label for="exampleInputPassword1">longitude</label>
+    <input type="text" name="longitude" required class="form-control">
+    <span class="help-block with-errors errorName"></span>
+</div>
+
+<div class="form-group">
     <label for="exampleInputPassword1">البريد الألكتروني</label>
     <input type="text" name="site_email" required class="form-control">
     <span class="help-block with-errors errorName"></span>

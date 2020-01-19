@@ -39,24 +39,19 @@ class SettingController  extends Controller {
      *  }
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function edit(int $id)
+    public function edit(int $id): Response
     {
-        $setting = $this->settingService->getSetting($id);
-        session(['logo'  => $setting["setting"]->logo]);
-        session(['setting_id'     => $setting["setting"]->id]);
-        return new Response(json_encode(['status'=>true,'data'=> $setting["setting"]->toJson()]));
+        return $this->settingService->getSetting($id);
     }
 
     /**
      * Update client.
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function update(Request $request)
+    public function update(Request $request): Response
     {
         $logo = $request->hasFile('logo') ? $request->file('logo') : "";
         $data  = $request->all();
-        $setting = $this->settingService->updateSetting($data, $logo, session('logo'), session('setting_id'));
-
-        return $setting;
+        return $this->settingService->updateSetting($data, $logo);
     }
 }

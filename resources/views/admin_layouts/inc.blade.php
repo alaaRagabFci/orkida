@@ -79,7 +79,7 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-default">
                                     <li>
-                                        <a href="{{ url('profile',Auth::user()->id) }}">
+                                        <a href="{{ url('adminpanel/profile',Auth::user()->id) }}">
                                             <i class="icon-user"></i> بروفايلي </a>
                                     </li>
                                     <li>
@@ -267,8 +267,7 @@
           type: "GET",
           success: function(res){
               self.button('reset');
-              $data = JSON.parse(res);
-              populateForm(JSON.parse($data.data), document.getElementsByClassName("editForm")[0] );
+              populateForm(JSON.parse(res.data), document.getElementsByClassName("editForm")[0] );
               $('#editModal form').attr("data-id", self.data('id') );
               $('#editModal').modal('show');
           },

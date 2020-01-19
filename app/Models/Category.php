@@ -12,4 +12,6 @@ class Category extends Model
      * @var string
      */
     protected $table = 'categories';
+    protected $fillable = ['name_ar', 'name_en'];
+    public $timestamps  = false;
 }

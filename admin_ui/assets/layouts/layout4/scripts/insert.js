@@ -12,13 +12,6 @@ $(document).ready(function() {
             url: self.closest('form').attr('action'),
             type: "POST",
             data: self.serialize(),
-            beforeSend: function(){
-                var values = Object.values(data);
-                for (i = 0; i < values.length; i++) {
-                    if (values[i] == "")
-                        return false;
-                }
-            },
             success: function(res){
               $('.addForm')[0].reset();
                 $('#addModal').modal('hide');
@@ -33,8 +26,9 @@ $(document).ready(function() {
               oTable.draw();
             },
             error: function(error){
+                console.log(error);
               swal({
-                title: error['responseJSON']['msg'],
+                title: error['responseJSON']['message'],
                 type: "error",
                 closeOnConfirm: false,
                 confirmButtonText: "موافق !",
@@ -57,13 +51,6 @@ $(document).ready(function() {
            url: self.closest('form').attr('action') + "/" +  self.attr("data-id"),
            type: "POST",
            data: "_method=PUT&" + self.serialize(),
-             beforeSend: function(){
-                 var values = Object.values(data);
-                 for (i = 0; i < values.length; i++) {
-                     if (values[i] == "")
-                         return false;
-                 }
-             },
            success: function(res){
              $('#editModal').modal('hide');
              swal({
@@ -78,7 +65,7 @@ $(document).ready(function() {
            },
            error: function(error){
              swal({
-              title: error['responseJSON']['msg'],
+              title: error['responseJSON']['message'],
               type: "error",
               closeOnConfirm: false,
               confirmButtonText: "موافق !",

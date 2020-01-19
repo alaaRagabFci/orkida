@@ -64,7 +64,7 @@
                     <label class="control-label visible-ie8 visible-ie9">الرقم السري</label>
                     <input class="form-control form-control-solid placeholder-no-fix" required type="password" autocomplete="off" placeholder="الرقم السري" name="password" value="{{ old('password') }}" /> </div>
                 <div class="form-actions">
-                    <button style="background-color: #fff; border-color: #fff; color: #000;" type="submit" class="btn green uppercase">دخول</button>
+                    <button style="background-color: #61ccee; border-color: #61ccee; color: #0c2a55;" type="submit" class="btn green uppercase">دخول</button>
                     <label style="color: #fff !important;" class="rememberme check mt-checkbox mt-checkbox-outline">
                         <input type="checkbox" name="remember" value="1" />تذكر
                         <span></span>

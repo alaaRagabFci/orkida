@@ -12,4 +12,6 @@ class SitePhone extends Model
      * @var string
      */
     protected $table = 'site_phones';
+    protected $fillable = ['phone'];
+    public $timestamps  = false;
 }

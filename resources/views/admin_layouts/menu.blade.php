@@ -1,5 +1,5 @@
 <li class="nav-item {{Request::is('/adminpanel') ? 'start active open':'' }}">
-    <a href="{{ url('adminpanel/dashboard') }}" class="nav-link nav-toggle">
+    <a href="{{ url('adminpanel/') }}" class="nav-link nav-toggle">
         <i class="icon-home"></i>
         <span class="title">لوحة التحكم</span>
         <span class="selected"></span>

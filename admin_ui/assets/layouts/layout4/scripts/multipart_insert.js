@@ -57,7 +57,7 @@ $(document).ready(function()
     function error(error)
     {
         swal({
-            title: error['responseJSON']['msg'],
+            title: error['responseJSON']['message'],
             type: "error",
             closeOnConfirm: false,
             confirmButtonText: "موافق!",
@@ -92,7 +92,7 @@ $(document).ready(function()
     function error_update(error)
     {
         swal({
-            title:error['responseJSON']['msg'],
+            title:error['responseJSON']['message'],
             type: "error",
             closeOnConfirm: false,
             confirmButtonText: "موافق!",

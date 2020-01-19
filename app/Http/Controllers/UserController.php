@@ -10,6 +10,7 @@ use App\Services\UserService;
 use App\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
@@ -26,11 +27,91 @@ class UserController extends Controller
     }
 
     /**
+     * List all clients.
+     * @author Alaa <alaaragab34@gmail.com>
+     */
+    public function index(Request $request)
+    {
+        $users  = $this->userService->listUsers();
+        $tableData = $this->userService->datatables($users);
+
+        if($request->ajax())
+            return $tableData;
+
+        return view('users.index')
+            ->with('modal', 'users')
+            ->with('modal_', 'الأعضاء')
+            ->with('edit_modal', 'adminpanel/users')
+            ->with('tableData', $tableData);
+    }
+
+    /**
+     * Update client.
+     * requirements={
+     *      {"name"="phone", "dataType"="String", "requirement"="\d+", "description"="client name ar"},
+     *  }
+     * @author Alaa <alaaragab34@gmail.com>
+     */
+    public function store(Request $request): Response
+    {
+        $data  = $request->all();
+        $user = $this->userService->createUser($data);
+        return $user;
+    }
+
+    /**
+     * Edit client.
+     * requirements={
+     *      {"name"="id", "dataType"="Integer", "requirement"="\d+", "description"="client id"}
+     *  }
+     * @author Alaa <alaaragab34@gmail.com>
+     */
+    public function edit(int $id): Response
+    {
+        return $this->userService->getUser($id);
+    }
+
+    /**
+     * Update client.
+     * requirements={
+     *      {"name"="id", "dataType"="Integer", "requirement"="\d+", "description"="client id"},
+     *      {"name"="name_ar", "dataType"="String", "requirement"="\d+", "description"="client name ar"},
+     *      {"name"="name_en", "dataType"="String", "requirement"="\d+", "description"="client name en"},
+     *      {"name"="type", "dataType"="String", "requirement"="\d+", "description"="client type"},
+     *  }
+     * @author Alaa <alaaragab34@gmail.com>
+     */
+    public function update(Request $request, int $id): Response
+    {
+        $data  = $request->all();
+        return $this->userService->updateUser($data, $id);
+    }
+
+    /**
+     * Delete client.
+     * requirements={
+     *      {"name"="id", "dataType"="Integer", "requirement"="\d+", "description"="client id"}
+     *  }
+     * @author Alaa <alaaragab34@gmail.com>
+     */
+    public function destroy(Request $request, int $id)
+    {
+        $this->userService->deleteUser($id);
+
+        if($request->ajax())
+        {
+            return new Response(json_encode(['msg'=>'Deleted Successfully',200]));
+        }
+        return redirect()->back();
+    }
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(): View
+    public function dashboard(): View
     {
         $messages = Message::count();
         $orders = Order::count();
@@ -56,6 +137,7 @@ class UserController extends Controller
         $user = $this->userService->getAdmin($id);
         return view('profile')
             ->with('modal','noModal')
+            ->with('edit_modal', '')
             ->with('flag',0)
             ->with('info',$user);
     }
@@ -66,7 +148,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return view
      */
-    public function updateUser(Request $request): RedirectResponse
+    public function updateProfile(Request $request): RedirectResponse
     {
         $this->validate($request,
             [
@@ -74,7 +156,7 @@ class UserController extends Controller
                 'email'=>'required',
             ]);
 
-        $response = $this->userService->updateUser(Auth::user()->id, $request->all());
+        $response = $this->userService->updateProfile(Auth::user()->id, $request->all());
         if(isset($response['code']))
             dd($response['message']);
 
@@ -140,4 +222,5 @@ class UserController extends Controller
             ->with('msg', $msg)
             ->with('flag',1);
     }
+
 }

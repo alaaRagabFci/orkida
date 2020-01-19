@@ -28,12 +28,12 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/adminpanel/dashboard';
+    protected $redirectTo = '/adminpanel/';
 
     public function logout(Request $request)
     {
         $this->performLogout($request);
-        return redirect('adminpanel/dashboard');
+        return redirect('adminpanel/');
     }
 
     /**

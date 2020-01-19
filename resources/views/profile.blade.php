@@ -70,7 +70,7 @@
                                 <div class="tab-content">
                                     <!-- PERSONAL INFO TAB -->
                                     <div class="tab-pane active" id="tab_1_1">
-                                        <form role="form" action="{{ url('/updateUser') }}" method="POST">
+                                        <form role="form" action="{{ url('adminpanel/updateProfile') }}" method="POST">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <div class="form-group">
                                                 <label class="control-label">الأسم</label>
@@ -86,7 +86,7 @@
                                     <!-- END PERSONAL INFO TAB -->
                                     <!-- CHANGE AVATAR TAB -->
                                     <div class="tab-pane" id="tab_1_2">
-                                        <form enctype="multipart/form-data" action="{{ url('/setAvatar') }}" method="POST" role="form">
+                                        <form enctype="multipart/form-data" action="{{ url('adminpanel/setAvatar') }}" method="POST" role="form">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <div class="form-group">
                                                 <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -110,7 +110,7 @@
                                     <!-- END CHANGE AVATAR TAB -->
                                     <!-- CHANGE PASSWORD TAB -->
                                     <div class="tab-pane" id="tab_1_3">
-                                        <form action="{{ url('/setPassword') }}" method="POST" >
+                                        <form action="{{ url('adminpanel/setPassword') }}" method="POST" >
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                             <div class="form-group">
                                                 <label class="control-label">الرقم السري الحالي</label>

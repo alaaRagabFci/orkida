@@ -14,15 +14,23 @@
 //Adminpanel
 Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
     //Dashboard
-    Route::GET('/dashboard', 'UserController@index');
+    Route::GET('/', 'UserController@dashboard');
     //Profile
     Route::get('/profile/{id}' , 'UserController@profile');
-    Route::post('/updateUser' ,'UserController@updateUser');
+    Route::post('/updateProfile' ,'UserController@updateProfile');
     Route::post('/setAvatar' , 'UserController@updateAdminImage');
     Route::post('/setPassword' , 'UserController@setPassword');
     //Settings
     Route::Post('/settings/update', 'SettingController@update');
     Route::Resource('/settings', 'SettingController');
+    //Site phones
+    Route::Resource('/site_phones', 'SitePhoneController');
+    //Categories
+    Route::Resource('/categories', 'CategoryController');
+    //Users
+    Route::Resource('/users', 'UserController');
+    //Ads
+    Route::Resource('/ads', 'AdController');
 });
 
 Auth::routes();
