@@ -2,13 +2,13 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Services\FaqService;
+use App\Services\FaqqService;
 use Illuminate\Http\Response;
 
-class FaqController extends Controller {
+class FaqqController extends Controller {
 
     public $faqService;
-    public function __construct(FaqService $faqService)
+    public function __construct(FaqqService $faqService)
     {
         $this->middleware('auth');
         $this->faqService = $faqService;
@@ -27,10 +27,10 @@ class FaqController extends Controller {
             return $tableData;
 
         return view('faqs.index')
-              ->with('modal', 'faqs')
-              ->with('modal_', 'الأسئله الشائعه')
-              ->with('edit_modal', 'adminpanel/faqs')
-              ->with('tableData', $tableData);
+            ->with('modal', 'faqs')
+            ->with('modal_', 'الأسئله الشائعه')
+            ->with('edit_modal', 'adminpanel/faqs')
+            ->with('tableData', $tableData);
     }
 
     /**
@@ -86,7 +86,7 @@ class FaqController extends Controller {
 
         if($request->ajax())
         {
-            return new Response(json_encode(['msg'=>'Deleted Successfully',200]));
+            return new Response(json_encode(['msg'=>'Deleted Successfully', 203]));
         }
         return redirect()->back();
     }

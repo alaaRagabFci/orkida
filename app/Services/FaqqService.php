@@ -5,7 +5,7 @@ use Illuminate\Http\Response;
 use Yajra\Datatables\Datatables as Datatables;
 use App\Models\Faq;
 
-class FaqService
+class FaqqService
 {
     /**
      * List all Client.

@@ -6,7 +6,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="addModalLabel"><i class="fa fa-plus-circle"></i> أضافة {{ $modal_ }}</h4>
             </div>
-            <form role="form" method="POST" class="addForm" action="{{ url($modal.'/store') }}" data-toggle="validator"  enctype="multipart/form-data">
+            <form role="form" method="POST" class="addForm" action="{{ url('adminpanel/'.$modal.'/store') }}" data-toggle="validator"  enctype="multipart/form-data">
                 <div class="modal-body">
                     @include($modal.'.form')
                 </div>

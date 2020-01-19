@@ -87,7 +87,7 @@ class SitePhoneController extends Controller {
 
         if($request->ajax())
         {
-            return new Response(json_encode(['msg'=>'Deleted Successfully',200]));
+            return new Response(json_encode(['msg'=>'Deleted Successfully', 203]));
         }
         return redirect()->back();
     }

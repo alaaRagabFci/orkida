@@ -32,7 +32,17 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
     //Ads
     Route::Resource('/ads', 'AdController');
     //Faqs
-    Route::Resource('/faqs', 'FaqController');
+    Route::Resource('/faqs', 'FaqqController');
+    //About us
+    Route::Resource('/about_us', 'AboutUsController');
+    //Company valuables
+    Route::Post('/company_valuables/store', 'CompanyValuableController@store');
+    Route::Post('/company_valuables/update', 'CompanyValuableController@update');
+    Route::Resource('/company_valuables', 'CompanyValuableController');
+    //Sliders
+    Route::Post('/sliders/store', 'SliderController@store');
+    Route::Post('/sliders/update', 'SliderController@update');
+    Route::Resource('/sliders', 'SliderController');
 });
 
 Auth::routes();
