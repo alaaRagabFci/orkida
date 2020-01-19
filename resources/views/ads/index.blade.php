@@ -17,7 +17,7 @@
         <div class="tools"> </div>
       </div>
       <div class="portlet-body">
-              <table class="table table-striped table-bordered table-hover" id="phones">
+              <table class="table table-striped table-bordered table-hover" id="theAds">
                 <thead>
                   <th class="col-md-1">الأعلان الأول</th>
                   <th class="col-md-1">الأعلان الثاني</th>
@@ -50,7 +50,7 @@
         <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/insert.js')}}" type="text/javascript"></script>
       <script type="text/javascript">
        $(document).ready(function() {
-        oTable = $('#phones').DataTable({
+        oTable = $('#theAds').DataTable({
           "processing": true,
           "serverSide": true,
           "responsive": true,

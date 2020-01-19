@@ -3,17 +3,17 @@
 namespace App\Services;
 use Illuminate\Http\Response;
 use Yajra\Datatables\Datatables as Datatables;
-use App\Models\SitePhone;
+use App\Models\Faq;
 
-class SitePhoneService
+class FaqService
 {
     /**
      * List all Client.
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function listSitePhones()
+    public function listFaqs()
     {
-        return SitePhone::get();
+        return Faq::get();
     }
 
     /**
@@ -22,12 +22,12 @@ class SitePhoneService
      * @return datatable.
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function datatables($sitePhones)
+    public function datatables($faqs)
     {
-        $tableData = Datatables::of($sitePhones)
+        $tableData = Datatables::of($faqs)
             ->addColumn('actions', function ($data)
             {
-                return view('partials.actionBtns')->with('controller','adminpanel/site_phones')
+                return view('partials.actionBtns')->with('controller','adminpanel/faqs')
                     ->with('id', $data->id)
                     ->render();
             })->rawColumns(['actions'])->make(true);
@@ -35,13 +35,10 @@ class SitePhoneService
         return $tableData ;
     }
 
-    public function createSitePhone(array $parameters): Response
+    public function createFaq(array $parameters): Response
     {
-        if(SitePhone::where('phone', $parameters['phone'])->first())
-            return new Response(['message'=>'رقم الهاتف موجود بالفعل'], 401);
-
-        $phone = new SitePhone();
-        $phone->create($parameters);
+        $faq = new Faq();
+        $faq->create($parameters);
         return new Response(['status' => true,'message' => 'تم التسجيل بنجاح']);
     }
 
@@ -51,13 +48,13 @@ class SitePhoneService
      * @return ReceivingTypes
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function getSitePhone(int $phoneId): Response
+    public function getfaq(int $faqId): Response
     {
-        $phone = SitePhone::findOrFail($phoneId);
-        if(!$phone instanceof SitePhone)
-            return new Response(['message'=>'SitePhone not found'], 403);
+        $faq = Faq::findOrFail($faqId);
+        if(!$faq instanceof Faq)
+            return new Response(['message'=>'Faq not found'], 403);
 
-        return new Response(['status' => true, 'message'=>'Success','data'=> $phone->toJson()]);
+        return new Response(['status' => true, 'message'=>'Success','data'=> $faq->toJson()]);
     }
 
     /**
@@ -67,13 +64,10 @@ class SitePhoneService
      * @return ReceivingTypes
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function updateSitePhone(array $parameters, int $phoneId): Response
+    public function updateFaq(array $parameters, int $faqId): Response
     {
-        if(SitePhone::where('phone', $parameters['phone'])->where('id', '!=', $phoneId)->first())
-            return new Response(['message'=>'رقم الهاتف موجود بالفعل'], 401);
-
-        $phone = SitePhone::findOrFail($phoneId);
-        $phone->update($parameters);
+        $faq = Faq::findOrFail($faqId);
+        $faq->update($parameters);
         return new Response(['status' => true, 'message'=>'Updated Successfully']);
     }
 
@@ -83,8 +77,8 @@ class SitePhoneService
      * @return Client
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function deleteSitePhone($phoneId)
+    public function deleteFaq($faqId)
     {
-        return SitePhone::find($phoneId)->delete();
+        return Faq::find($faqId)->delete();
     }
 }

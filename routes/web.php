@@ -31,6 +31,8 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
     Route::Resource('/users', 'UserController');
     //Ads
     Route::Resource('/ads', 'AdController');
+    //Faqs
+    Route::Resource('/faqs', 'FaqController');
 });
 
 Auth::routes();

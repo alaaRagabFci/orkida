@@ -2,16 +2,16 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Services\SitePhoneService;
+use App\Services\FaqService;
 use Illuminate\Http\Response;
 
-class SitePhoneController extends Controller {
+class FaqController extends Controller {
 
-    public $sitePhoneService;
-    public function __construct(SitePhoneService $sitePhoneService)
+    public $faqService;
+    public function __construct(FaqService $faqService)
     {
         $this->middleware('auth');
-        $this->sitePhoneService = $sitePhoneService;
+        $this->faqService = $faqService;
     }
 
     /**
@@ -20,16 +20,16 @@ class SitePhoneController extends Controller {
      */
     public function index(Request $request)
     {
-        $phones  = $this->sitePhoneService->listSitePhones();
-        $tableData = $this->sitePhoneService->datatables($phones);
+        $faqs  = $this->faqService->listFaqs();
+        $tableData = $this->faqService->datatables($faqs);
 
         if($request->ajax())
             return $tableData;
 
-        return view('site_phones.index')
-              ->with('modal', 'site_phones')
-              ->with('modal_', 'هواتف الموقع')
-              ->with('edit_modal', 'adminpanel/site_phones')
+        return view('faqs.index')
+              ->with('modal', 'faqs')
+              ->with('modal_', 'الأسئله الشائعه')
+              ->with('edit_modal', 'adminpanel/faqs')
               ->with('tableData', $tableData);
     }
 
@@ -43,8 +43,7 @@ class SitePhoneController extends Controller {
     public function store(Request $request): Response
     {
         $data  = $request->all();
-        $phone = $this->sitePhoneService->createSitePhone($data);
-        return $phone;
+        return $this->faqService->createFaq($data);
     }
     /**
      * Edit client.
@@ -55,7 +54,7 @@ class SitePhoneController extends Controller {
      */
     public function edit(int $id): Response
     {
-        return $this->sitePhoneService->getSitePhone($id);
+        return $this->faqService->getFaq($id);
     }
 
     /**
@@ -71,7 +70,7 @@ class SitePhoneController extends Controller {
     public function update(Request $request, int $id): Response
     {
         $data  = $request->all();
-        return $this->sitePhoneService->updateSitePhone($data, $id);
+        return $this->faqService->updateFaq($data, $id);
     }
 
     /**
@@ -83,7 +82,7 @@ class SitePhoneController extends Controller {
      */
     public function destroy(Request $request, int $id)
     {
-        $this->sitePhoneService->deleteSitePhone($id);
+        $this->faqService->deleteFaq($id);
 
         if($request->ajax())
         {

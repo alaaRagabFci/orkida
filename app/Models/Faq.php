@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Faq extends Model
 {
-    //
+    protected $fillable = ['question_ar', 'question_en', 'answer_ar', 'answer_en'];
+    public $timestamps  = false;
 }
