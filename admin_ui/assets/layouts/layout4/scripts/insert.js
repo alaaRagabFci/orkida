@@ -12,6 +12,13 @@ $(document).ready(function() {
             url: self.closest('form').attr('action'),
             type: "POST",
             data: self.serialize(),
+            beforeSend: function(){
+                  var values = Object.values(data);
+                  for (i = 0; i < values.length; i++) {
+                      if (values[i] == "")
+                          return false;
+                  }
+              },
             success: function(res){
               $('.addForm')[0].reset();
                 $('#addModal').modal('hide');
@@ -51,6 +58,17 @@ $(document).ready(function() {
            url: self.closest('form').attr('action') + "/" +  self.attr("data-id"),
            type: "POST",
            data: "_method=PUT&" + self.serialize(),
+             beforeSend: function(){
+                 var values = Object.values(data);
+                 if ('password' in data){
+                     console.log('ff');
+                     var password = true;
+                 }
+                 for (i = 0; i < values.length; i++) {
+                     if (values[i] == "" && !password)
+                         return false;
+                 }
+             },
            success: function(res){
              $('#editModal').modal('hide');
              swal({

@@ -23,12 +23,14 @@
 <link href="{{ asset('/admin_ui/assets/global/plugins/datatables/datatables.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/admin_ui/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/admin_ui/assets/global/css/components-rtl.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{{ asset('/admin_ui/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('/admin_ui/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css')}}" rel="stylesheet" type="text/css" />
 
 <link href="{{ asset('/admin_ui/assets/global/css/plugins-rtl.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/admin_ui/assets/layouts/layout4/css/layout-rtl.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/admin_ui/assets/layouts/layout4/css/themes/default-rtl.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
 <link href="{{ asset('/admin_ui/assets/layouts/layout4/css/custom-rtl.min.min.css')}}" rel="stylesheet" type="text/css" />
-
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
         <style type="text/css">
             .alerts-list{
                 list-style: none;
@@ -37,6 +39,9 @@
                 z-index: 1000000000;
                 border: solid 3px #42a1d5;
             }
+             #services tr {
+                 cursor: move !important;
+             }
         </style>
         @yield('styles')
         <!-- END THEME LAYOUT STYLES -->
@@ -218,6 +223,11 @@
 <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/layout.min.js')}}" type="text/javascript"></script>
 <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/demo.min.js')}}" type="text/javascript"></script>
 <script src="{{ asset('/admin_ui/assets/layouts/global/scripts/quick-nav.min.js')}}" type="text/javascript"></script>
+
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+        <script src="{{ asset('/admin_ui/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}" type="text/javascript"></script>
+{{--        <script src="{{ asset('/admin_ui/assets/pages/scripts/components-bootstrap-tagsinput.min.js')}}" type="text/javascript"></script>--}}
+
         <script>
     $(document).ready(function()
     {
@@ -237,19 +247,19 @@
             var i;
             for (i in response) {
                 if (i in frm.elements){
+                    console.log(i);
                     frm.elements[i].value = response[i];
 
-                    if(i == "is_transporting" && response["is_transporting"] === 1){
-                        frm.elements[i].checked = true;
-                        frm.elements[i].removeAttribute("value");
+                    if(i == "is_active" && response["is_active"] === 1){
+                        $('#isActive').bootstrapToggle('on');
                     }
-                    else if(i == "is_transporting" && response["is_transporting"] === 0){
-                        frm.elements[i].checked = false;
-                        frm.elements[i].removeAttribute("value");
+                    else if(i == "is_active" && response["is_active"] === 0){
+                        $('#isActive').bootstrapToggle('off');
                     }
                 }
             }
         }
+
 
       $(document.body).validator().on('click', '.changePassword2', function() {
             var self = $(this);

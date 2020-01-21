@@ -38,21 +38,33 @@
     </a>
 </li>
 
-<li class="nav-item {{Request::is('adminpanel/services') ? 'start active open':'' }}">
-    <a href="{{ url('adminpanel/services') }}" class="nav-link nav-toggle">
+<li class="nav-item {{Request::is('adminpanel/services', 'adminpanel/service_types') ? 'start active open':'' }}">
+    <a href="javascript:;" class="nav-link nav-toggle">
         <i class="fa fa-server"></i>
         <span class="title">الخدمات</span>
         <span class="selected"></span>
+        <span class="arrow open"></span>
     </a>
+    <ul class="sub-menu">
+        <li class="nav-item {{Request::is('adminpanel/services') ? 'start active open':'' }}">
+            <a href="{{ url('adminpanel/services') }}" class="nav-link nav-toggle">
+                <i class="fas fa-angle-left"></i>
+                <span class="title">الخدمات</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+        <li class="nav-item {{Request::is('adminpanel/service_types') ? 'start active open':'' }}">
+            <a href="{{ url('adminpanel/service_types') }}" class="nav-link nav-toggle">
+                <i class="fas fa-angle-left"></i>
+                <span class="title">أنواع الخدمات</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+    </ul>
 </li>
 
-<li class="nav-item {{Request::is('adminpanel/service_types') ? 'start active open':'' }}">
-    <a href="{{ url('adminpanel/service_types') }}" class="nav-link nav-toggle">
-        <i class="fa fa-server"></i>
-        <span class="title">أنواع الخدمات</span>
-        <span class="selected"></span>
-    </a>
-</li>
+
+
 
 <li class="nav-item  {{Request::is('adminpanel/blogs') ? 'start active open':'' }}">
     <a href="{{ url('adminpanel/blogs') }}" class="nav-link nav-toggle">

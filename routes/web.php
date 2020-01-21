@@ -39,6 +39,11 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
     Route::Post('/company_valuables/store', 'CompanyValuableController@store');
     Route::Post('/company_valuables/update', 'CompanyValuableController@update');
     Route::Resource('/company_valuables', 'CompanyValuableController');
+    //Services
+    Route::Post('/services/store', 'OurServiceController@store');
+    Route::Post('/services/update', 'OurServiceController@update');
+    Route::Resource('/services', 'OurServiceController');
+    Route::Post('/services/sort', 'OurServiceController@sortServices');
     //Sliders
     Route::Post('/sliders/store', 'SliderController@store');
     Route::Post('/sliders/update', 'SliderController@update');

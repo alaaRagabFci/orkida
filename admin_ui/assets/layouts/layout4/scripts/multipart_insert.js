@@ -1,48 +1,10 @@
 $(document).ready(function()
 {
-    $("#changePasswordModal form").validator().on('submit', function(e){
-        if (!e.isDefaultPrevented())
-        {
-            var self = $(this);
-            $.ajax({
-                url: self.closest('form').attr('action')+ '/' + self.data('id') ,
-                type: "POST",
-                data: self.serialize(),
-                success: function(res){
-                    $('#changePasswordModal').modal('hide');
-                    swal({
-                        title: "تم تغير كلمة السر",
-                        type: "success",
-                        closeOnConfirm: false,
-                        confirmButtonText: "موافق !",
-                        confirmButtonColor: "#ec6c62",
-                        allowOutsideClick: true
-                    });
-                    oTable.draw();
-                },
-                error: function(){
-                    swal({
-                        title: "حدث خطأ",
-                        type: "error",
-                        closeOnConfirm: false,
-                        confirmButtonText: "موافق !",
-                        confirmButtonColor: "#ff0000",
-                        allowOutsideClick: true
-                    });
-                }
-            });
-            e.preventDefault();
-        }
-    });
-    //  $("#submitForm").on('click', function(e){
-    //   $('#addModal').modal('hide');
-    // });
-
 ///////////////////////////insert///////////////////////////////////////
     var options = {
         success:       afterSuccess,  // post-submit callback
-        error:         error // post-submit callback
-        // beforeSubmit: validateInputs
+        error:         error, // post-submit callback
+        beforeSubmit: validateInputs
     };
     $('.addForm').ajaxForm(options);
 
@@ -85,9 +47,21 @@ $(document).ready(function()
     ///////////////////////////////////Update//////////////////////////////////////
     var options_update = {
         success:       afterSuccess_update,  // post-submit callback
-        error:         error_update  // post-submit callback
+        error:         error_update,  // post-submit callback
+        beforeSubmit: validateInputsUpdate
     };
     $('.editForm').ajaxForm(options_update);
+
+    function validateInputsUpdate(data)
+    {
+        for (i = 0; i < data.length; i++) {
+            if(data[i].name != "icon")
+                if(data[i].name != "image")
+                    if(data[i].name != "logo")
+                            if(data[i].value == "")
+                                return false;
+        }
+    }
 
     function error_update(error)
     {

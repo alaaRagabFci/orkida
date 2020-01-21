@@ -7,7 +7,7 @@
                 <h4 class="modal-title" id="editEmployeeModalLabel"><i class="fa fa-pencil"></i> تحديث</h4>
             </div>
             <form role="form" id="update_form" method="POST" class="editForm" data-id="" action="{{ url('adminpanel/'.$modal.'/update') }}" data-toggle="validator"  enctype="multipart/form-data">
-                <div class="modal-body">
+                <div class="modal-body asd">
                     @include($modal.'.form_update')
                 </div>
                 <div class="modal-footer">
