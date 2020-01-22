@@ -53,8 +53,8 @@
                 <span class="selected"></span>
             </a>
         </li>
-        <li class="nav-item {{Request::is('adminpanel/service_types') ? 'start active open':'' }}">
-            <a href="{{ url('adminpanel/service_types') }}" class="nav-link nav-toggle">
+        <li class="nav-item {{Request::is('adminpanel/services_types') ? 'start active open':'' }}">
+            <a href="{{ url('adminpanel/services_types') }}" class="nav-link nav-toggle">
                 <i class="fas fa-angle-left"></i>
                 <span class="title">أنواع الخدمات</span>
                 <span class="selected"></span>

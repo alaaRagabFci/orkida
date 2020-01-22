@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Services;
-use App\Models\MetaTag;
 use Illuminate\Http\Response;
 use Yajra\Datatables\Datatables as Datatables;
-use App\Models\Service;
+use App\Models\ServiceType;
 
-class OurServiceService
+class ServiceTypeService
 {
     private $utilityService;
     public function __construct(UtilityService $utilityService){
@@ -16,9 +15,9 @@ class OurServiceService
      * List all Setting.
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function listServices()
+    public function listServicesTypes()
     {
-        return Service::get();
+        return ServiceType::get();
     }
 
     /**
@@ -27,25 +26,21 @@ class OurServiceService
      * @return datatable.
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function datatables($services)
+    public function datatables($servicesTypes)
     {
-        $tableData = Datatables::of($services)
+        $tableData = Datatables::of($servicesTypes)
             ->editColumn('image', '<a href="javascript:;"><img src="{{ config("app.baseUrl").$image }}" class="image" width="50px" height="50px"></a>')
-            ->addColumn('category', function (Service $service)
+            ->addColumn('service', function (ServiceType $serviceType)
             {
-                return $service->getcategory->name_ar;
-            })
-            ->addColumn('metaTag', function (Service $service)
-            {
-                return '<a href="services/metaTags/'.$service->id.'">Edit Meta Tag</a>';
+                return $serviceType->getService->name_ar;
             })
             ->setRowId('id')
             ->addColumn('actions', function ($data)
             {
-                return view('partials.actionBtns')->with('controller','adminpanel/services')
+                return view('partials.actionBtns')->with('controller','adminpanel/services_types')
                     ->with('id', $data->id)
                     ->render();
-            })->rawColumns(['actions', 'image', 'metaTag'])->make(true);
+            })->rawColumns(['actions', 'image'])->make(true);
 
         return $tableData ;
     }
@@ -59,7 +54,7 @@ class OurServiceService
      * @param $image
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function storeService($parameters)
+    public function storeServiceType($parameters)
     {
         if(isset($parameters['image']) && $parameters['image'] != ""){
             $data = $this->utilityService->uploadImage($parameters['image']);
@@ -69,22 +64,11 @@ class OurServiceService
         }else{
             return new Response(['message' => 'image required', 401]);
         }
-        $service = new Service();
-        $max = $service->max('sort');
+        $serviceType = new ServiceType();
+        $max = $serviceType->max('sort');
         $parameters['sort'] = $max + 1;
         $parameters['is_active'] = isset($parameters['is_active']) ?  1 : 0;
-        $parameters['slug_ar'] = str_replace(' ', '-', $parameters['slug_ar']);
-        $parameters['slug_en'] = str_replace(' ', '-', $parameters['slug_en']);
-        $serviceId = $service->create($parameters)->id;
-        if($service){
-            $tags = explode (",", $parameters['tags']);
-            foreach ($tags as $tag){
-                $metaTag = new MetaTag();
-                $metaTag->tag = $tag;
-                $metaTag->service_id = $serviceId;
-                $metaTag->save();
-            }
-        }
+        $serviceType->create($parameters);
         return new Response(['status' => true, 'message'=>'تم التسجيل بنجاح']);
     }
 
@@ -94,15 +78,15 @@ class OurServiceService
      * @return Setting
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function getService(int $serviceId): Response
+    public function getServiceType(int $serviceTypeId): Response
     {
-        $service = Service::findOrFail($serviceId);
-        if(!$service instanceof Service)
-            return new Response(['message'=>'Service not found'], 403);
+        $serviceType = ServiceType::findOrFail($serviceTypeId);
+        if(!$serviceType instanceof ServiceType)
+            return new Response(['message'=>'Service type not found'], 403);
 
-        session(['image'  => $service->image]);
-        session(['service_id'     => $service->id]);
-        return new Response(['status' => true, 'message'=>'Success','data'=> $service->toJson()]);
+        session(['image'  => $serviceType->image]);
+        session(['service_type_id'     => $serviceType->id]);
+        return new Response(['status' => true, 'message'=>'Success','data'=> $serviceType->toJson()]);
     }
 
     /**
@@ -116,11 +100,11 @@ class OurServiceService
      * @param $page
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function updateService($parameters, $image): Response
+    public function updateServiceType($parameters, $image): Response
     {
         $oldImage = session('image');
-        $serviceId = session('service_id');
-        $service = Service::findOrFail($serviceId);
+        $serviceId = session('service_type_id');
+        $serviceType = ServiceType::findOrFail($serviceId);
         if(isset($image) && $image != ""){
             $data = $this->utilityService->uploadImage($image);
             if(!$data['status'])
@@ -130,10 +114,8 @@ class OurServiceService
             }else{
                 $parameters['image']  = $oldImage;
             }
-        $parameters['slug_ar'] = str_replace(' ', '-', $parameters['slug_ar']);
-        $parameters['slug_en'] = str_replace(' ', '-', $parameters['slug_en']);
         $parameters['is_active'] = isset($parameters['is_active']) ?  1 : 0;
-        $service->update($parameters);
+        $serviceType->update($parameters);
         return new Response(['status' => true, 'message' => 'تم التحديث بنجاح']);
     }
 
@@ -143,26 +125,17 @@ class OurServiceService
      * @return Slider
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function deleteService(int $serviceId)
+    public function deleteServiceType(int $serviceId)
     {
-        return Service::find($serviceId)->delete();
+        return ServiceType::find($serviceId)->delete();
     }
 
-    public function sortServices($ids)
+    public function sortServicesTypes($ids)
     {
         for($i = 0; $i < count($ids); $i++){
-            $service = Service::findOrFail($ids[$i]);
-            $service->sort = $i+1;
-            $service->save();
+            $serviceType = ServiceType::findOrFail($ids[$i]);
+            $serviceType->sort = $i+1;
+            $serviceType->save();
         }
-    }
-
-    /**
-     * List all Setting.
-     * @author Alaa <alaaragab34@gmail.com>
-     */
-    public function getServiceTags($serviceId)
-    {
-        return Service::where('service_id', $serviceId)->get();
     }
 }

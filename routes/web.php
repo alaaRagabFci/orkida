@@ -44,6 +44,11 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
     Route::Post('/services/update', 'OurServiceController@update');
     Route::Resource('/services', 'OurServiceController');
     Route::Post('/services/sort', 'OurServiceController@sortServices');
+    //Services types
+    Route::Post('/services_types/store', 'ServiceTypeController@store');
+    Route::Post('/services_types/update', 'ServiceTypeController@update');
+    Route::Resource('/services_types', 'ServiceTypeController');
+    Route::Post('/services_types/sort', 'ServiceTypeController@sortServicesTypes');
     //Sliders
     Route::Post('/sliders/store', 'SliderController@store');
     Route::Post('/sliders/update', 'SliderController@update');
@@ -52,6 +57,9 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
     Route::Resource('/orders', 'OrderController');
     //Messages
     Route::Resource('/messages', 'MessageController');
+    //Meta tags
+    Route::Get('/services/metaTags/{id}', 'MetaTagController@getServiceTags');
+    Route::Resource('/meta_tags', 'MetaTagController');
 });
 
 Auth::routes();

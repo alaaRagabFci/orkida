@@ -2,18 +2,18 @@
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Services\MetaTagService;
+use App\Models\Service;
 use Illuminate\Http\Request;
-use App\Services\OurServiceService;
+use App\Services\ServiceTypeService;
 use Illuminate\Http\Response;
 
-class OurServiceController  extends Controller {
+class ServiceTypeController  extends Controller {
 
-    public $ourServiceService;
-    public function __construct(OurServiceService $ourServiceService)
+    public $serviceTypeService;
+    public function __construct(ServiceTypeService $serviceTypeService)
     {
         $this->middleware('auth');
-        $this->ourServiceService = $ourServiceService;
+        $this->serviceTypeService = $serviceTypeService;
     }
 
     /**
@@ -22,17 +22,17 @@ class OurServiceController  extends Controller {
      */
     public function index(Request $request)
     {
-        $services  = $this->ourServiceService->listServices();
-        $tableData = $this->ourServiceService->datatables($services);
-        $categories = Category::get();
+        $servicesTypes  = $this->serviceTypeService->listServicesTypes();
+        $tableData = $this->serviceTypeService->datatables($servicesTypes);
+        $services = Service::get();
         if($request->ajax())
             return $tableData;
 
-        return view('services.index')
-            ->with('categories', $categories)
-            ->with('modal', 'services')
-            ->with('modal_', 'خدمة جديده')
-            ->with('edit_modal', 'adminpanel/services')
+        return view('services_types.index')
+            ->with('services', $services)
+            ->with('modal', 'services_types')
+            ->with('modal_', 'نوع خدمه جديده')
+            ->with('edit_modal', 'adminpanel/services_types')
             ->with('tableData', $tableData);
     }
 
@@ -44,7 +44,7 @@ class OurServiceController  extends Controller {
     {
         $data  = $request->all();
         $data['image'] = $request->hasFile('image') ? $request->file('image') : "";
-        return $this->ourServiceService->storeService($data);
+        return $this->serviceTypeService->storeServiceType($data);
     }
 
     /**
@@ -56,7 +56,7 @@ class OurServiceController  extends Controller {
      */
     public function edit(int $id): Response
     {
-        return $this->ourServiceService->getService($id);
+        return $this->serviceTypeService->getServiceType($id);
     }
 
     /**
@@ -67,7 +67,7 @@ class OurServiceController  extends Controller {
     {
         $image = $request->hasFile('image') ? $request->file('image') : "";
         $data  = $request->all();
-        return $this->ourServiceService->updateService($data, $image);
+        return $this->serviceTypeService->updateServiceType($data, $image);
     }
 
     /**
@@ -79,7 +79,7 @@ class OurServiceController  extends Controller {
      */
     public function destroy(Request $request, $id)
     {
-        $this->ourServiceService->deleteService($id);
+        $this->serviceTypeService->deleteServiceType($id);
 
         if($request->ajax())
         {
@@ -88,9 +88,9 @@ class OurServiceController  extends Controller {
         return redirect()->back();
     }
 
-    public function sortServices(Request $request)
+    public function sortServicesTypes(Request $request)
     {
         $data  = $request->all();
-        return $this->ourServiceService->sortServices($data);
+        return $this->serviceTypeService->sortServicesTypes($data);
     }
 }

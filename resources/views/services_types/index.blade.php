@@ -1,6 +1,6 @@
 @extends('admin_layouts.inc')
-@section('title','خدماتنا')
-@section('breadcrumb','خدماتنا')
+@section('title','أنواع الخدمات')
+@section('breadcrumb','أنواع الخدمات')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @section('styles')
   <link href="{{ asset('/admin_ui/assets/layouts/layout4/css/image.css')}}" rel="stylesheet" type="text/css" />
@@ -16,7 +16,7 @@
       <div class="portlet-title">
         <div class="caption font-dark">
           <i class="icon-settings font-dark"></i>
-          <span class="caption-subject bold uppercase">خدماتنا</span>
+          <span class="caption-subject bold uppercase">أنواع الخدمات</span>
         </div>
         <div class="tools"> </div>
       </div>
@@ -26,23 +26,20 @@
                   <div class="col-md-6">
                       <div class="btn-group">
                           <button  data-toggle="modal" data-target="#addModal" id="sample_editable_1_new" class="btn btn-primary">
-                              أضافة خدمة جديده
+                              أضافة نوع خدمة جديده
                               <i class="fa fa-plus"></i>
                           </button>
                       </div>
                   </div>
               </div>
           </div>
-              <table class="table table-striped table-bordered table-hover table-header-fixed" id="services">
+              <table class="table table-striped table-bordered table-hover table-header-fixed" id="servicesTypes">
                 <thead>
                 <th class="col-md-1">الترتيب</th>
                 <th class="col-md-1">العنوان</th>
                 <th class="col-md-1">Title</th>
-                <th class="col-md-2">الوصف</th>
-                <th class="col-md-2">Description</th>
-                <th class="col-md-1">القسم</th>
+                <th class="col-md-1">الخدمة</th>
                 <th class="col-md-1">الصورة</th>
-                <th class="col-md-1">Edit meta tags</th>
                 <th class="col-md-1">خيارات</th>
                 </thead>
                 <tbody class="row_position">
@@ -51,11 +48,8 @@
                     <td>{{  $row->sort }}</td>
                     <td>{{  $row->name_ar }}</td>
                     <td>{{  $row->name_en }}</td>
-                    <td>{{  $row->description_ar }}</td>
-                    <td>{{  $row->description_en }}</td>
-                    <td>{{  $row->category }}</td>
+                    <td>{{  $row->service }}</td>
                     <td>{!! $row->image !!}</td>
-                    <td>{{ $row->metaTag }}</td>
                     <td>{!! $row->actions !!}</td>
                   </tr>
                 @endforeach
@@ -83,14 +77,14 @@
                     $('.row_position tr').each(function() {
                         selectedData.push($(this).attr("id"));
                     });
-                    updateServiceSort(selectedData);
+                    updateServiceTypeSort(selectedData);
 
                 }
             });
 
-            function updateServiceSort(data) {
+            function updateServiceTypeSort(data) {
                 $.ajax({
-                    url: "{{ url('adminpanel/services/sort') }}",
+                    url: "{{ url('adminpanel/services_types/sort') }}",
                     type: "POST",
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -104,7 +98,7 @@
             }
 
             $(document).ready(function() {
-                oTable = $('#services').DataTable({
+                oTable = $('#servicesTypes').DataTable({
                     "processing": true,
                     "serverSide": true,
                     "responsive": true,
@@ -120,11 +114,8 @@
                         {data: 'sort', name: 'sort'},
                         {data: 'name_ar', name: 'name_ar'},
                         {data: 'name_en', name: 'name_en'},
-                        {data: 'description_ar', name: 'description_ar'},
-                        {data: 'description_en', name: 'description_en'},
-                        {data: 'category', name: 'category'},
+                        {data: 'service', name: 'service'},
                         {data: 'image', name: 'image'},
-                        {data: 'metaTag', name: 'metaTag'},
                         {data: 'actions', name: 'actions', orderable: false, searchable: false}
                     ],
                     order: [ [0, 'asc'] ]
