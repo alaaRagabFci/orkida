@@ -1,24 +1,19 @@
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 <div class="form-group">
-    <label for="exampleInputFile">القسم</label>
-    <select required  class="form-control" name="category_id">
-        <option selected value="">أختر القسم </option>
-        @foreach($categories as $category)
-            <option value="{!! $category->id !!}">{!! $category->name_ar !!}</option>
-        @endforeach
-    </select>
-</div>
-
-<div class="form-group">
     <div class="fileupload fileupload-new" data-provides="fileupload">
-    <span class="btn btn-primary btn-file"><span class="fileupload-new">صورة الخدمة</span>
+    <span class="btn btn-primary btn-file"><span class="fileupload-new">صورة الأفات</span>
     <span class="fileupload-exists">تغير</span>
-    <input type="file" name="image" required/></span>
+    <input type="file" name="image" /></span>
         <span class="fileupload-preview"></span>
-        <a href="#" required class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+        <a href="#"  class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
         <span class="help-block with-errors errorName"></span>
     </div>
+</div>
+
+<div class="form-group" style="display:none;">
+    <label for="exampleInputFile">pic path</label>
+    <input type="text" name="image" id="image">
 </div>
 
 <div class="form-group">
@@ -41,12 +36,6 @@
 <div class="form-group">
     <label for="exampleInputPassword1">Description</label>
     <textarea rows="2" cols="30" name="description_en" class="form-control" required></textarea>
-</div>
-
-<div class="form-group">
-    <label for="exampleInputPassword1">هاتف الخدمة</label>
-    <input type="text" name="phone" required class="form-control">
-    <span class="help-block with-errors errorName"></span>
 </div>
 
 <div class="form-group">
@@ -74,11 +63,5 @@
 
 <div class="form-group">
     <label for="exampleInputPassword1">تفعيل</label>
-    <input data-onstyle="danger" checked type="checkbox" name="is_active"  data-toggle="toggle">
-</div>
-
-<div class="form-group">
-    <label for="exampleInputPassword1">Meta tags</label>
-    <input type="text" name="tags" class="form-control input-large" required  data-role="tagsinput">
-    <span class="help-block with-errors errorName"></span>
+    <input data-onstyle="danger" type="checkbox" name="is_active" id="isActive"  data-toggle="toggle">
 </div>

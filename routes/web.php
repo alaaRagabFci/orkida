@@ -49,6 +49,16 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
     Route::Post('/services_types/update', 'ServiceTypeController@update');
     Route::Resource('/services_types', 'ServiceTypeController');
     Route::Post('/services_types/sort', 'ServiceTypeController@sortServicesTypes');
+    //Pest libraries
+    Route::Post('/pest_libraries/store', 'PestLibraryController@store');
+    Route::Post('/pest_libraries/update', 'PestLibraryController@update');
+    Route::Resource('/pest_libraries', 'PestLibraryController');
+    Route::Post('/pest_libraries/sort', 'PestLibraryController@sortPestLibrariesTypes');
+    //Blogs
+    Route::Post('/blogs/store', 'BlogController@store');
+    Route::Post('/blogs/update', 'BlogController@update');
+    Route::Resource('/blogs', 'BlogController');
+    Route::Post('/blogs/sort', 'BlogController@sortBlogs');
     //Sliders
     Route::Post('/sliders/store', 'SliderController@store');
     Route::Post('/sliders/update', 'SliderController@update');
@@ -58,7 +68,8 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
     //Messages
     Route::Resource('/messages', 'MessageController');
     //Meta tags
-    Route::Get('/services/metaTags/{id}', 'MetaTagController@getServiceTags');
+    Route::Get('/blogs/metaTags/{id}', 'MetaTagController@getTags');
+    Route::Get('/services/metaTags/{id}', 'MetaTagController@getTags');
     Route::Resource('/meta_tags', 'MetaTagController');
 });
 

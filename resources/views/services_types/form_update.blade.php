@@ -51,7 +51,7 @@
 
 <div class="form-group">
     <label for="exampleInputPassword1">تفعيل</label>
-    <input data-onstyle="danger" id="isActive" checked type="checkbox" name="is_active"  data-toggle="toggle">
+    <input data-onstyle="danger" type="checkbox" name="is_active" id="isActive"  data-toggle="toggle">
 </div>
 
 

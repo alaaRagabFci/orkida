@@ -15,9 +15,12 @@ class MetaTagService
      * List all Setting.
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function getServiceTags($serviceId)
+    public function getTags($relationId, $type)
     {
-        return MetaTag::where('service_id', $serviceId)->get();
+        if($type == "services")
+            return MetaTag::where('service_id', $relationId)->get();
+
+        return MetaTag::where('blog_id', $relationId)->get();
     }
 
     /**
@@ -54,7 +57,10 @@ class MetaTagService
         foreach ($tags as $tag){
             $metaTag = new MetaTag();
             $metaTag->tag = $tag;
-            $metaTag->service_id = $parameters['service_id'];
+            if($parameters['type'] == "services")
+                $metaTag->service_id = $parameters['relationId'];
+            else
+                $metaTag->blog_id = $parameters['relationId'];
             $metaTag->save();
         }
         return new Response(['status' => true, 'message'=>'تم التسجيل بنجاح']);

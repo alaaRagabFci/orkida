@@ -1,18 +1,8 @@
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 <div class="form-group">
-    <label for="exampleInputFile">القسم</label>
-    <select required  class="form-control" name="category_id">
-        <option selected value="">أختر القسم </option>
-        @foreach($categories as $category)
-            <option value="{!! $category->id !!}">{!! $category->name_ar !!}</option>
-        @endforeach
-    </select>
-</div>
-
-<div class="form-group">
     <div class="fileupload fileupload-new" data-provides="fileupload">
-    <span class="btn btn-primary btn-file"><span class="fileupload-new">صورة الخدمة</span>
+    <span class="btn btn-primary btn-file"><span class="fileupload-new">صورة الأفات</span>
     <span class="fileupload-exists">تغير</span>
     <input type="file" name="image" required/></span>
         <span class="fileupload-preview"></span>
@@ -44,12 +34,6 @@
 </div>
 
 <div class="form-group">
-    <label for="exampleInputPassword1">هاتف الخدمة</label>
-    <input type="text" name="phone" required class="form-control">
-    <span class="help-block with-errors errorName"></span>
-</div>
-
-<div class="form-group">
     <label for="exampleInputPassword1">image title</label>
     <input type="text" name="image_title" required class="form-control">
     <span class="help-block with-errors errorName"></span>
@@ -75,10 +59,4 @@
 <div class="form-group">
     <label for="exampleInputPassword1">تفعيل</label>
     <input data-onstyle="danger" checked type="checkbox" name="is_active"  data-toggle="toggle">
-</div>
-
-<div class="form-group">
-    <label for="exampleInputPassword1">Meta tags</label>
-    <input type="text" name="tags" class="form-control input-large" required  data-role="tagsinput">
-    <span class="help-block with-errors errorName"></span>
 </div>

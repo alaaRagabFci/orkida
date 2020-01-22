@@ -14,15 +14,18 @@ class MetaTagController  extends Controller {
         $this->metaTagService = $metaTagService;
     }
 
-    public function getServiceTags(Request $request, $serviceId)
+    public function getTags(Request $request, $relationId)
     {
-        $servicesTags  = $this->metaTagService->getServiceTags($serviceId);
-        $tableData = $this->metaTagService->datatables($servicesTags);
+        $type = "";
+        strpos($request->path(), 'blogs') ? $type = "blogs" : $type = "services";
+        $Tags  = $this->metaTagService->getTags($relationId, $type);
+        $tableData = $this->metaTagService->datatables($Tags);
         if($request->ajax())
             return $tableData;
 
         return view('meta_tags.index')
-            ->with('serviceId', $serviceId)
+            ->with('relationId', $relationId)
+            ->with('type', $type)
             ->with('modal', 'meta_tags')
             ->with('modal_', 'Meta tag')
             ->with('edit_modal', 'adminpanel/meta_tags')

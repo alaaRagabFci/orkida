@@ -12,4 +12,7 @@ class PestLibrary extends Model
      * @var string
      */
     protected $table = 'pest_libraries';
+    protected $fillable = ['name_ar', 'name_en', 'description_ar', 'description_en', 'image', 'sort',
+                           'image_title', 'image_alt','slug_ar', 'slug_en', 'is_active'];
+    public $timestamps  = false;
 }

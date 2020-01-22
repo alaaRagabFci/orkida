@@ -42,6 +42,15 @@
              #services tr {
                  cursor: move !important;
              }
+            #blogs tr {
+                cursor: move !important;
+            }
+            #pests tr {
+                cursor: move !important;
+            }
+            #servicesTypes tr {
+                cursor: move !important;
+            }
         </style>
         @yield('styles')
         <!-- END THEME LAYOUT STYLES -->
@@ -252,6 +261,7 @@
 
                     if(i == "is_active" && response["is_active"] === 1){
                         $('#isActive').bootstrapToggle('on');
+                        $('#isActive').attr('checked',true);
                     }
                     else if(i == "is_active" && response["is_active"] === 0){
                         $('#isActive').bootstrapToggle('off');

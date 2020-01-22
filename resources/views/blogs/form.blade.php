@@ -1,18 +1,18 @@
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 <div class="form-group">
-    <label for="exampleInputFile">القسم</label>
-    <select required  class="form-control" name="category_id">
-        <option selected value="">أختر القسم </option>
-        @foreach($categories as $category)
-            <option value="{!! $category->id !!}">{!! $category->name_ar !!}</option>
+    <label for="exampleInputFile">الخدمه</label>
+    <select required  class="form-control" name="service_id">
+        <option selected value="">أختر الخدمه </option>
+        @foreach($services as $service)
+            <option value="{!! $service->id !!}">{!! $service->name_ar !!}</option>
         @endforeach
     </select>
 </div>
 
 <div class="form-group">
     <div class="fileupload fileupload-new" data-provides="fileupload">
-    <span class="btn btn-primary btn-file"><span class="fileupload-new">صورة الخدمة</span>
+    <span class="btn btn-primary btn-file"><span class="fileupload-new">صورة المدونه</span>
     <span class="fileupload-exists">تغير</span>
     <input type="file" name="image" required/></span>
         <span class="fileupload-preview"></span>
@@ -23,30 +23,13 @@
 
 <div class="form-group">
     <label for="exampleInputPassword1">العنوان</label>
-    <input type="text" name="name_ar" required class="form-control">
-    <span class="help-block with-errors errorName"></span>
-</div>
-
-<div class="form-group">
-    <label for="exampleInputPassword1">Title</label>
-    <input type="text" name="name_en" required class="form-control">
+    <input type="text" name="name" required class="form-control">
     <span class="help-block with-errors errorName"></span>
 </div>
 
 <div class="form-group">
     <label for="exampleInputPassword1">الوصف</label>
-    <textarea rows="2" cols="30" name="description_ar" class="form-control" required></textarea>
-</div>
-
-<div class="form-group">
-    <label for="exampleInputPassword1">Description</label>
-    <textarea rows="2" cols="30" name="description_en" class="form-control" required></textarea>
-</div>
-
-<div class="form-group">
-    <label for="exampleInputPassword1">هاتف الخدمة</label>
-    <input type="text" name="phone" required class="form-control">
-    <span class="help-block with-errors errorName"></span>
+    <textarea rows="2" cols="30" name="description" class="form-control" required></textarea>
 </div>
 
 <div class="form-group">
