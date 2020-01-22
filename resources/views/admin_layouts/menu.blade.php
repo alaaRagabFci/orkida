@@ -38,7 +38,7 @@
     </a>
 </li>
 
-<li class="nav-item {{Request::is('adminpanel/services', 'adminpanel/service_types') ? 'start active open':'' }}">
+<li class="nav-item {{Request::is('adminpanel/services', 'adminpanel/services_types') ? 'start active open':'' }}">
     <a href="javascript:;" class="nav-link nav-toggle">
         <i class="fa fa-server"></i>
         <span class="title">الخدمات</span>
