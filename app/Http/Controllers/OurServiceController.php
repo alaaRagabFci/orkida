@@ -1,19 +1,24 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreServiceRequest;
 use App\Models\Category;
 use App\Services\MetaTagService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Services\OurServiceService;
 use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class OurServiceController  extends Controller {
 
     public $ourServiceService;
-    public function __construct(OurServiceService $ourServiceService)
+    public $metaTagService;
+    public function __construct(OurServiceService $ourServiceService, MetaTagService $metaTagService)
     {
         $this->middleware('auth');
         $this->ourServiceService = $ourServiceService;
+        $this->metaTagService = $metaTagService;
     }
 
     /**
@@ -24,12 +29,11 @@ class OurServiceController  extends Controller {
     {
         $services  = $this->ourServiceService->listServices();
         $tableData = $this->ourServiceService->datatables($services);
-        $categories = Category::get();
         if($request->ajax())
             return $tableData;
 
         return view('services.index')
-            ->with('categories', $categories)
+
             ->with('modal', 'services')
             ->with('modal_', 'خدمة جديده')
             ->with('edit_modal', 'adminpanel/services')
@@ -40,11 +44,26 @@ class OurServiceController  extends Controller {
      * Update client.
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function store(Request $request): Response
+    public function create(Request $request): View
     {
+        $categories = Category::get();
+        return view('services.add')
+            ->with('edit_modal', '')
+            ->with('categories', $categories);
+    }
+    /**
+     * Update client.
+     * @author Alaa <alaaragab34@gmail.com>
+     */
+    public function store(StoreServiceRequest $request): RedirectResponse
+    {
+        $msg = '';
         $data  = $request->all();
         $data['image'] = $request->hasFile('image') ? $request->file('image') : "";
-        return $this->ourServiceService->storeService($data);
+        $service = $this->ourServiceService->storeService($data);
+        if($service['status'] == true)
+            $msg='تمت الأضافه بنجاح';
+        return back()->with('msg',$msg);
     }
 
     /**
@@ -54,20 +73,37 @@ class OurServiceController  extends Controller {
      *  }
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function edit(int $id): Response
+    public function edit(int $id): View
     {
-        return $this->ourServiceService->getService($id);
+        $serviceTags = [];
+        $categories = Category::get();
+        $service = $this->ourServiceService->getService($id);
+        $tags = $this->metaTagService->getTags($id, 'services');
+        for ($i = 0; $i < count($tags); $i++){
+            $serviceTags[$i] = $tags[$i]->tag;
+        }
+        $displayedTags = implode(",", $serviceTags);
+        return view('services.edit')
+            ->with('displayedTags',$displayedTags)
+            ->with('service',$service)
+            ->with('edit_modal', '')
+            ->with('categories', $categories);
     }
 
     /**
      * Update client.
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function update(Request $request): Response
+    public function update(StoreServiceRequest $request, $id): RedirectResponse
     {
-        $image = $request->hasFile('image') ? $request->file('image') : "";
+        $msg = '';
         $data  = $request->all();
-        return $this->ourServiceService->updateService($data, $image);
+        $data['id'] = $id;
+        $image = $request->hasFile('image') ? $request->file('image') : "";
+        $service = $this->ourServiceService->updateService($data, $image);
+        if($service['status'] == true)
+            $msg='تم التخديث بنجاح';
+        return back()->with('msg',$msg);
     }
 
     /**

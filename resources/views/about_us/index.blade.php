@@ -47,7 +47,6 @@
         </div>
       </div>
 
-      @include('admin_layouts.Add_Modal')
       @include('admin_layouts.Edit_Modal')
 
       @endsection

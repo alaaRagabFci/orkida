@@ -25,10 +25,11 @@
               <div class="row">
                   <div class="col-md-6">
                       <div class="btn-group">
-                          <button  data-toggle="modal" data-target="#addModal" id="sample_editable_1_new" class="btn btn-primary">
-                              أضافة خدمة جديده
-                              <i class="fa fa-plus"></i>
-                          </button>
+                          <a href="{{ url('/adminpanel/'.$modal.'/create') }}">
+                              <button  data-toggle="modal" id="sample_editable_1_new" class="btn btn-primary">
+                                أضافة خدمة جديده <i class="fa fa-plus"></i>
+                              </button>
+                          </a>
                       </div>
                   </div>
               </div>
@@ -42,7 +43,6 @@
                 <th class="col-md-2">Description</th>
                 <th class="col-md-1">القسم</th>
                 <th class="col-md-1">الصورة</th>
-                <th class="col-md-1">Edit meta tags</th>
                 <th class="col-md-1">خيارات</th>
                 </thead>
                 <tbody class="row_position">
@@ -51,11 +51,10 @@
                     <td>{{  $row->sort }}</td>
                     <td>{{  $row->name_ar }}</td>
                     <td>{{  $row->name_en }}</td>
-                    <td>{{  $row->description_ar }}</td>
-                    <td>{{  $row->description_en }}</td>
+                    <td>{!! $row->description_ar !!} </td>
+                    <td>{!! $row->description_en !!} </td>
                     <td>{{  $row->category }}</td>
                     <td>{!! $row->image !!}</td>
-                    <td>{{ $row->metaTag }}</td>
                     <td>{!! $row->actions !!}</td>
                   </tr>
                 @endforeach
@@ -66,13 +65,9 @@
           <!-- END EXAMPLE TABLE PORTLET-->
         </div>
       </div>
-      @include('admin_layouts.Add_imgModal')
-      @include('admin_layouts.Edit_imgModal')
-
       @endsection
-
       @section('scripts')
-        <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/multipart_insert.js')}}" type="text/javascript"></script>
+        {{--<script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/multipart_insert.js')}}" type="text/javascript"></script>--}}
         <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/upload.js')}}" type="text/javascript"></script>
         <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/app.js') }}"></script>
         <script type="text/javascript">
@@ -124,7 +119,6 @@
                         {data: 'description_en', name: 'description_en'},
                         {data: 'category', name: 'category'},
                         {data: 'image', name: 'image'},
-                        {data: 'metaTag', name: 'metaTag'},
                         {data: 'actions', name: 'actions', orderable: false, searchable: false}
                     ],
                     order: [ [0, 'asc'] ]

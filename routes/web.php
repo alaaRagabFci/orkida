@@ -40,8 +40,6 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
     Route::Post('/company_valuables/update', 'CompanyValuableController@update');
     Route::Resource('/company_valuables', 'CompanyValuableController');
     //Services
-    Route::Post('/services/store', 'OurServiceController@store');
-    Route::Post('/services/update', 'OurServiceController@update');
     Route::Resource('/services', 'OurServiceController');
     Route::Post('/services/sort', 'OurServiceController@sortServices');
     //Services types
@@ -67,10 +65,6 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
     Route::Resource('/orders', 'OrderController');
     //Messages
     Route::Resource('/messages', 'MessageController');
-    //Meta tags
-    Route::Get('/blogs/metaTags/{id}', 'MetaTagController@getTags');
-    Route::Get('/services/metaTags/{id}', 'MetaTagController@getTags');
-    Route::Resource('/meta_tags', 'MetaTagController');
 });
 
 Auth::routes();

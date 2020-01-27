@@ -31,21 +31,25 @@ class OurServiceService
     {
         $tableData = Datatables::of($services)
             ->editColumn('image', '<a href="javascript:;"><img src="{{ config("app.baseUrl").$image }}" class="image" width="50px" height="50px"></a>')
+            ->editColumn('description_ar', function (Service $service)
+            {
+                return htmlspecialchars_decode($service->description_ar);
+            })
+            ->editColumn('description_en', function (Service $service)
+            {
+                return htmlspecialchars_decode($service->description_en);
+            })
             ->addColumn('category', function (Service $service)
             {
                 return $service->getcategory->name_ar;
             })
-            ->addColumn('metaTag', function (Service $service)
-            {
-                return '<a href="services/metaTags/'.$service->id.'">Edit Meta Tag</a>';
-            })
             ->setRowId('id')
             ->addColumn('actions', function ($data)
             {
-                return view('partials.actionBtns')->with('controller','adminpanel/services')
+                return view('services.actionBtns')->with('controller','adminpanel/services')
                     ->with('id', $data->id)
                     ->render();
-            })->rawColumns(['actions', 'image', 'metaTag'])->make(true);
+            })->rawColumns(['actions', 'image', 'description_ar', 'description_en'])->make(true);
 
         return $tableData ;
     }
@@ -61,14 +65,11 @@ class OurServiceService
      */
     public function storeService($parameters)
     {
-        if(isset($parameters['image']) && $parameters['image'] != ""){
-            $data = $this->utilityService->uploadImage($parameters['image']);
-            if(!$data['status'])
-                return new Response(['message' => $data['errors'], 401]);
-            $parameters['image'] = $data['image'];
-        }else{
-            return new Response(['message' => 'image required', 401]);
-        }
+        $errors =[];
+        $data = $this->utilityService->uploadImage($parameters['image']);
+        if(!$data['status'])
+            $errors = $data['errors'];
+        $parameters['image'] = $data['image'];
         $service = new Service();
         $max = $service->max('sort');
         $parameters['sort'] = $max + 1;
@@ -85,7 +86,9 @@ class OurServiceService
                 $metaTag->save();
             }
         }
-        return new Response(['status' => true, 'message'=>'تم التسجيل بنجاح']);
+        if(count($errors) > 0)
+            return $errors;
+        return ['status' => true, 'message'=>'تم التسجيل بنجاح'];
     }
 
     /**
@@ -94,15 +97,12 @@ class OurServiceService
      * @return Setting
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function getService(int $serviceId): Response
+    public function getService(int $serviceId)
     {
         $service = Service::findOrFail($serviceId);
         if(!$service instanceof Service)
             return new Response(['message'=>'Service not found'], 403);
-
-        session(['image'  => $service->image]);
-        session(['service_id'     => $service->id]);
-        return new Response(['status' => true, 'message'=>'Success','data'=> $service->toJson()]);
+        return $service;
     }
 
     /**
@@ -116,25 +116,35 @@ class OurServiceService
      * @param $page
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function updateService($parameters, $image): Response
+    public function updateService($parameters, $image)
     {
-        $oldImage = session('image');
-        $serviceId = session('service_id');
-        $service = Service::findOrFail($serviceId);
+        $errors =[];
+        $service = Service::findOrFail($parameters['id']);
         if(isset($image) && $image != ""){
             $data = $this->utilityService->uploadImage($image);
             if(!$data['status'])
-                return new Response(['message' => $data['errors'], 401]);
+                $errors = $data['errors'];
 
             $parameters['image'] = $data['image'];
             }else{
-                $parameters['image']  = $oldImage;
+                $parameters['image']  = $service->image;
             }
         $parameters['slug_ar'] = str_replace(' ', '-', $parameters['slug_ar']);
         $parameters['slug_en'] = str_replace(' ', '-', $parameters['slug_en']);
         $parameters['is_active'] = isset($parameters['is_active']) ?  1 : 0;
         $service->update($parameters);
-        return new Response(['status' => true, 'message' => 'تم التحديث بنجاح']);
+        if($service){
+            $tags = explode (",", $parameters['tags']);
+            foreach ($tags as $tag){
+                $metaTag = new MetaTag();
+                $metaTag->tag = $tag;
+                $metaTag->service_id = $parameters['id'];
+                $metaTag->save();
+            }
+        }
+        if(count($errors) > 0)
+            return $errors;
+        return ['status' => true, 'message'=>'تم التحديث بنجاح'];
     }
 
     /**

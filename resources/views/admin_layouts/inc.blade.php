@@ -148,15 +148,15 @@
                     </div>
                     <!-- END PAGE HEAD-->
                     <!-- BEGIN PAGE BREADCRUMB -->
-                    {{--<ul class="page-breadcrumb breadcrumb">--}}
-                        {{--<li>--}}
-                            {{--<a href="{{ url('/') }}">الرئيسية</a>--}}
-                            {{--<i class="fa fa-circle"></i>--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
-                            {{--<span class="active">@yield('breadcrumb')</span>--}}
-                        {{--</li>--}}
-                    {{--</ul>--}}
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <a href="{{ url('/adminpanel') }}">الرئيسية</a>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="active">@yield('breadcrumb')</span>
+                        </li>
+                    </ul>
                     <!-- END PAGE BREADCRUMB -->
                     @yield('content')
                 </div>
@@ -173,30 +173,6 @@
         <!-- BEGIN FOOTER -->
         <div class="page-footer">
             <div class="copyright"> ©2020, أوركيدا لمكافحة الأفات, جميع الحقوق محفوظه. </div>
-        </div>
-        <div class="modal fade" id="changePasswordModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="editEmployeeModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="editEmployeeModalLabel"><i class="fa fa-pencil"></i> تغير كلمة السر</h4>
-                    </div>
-                    <form role="form" id="changePassword_form" method="POST" class="editForm"  action="{{ url($modal.'/change-password') }}" data-toggle="validator">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">الرقم السري</label>
-                                <input type="password" name="password" required class="form-control">
-                                <span class="help-block with-errors errorName"></span>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" id="submit2" class="btn btn-primary">موافق</button>
-                            <button type="button" class="btn btn-danger closeModal">غلق</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
 
         <!-- END FOOTER -->
@@ -232,7 +208,7 @@
 <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/layout.min.js')}}" type="text/javascript"></script>
 <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/demo.min.js')}}" type="text/javascript"></script>
 <script src="{{ asset('/admin_ui/assets/layouts/global/scripts/quick-nav.min.js')}}" type="text/javascript"></script>
-
+<script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js" type="text/javascript"></script>
         <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
         <script src="{{ asset('/admin_ui/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}" type="text/javascript"></script>
 {{--        <script src="{{ asset('/admin_ui/assets/pages/scripts/components-bootstrap-tagsinput.min.js')}}" type="text/javascript"></script>--}}
@@ -271,14 +247,6 @@
         }
 
 
-      $(document.body).validator().on('click', '.changePassword2', function() {
-            var self = $(this);
-            self.button('loading');
-            $('#changePasswordModal form').attr("data-id", self.data('id') );
-            $('#changePasswordModal').modal('show');
-            self.button('reset');
-
-        });
       $(document.body).validator().on('click', '.edit', function() {
        var self = $(this);
        self.button('loading');

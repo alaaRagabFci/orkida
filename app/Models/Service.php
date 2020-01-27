@@ -14,4 +14,9 @@ class Service extends Model
     {
         return $this->belongsTo('App\Models\Category','category_id','id');
     }
+
+    public function getTags()
+    {
+        return $this->hasMany('App\Models\MetaTag');
+    }
 }
