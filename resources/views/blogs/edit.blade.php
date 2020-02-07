@@ -1,6 +1,6 @@
 @extends('admin_layouts.inc')
-@section('title','تعديل الخدمه')
-@section('breadcrumb','خدمات')
+@section('title','تعديل المقال')
+@section('breadcrumb','المقالات')
 @section('styles')
     <link href="{{ asset('/admin_ui/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/admin_ui/assets/pages/css/profile.min.css')}}" rel="stylesheet" type="text/css" />
@@ -34,28 +34,27 @@
                         </div>
                     @endif
                     <!-- BEGIN FORM-->
-                    <form id="form_sample_1" class="form-horizontal" enctype="multipart/form-data" method="post" action="{{ url('adminpanel/services/'.$service->id) }}" data-toggle="validator">
+                    <form id="form_sample_1" class="form-horizontal" enctype="multipart/form-data" method="post" action="{{ url('adminpanel/blogs/'.$blog->id) }}" data-toggle="validator">
                         <div class="form-body">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="_method" value="put">
-
                             <div class="form-group">
-                                <label class="control-label col-md-3">القسم</label>
+                                <label class="control-label col-md-3">الخدمة</label>
                                 <div class="col-md-4">
-                                <select  required  class="form-control" name="category_id">
-                                    <option selected value="">أختر القسم </option>
-                                    @foreach($categories as $category)
-                                        <option @if($category->id == $service->category_id)? selected : " "@endif value="{!! $category->id !!}">{!! $category->name_ar !!}</option>
-                                    @endforeach
-                                </select>
+                                    <select required  class="form-control" name="service_id">
+                                        <option selected value="">أختر الخدمه </option>
+                                        @foreach($services as $service)
+                                            <option @if($service->id == $blog->service_id)? selected : " "@endif value="{!! $service->id !!}">{!! $service->name_ar !!}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">صورة الخدمه</label>
+                                <label class="control-label col-md-3">صورة المقال</label>
                                 <div class="col-md-4">
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                        <img src="{{ config("app.baseUrl").$service->image }}" alt="" /> </div>
+                                        <img src="{{ config("app.baseUrl").$blog->image }}" alt="" /> </div>
                                     <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
                                     <div>
                                 <span class="btn default btn-file">
@@ -68,90 +67,47 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3"></label>
-                                <div class="portlet-title tabbable-line">
-                                    <ul class="nav nav-tabs">
-                                        <li class="active">
-                                            <a href="#tab_1_1" data-toggle="tab">العربي</a>
-                                        </li>
-                                        <li>
-                                            <a href="#tab_1_2" data-toggle="tab">الانجليزي</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="tab_1_1">
-                                    <div class="form-group">
-                                    <label class="control-label col-md-3">العنوان</label>
-                                    <div class="col-md-4">
-                                        <input type="text" value="{{ $service->name_ar }}" name="name_ar" required class="form-control">
-                                    </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">الوصف</label>
-                                        <div class="col-md-8">
-                                            <textarea rows="2" cols="30" name="description_ar" class="form-control ckeditor" required>{{ $service->description_ar }}</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">slug ar</label>
-                                        <div class="col-md-4">
-                                            <input type="text" value="{{ $service->slug_ar }}" name="slug_ar" required class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane" id="tab_1_2">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Title</label>
-                                        <div class="col-md-4">
-                                            <input type="text" value="{{ $service->name_en }}" name="name_en" required class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Description</label>
-                                        <div class="col-md-8">
-                                            <textarea rows="2" cols="30"  name="description_en" class="form-control ckeditor" required>{{ $service->description_en }}</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">slug en</label>
-                                        <div class="col-md-4">
-                                            <input type="text" value="{{ $service->slug_en }}" name="slug_en" required class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3">هاتف الخدمة</label>
+                                <label class="control-label col-md-3">العنوان</label>
                                 <div class="col-md-4">
-                                <input type="text" name="phone" value="{{ $service->phone }}" required class="form-control">
+                                    <input type="text" value="{{ $blog->name }}" name="name" required class="form-control">
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                                <label class="control-label col-md-3">الوصف</label>
+                                <div class="col-md-8">
+                                    <textarea rows="2" cols="30" name="description" class="form-control ckeditor" required>{{ $blog->description }}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">slug</label>
+                                <div class="col-md-4">
+                                    <input type="text" value="{{ $blog->slug }}" name="slug" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Image alt</label>
+                                <div class="col-md-4">
+                                    <input type="text" value="{{ $blog->image_alt }}" name="image_alt" required class="form-control">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Meta title</label>
                                 <div class="col-md-4">
-                                <input type="text" value="{{ $service->meta_title }}" name="meta_title" required class="form-control">
+                                    <input type="text" value="{{ $blog->meta_title }}" name="meta_title" required class="form-control">
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="control-label col-md-3">Meta description</label>
                                 <div class="col-md-4">
-                                <textarea rows="2" cols="30" name="meta_description" class="form-control" required>{{ $service->meta_description }}</textarea>
+                                    <textarea rows="2" cols="30" name="meta_description" class="form-control" required>{{ $blog->meta_description }}</textarea>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="control-label col-md-3">تفعيل</label>
                                 <div class="col-md-4">
-                                <input data-onstyle="danger" @if($service->is_active) ? checked : "" @endif type="checkbox" name="is_active"  data-toggle="toggle">
+                                <input data-onstyle="danger" @if($blog->is_active) ? checked : "" @endif type="checkbox" name="is_active"  data-toggle="toggle">
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="control-label col-md-3">Meta tags</label>
                                 <div class="col-md-4">

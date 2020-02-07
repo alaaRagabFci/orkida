@@ -1,19 +1,24 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Http\Requests\StoreBlogRequest;
 use App\Models\Service;
+use App\Services\MetaTagService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Services\BlogService;
 use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class BlogController  extends Controller {
 
     public $blogService;
-    public function __construct(BlogService $blogService)
+    public $metaTagService;
+    public function __construct(BlogService $blogService, MetaTagService $metaTagService)
     {
         $this->middleware('auth');
         $this->blogService = $blogService;
+        $this->metaTagService = $metaTagService;
     }
 
     /**
@@ -24,12 +29,10 @@ class BlogController  extends Controller {
     {
         $blogs  = $this->blogService->listBlogs();
         $tableData = $this->blogService->datatables($blogs);
-        $services = Service::get();
         if($request->ajax())
             return $tableData;
 
         return view('blogs.index')
-            ->with('services', $services)
             ->with('modal', 'blogs')
             ->with('modal_', 'مدونة جديدة')
             ->with('edit_modal', 'adminpanel/blogs')
@@ -40,11 +43,27 @@ class BlogController  extends Controller {
      * Update client.
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function store(Request $request): Response
+    public function create(): View
     {
+        $services = Service::get();
+        return view('blogs.add')
+            ->with('edit_modal', '')
+            ->with('services', $services);
+    }
+
+    /**
+     * Update client.
+     * @author Alaa <alaaragab34@gmail.com>
+     */
+    public function store(StoreBlogRequest $request): RedirectResponse
+    {
+        $msg = '';
         $data  = $request->all();
         $data['image'] = $request->hasFile('image') ? $request->file('image') : "";
-        return $this->blogService->storeBlog($data);
+        $service = $this->blogService->storeBlog($data);
+        if($service['status'] == true)
+            $msg='تمت الأضافه بنجاح';
+        return back()->with('msg',$msg);
     }
 
     /**
@@ -54,20 +73,37 @@ class BlogController  extends Controller {
      *  }
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function edit(int $id): Response
+    public function edit(int $id): View
     {
-        return $this->blogService->getBlog($id);
+        $blogTags = [];
+        $services = Service::get();
+        $blog = $this->blogService->getBlog($id);
+        $tags = $this->metaTagService->getTags($id, 'blogs');
+        for ($i = 0; $i < count($tags); $i++){
+            $blogTags[$i] = $tags[$i]->tag;
+        }
+        $displayedTags = implode(",", $blogTags);
+        return view('blogs.edit')
+            ->with('displayedTags',$displayedTags)
+            ->with('blog',$blog)
+            ->with('edit_modal', '')
+            ->with('services', $services);
     }
 
     /**
      * Update client.
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function update(Request $request): Response
+    public function update(StoreBlogRequest $request, $id): RedirectResponse
     {
-        $image = $request->hasFile('image') ? $request->file('image') : "";
+        $msg = '';
         $data  = $request->all();
-        return $this->blogService->updateBlog($data, $image);
+        $data['id'] = $id;
+        $image = $request->hasFile('image') ? $request->file('image') : "";
+        $blog = $this->blogService->updateBlog($data, $image);
+        if($blog['status'] == true)
+            $msg='تم التخديث بنجاح';
+        return back()->with('msg',$msg);
     }
 
     /**

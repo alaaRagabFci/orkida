@@ -39,8 +39,6 @@
                 <th class="col-md-1">الترتيب</th>
                 <th class="col-md-1">العنوان</th>
                 <th class="col-md-1">Title</th>
-                <th class="col-md-2">الوصف</th>
-                <th class="col-md-2">Description</th>
                 <th class="col-md-1">القسم</th>
                 <th class="col-md-1">الصورة</th>
                 <th class="col-md-1">خيارات</th>
@@ -51,8 +49,6 @@
                     <td>{{  $row->sort }}</td>
                     <td>{{  $row->name_ar }}</td>
                     <td>{{  $row->name_en }}</td>
-                    <td>{!! $row->description_ar !!} </td>
-                    <td>{!! $row->description_en !!} </td>
                     <td>{{  $row->category }}</td>
                     <td>{!! $row->image !!}</td>
                     <td>{!! $row->actions !!}</td>
@@ -67,7 +63,6 @@
       </div>
       @endsection
       @section('scripts')
-        {{--<script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/multipart_insert.js')}}" type="text/javascript"></script>--}}
         <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/upload.js')}}" type="text/javascript"></script>
         <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/app.js') }}"></script>
         <script type="text/javascript">
@@ -115,8 +110,6 @@
                         {data: 'sort', name: 'sort'},
                         {data: 'name_ar', name: 'name_ar'},
                         {data: 'name_en', name: 'name_en'},
-                        {data: 'description_ar', name: 'description_ar'},
-                        {data: 'description_en', name: 'description_en'},
                         {data: 'category', name: 'category'},
                         {data: 'image', name: 'image'},
                         {data: 'actions', name: 'actions', orderable: false, searchable: false}

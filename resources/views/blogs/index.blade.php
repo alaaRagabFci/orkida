@@ -1,6 +1,6 @@
 @extends('admin_layouts.inc')
-@section('title','المدونات')
-@section('breadcrumb','المدونات')
+@section('title','المقالات')
+@section('breadcrumb','المقالات')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @section('styles')
   <link href="{{ asset('/admin_ui/assets/layouts/layout4/css/image.css')}}" rel="stylesheet" type="text/css" />
@@ -16,7 +16,7 @@
       <div class="portlet-title">
         <div class="caption font-dark">
           <i class="icon-settings font-dark"></i>
-          <span class="caption-subject bold uppercase">المدونات</span>
+          <span class="caption-subject bold uppercase">المقالات</span>
         </div>
         <div class="tools"> </div>
       </div>
@@ -25,10 +25,11 @@
               <div class="row">
                   <div class="col-md-6">
                       <div class="btn-group">
-                          <button  data-toggle="modal" data-target="#addModal" id="sample_editable_1_new" class="btn btn-primary">
-                              أضافة مدونة
-                              <i class="fa fa-plus"></i>
-                          </button>
+                          <a href="{{ url('/adminpanel/'.$modal.'/create') }}">
+                              <button  data-toggle="modal" id="sample_editable_1_new" class="btn btn-primary">
+                                  أضافة مقال جديده <i class="fa fa-plus"></i>
+                              </button>
+                          </a>
                       </div>
                   </div>
               </div>
@@ -37,10 +38,8 @@
                 <thead>
                 <th class="col-md-1">الترتيب</th>
                 <th class="col-md-1">العنوان</th>
-                <th class="col-md-2">الوصف</th>
                 <th class="col-md-1">الخدمة</th>
                 <th class="col-md-1">الصورة</th>
-                <th class="col-md-1">Edit meta tags</th>
                 <th class="col-md-1">خيارات</th>
                 </thead>
                 <tbody class="row_position">
@@ -48,10 +47,8 @@
                   <tr>
                     <td>{{  $row->sort }}</td>
                     <td>{{  $row->name }}</td>
-                    <td>{{  $row->description }}</td>
                     <td>{{  $row->service }}</td>
                     <td>{!! $row->image !!}</td>
-                    <td>{{ $row->metaTag }}</td>
                     <td>{!! $row->actions !!}</td>
                   </tr>
                 @endforeach
@@ -62,13 +59,9 @@
           <!-- END EXAMPLE TABLE PORTLET-->
         </div>
       </div>
-      @include('admin_layouts.Add_imgModal')
-      @include('admin_layouts.Edit_imgModal')
-
       @endsection
 
       @section('scripts')
-        <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/multipart_insert.js')}}" type="text/javascript"></script>
         <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/upload.js')}}" type="text/javascript"></script>
         <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/app.js') }}"></script>
         <script type="text/javascript">
@@ -115,10 +108,8 @@
                     "columns": [
                         {data: 'sort', name: 'sort'},
                         {data: 'name', name: 'name'},
-                        {data: 'description', name: 'description'},
                         {data: 'service', name: 'service'},
                         {data: 'image', name: 'image'},
-                        {data: 'metaTag', name: 'metaTag'},
                         {data: 'actions', name: 'actions', orderable: false, searchable: false}
                     ],
                     order: [ [0, 'asc'] ]

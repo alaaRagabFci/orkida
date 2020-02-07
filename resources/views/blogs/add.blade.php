@@ -1,6 +1,6 @@
 @extends('admin_layouts.inc')
-@section('title','أضافة خدمه جديده')
-@section('breadcrumb','خدمات')
+@section('title','أضافة مقال جديده')
+@section('breadcrumb','المقالات')
 @section('styles')
     <link href="{{ asset('/admin_ui/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/admin_ui/assets/pages/css/profile.min.css')}}" rel="stylesheet" type="text/css" />
@@ -13,7 +13,7 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="icon-settings font-red"></i>
-                        <span class="caption-subject font-red sbold uppercase">خدماتنا</span>
+                        <span class="caption-subject font-red sbold uppercase">مقالاتنا</span>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -34,22 +34,22 @@
                         </div>
                     @endif
                     <!-- BEGIN FORM-->
-                    <form id="form_sample_1" class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ url('adminpanel/services') }}" data-toggle="validator">
+                    <form id="form_sample_1" class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ url('adminpanel/blogs') }}" data-toggle="validator">
                         <div class="form-body">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
-                                <label class="control-label col-md-3">القسم</label>
+                                <label class="control-label col-md-3">الخدمة</label>
                                 <div class="col-md-4">
-                                <select  required  class="form-control" name="category_id">
-                                    <option selected value="">أختر القسم </option>
-                                    @foreach($categories as $category)
-                                        <option value="{!! $category->id !!}">{!! $category->name_ar !!}</option>
-                                    @endforeach
-                                </select>
+                                    <select required  class="form-control" name="service_id">
+                                        <option selected value="">أختر الخدمه </option>
+                                        @foreach($services as $service)
+                                            <option value="{!! $service->id !!}">{!! $service->name_ar !!}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">صورة الخدمه</label>
+                                <label class="control-label col-md-3">صورة المقال</label>
                                 <div class="col-md-4">
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
@@ -66,90 +66,47 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3"></label>
-                                <div class="portlet-title tabbable-line">
-                                    <ul class="nav nav-tabs">
-                                        <li class="active">
-                                            <a href="#tab_1_1" data-toggle="tab">العربي</a>
-                                        </li>
-                                        <li>
-                                            <a href="#tab_1_2" data-toggle="tab">الانجليزي</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="tab_1_1">
-                                    <div class="form-group">
-                                    <label class="control-label col-md-3">العنوان</label>
-                                    <div class="col-md-4">
-                                        <input type="text" value="{{ old('name_ar') }}" name="name_ar" required class="form-control">
-                                    </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">الوصف</label>
-                                        <div class="col-md-8">
-                                            <textarea rows="2" cols="30" name="description_ar" class="form-control ckeditor" required>{{ old('description_ar') }}</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">slug ar</label>
-                                        <div class="col-md-4">
-                                            <input type="text" value="{{ old('slug_ar') }}" name="slug_ar" required class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="tab-pane" id="tab_1_2">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Title</label>
-                                        <div class="col-md-4">
-                                            <input type="text" value="{{ old('name_en') }}" name="name_en" required class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Description</label>
-                                        <div class="col-md-8">
-                                            <textarea rows="2" cols="30" value="{{ old('description_en') }}" name="description_en" class="form-control ckeditor" required>{{ old('description_en') }}</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">slug en</label>
-                                        <div class="col-md-4">
-                                            <input type="text" value="{{ old('slug_en') }}" name="slug_en" required class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3">هاتف الخدمة</label>
+                                <label class="control-label col-md-3">العنوان</label>
                                 <div class="col-md-4">
-                                <input type="text" name="phone" value="{{ old('phone') }}" required class="form-control">
+                                    <input type="text" value="{{ old('name') }}" name="name" required class="form-control">
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                                <label class="control-label col-md-3">الوصف</label>
+                                <div class="col-md-8">
+                                    <textarea rows="2" cols="30" name="description" class="form-control ckeditor" required>{{ old('description') }}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">slug</label>
+                                <div class="col-md-4">
+                                    <input type="text" value="{{ old('slug') }}" name="slug" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Image alt</label>
+                                <div class="col-md-4">
+                                    <input type="text" value="{{ old('image_alt') }}" name="image_alt" required class="form-control">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Meta title</label>
                                 <div class="col-md-4">
                                 <input type="text" value="{{ old('meta_title') }}" name="meta_title" required class="form-control">
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="control-label col-md-3">Meta description</label>
                                 <div class="col-md-4">
                                 <textarea rows="2" cols="30" name="meta_description" class="form-control" required>{{ old('meta_description') }}</textarea>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="control-label col-md-3">تفعيل</label>
                                 <div class="col-md-4">
                                 <input data-onstyle="danger" checked type="checkbox" name="is_active"  data-toggle="toggle">
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="control-label col-md-3">Meta tags</label>
                                 <div class="col-md-4">

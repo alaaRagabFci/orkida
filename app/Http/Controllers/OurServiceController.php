@@ -44,7 +44,7 @@ class OurServiceController  extends Controller {
      * Update client.
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function create(Request $request): View
+    public function create(): View
     {
         $categories = Category::get();
         return view('services.add')

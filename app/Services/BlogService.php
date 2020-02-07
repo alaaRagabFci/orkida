@@ -36,17 +36,17 @@ class BlogService
             {
                 return $blog->getService->name_ar;
             })
-            ->addColumn('metaTag', function (Blog $blog)
+            ->editColumn('description', function (Blog $blog)
             {
-                return '<a href="blogs/metaTags/'.$blog->id.'">Edit Meta Tag</a>';
+                return htmlspecialchars_decode($blog->description);
             })
             ->setRowId('id')
             ->addColumn('actions', function ($data)
             {
-                return view('partials.actionBtns')->with('controller','adminpanel/blogs')
+                return view('blogs.actionBtns')->with('controller','adminpanel/blogs')
                     ->with('id', $data->id)
                     ->render();
-            })->rawColumns(['actions', 'image', 'metaTag'])->make(true);
+            })->rawColumns(['actions', 'image', 'description'])->make(true);
 
         return $tableData ;
     }
@@ -62,20 +62,16 @@ class BlogService
      */
     public function storeBlog($parameters)
     {
-        if(isset($parameters['image']) && $parameters['image'] != ""){
-            $data = $this->utilityService->uploadImage($parameters['image']);
-            if(!$data['status'])
-                return new Response(['message' => $data['errors'], 401]);
-            $parameters['image'] = $data['image'];
-        }else{
-            return new Response(['message' => 'image required', 401]);
-        }
+        $errors =[];
+        $data = $this->utilityService->uploadImage($parameters['image']);
+        if(!$data['status'])
+            $errors = $data['errors'];
+        $parameters['image'] = $data['image'];
         $blog = new Blog();
         $max = $blog->max('sort');
         $parameters['sort'] = $max + 1;
         $parameters['is_active'] = isset($parameters['is_active']) ?  1 : 0;
-        $parameters['slug_ar'] = str_replace(' ', '-', $parameters['slug_ar']);
-        $parameters['slug_en'] = str_replace(' ', '-', $parameters['slug_en']);
+        $parameters['slug'] = str_replace(' ', '-', $parameters['slug']);
         $blogId = $blog->create($parameters)->id;
         if($blog){
             $tags = explode (",", $parameters['tags']);
@@ -86,7 +82,9 @@ class BlogService
                 $metaTag->save();
             }
         }
-        return new Response(['status' => true, 'message'=>'تم التسجيل بنجاح']);
+        if(count($errors) > 0)
+            return $errors;
+        return ['status' => true, 'message'=>'تم التسجيل بنجاح'];
     }
 
     /**
@@ -95,15 +93,12 @@ class BlogService
      * @return Setting
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function getBlog(int $blogId): Response
+    public function getBlog(int $blogId)
     {
         $blog = Blog::findOrFail($blogId);
         if(!$blog instanceof Blog)
             return new Response(['message'=>'Blog not found'], 403);
-
-        session(['image'  => $blog->image]);
-        session(['blog_id'     => $blog->id]);
-        return new Response(['status' => true, 'message'=>'Success','data'=> $blog->toJson()]);
+        return $blog;
     }
 
     /**
@@ -117,25 +112,35 @@ class BlogService
      * @param $page
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function updateBlog($parameters, $image): Response
+    public function updateBlog($parameters, $image)
     {
-        $oldImage = session('image');
-        $blogId = session('blog_id');
-        $blog = Blog::findOrFail($blogId);
+        $errors =[];
+        $blog = Blog::findOrFail($parameters['id']);
         if(isset($image) && $image != ""){
             $data = $this->utilityService->uploadImage($image);
             if(!$data['status'])
-                return new Response(['message' => $data['errors'], 401]);
+                $errors = $data['errors'];
 
             $parameters['image'] = $data['image'];
-            }else{
-                $parameters['image']  = $oldImage;
-            }
-        $parameters['slug_ar'] = str_replace(' ', '-', $parameters['slug_ar']);
-        $parameters['slug_en'] = str_replace(' ', '-', $parameters['slug_en']);
+        }else{
+            $parameters['image']  = $blog->image;
+        }
+        $parameters['slug'] = str_replace(' ', '-', $parameters['slug']);
         $parameters['is_active'] = isset($parameters['is_active']) ?  1 : 0;
         $blog->update($parameters);
-        return new Response(['status' => true, 'message' => 'تم التحديث بنجاح']);
+        if($blog){
+            MetaTag::where('blog_id', $parameters['id'])->delete();
+            $tags = explode (",", $parameters['tags']);
+            foreach ($tags as $tag){
+                $metaTag = new MetaTag();
+                $metaTag->tag = $tag;
+                $metaTag->blog_id = $parameters['id'];
+                $metaTag->save();
+            }
+        }
+        if(count($errors) > 0)
+            return $errors;
+        return ['status' => true, 'message'=>'تم التحديث بنجاح'];
     }
 
     /**

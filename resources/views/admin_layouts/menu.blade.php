@@ -73,14 +73,31 @@
 
 
 
-<li class="nav-item  {{Request::is('adminpanel/blogs') ? 'start active open':'' }}">
-    <a href="{{ url('adminpanel/blogs') }}" class="nav-link nav-toggle">
+<li class="nav-item  {{Request::is('adminpanel/blogs', 'adminpanel/blogs/create') ? 'start active open':'' }}">
+    <a href="javascript:;" class="nav-link nav-toggle">
         <span class="icon">
-            <i class="fas fa-blog icon"></i>
+            <i class="fas fa-blog"></i>
         </span>
-        <span class="title">المدونات</span>
+        <span class="title">المقالات</span>
         <span class="selected"></span>
+        <span class="arrow open"></span>
     </a>
+    <ul class="sub-menu">
+        <li class="nav-item {{Request::is('adminpanel/blogs/create') ? 'start active open':'' }}">
+            <a href="{{ url('adminpanel/blogs/create') }}" class="nav-link nav-toggle">
+                <i class="fas fa-angle-left"></i>
+                <span class="title">أضافة مقال</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+        <li class="nav-item {{Request::is('adminpanel/blogs') ? 'start active open':'' }}">
+            <a href="{{ url('adminpanel/blogs') }}" class="nav-link nav-toggle">
+                <i class="fas fa-angle-left"></i>
+                <span class="title">المقالات</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+    </ul>
 </li>
 
 <li class="nav-item {{Request::is('adminpanel/pest_libraries') ? 'start active open':'' }}">

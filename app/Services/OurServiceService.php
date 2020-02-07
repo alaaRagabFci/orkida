@@ -134,6 +134,7 @@ class OurServiceService
         $parameters['is_active'] = isset($parameters['is_active']) ?  1 : 0;
         $service->update($parameters);
         if($service){
+            MetaTag::where('service_id', $parameters['id'])->delete();
             $tags = explode (",", $parameters['tags']);
             foreach ($tags as $tag){
                 $metaTag = new MetaTag();
