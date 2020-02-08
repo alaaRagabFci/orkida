@@ -25,21 +25,29 @@ class FaqqService
     public function datatables($faqs)
     {
         $tableData = Datatables::of($faqs)
+            ->editColumn('description_ar', function (Faq $faq)
+            {
+                return htmlspecialchars_decode($faq->description_ar);
+            })
+            ->editColumn('description_en', function (Faq $faq)
+            {
+                return htmlspecialchars_decode($faq->description_en);
+            })
             ->addColumn('actions', function ($data)
             {
-                return view('partials.actionBtns')->with('controller','adminpanel/faqs')
+                return view('faqs.actionBtns')->with('controller','adminpanel/faqs')
                     ->with('id', $data->id)
                     ->render();
-            })->rawColumns(['actions'])->make(true);
+            })->rawColumns(['actions', 'description_ar', 'description_en'])->make(true);
 
         return $tableData ;
     }
 
-    public function createFaq(array $parameters): Response
+    public function createFaq(array $parameters): array
     {
         $faq = new Faq();
         $faq->create($parameters);
-        return new Response(['status' => true,'message' => 'تم التسجيل بنجاح']);
+        return ['status' => true, 'message'=>'تم التسجيل بنجاح'];
     }
 
     /**
@@ -48,13 +56,12 @@ class FaqqService
      * @return ReceivingTypes
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function getfaq(int $faqId): Response
+    public function getfaq(int $faqId)
     {
         $faq = Faq::findOrFail($faqId);
         if(!$faq instanceof Faq)
             return new Response(['message'=>'Faq not found'], 403);
-
-        return new Response(['status' => true, 'message'=>'Success','data'=> $faq->toJson()]);
+        return $faq;
     }
 
     /**
@@ -64,11 +71,11 @@ class FaqqService
      * @return ReceivingTypes
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function updateFaq(array $parameters, int $faqId): Response
+    public function updateFaq(array $parameters): array
     {
-        $faq = Faq::findOrFail($faqId);
+        $faq = Faq::findOrFail($parameters['id']);
         $faq->update($parameters);
-        return new Response(['status' => true, 'message'=>'Updated Successfully']);
+        return ['status' => true, 'message'=>'تم التحديث بنجاح'];
     }
 
     /**

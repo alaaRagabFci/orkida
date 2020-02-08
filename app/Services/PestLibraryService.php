@@ -33,7 +33,7 @@ class PestLibraryService
             ->setRowId('id')
             ->addColumn('actions', function ($data)
             {
-                return view('partials.actionBtns')->with('controller','adminpanel/pest_libraries')
+                return view('pest_libraries.actionBtns')->with('controller','adminpanel/pest_libraries')
                     ->with('id', $data->id)
                     ->render();
             })->rawColumns(['actions', 'image', 'metaTag'])->make(true);
@@ -52,14 +52,11 @@ class PestLibraryService
      */
     public function storePest($parameters)
     {
-        if(isset($parameters['image']) && $parameters['image'] != ""){
-            $data = $this->utilityService->uploadImage($parameters['image']);
-            if(!$data['status'])
-                return new Response(['message' => $data['errors'], 401]);
-            $parameters['image'] = $data['image'];
-        }else{
-            return new Response(['message' => 'image required', 401]);
-        }
+        $errors =[];
+        $data = $this->utilityService->uploadImage($parameters['image'], 'pest_libraries');
+        if(!$data['status'])
+            $errors = $data['errors'];
+        $parameters['image'] = $data['image'];
         $pest = new PestLibrary();
         $max = $pest->max('sort');
         $parameters['sort'] = $max + 1;
@@ -67,7 +64,9 @@ class PestLibraryService
         $parameters['slug_ar'] = str_replace(' ', '-', $parameters['slug_ar']);
         $parameters['slug_en'] = str_replace(' ', '-', $parameters['slug_en']);
         $pest->create($parameters);
-        return new Response(['status' => true, 'message'=>'تم التسجيل بنجاح']);
+        if(count($errors) > 0)
+            return $errors;
+        return ['status' => true, 'message'=>'تم التسجيل بنجاح'];
     }
 
     /**
@@ -76,15 +75,12 @@ class PestLibraryService
      * @return Setting
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function getPest(int $pestId): Response
+    public function getPest(int $pestId)
     {
         $pest = PestLibrary::findOrFail($pestId);
         if(!$pest instanceof PestLibrary)
             return new Response(['message'=>'Pest not found'], 403);
-
-        session(['image'  => $pest->image]);
-        session(['pest_id'     => $pest->id]);
-        return new Response(['status' => true, 'message'=>'Success','data'=> $pest->toJson()]);
+        return $pest;
     }
 
     /**
@@ -98,25 +94,28 @@ class PestLibraryService
      * @param $page
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function updatePest($parameters, $image): Response
+    public function updatePest($parameters, $image)
     {
-        $oldImage = session('image');
-        $pestId = session('pest_id');
-        $pest = PestLibrary::findOrFail($pestId);
+        $errors =[];
+        $pest = PestLibrary::findOrFail($parameters['id']);
         if(isset($image) && $image != ""){
-            $data = $this->utilityService->uploadImage($image);
+            $data = $this->utilityService->uploadImage($image, 'pest_libraries');
             if(!$data['status'])
-                return new Response(['message' => $data['errors'], 401]);
+                $errors = $data['errors'];
 
             $parameters['image'] = $data['image'];
-            }else{
-                $parameters['image']  = $oldImage;
-            }
+            unlink($pest->image);
+        }else{
+            $parameters['image']  = $pest->image;
+        }
         $parameters['slug_ar'] = str_replace(' ', '-', $parameters['slug_ar']);
         $parameters['slug_en'] = str_replace(' ', '-', $parameters['slug_en']);
         $parameters['is_active'] = isset($parameters['is_active']) ?  1 : 0;
         $pest->update($parameters);
-        return new Response(['status' => true, 'message' => 'تم التحديث بنجاح']);
+
+        if(count($errors) > 0)
+            return $errors;
+        return ['status' => true, 'message'=>'تم التحديث بنجاح'];
     }
 
     /**
@@ -127,6 +126,8 @@ class PestLibraryService
      */
     public function deletePest(int $pestId)
     {
+        $pest = PestLibrary::findOrFail($pestId);
+        unlink($pest->image);
         return PestLibrary::find($pestId)->delete();
     }
 

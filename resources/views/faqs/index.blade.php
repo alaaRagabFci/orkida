@@ -20,30 +20,25 @@
         <div class="table-toolbar">
           <div class="row">
             <div class="col-md-6">
-              <div class="btn-group">
-                <button  data-toggle="modal" data-target="#addModal" id="sample_editable_1_new" class="btn btn-primary">
-                  أضافة سؤال
-                  <i class="fa fa-plus"></i>
+              <a href="{{ url('/adminpanel/'.$modal.'/create') }}">
+                <button  data-toggle="modal" id="sample_editable_1_new" class="btn btn-primary">
+                  أضافة سؤال جديد <i class="fa fa-plus"></i>
                 </button>
-              </div>
+              </a>
             </div>
           </div>
         </div>
               <table class="table table-striped table-bordered table-hover" id="faqs">
                 <thead>
-                  <th class="col-md-1">السؤال</th>
-                  <th class="col-md-1">Question</th>
-                  <th class="col-md-1">الأجابه</th>
-                  <th class="col-md-1">Answer</th>
+                  <th class="col-md-1">السؤال والاجابه</th>
+                  <th class="col-md-1">Question & answer</th>
                   <th class="col-md-1">خيارات</th>
                 </thead>
                 <tbody>
                   @foreach ($tableData->getData()->data as $row)
                   <tr>
-                    <td>{{  $row->question_ar }}</td>
-                    <td>{{  $row->question_en }}</td>
-                    <td>{{  $row->answer_ar }}</td>
-                    <td>{{  $row->answer_en }}</td>
+                    <td>{{  $row->description_ar }}</td>
+                    <td>{{  $row->description_en }}</td>
                     <td>{!! $row->actions !!}</td>
                   </tr>
                   @endforeach
@@ -54,9 +49,6 @@
           <!-- END EXAMPLE TABLE PORTLET-->
         </div>
       </div>
-
-      @include('admin_layouts.Add_Modal')
-      @include('admin_layouts.Edit_Modal')
 
       @endsection
 
@@ -77,10 +69,8 @@
           'autoWidth'   : false,
           "ajax": {{ $tableData->getData()->recordsFiltered }},
           "columns": [
-          {data: 'question_ar', name: 'question_ar'},
-          {data: 'question_en', name: 'question_en'},
-          {data: 'answer_ar', name: 'answer_ar'},
-          {data: 'answer_en', name: 'answer_en'},
+          {data: 'description_ar', name: 'description_ar'},
+          {data: 'description_en', name: 'description_en'},
           {data: 'actions', name: 'actions', orderable: false, searchable: false}
           ]
         })

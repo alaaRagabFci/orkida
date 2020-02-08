@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2020 at 01:51 AM
+-- Generation Time: Feb 08, 2020 at 11:08 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `about_us` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `description_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `desc_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `desc_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `vision_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `vision_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `goal_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -53,8 +53,8 @@ CREATE TABLE `about_us` (
 -- Dumping data for table `about_us`
 --
 
-INSERT INTO `about_us` (`id`, `description_ar`, `description_en`, `vision_ar`, `vision_en`, `goal_ar`, `goal_en`, `video`, `home_title_ar`, `home_description_ar`, `privacy_ar`, `policy_ar`, `created_at`, `updated_at`, `home_title_en`, `home_description_en`, `privacy_en`, `policy_en`) VALUES
-(1, 'bb', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '', 'title', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', NULL, NULL, 'title', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'asd');
+INSERT INTO `about_us` (`id`, `desc_ar`, `desc_en`, `vision_ar`, `vision_en`, `goal_ar`, `goal_en`, `video`, `home_title_ar`, `home_description_ar`, `privacy_ar`, `policy_ar`, `created_at`, `updated_at`, `home_title_en`, `home_description_en`, `privacy_en`, `policy_en`) VALUES
+(1, 'cc', 'aaa', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '', 'title', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', NULL, NULL, 'title', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'asd');
 
 -- --------------------------------------------------------
 
@@ -98,7 +98,7 @@ CREATE TABLE `article_types` (
 --
 
 INSERT INTO `article_types` (`id`, `category`, `is_active`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'nnn', 1, 'nn', NULL, NULL);
+(1, 'nnn', 0, 'nn', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -112,7 +112,7 @@ CREATE TABLE `blogs` (
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image_alt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `sort` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -127,8 +127,9 @@ CREATE TABLE `blogs` (
 -- Dumping data for table `blogs`
 --
 
-INSERT INTO `blogs` (`id`, `name`, `image`, `meta_title`, `image_alt`, `description`, `sort`, `is_active`, `slug`, `viewers`, `created_at`, `updated_at`, `meta_description`, `article_id`) VALUES
-(9, ';;;;k', 'uploads/articles/thumb/158111864564613ab8b1d83114b63e557076ff59e4image.png', 'kkk', 'kk', '<p>kkk</p>', 1, 1, 'kkkk', NULL, NULL, NULL, 'kk', 1);
+INSERT INTO `blogs` (`id`, `name`, `image`, `meta_title`, `image_alt`, `description_ar`, `sort`, `is_active`, `slug`, `viewers`, `created_at`, `updated_at`, `meta_description`, `article_id`) VALUES
+(9, ';;;;k', 'uploads/articles/thumb/1581125852bc556651bdd8432c081c2352e18ddeb4image.png', 'kkk', 'kk', '<p>kkk</p>', 1, 1, 'kkkk', NULL, NULL, NULL, 'kk', 1),
+(10, 'kkkk', 'uploads/articles/thumb/1581179346b55b229fe15a0b8429a4af4e3625985fimage.png', 'kk', 'kkk', '<p><img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/cpanel_1581181264.png\" style=\"height:483px; width:494px\" />kkk<img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/Capture_1581179306.png\" style=\"height:10px; width:50px\" /></p>', 2, 1, 'kkk', NULL, NULL, NULL, 'kkk', 1);
 
 -- --------------------------------------------------------
 
@@ -162,8 +163,8 @@ CREATE TABLE `company_valuables` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title_ar` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `title_en` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `desc_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `desc_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `icon` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -177,10 +178,8 @@ CREATE TABLE `company_valuables` (
 
 CREATE TABLE `faqs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `question_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `question_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `answer_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `answer_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -227,9 +226,12 @@ CREATE TABLE `meta_tags` (
 --
 
 INSERT INTO `meta_tags` (`id`, `service_id`, `blog_id`, `created_at`, `updated_at`, `tag`) VALUES
-(48, NULL, 9, '2020-02-07 21:38:51', '2020-02-07 21:38:51', 'k'),
-(49, 10, NULL, '2020-02-07 22:12:06', '2020-02-07 22:12:06', 'ننن'),
-(51, 11, NULL, '2020-02-07 22:48:39', '2020-02-07 22:48:39', 'تت');
+(51, 11, NULL, '2020-02-07 22:48:39', '2020-02-07 22:48:39', 'تت'),
+(52, 10, NULL, '2020-02-07 23:37:09', '2020-02-07 23:37:09', 'ننن'),
+(53, NULL, 9, '2020-02-07 23:37:32', '2020-02-07 23:37:32', 'k'),
+(54, 12, NULL, '2020-02-08 14:12:37', '2020-02-08 14:12:37', 'jjj'),
+(55, 13, NULL, '2020-02-08 14:27:11', '2020-02-08 14:27:11', 'jj'),
+(57, NULL, 10, '2020-02-08 15:03:43', '2020-02-08 15:03:43', 'kkk');
 
 -- --------------------------------------------------------
 
@@ -281,7 +283,14 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (52, '2020_02_07_184152_remove_slug_en_blogs_table', 14),
 (53, '2020_02_07_224858_create_article_types_table', 15),
 (54, '2020_02_07_232724_change_relation_table', 16),
-(55, '2020_02_07_235633_add_sub_service_column_services_table', 17);
+(55, '2020_02_07_235633_add_sub_service_column_services_table', 17),
+(56, '2020_02_08_011348_edit_sliders_table', 18),
+(57, '2020_02_08_162216_rename_description_field_blogs_table', 19),
+(58, '2020_02_08_190407_rename_description_about_table', 20),
+(59, '2020_02_08_190952_rename_description_company_valuables_table', 21),
+(60, '2020_02_08_192240_edit_faqs_columns_table', 22),
+(61, '2020_02_08_205525_rename_faqs_columns_table', 23),
+(62, '2020_02_08_213921_rename_pest_libraries_columns_table', 24);
 
 -- --------------------------------------------------------
 
@@ -330,7 +339,7 @@ CREATE TABLE `pest_libraries` (
   `name_ar` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name_en` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image_alt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `description_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -340,8 +349,16 @@ CREATE TABLE `pest_libraries` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `slug_ar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `slug_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_title` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pest_libraries`
+--
+
+INSERT INTO `pest_libraries` (`id`, `name_ar`, `name_en`, `image`, `meta_description`, `image_alt`, `description_ar`, `description_en`, `sort`, `is_active`, `home_order`, `created_at`, `updated_at`, `slug_ar`, `slug_en`, `meta_title`) VALUES
+(1, 'ررر', 'hhhh', 'uploads/pest_libraries/158119927108c8ba7d0c7b973ef4ecc1b37644fdd8image.png', 'jjj', 'jjhjj', '<p>jjjj<img alt=\"ddddd\" src=\"http://localhost/orkida/uploads/contents/1_1581199044.png\" style=\"height:150px; width:100px\" /></p>', '<p>hhhh<img alt=\"\" src=\"http://localhost/orkida/uploads/contents/default-thumbnail_1_1581199086.jpg\" style=\"height:75px; width:100px\" /></p>', 1, 0, 0, NULL, NULL, 'nnn-kkkk', 'mmm-ikii', 'jjj');
 
 -- --------------------------------------------------------
 
@@ -375,8 +392,10 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `name_ar`, `name_en`, `image`, `meta_title`, `meta_description`, `category_id`, `phone`, `sort`, `is_active`, `home_order`, `slug_ar`, `slug_en`, `created_at`, `updated_at`, `description_ar`, `description_en`, `sub_service`) VALUES
-(10, 'ممم', 'ممم', 'uploads/services/15811207262d559fcad6a91c7cc76212d832bd11e8image.png', 'ننن', 'ننن', 1, '5555', 1, 1, 0, 'ممم', 'مم', NULL, NULL, '<p>مممم</p>', '<p>ممم</p>', NULL),
-(11, 'ممم', 'ننن', 'uploads/services/1581120772b467892c584b14a6347d08105b2d3732image.png', 'تنتن', 'تتت', 1, '4545', 2, 1, 0, 'ممم', 'نمن', NULL, NULL, '<p>ممم</p>', '<p>ننن</p>', NULL);
+(10, 'ممم', 'ممم', 'uploads/services/15811258290022c7d4f20897ed44eab8137f01936fimage.png', 'ننن', 'ننن', 1, '5555', 1, 1, 0, 'ممم', 'مم', NULL, NULL, '<p>مممم</p>', '<p>ممم</p>', NULL),
+(11, 'ممم', 'ننن', 'uploads/services/1581120772b467892c584b14a6347d08105b2d3732image.png', 'تنتن', 'تتت', 1, '4545', 2, 1, 0, 'ممم', 'نمن', NULL, NULL, '<p>ممم</p>', '<p>ننن</p>', NULL),
+(12, 'kkkk', 'kkk', 'uploads/services/15811783568dd0b1f9f00a327b4fed1c324c74a942image.png', 'jjj', 'jj', 1, '56566', 3, 1, 0, 'kjjj', 'nkjknjk', NULL, NULL, '<p><img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/Admin_1581178330.png\" style=\"height:60px; width:60px\" /></p>', '<h3><img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/1_1581178297.png\" style=\"height:75px; width:50px\" /></h3>', NULL),
+(13, 'بب', 'kkk', 'uploads/services/15811792319eae7bf441c9a8dceb1671c26e961171image.png', 'jj', 'jjj', 1, '8488', 4, 1, 0, 'kkk-kkk', 'nn', NULL, NULL, '<p>sfefe<img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/Admin_1581179193.png\" style=\"height:60px; width:60px\" /></p>', '<p>knjkjn<img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/logo_1581179219.png\" style=\"height:66px; width:225px\" /></p>', NULL);
 
 -- --------------------------------------------------------
 
@@ -427,7 +446,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `youtube_url`, `facebook_url`, `twitter_url`, `linkedin_url`, `instagram_url`, `pinterest_url`, `logo`, `location_ar`, `location_en`, `site_email`, `created_at`, `updated_at`, `latitude`, `longitude`) VALUES
-(1, 'https://www.youtube.com/channel/UC-cm0G4jidDR_AdLUtLXmxg', 'https://www.facebook.com/orkidapest', 'https://twitter.com/OrkidaPest', 'https://www.linkedin.com/in/orkidapest', 'https://www.instagram.com/orkidapest', 'https://www.pinterest.com/orkidapest/pins', '/images/uploads/157935928595422085d01b2a9ba0938fb9a6429d7aimage.png', 'مدينة جدة ، شارع الأمام الشافعي', 'Olaya St, Al Olaya, Riyadh 12251, Saudi Arabia', 'Info@ORkidapest.com', NULL, NULL, 21.576366558705, 39.193434585498);
+(1, 'https://www.youtube.com/channel/UC-cm0G4jidDR_AdLUtLXmxg', 'https://www.facebook.com/orkidapest', 'https://twitter.com/OrkidaPest', 'https://www.linkedin.com/in/orkidapest', 'https://www.instagram.com/orkidapest', 'https://www.pinterest.com/orkidapest/pins', 'uploads/logo/1581199570dfbb54c0964d835caa8d8b7119b71090image.png', 'مدينة جدة ، شارع الأمام الشافعي', 'Olaya St, Al Olaya, Riyadh 12251, Saudi Arabia', 'Info@ORkidapest.com', NULL, NULL, 21.576366558705, 39.193434585498);
 
 -- --------------------------------------------------------
 
@@ -461,11 +480,17 @@ CREATE TABLE `sliders` (
   `title_ar` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `title_en` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image_alt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sliders`
+--
+
+INSERT INTO `sliders` (`id`, `title_ar`, `title_en`, `image`, `image_alt`, `created_at`, `updated_at`) VALUES
+(4, 'kk', 'kkk', 'uploads/sliders/1581125758860b3f5bd265ea0be9ed7fffe80b5d57image.png', 'k', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -637,13 +662,13 @@ ALTER TABLE `ads`
 -- AUTO_INCREMENT for table `article_types`
 --
 ALTER TABLE `article_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -655,13 +680,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `company_valuables`
 --
 ALTER TABLE `company_valuables`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `faqs`
 --
 ALTER TABLE `faqs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -673,13 +698,13 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `meta_tags`
 --
 ALTER TABLE `meta_tags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -691,13 +716,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `pest_libraries`
 --
 ALTER TABLE `pest_libraries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `service_types`
@@ -721,7 +746,7 @@ ALTER TABLE `site_phones`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -100,7 +100,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">الوصف</label>
                                         <div class="col-md-8">
-                                            <textarea rows="2" cols="30" name="description_ar" class="form-control ckeditor" required>{{ old('description_ar') }}</textarea>
+                                            <textarea rows="2" cols="30" name="description_ar" class="form-control" required>{{ old('description_ar') }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -121,7 +121,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Description</label>
                                         <div class="col-md-8">
-                                            <textarea rows="2" cols="30" value="{{ old('description_en') }}" name="description_en" class="form-control ckeditor" required>{{ old('description_en') }}</textarea>
+                                            <textarea rows="2" cols="30" name="description_en" class="form-control" required>{{ old('description_en') }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">

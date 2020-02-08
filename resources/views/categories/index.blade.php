@@ -1,6 +1,6 @@
 @extends('admin_layouts.inc')
-@section('title','هواتف الموقع')
-@section('breadcrumb','هواتف الموقع')
+@section('title','الأقسام الرئيسيه')
+@section('breadcrumb','الأقسام الرئيسيه')
 @section('styles')
 @endsection
 @section('content')

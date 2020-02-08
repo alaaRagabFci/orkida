@@ -1,10 +1,13 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePestLibraryRequest;
 use App\Models\Category;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Services\PestLibraryService;
 use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class PestLibraryController  extends Controller {
 
@@ -37,11 +40,25 @@ class PestLibraryController  extends Controller {
      * Update client.
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function store(Request $request): Response
+    public function create(): View
     {
+        return view('pest_libraries.add')
+            ->with('edit_modal', '');
+    }
+
+    /**
+     * Update client.
+     * @author Alaa <alaaragab34@gmail.com>
+     */
+    public function store(StorePestLibraryRequest $request): RedirectResponse
+    {
+        $msg = '';
         $data  = $request->all();
         $data['image'] = $request->hasFile('image') ? $request->file('image') : "";
-        return $this->pestLibraryService->storePest($data);
+        $pest = $this->pestLibraryService->storePest($data);
+        if($pest['status'] == true)
+            $msg='تمت الأضافه بنجاح';
+        return back()->with('msg',$msg);
     }
 
     /**
@@ -51,20 +68,28 @@ class PestLibraryController  extends Controller {
      *  }
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function edit(int $id): Response
+    public function edit(int $id): View
     {
-        return $this->pestLibraryService->getPest($id);
+        $pest = $this->pestLibraryService->getPest($id);
+        return view('pest_libraries.edit')
+            ->with('pest',$pest)
+            ->with('edit_modal', '');
     }
 
     /**
      * Update client.
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function update(Request $request): Response
+    public function update(StorePestLibraryRequest $request, $id): RedirectResponse
     {
-        $image = $request->hasFile('image') ? $request->file('image') : "";
+        $msg = '';
         $data  = $request->all();
-        return $this->pestLibraryService->updatePest($data, $image);
+        $data['id'] = $id;
+        $image = $request->hasFile('image') ? $request->file('image') : "";
+        $pest = $this->pestLibraryService->updatePest($data, $image);
+        if($pest['status'] == true)
+            $msg='تم التخديث بنجاح';
+        return back()->with('msg',$msg);
     }
 
     /**

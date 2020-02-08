@@ -30,8 +30,8 @@
                 <tbody>
                   @foreach ($tableData->getData()->data as $row)
                   <tr>
-                    <td>{{  $row->description_ar }}</td>
-                    <td>{{  $row->description_en }}</td>
+                    <td>{{  $row->desc_ar }}</td>
+                    <td>{{  $row->desc_en }}</td>
                     <td>{{  $row->vision_ar }}</td>
                     <td>{{  $row->vision_en }}</td>
                     <td>{{  $row->goal_ar }}</td>
@@ -68,8 +68,8 @@
           'autoWidth'   : false,
           "ajax": {{ $tableData->getData()->recordsFiltered }},
           "columns": [
-          {data: 'description_ar', name: 'description_ar'},
-          {data: 'description_en', name: 'description_en'},
+          {data: 'desc_ar', name: 'desc_ar'},
+          {data: 'desc_en', name: 'desc_en'},
           {data: 'vision_ar', name: 'vision_ar'},
           {data: 'vision_en', name: 'vision_en'},
           {data: 'goal_ar', name: 'goal_ar'},

@@ -25,10 +25,11 @@
               <div class="row">
                   <div class="col-md-6">
                       <div class="btn-group">
-                          <button  data-toggle="modal" data-target="#addModal" id="sample_editable_1_new" class="btn btn-primary">
-                              أضافة مكتبة أفات
-                              <i class="fa fa-plus"></i>
-                          </button>
+                          <a href="{{ url('/adminpanel/'.$modal.'/create') }}">
+                              <button  data-toggle="modal" id="sample_editable_1_new" class="btn btn-primary">
+                                  أضافة مكتبة جديده <i class="fa fa-plus"></i>
+                              </button>
+                          </a>
                       </div>
                   </div>
               </div>
@@ -38,8 +39,6 @@
                 <th class="col-md-1">الترتيب</th>
                 <th class="col-md-1">العنوان</th>
                 <th class="col-md-1">Title</th>
-                <th class="col-md-2">الوصف</th>
-                <th class="col-md-2">Description</th>
                 <th class="col-md-1">الصورة</th>
                 <th class="col-md-1">slug ar</th>
                 <th class="col-md-1">خيارات</th>
@@ -50,8 +49,6 @@
                     <td>{{  $row->sort }}</td>
                     <td>{{  $row->name_ar }}</td>
                     <td>{{  $row->name_en }}</td>
-                    <td>{{  $row->description_ar }}</td>
-                    <td>{{  $row->description_en }}</td>
                     <td>{!! $row->image !!}</td>
                     <td>{{ $row->slug_ar }}</td>
                     <td>{!! $row->actions !!}</td>
@@ -64,13 +61,9 @@
           <!-- END EXAMPLE TABLE PORTLET-->
         </div>
       </div>
-      @include('admin_layouts.Add_imgModal')
-      @include('admin_layouts.Edit_imgModal')
-
       @endsection
 
       @section('scripts')
-        <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/multipart_insert.js')}}" type="text/javascript"></script>
         <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/upload.js')}}" type="text/javascript"></script>
         <script src="{{ asset('/admin_ui/assets/layouts/layout4/scripts/app.js') }}"></script>
         <script type="text/javascript">
@@ -118,8 +111,6 @@
                         {data: 'sort', name: 'sort'},
                         {data: 'name_ar', name: 'name_ar'},
                         {data: 'name_en', name: 'name_en'},
-                        {data: 'description_ar', name: 'description_ar'},
-                        {data: 'description_en', name: 'description_en'},
                         {data: 'image', name: 'image'},
                         {data: 'slug_ar', name: 'slug_ar'},
                         {data: 'actions', name: 'actions', orderable: false, searchable: false}

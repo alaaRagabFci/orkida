@@ -1,9 +1,12 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreFaqRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Services\FaqqService;
 use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class FaqqController extends Controller {
 
@@ -35,16 +38,28 @@ class FaqqController extends Controller {
 
     /**
      * Update client.
-     * requirements={
-     *      {"name"="phone", "dataType"="String", "requirement"="\d+", "description"="client name ar"},
-     *  }
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function store(Request $request): Response
+    public function create(): View
     {
-        $data  = $request->all();
-        return $this->faqService->createFaq($data);
+        return view('faqs.add')
+            ->with('edit_modal', '');
     }
+
+    /**
+     * Update client.
+     * @author Alaa <alaaragab34@gmail.com>
+     */
+    public function store(StoreFaqRequest $request): RedirectResponse
+    {
+        $msg = '';
+        $data  = $request->all();
+        $faq = $this->faqService->createFaq($data);
+        if($faq['status'] == true)
+            $msg='تمت الأضافه بنجاح';
+        return back()->with('msg',$msg);
+    }
+
     /**
      * Edit client.
      * requirements={
@@ -52,26 +67,29 @@ class FaqqController extends Controller {
      *  }
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function edit(int $id): Response
+    public function edit(int $id): View
     {
-        return $this->faqService->getFaq($id);
+        $faq = $this->faqService->getfaq($id);
+        return view('faqs.edit')
+            ->with('faq',$faq)
+            ->with('edit_modal', '');
     }
 
     /**
      * Update client.
-     * requirements={
-     *      {"name"="id", "dataType"="Integer", "requirement"="\d+", "description"="client id"},
-     *      {"name"="name_ar", "dataType"="String", "requirement"="\d+", "description"="client name ar"},
-     *      {"name"="name_en", "dataType"="String", "requirement"="\d+", "description"="client name en"},
-     *      {"name"="type", "dataType"="String", "requirement"="\d+", "description"="client type"},
-     *  }
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function update(Request $request, int $id): Response
+    public function update(StoreFaqRequest $request, $id): RedirectResponse
     {
+        $msg = '';
         $data  = $request->all();
-        return $this->faqService->updateFaq($data, $id);
+        $data['id'] = $id;
+        $faq = $this->faqService->updateFaq($data);
+        if($faq['status'] == true)
+            $msg='تم التخديث بنجاح';
+        return back()->with('msg',$msg);
     }
+
 
     /**
      * Delete client.

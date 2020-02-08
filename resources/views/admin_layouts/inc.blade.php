@@ -297,7 +297,7 @@
     CKEDITOR.replace( 'description_en', {
         filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
         filebrowserUploadMethod: 'form',
-        language : 'ar'
+        language : 'en'
     });
 </script>
 

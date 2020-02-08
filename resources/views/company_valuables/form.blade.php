@@ -25,10 +25,10 @@
 
 <div class="form-group">
     <label for="exampleInputPassword1">الوصف</label>
-    <textarea rows="2" cols="30" name="description_ar" class="form-control" required></textarea>
+    <textarea rows="2" cols="30" name="desc_ar" class="form-control" required></textarea>
 </div>
 
 <div class="form-group">
     <label for="exampleInputPassword1">Description</label>
-    <textarea rows="2" cols="30" name="description_en" class="form-control" required></textarea>
+    <textarea rows="2" cols="30" name="desc_en" class="form-control" required></textarea>
 </div>
