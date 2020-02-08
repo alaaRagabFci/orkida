@@ -75,7 +75,7 @@ class SettingService
         $settingId = session('setting_id');
         $setting = Setting::findOrFail($settingId);
         if(isset($logo) && $logo != ""){
-            $data = $this->utilityService->uploadImage($logo);
+            $data = $this->utilityService->uploadImage($logo, 'logo');
             if(!$data['status'])
                 return new Response(['message' => $data['errors'], 401]);
 

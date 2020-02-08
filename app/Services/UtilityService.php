@@ -18,7 +18,7 @@ class UtilityService
      * @param $image
      * @author Alaa <alaaragab34@gmail.com>
      */
-    public function uploadImage($image)
+    public function uploadImage($image, $type)
     {
         $file = $image;
         $errors = [];
@@ -39,9 +39,9 @@ class UtilityService
             return array('status' => false, 'errors' => $errors);
         } else {
             $filename=time().md5(uniqid(rand(), true))."image" .".png";
-            $file->move('images/uploads', $filename);
+            $file->move('uploads/'.$type.'/', $filename);
 //            $this->request->getSchemeAndHttpHost(). $this->request->getBasePath() .
-            $fullPath = '/images/uploads/' .$filename;
+            $fullPath = 'uploads/'.$type. '/' .$filename;
             return array('status' => true, 'image' => $fullPath);
         }
 

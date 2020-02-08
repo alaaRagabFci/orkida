@@ -66,6 +66,17 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="control-label col-md-3">الخدمة الرئيسيه</label>
+                                <div class="col-md-4">
+                                    <select  class="form-control" name="sub_service">
+                                        <option selected value="">بدون خدمه رئيسيه </option>
+                                        @foreach($services as $service)
+                                            <option value="{!! $service->id !!}">{!! $service->name_ar !!}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label col-md-3"></label>
                                 <div class="portlet-title tabbable-line">
                                     <ul class="nav nav-tabs">

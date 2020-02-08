@@ -232,15 +232,19 @@
             var i;
             for (i in response) {
                 if (i in frm.elements){
-                    console.log(i);
                     frm.elements[i].value = response[i];
-
                     if(i == "is_active" && response["is_active"] === 1){
                         $('#isActive').bootstrapToggle('on');
-                        $('#isActive').attr('checked',true);
+                        $(".toggle").removeClass("btn-default");
+                        $(".toggle").removeClass("off");
+                        $(".toggle").addClass("btn-danger");
+//                        $('#isActive').attr('checked',true);
                     }
                     else if(i == "is_active" && response["is_active"] === 0){
                         $('#isActive').bootstrapToggle('off');
+                        $(".toggle").removeClass("btn-danger");
+                        $(".toggle").addClass("btn-default");
+                        $(".toggle").addClass("off");
                     }
                 }
             }

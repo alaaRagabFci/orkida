@@ -2,9 +2,9 @@
 
 <div class="form-group">
     <div class="fileupload fileupload-new" data-provides="fileupload">
-    <span class="btn btn-primary btn-file"><span class="fileupload-new">الأيكون</span>
+    <span class="btn btn-primary btn-file"><span class="fileupload-new">الصورة</span>
     <span class="fileupload-exists">تغير</span>
-    <input type="file" name="icon"/></span>
+    <input type="file" name="image"/></span>
         <span class="fileupload-preview"></span>
         <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
         <span class="help-block with-errors errorName"></span>
@@ -13,7 +13,7 @@
 
 <div class="form-group" style="display:none;">
     <label for="exampleInputFile">pic path</label>
-    <input type="text" name="icon" id="icon">
+    <input type="text" name="image" id="image">
 </div>
 
 <div class="form-group">
@@ -29,11 +29,7 @@
 </div>
 
 <div class="form-group">
-    <label for="exampleInputPassword1">الوصف</label>
-    <textarea rows="2" cols="30" name="description_ar" class="form-control" required></textarea>
-</div>
-
-<div class="form-group">
-    <label for="exampleInputPassword1">Description</label>
-    <textarea rows="2" cols="30" name="description_en" class="form-control" required></textarea>
+    <label for="exampleInputPassword1">Image alt</label>
+    <input type="text" name="image_alt" required class="form-control">
+    <span class="help-block with-errors errorName"></span>
 </div>

@@ -66,7 +66,7 @@ class OurServiceService
     public function storeService($parameters)
     {
         $errors =[];
-        $data = $this->utilityService->uploadImage($parameters['image']);
+        $data = $this->utilityService->uploadImage($parameters['image'], 'services');
         if(!$data['status'])
             $errors = $data['errors'];
         $parameters['image'] = $data['image'];
@@ -121,11 +121,12 @@ class OurServiceService
         $errors =[];
         $service = Service::findOrFail($parameters['id']);
         if(isset($image) && $image != ""){
-            $data = $this->utilityService->uploadImage($image);
+            $data = $this->utilityService->uploadImage($image, 'services');
             if(!$data['status'])
                 $errors = $data['errors'];
 
             $parameters['image'] = $data['image'];
+            unlink($service->image);
             }else{
                 $parameters['image']  = $service->image;
             }
@@ -156,6 +157,8 @@ class OurServiceService
      */
     public function deleteService(int $serviceId)
     {
+        $service = Service::findOrFail($serviceId);
+        unlink($service->image);
         return Service::find($serviceId)->delete();
     }
 

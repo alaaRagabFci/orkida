@@ -53,7 +53,7 @@ class SliderService
     public function storeSlider($parameters)
     {
         if(isset($parameters['image']) && $parameters['image'] != ""){
-            $data = $this->utilityService->uploadImage($parameters['image']);
+            $data = $this->utilityService->uploadImage($parameters['image'], 'sliders');
             if(!$data['status'])
                 return new Response(['message' => $data['errors'], 401]);
             $parameters['image'] = $data['image'];
@@ -97,18 +97,19 @@ class SliderService
     {
         $oldImage = session('image');
         $sliderId = session('slider_id');
-        $company = Slider::findOrFail($sliderId);
+        $slider = Slider::findOrFail($sliderId);
         if(isset($image) && $image != ""){
-            $data = $this->utilityService->uploadImage($image);
+            $data = $this->utilityService->uploadImage($image, 'sliders');
             if(!$data['status'])
                 return new Response(['message' => $data['errors'], 401]);
 
             $parameters['image'] = $data['image'];
+            unlink($slider->image);
             }else{
                 $parameters['image']  = $oldImage;
             }
 
-        $company->update($parameters);
+        $slider->update($parameters);
         return new Response(['status' => true, 'message' => 'تم التحديث بنجاح']);
     }
 
@@ -120,6 +121,8 @@ class SliderService
      */
     public function deleteSlider($sliderId)
     {
+        $slider = Slider::findOrFail($sliderId);
+        unlink($slider->image);
         return Slider::find($sliderId)->delete();
     }
 }

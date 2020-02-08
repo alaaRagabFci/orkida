@@ -32,9 +32,9 @@ class BlogService
     {
         $tableData = Datatables::of($blogs)
             ->editColumn('image', '<a href="javascript:;"><img src="{{ config("app.baseUrl").$image }}" class="image" width="50px" height="50px"></a>')
-            ->addColumn('service', function (Blog $blog)
+            ->addColumn('articleType', function (Blog $blog)
             {
-                return $blog->getService->name_ar;
+                return $blog->getArticleType->category;
             })
             ->editColumn('description', function (Blog $blog)
             {
@@ -46,7 +46,7 @@ class BlogService
                 return view('blogs.actionBtns')->with('controller','adminpanel/blogs')
                     ->with('id', $data->id)
                     ->render();
-            })->rawColumns(['actions', 'image', 'description'])->make(true);
+            })->rawColumns(['actions', 'image', 'description', 'articleType'])->make(true);
 
         return $tableData ;
     }
@@ -63,7 +63,7 @@ class BlogService
     public function storeBlog($parameters)
     {
         $errors =[];
-        $data = $this->utilityService->uploadImage($parameters['image']);
+        $data = $this->utilityService->uploadImage($parameters['image'], 'articles/thumb');
         if(!$data['status'])
             $errors = $data['errors'];
         $parameters['image'] = $data['image'];
@@ -117,11 +117,12 @@ class BlogService
         $errors =[];
         $blog = Blog::findOrFail($parameters['id']);
         if(isset($image) && $image != ""){
-            $data = $this->utilityService->uploadImage($image);
+            $data = $this->utilityService->uploadImage($image, 'articles/thumb');
             if(!$data['status'])
                 $errors = $data['errors'];
 
             $parameters['image'] = $data['image'];
+            unlink($blog->image);
         }else{
             $parameters['image']  = $blog->image;
         }
@@ -151,6 +152,8 @@ class BlogService
      */
     public function deleteBlog(int $blogId)
     {
+        $blog = Blog::findOrFail($blogId);
+        unlink($blog->image);
         return Blog::find($blogId)->delete();
     }
 

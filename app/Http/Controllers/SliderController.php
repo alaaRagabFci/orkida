@@ -41,7 +41,7 @@ class SliderController  extends Controller {
     {
         $data  = $request->all();
         $data['image'] = $request->hasFile('image') ? $request->file('image') : "";
-        return $this->sliderService->storeSٍlider($data);
+        return $this->sliderService->storeSlider($data);
     }
 
     /**
@@ -53,7 +53,7 @@ class SliderController  extends Controller {
      */
     public function edit(int $id): Response
     {
-        return $this->sliderService->getSٍlider($id);
+        return $this->sliderService->getSlider($id);
     }
 
     /**
@@ -64,7 +64,7 @@ class SliderController  extends Controller {
     {
         $image = $request->hasFile('image') ? $request->file('image') : "";
         $data  = $request->all();
-        return $this->sliderService->updateSٍlider($data, $image);
+        return $this->sliderService->updateSlider($data, $image);
     }
 
     /**
@@ -76,7 +76,7 @@ class SliderController  extends Controller {
      */
     public function destroy(Request $request, $id)
     {
-        $this->sliderService->deleteSٍlider($id);
+        $this->sliderService->deleteSlider($id);
 
         if($request->ajax())
         {

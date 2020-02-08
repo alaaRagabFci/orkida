@@ -39,12 +39,12 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="_method" value="put">
                             <div class="form-group">
-                                <label class="control-label col-md-3">الخدمة</label>
+                                <label class="control-label col-md-3">القسم</label>
                                 <div class="col-md-4">
-                                    <select required  class="form-control" name="service_id">
-                                        <option selected value="">أختر الخدمه </option>
-                                        @foreach($services as $service)
-                                            <option @if($service->id == $blog->service_id)? selected : " "@endif value="{!! $service->id !!}">{!! $service->name_ar !!}</option>
+                                    <select required  class="form-control" name="article_id">
+                                        <option selected value="">أختر القسم </option>
+                                        @foreach($articleTypes as $article)
+                                            <option @if($article->id == $blog->article_id)? selected : " "@endif value="{!! $article->id !!}">{!! $article->category !!}</option>
                                         @endforeach
                                     </select>
                                 </div>

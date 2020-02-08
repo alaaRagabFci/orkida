@@ -53,7 +53,7 @@ class CompanyValuableService
     public function storeCompanyValuable($parameters)
     {
         if(isset($parameters['icon']) && $parameters['icon'] != ""){
-            $data = $this->utilityService->uploadImage($parameters['icon']);
+            $data = $this->utilityService->uploadImage($parameters['icon'], 'about_us');
             if(!$data['status'])
                 return new Response(['message' => $data['errors'], 401]);
             $parameters['icon'] = $data['image'];
@@ -99,11 +99,12 @@ class CompanyValuableService
         $companyId = session('company_id');
         $company = CompanyValuable::findOrFail($companyId);
         if(isset($icon) && $icon != ""){
-            $data = $this->utilityService->uploadImage($icon);
+            $data = $this->utilityService->uploadImage($icon, 'about_us');
             if(!$data['status'])
                 return new Response(['message' => $data['errors'], 401]);
 
             $parameters['icon'] = $data['image'];
+            unlink($company->icon);
             }else{
                 $parameters['icon']  = $oldIcon;
             }
@@ -120,6 +121,8 @@ class CompanyValuableService
      */
     public function deleteCompanyValuable($companyId)
     {
+        $company = CompanyValuable::findOrFail($companyId);
+        unlink($company->icon);
         return CompanyValuable::find($companyId)->delete();
     }
 }

@@ -24,7 +24,7 @@ class StoreBlogRequest extends FormRequest
     public function rules()
     {
         return [
-            'service_id'=>'required',
+            'article_id'=>'required',
             'image'    =>'sometimes|image|mimes:jpg,png,jpeg,JPG,PNG,JPEG',
             'name'=>'required',
             'image_alt'=>'required',

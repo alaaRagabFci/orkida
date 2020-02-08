@@ -1,6 +1,6 @@
 @extends('admin_layouts.inc')
-@section('title','قيم الشركة')
-@section('breadcrumb','قيم الشركة')
+@section('title','سلايدر العروض')
+@section('breadcrumb','سلايدر العروض')
 @section('styles')
   <link href="{{ asset('/admin_ui/assets/layouts/layout4/css/image.css')}}" rel="stylesheet" type="text/css" />
 @endsection
@@ -13,7 +13,7 @@
       <div class="portlet-title">
         <div class="caption font-dark">
           <i class="icon-settings font-dark"></i>
-          <span class="caption-subject bold uppercase">قيم الشركة</span>
+          <span class="caption-subject bold uppercase">سلايدر العروض</span>
         </div>
         <div class="tools"> </div>
       </div>
@@ -23,7 +23,7 @@
                   <div class="col-md-6">
                       <div class="btn-group">
                           <button  data-toggle="modal" data-target="#addModal" id="sample_editable_1_new" class="btn btn-primary">
-                              أضافة قيمة للشركة
+                              أضافة سلايدر
                               <i class="fa fa-plus"></i>
                           </button>
                       </div>
@@ -32,11 +32,9 @@
           </div>
               <table class="table table-striped table-bordered table-hover table-header-fixed" id="company">
                 <thead>
-                <th class="col-md-1">القيمة</th>
-                <th class="col-md-1">Company valuable</th>
-                <th class="col-md-1">الوصف</th>
-                <th class="col-md-4">Description</th>
-                <th class="col-md-4">الأيكون</th>
+                <th class="col-md-2">العنوان</th>
+                <th class="col-md-2">Title</th>
+                <th class="col-md-3">الصورة</th>
                 <th class="col-md-1">خيارات</th>
                 </thead>
                 <tbody>
@@ -44,9 +42,7 @@
                   <tr>
                     <td>{{  $row->title_ar }}</td>
                     <td>{{  $row->title_en }}</td>
-                    <td>{{  $row->description_ar }}</td>
-                    <td>{{  $row->description_en }}</td>
-                    <td>{!! $row->icon !!}</td>
+                    <td>{!! $row->image !!}</td>
                     <td>{!! $row->actions !!}</td>
                   </tr>
                 @endforeach
@@ -83,9 +79,7 @@
                     "columns": [
                         {data: 'title_ar', name: 'title_ar'},
                         {data: 'title_en', name: 'title_en'},
-                        {data: 'description_ar', name: 'description_ar'},
-                        {data: 'description_en', name: 'description_en'},
-                        {data: 'icon', name: 'icon'},
+                        {data: 'image', name: 'image'},
                         {data: 'actions', name: 'actions', orderable: false, searchable: false}
                     ]
                 })

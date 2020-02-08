@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2020 at 09:59 PM
+-- Generation Time: Feb 08, 2020 at 01:51 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -81,6 +81,28 @@ INSERT INTO `ads` (`id`, `ads1`, `ads2`, `ads3`, `created_at`, `updated_at`) VAL
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `article_types`
+--
+
+CREATE TABLE `article_types` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `article_types`
+--
+
+INSERT INTO `article_types` (`id`, `category`, `is_active`, `slug`, `created_at`, `updated_at`) VALUES
+(1, 'nnn', 1, 'nn', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `blogs`
 --
 
@@ -88,18 +110,25 @@ CREATE TABLE `blogs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image_alt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `service_id` bigint(20) UNSIGNED NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `sort` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
-  `slug_ar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `viewers` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `meta_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `article_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `name`, `image`, `meta_title`, `image_alt`, `description`, `sort`, `is_active`, `slug`, `viewers`, `created_at`, `updated_at`, `meta_description`, `article_id`) VALUES
+(9, ';;;;k', 'uploads/articles/thumb/158111864564613ab8b1d83114b63e557076ff59e4image.png', 'kkk', 'kk', '<p>kkk</p>', 1, 1, 'kkkk', NULL, NULL, NULL, 'kk', 1);
 
 -- --------------------------------------------------------
 
@@ -193,6 +222,15 @@ CREATE TABLE `meta_tags` (
   `tag` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `meta_tags`
+--
+
+INSERT INTO `meta_tags` (`id`, `service_id`, `blog_id`, `created_at`, `updated_at`, `tag`) VALUES
+(48, NULL, 9, '2020-02-07 21:38:51', '2020-02-07 21:38:51', 'k'),
+(49, 10, NULL, '2020-02-07 22:12:06', '2020-02-07 22:12:06', 'ننن'),
+(51, 11, NULL, '2020-02-07 22:48:39', '2020-02-07 22:48:39', 'تت');
+
 -- --------------------------------------------------------
 
 --
@@ -237,7 +275,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (46, '2020_01_20_205817_edit_services_add_default_values_table', 8),
 (47, '2020_01_20_234535_remove_tag_ar_en_table', 9),
 (48, '2020_01_22_194205_edit_viewers_field_accept_null', 10),
-(49, '2020_01_22_202915_edit_home_order_field_pests_table', 11);
+(49, '2020_01_22_202915_edit_home_order_field_pests_table', 11),
+(50, '2020_02_07_181250_edit_services_table', 12),
+(51, '2020_02_07_182637_edit_blogs_table', 13),
+(52, '2020_02_07_184152_remove_slug_en_blogs_table', 14),
+(53, '2020_02_07_224858_create_article_types_table', 15),
+(54, '2020_02_07_232724_change_relation_table', 16),
+(55, '2020_02_07_235633_add_sub_service_column_services_table', 17);
 
 -- --------------------------------------------------------
 
@@ -310,8 +354,8 @@ CREATE TABLE `services` (
   `name_ar` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name_en` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image_alt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `category_id` bigint(20) UNSIGNED NOT NULL,
   `phone` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `sort` tinyint(1) NOT NULL DEFAULT '0',
@@ -322,8 +366,17 @@ CREATE TABLE `services` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `description_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description_en` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `description_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sub_service` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`id`, `name_ar`, `name_en`, `image`, `meta_title`, `meta_description`, `category_id`, `phone`, `sort`, `is_active`, `home_order`, `slug_ar`, `slug_en`, `created_at`, `updated_at`, `description_ar`, `description_en`, `sub_service`) VALUES
+(10, 'ممم', 'ممم', 'uploads/services/15811207262d559fcad6a91c7cc76212d832bd11e8image.png', 'ننن', 'ننن', 1, '5555', 1, 1, 0, 'ممم', 'مم', NULL, NULL, '<p>مممم</p>', '<p>ممم</p>', NULL),
+(11, 'ممم', 'ننن', 'uploads/services/1581120772b467892c584b14a6347d08105b2d3732image.png', 'تنتن', 'تتت', 1, '4545', 2, 1, 0, 'ممم', 'نمن', NULL, NULL, '<p>ممم</p>', '<p>ننن</p>', NULL);
 
 -- --------------------------------------------------------
 
@@ -457,11 +510,17 @@ ALTER TABLE `ads`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `article_types`
+--
+ALTER TABLE `article_types`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `blogs`
 --
 ALTER TABLE `blogs`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `blogs_service_id_foreign` (`service_id`);
+  ADD KEY `blogs_article_id_foreign` (`article_id`);
 
 --
 -- Indexes for table `categories`
@@ -575,10 +634,16 @@ ALTER TABLE `ads`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `article_types`
+--
+ALTER TABLE `article_types`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -590,7 +655,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `company_valuables`
 --
 ALTER TABLE `company_valuables`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `faqs`
@@ -608,13 +673,13 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `meta_tags`
 --
 ALTER TABLE `meta_tags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -626,19 +691,19 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `pest_libraries`
 --
 ALTER TABLE `pest_libraries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `service_types`
 --
 ALTER TABLE `service_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -662,7 +727,7 @@ ALTER TABLE `sliders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -672,7 +737,7 @@ ALTER TABLE `users`
 -- Constraints for table `blogs`
 --
 ALTER TABLE `blogs`
-  ADD CONSTRAINT `blogs_service_id_foreign` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `blogs_article_id_foreign` FOREIGN KEY (`article_id`) REFERENCES `article_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `meta_tags`

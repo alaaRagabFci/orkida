@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreServiceRequest;
 use App\Models\Category;
+use App\Models\Service;
 use App\Services\MetaTagService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -47,9 +48,11 @@ class OurServiceController  extends Controller {
     public function create(): View
     {
         $categories = Category::get();
+        $services = Service::get();
         return view('services.add')
             ->with('edit_modal', '')
-            ->with('categories', $categories);
+            ->with('categories', $categories)
+            ->with('services', $services);
     }
     /**
      * Update client.
@@ -77,6 +80,7 @@ class OurServiceController  extends Controller {
     {
         $serviceTags = [];
         $categories = Category::get();
+        $services = Service::get();
         $service = $this->ourServiceService->getService($id);
         $tags = $this->metaTagService->getTags($id, 'services');
         for ($i = 0; $i < count($tags); $i++){
@@ -87,7 +91,8 @@ class OurServiceController  extends Controller {
             ->with('displayedTags',$displayedTags)
             ->with('service',$service)
             ->with('edit_modal', '')
-            ->with('categories', $categories);
+            ->with('categories', $categories)
+            ->with('services', $services);
     }
 
     /**

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     protected $fillable = ['name_ar', 'name_en', 'description_ar', 'description_en', 'image', 'sort',
-        'meta_title', 'meta_description', 'category_id', 'phone', 'slug_ar', 'slug_en', 'is_active'];
+        'meta_title', 'meta_description', 'category_id', 'phone', 'slug_ar', 'slug_en', 'is_active', 'sub_service'];
     public $timestamps  = false;
 
     public function getCategory()

@@ -38,12 +38,12 @@
                         <div class="form-body">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
-                                <label class="control-label col-md-3">الخدمة</label>
+                                <label class="control-label col-md-3">القسم</label>
                                 <div class="col-md-4">
-                                    <select required  class="form-control" name="service_id">
-                                        <option selected value="">أختر الخدمه </option>
-                                        @foreach($services as $service)
-                                            <option value="{!! $service->id !!}">{!! $service->name_ar !!}</option>
+                                    <select required  class="form-control" name="article_id">
+                                        <option selected value="">أختر القسم </option>
+                                        @foreach($articleTypes as $article)
+                                            <option value="{!! $article->id !!}">{!! $article->category !!}</option>
                                         @endforeach
                                     </select>
                                 </div>

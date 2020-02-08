@@ -38,7 +38,7 @@
                 <thead>
                 <th class="col-md-1">الترتيب</th>
                 <th class="col-md-1">العنوان</th>
-                <th class="col-md-1">الخدمة</th>
+                <th class="col-md-1">القسم</th>
                 <th class="col-md-1">الصورة</th>
                 <th class="col-md-1">خيارات</th>
                 </thead>
@@ -47,7 +47,7 @@
                   <tr>
                     <td>{{  $row->sort }}</td>
                     <td>{{  $row->name }}</td>
-                    <td>{{  $row->service }}</td>
+                    <td>{{  $row->articleType }}</td>
                     <td>{!! $row->image !!}</td>
                     <td>{!! $row->actions !!}</td>
                   </tr>
@@ -108,7 +108,7 @@
                     "columns": [
                         {data: 'sort', name: 'sort'},
                         {data: 'name', name: 'name'},
-                        {data: 'service', name: 'service'},
+                        {data: 'articleType', name: 'articleType'},
                         {data: 'image', name: 'image'},
                         {data: 'actions', name: 'actions', orderable: false, searchable: false}
                     ],

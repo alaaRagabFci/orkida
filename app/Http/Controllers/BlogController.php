@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBlogRequest;
+use App\Models\ArticleType;
 use App\Models\Service;
 use App\Services\MetaTagService;
 use Illuminate\Http\RedirectResponse;
@@ -45,10 +46,10 @@ class BlogController  extends Controller {
      */
     public function create(): View
     {
-        $services = Service::get();
+        $articleTypes = ArticleType::get();
         return view('blogs.add')
             ->with('edit_modal', '')
-            ->with('services', $services);
+            ->with('articleTypes', $articleTypes);
     }
 
     /**
@@ -76,7 +77,7 @@ class BlogController  extends Controller {
     public function edit(int $id): View
     {
         $blogTags = [];
-        $services = Service::get();
+        $articleTypes = ArticleType::get();
         $blog = $this->blogService->getBlog($id);
         $tags = $this->metaTagService->getTags($id, 'blogs');
         for ($i = 0; $i < count($tags); $i++){
@@ -87,7 +88,7 @@ class BlogController  extends Controller {
             ->with('displayedTags',$displayedTags)
             ->with('blog',$blog)
             ->with('edit_modal', '')
-            ->with('services', $services);
+            ->with('articleTypes', $articleTypes);
     }
 
     /**
@@ -127,6 +128,6 @@ class BlogController  extends Controller {
     public function sortBlogs(Request $request)
     {
         $data  = $request->all();
-        return $this->blogService->sortBlogs($data);
+        $this->blogService->sortBlogs($data);
     }
 }

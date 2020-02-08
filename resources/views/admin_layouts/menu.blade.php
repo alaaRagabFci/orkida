@@ -38,7 +38,7 @@
     </a>
 </li>
 
-<li class="nav-item {{Request::is('adminpanel/services', 'adminpanel/services_types', 'adminpanel/services/create') ? 'start active open':'' }}">
+<li class="nav-item {{Request::is('adminpanel/services', 'adminpanel/services/*', 'adminpanel/services_types', 'adminpanel/services/create') ? 'start active open':'' }}">
     <a href="javascript:;" class="nav-link nav-toggle">
         <i class="fa fa-server"></i>
         <span class="title">الخدمات</span>
@@ -60,20 +60,17 @@
                 <span class="selected"></span>
             </a>
         </li>
-        <li class="nav-item {{Request::is('adminpanel/services_types') ? 'start active open':'' }}">
-            <a href="{{ url('adminpanel/services_types') }}" class="nav-link nav-toggle">
-                <i class="fas fa-angle-left"></i>
-                <span class="title">أنواع الخدمات</span>
-                <span class="selected"></span>
-            </a>
-        </li>
+        {{--<li class="nav-item {{Request::is('adminpanel/services_types') ? 'start active open':'' }}">--}}
+            {{--<a href="{{ url('adminpanel/services_types') }}" class="nav-link nav-toggle">--}}
+                {{--<i class="fas fa-angle-left"></i>--}}
+                {{--<span class="title">أنواع الخدمات</span>--}}
+                {{--<span class="selected"></span>--}}
+            {{--</a>--}}
+        {{--</li>--}}
     </ul>
 </li>
 
-
-
-
-<li class="nav-item  {{Request::is('adminpanel/blogs', 'adminpanel/blogs/create') ? 'start active open':'' }}">
+<li class="nav-item  {{Request::is('adminpanel/blogs', 'adminpanel/blogs/*', 'adminpanel/blogs/create') ? 'start active open':'' }}">
     <a href="javascript:;" class="nav-link nav-toggle">
         <span class="icon">
             <i class="fas fa-blog"></i>
@@ -98,6 +95,16 @@
             </a>
         </li>
     </ul>
+</li>
+
+<li class="nav-item {{Request::is('adminpanel/article_types') ? 'start active open':'' }}">
+    <a href="{{ url('adminpanel/article_types') }}" class="nav-link nav-toggle">
+       <span class="icon">
+            <i class="fas fa-blog"></i>
+        </span>
+        <span class="title">أقسام المدونة</span>
+        <span class="selected"></span>
+    </a>
 </li>
 
 <li class="nav-item {{Request::is('adminpanel/pest_libraries') ? 'start active open':'' }}">
