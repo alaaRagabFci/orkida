@@ -36,9 +36,9 @@ class BlogService
             {
                 return $blog->getArticleType->category;
             })
-            ->editColumn('description', function (Blog $blog)
+            ->editColumn('description_ar', function (Blog $blog)
             {
-                return htmlspecialchars_decode($blog->description);
+                return htmlspecialchars_decode($blog->description_ar);
             })
             ->setRowId('id')
             ->addColumn('actions', function ($data)
@@ -46,7 +46,7 @@ class BlogService
                 return view('blogs.actionBtns')->with('controller','adminpanel/blogs')
                     ->with('id', $data->id)
                     ->render();
-            })->rawColumns(['actions', 'image', 'description', 'articleType'])->make(true);
+            })->rawColumns(['actions', 'image', 'description_ar', 'articleType'])->make(true);
 
         return $tableData ;
     }

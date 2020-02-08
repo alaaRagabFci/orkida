@@ -212,10 +212,13 @@
         <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
         <script src="{{ asset('/admin_ui/assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js')}}" type="text/javascript"></script>
 {{--        <script src="{{ asset('/admin_ui/assets/pages/scripts/components-bootstrap-tagsinput.min.js')}}" type="text/javascript"></script>--}}
+{{--        <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>--}}
 
         <script>
+
     $(document).ready(function()
     {
+
      $('body').on('click', '.image', function () {
             var dialog = bootbox.dialog({
                 message: '<img style="height:500px; width:100%" src="' + $(this).attr('src') + '"/>',
@@ -284,6 +287,16 @@
             $('.modal').modal('hide');
         });
     })
+
+    CKEDITOR.replace( 'description_ar', {
+        filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form'
+    });
+
+    CKEDITOR.replace( 'description_en', {
+        filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form'
+    });
 </script>
 
 @yield('scripts')

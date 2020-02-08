@@ -31,7 +31,7 @@ class StoreBlogRequest extends FormRequest
             'meta_title'=>'required',
             'meta_description'=>'required',
             'slug'=>'required',
-            'description'=>'required',
+            'description_ar'=>'required',
         ];
     }
 }
