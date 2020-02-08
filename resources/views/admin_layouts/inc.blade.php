@@ -290,12 +290,14 @@
 
     CKEDITOR.replace( 'description_ar', {
         filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
-        filebrowserUploadMethod: 'form'
+        filebrowserUploadMethod: 'form',
+        language : 'ar'
     });
 
     CKEDITOR.replace( 'description_en', {
         filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
-        filebrowserUploadMethod: 'form'
+        filebrowserUploadMethod: 'form',
+        language : 'ar'
     });
 </script>
 

@@ -9,6 +9,7 @@ class CkeditorController extends Controller
     public function upload(Request $request)
     {
         if($request->hasFile('upload')) {
+            $file = $request->file('upload');
             //get filename with extension
             $filenamewithextension = $request->file('upload')->getClientOriginalName();
 
@@ -22,11 +23,12 @@ class CkeditorController extends Controller
             $filenametostore = $filename.'_'.time().'.'.$extension;
 
             //Upload File
-            $request->file('upload')->storeAs('public/uploads', $filenametostore);
+            $file->move('uploads/contents/', $filenametostore);
+//            $request->file('upload')->storeAs('public/uploads', $filenametostore);
 
             $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-            $url = asset('public/storage/uploads/'.$filenametostore);
-            $msg = 'Image successfully uploaded';
+            $url = asset('uploads/contents/'.$filenametostore);
+            $msg = 'تم تحميل الصورة بنجاح';
             $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
 
             // Render HTML output

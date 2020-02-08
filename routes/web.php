@@ -13,7 +13,7 @@
 
 //Adminpanel
 Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
-    Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
+    Route::post('ckeditor/image_upload', 'CkeditorController@upload')->name('upload');
     //Dashboard
     Route::GET('/', 'UserController@dashboard');
     //Profile

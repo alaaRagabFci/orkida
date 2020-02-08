@@ -46,7 +46,7 @@ class BlogController  extends Controller {
      */
     public function create(): View
     {
-        $articleTypes = ArticleType::get();
+        $articleTypes = ArticleType::where('is_active', 1)->get();
         return view('blogs.add')
             ->with('edit_modal', '')
             ->with('articleTypes', $articleTypes);
