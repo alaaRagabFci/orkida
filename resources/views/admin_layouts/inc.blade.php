@@ -29,7 +29,7 @@
 <link href="{{ asset('/admin_ui/assets/global/css/plugins-rtl.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/admin_ui/assets/layouts/layout4/css/layout-rtl.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/admin_ui/assets/layouts/layout4/css/themes/default-rtl.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
-<link href="{{ asset('/admin_ui/assets/layouts/layout4/css/custom-rtl.min.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('/admin_ui/assets/layouts/layout4/css/custom-rtl.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
         <style type="text/css">
             .alerts-list{

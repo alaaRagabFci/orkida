@@ -9,7 +9,7 @@
     <div class="portlet light bordered">
       <div class="portlet-title">
         <div class="caption font-dark">
-          <i class="icon-settings font-dark"></i>
+          <i class="icon-settings font-green-haze"></i>
           <span class="caption-subject bold uppercase">Meta tags</span>
         </div>
         <div class="tools"> </div>

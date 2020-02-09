@@ -14,8 +14,8 @@
     <!-- BEGIN EXAMPLE TABLE PORTLET-->
     <div class="portlet light bordered">
       <div class="portlet-title">
-        <div class="caption font-dark">
-          <i class="icon-settings font-dark"></i>
+        <div class="caption font-green-haze">
+          <i class="icon-settings font-green-haze"></i>
           <span class="caption-subject bold uppercase">خدماتنا</span>
         </div>
         <div class="tools"> </div>

@@ -11,9 +11,9 @@
             <!-- BEGIN VALIDATION STATES-->
             <div class="portlet light portlet-fit portlet-form bordered">
                 <div class="portlet-title">
-                    <div class="caption">
-                        <i class="icon-settings font-red"></i>
-                        <span class="caption-subject font-red sbold uppercase">مقالاتنا</span>
+                    <div class="caption font-green-haze">
+                        <i class="icon-settings font-green-haze"></i>
+                        <span class="caption-subject font-green-haze sbold uppercase">مقالاتنا</span>
                     </div>
                 </div>
                 <div class="portlet-body">
