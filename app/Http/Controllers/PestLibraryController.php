@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePestLibraryRequest;
 use App\Models\Category;
+use App\Models\PestLibrary;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Services\PestLibraryService;
@@ -42,7 +43,9 @@ class PestLibraryController  extends Controller {
      */
     public function create(): View
     {
+        $pests = PestLibrary::get();
         return view('pest_libraries.add')
+            ->with('pests', $pests)
             ->with('edit_modal', '');
     }
 
@@ -70,9 +73,11 @@ class PestLibraryController  extends Controller {
      */
     public function edit(int $id): View
     {
+        $pests = PestLibrary::where('id', '!=', $id)->get();
         $pest = $this->pestLibraryService->getPest($id);
         return view('pest_libraries.edit')
             ->with('pest',$pest)
+            ->with('pests', $pests)
             ->with('edit_modal', '');
     }
 

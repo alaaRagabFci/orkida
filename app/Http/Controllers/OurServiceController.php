@@ -80,7 +80,7 @@ class OurServiceController  extends Controller {
     {
         $serviceTags = [];
         $categories = Category::get();
-        $services = Service::get();
+        $services = Service::where('id', '!=', $id)->get();
         $service = $this->ourServiceService->getService($id);
         $tags = $this->metaTagService->getTags($id, 'services');
         for ($i = 0; $i < count($tags); $i++){

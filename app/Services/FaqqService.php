@@ -33,12 +33,16 @@ class FaqqService
             {
                 return htmlspecialchars_decode($faq->description_en);
             })
+            ->addColumn('category', function (Faq $faq)
+            {
+                return $faq->getCategory->category_ar;
+            })
             ->addColumn('actions', function ($data)
             {
                 return view('faqs.actionBtns')->with('controller','adminpanel/faqs')
                     ->with('id', $data->id)
                     ->render();
-            })->rawColumns(['actions', 'description_ar', 'description_en'])->make(true);
+            })->rawColumns(['actions', 'description_ar', 'description_en', 'category'])->make(true);
 
         return $tableData ;
     }
@@ -46,6 +50,7 @@ class FaqqService
     public function createFaq(array $parameters): array
     {
         $faq = new Faq();
+        $parameters['is_active'] = isset($parameters['is_active']) ?  1 : 0;
         $faq->create($parameters);
         return ['status' => true, 'message'=>'تم التسجيل بنجاح'];
     }
@@ -74,6 +79,7 @@ class FaqqService
     public function updateFaq(array $parameters): array
     {
         $faq = Faq::findOrFail($parameters['id']);
+        $parameters['is_active'] = isset($parameters['is_active']) ?  1 : 0;
         $faq->update($parameters);
         return ['status' => true, 'message'=>'تم التحديث بنجاح'];
     }

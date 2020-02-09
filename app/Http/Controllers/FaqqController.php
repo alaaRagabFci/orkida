@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFaqRequest;
+use App\Models\QuestionCategory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Services\FaqqService;
@@ -42,7 +43,9 @@ class FaqqController extends Controller {
      */
     public function create(): View
     {
+        $categories = QuestionCategory::get();
         return view('faqs.add')
+            ->with('categories', $categories)
             ->with('edit_modal', '');
     }
 
@@ -69,9 +72,11 @@ class FaqqController extends Controller {
      */
     public function edit(int $id): View
     {
+        $categories = QuestionCategory::get();
         $faq = $this->faqService->getfaq($id);
         return view('faqs.edit')
             ->with('faq',$faq)
+            ->with('categories', $categories)
             ->with('edit_modal', '');
     }
 

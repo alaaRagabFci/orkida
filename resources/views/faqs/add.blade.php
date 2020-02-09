@@ -38,6 +38,17 @@
                         <div class="form-body">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
+                                <label class="control-label col-md-3">القسم</label>
+                                <div class="col-md-4">
+                                    <select required  class="form-control" name="question_category_id">
+                                        <option selected value="">أختر القسم </option>
+                                        @foreach($categories as $category)
+                                            <option value="{!! $category->id !!}">{!! $category->category_ar !!}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label col-md-3"></label>
                                 <div class="portlet-title tabbable-line">
                                     <ul class="nav nav-tabs">
@@ -53,7 +64,13 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab_1_1">
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">السؤال والأجابه</label>
+                                        <label class="control-label col-md-3">السؤال</label>
+                                        <div class="col-md-4">
+                                            <input type="text" value="{{ old('question_ar') }}" name="question_ar" required class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">الأجابه</label>
                                         <div class="col-md-8">
                                             <textarea rows="2" cols="30" name="description_ar" class="form-control" required>{{ old('description_ar') }}</textarea>
                                         </div>
@@ -62,11 +79,23 @@
 
                                 <div class="tab-pane" id="tab_1_2">
                                     <div class="form-group">
-                                        <label class="control-label col-md-3">Question & answer</label>
+                                        <label class="control-label col-md-3">Question</label>
+                                        <div class="col-md-4">
+                                            <input type="text" value="{{ old('question_en') }}" name="question_en" required class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">answer</label>
                                         <div class="col-md-8">
                                             <textarea rows="2" cols="30" name="description_en" class="form-control" required>{{ old('description_en') }}</textarea>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">تفعيل</label>
+                                <div class="col-md-4">
+                                    <input data-onstyle="danger" checked type="checkbox" name="is_active"  data-toggle="toggle">
                                 </div>
                             </div>
                         </div>

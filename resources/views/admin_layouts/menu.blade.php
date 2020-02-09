@@ -180,6 +180,16 @@
     </ul>
 </li>
 
+<li class="nav-item {{Request::is('adminpanel/question_categories') ? 'start active open':'' }}">
+    <a href="{{ url('adminpanel/question_categories') }}" class="nav-link nav-toggle">
+       <span class="icon">
+            <i class="fas fa-question"></i>
+        </span>
+        <span class="title">أقسام الأسئله</span>
+        <span class="selected"></span>
+    </a>
+</li>
+
 <li class="nav-item {{Request::is('adminpanel/orders') ? 'start active open':'' }}">
     <a href="{{ url('adminpanel/orders') }}" class="nav-link nav-toggle">
         <i class="fab fa-first-order"></i>

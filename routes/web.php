@@ -26,8 +26,10 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
     Route::Resource('/settings', 'SettingController');
     //Site phones
     Route::Resource('/site_phones', 'SitePhoneController');
-    //Site phones
+    //Article types
     Route::Resource('/article_types', 'ArticleTypeController');
+    //Question categories
+    Route::Resource('/question_categories', 'QuestionCategoryController');
     //Categories
     Route::Resource('/categories', 'CategoryController');
     //Users

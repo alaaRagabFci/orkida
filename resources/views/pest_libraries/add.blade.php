@@ -55,6 +55,17 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="control-label col-md-3">المكتبة الرئيسيه</label>
+                                <div class="col-md-4">
+                                    <select  class="form-control" name="sub_pest">
+                                        <option selected value="">بدون مكتبة رئيسيه </option>
+                                        @foreach($pests as $pestLib)
+                                            <option value="{!! $pestLib->id !!}">{!! $pestLib->name_ar !!}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label col-md-3"></label>
                                 <div class="portlet-title tabbable-line">
                                     <ul class="nav nav-tabs">

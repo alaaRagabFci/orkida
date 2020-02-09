@@ -13,6 +13,6 @@ class PestLibrary extends Model
      */
     protected $table = 'pest_libraries';
     protected $fillable = ['name_ar', 'name_en', 'description_ar', 'description_en', 'image', 'sort',
-                           'meta_title', 'image_alt','slug_ar', 'slug_en', 'is_active', 'meta_description'];
+                           'meta_title', 'image_alt','slug_ar', 'slug_en', 'is_active', 'meta_description', 'sub_pest'];
     public $timestamps  = false;
 }
