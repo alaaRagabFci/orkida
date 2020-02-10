@@ -33,6 +33,7 @@
                   <th class="col-md-1">السؤال</th>
                   <th class="col-md-1">Question</th>
                   <th class="col-md-1">القسم</th>
+                  <th class="col-md-1">شائع</th>
                   <th class="col-md-1">خيارات</th>
                 </thead>
                 <tbody>
@@ -41,6 +42,7 @@
                     <td>{{  $row->question_ar }}</td>
                     <td>{{  $row->question_en }}</td>
                     <td>{{  $row->category }}</td>
+                    <td>{{  $row->is_common }}</td>
                     <td>{!! $row->actions !!}</td>
                   </tr>
                   @endforeach
@@ -74,6 +76,7 @@
           {data: 'question_ar', name: 'question_ar'},
           {data: 'question_en', name: 'question_en'},
           {data: 'category', name: 'category'},
+          {data: 'is_common', name: 'is_common'},
           {data: 'actions', name: 'actions', orderable: false, searchable: false}
           ]
         })

@@ -33,6 +33,13 @@ class FaqqService
             {
                 return htmlspecialchars_decode($faq->description_en);
             })
+            ->editColumn('is_common', function (Faq $faq)
+            {
+                if($faq->is_common == 1)
+                    return '<span class="label label-sm label-primary"> نعم </span>';
+                else
+                    return '<span class="label label-sm label-warning">لا</span>';
+            })
             ->addColumn('category', function (Faq $faq)
             {
                 return $faq->getCategory->category_ar;
@@ -42,7 +49,7 @@ class FaqqService
                 return view('faqs.actionBtns')->with('controller','adminpanel/faqs')
                     ->with('id', $data->id)
                     ->render();
-            })->rawColumns(['actions', 'description_ar', 'description_en', 'category'])->make(true);
+            })->rawColumns(['actions', 'description_ar', 'description_en', 'category', 'is_common'])->make(true);
 
         return $tableData ;
     }
@@ -51,6 +58,9 @@ class FaqqService
     {
         $faq = new Faq();
         $parameters['is_active'] = isset($parameters['is_active']) ?  1 : 0;
+        $parameters['is_common'] = isset($parameters['is_common']) ?  1 : 0;
+        $parameters['slug_ar'] = str_replace(' ', '-', $parameters['slug_ar']);
+        $parameters['slug_en'] = str_replace(' ', '-', $parameters['slug_en']);
         $faq->create($parameters);
         return ['status' => true, 'message'=>'تم التسجيل بنجاح'];
     }
@@ -80,6 +90,9 @@ class FaqqService
     {
         $faq = Faq::findOrFail($parameters['id']);
         $parameters['is_active'] = isset($parameters['is_active']) ?  1 : 0;
+        $parameters['is_common'] = isset($parameters['is_common']) ?  1 : 0;
+        $parameters['slug_ar'] = str_replace(' ', '-', $parameters['slug_ar']);
+        $parameters['slug_en'] = str_replace(' ', '-', $parameters['slug_en']);
         $faq->update($parameters);
         return ['status' => true, 'message'=>'تم التحديث بنجاح'];
     }

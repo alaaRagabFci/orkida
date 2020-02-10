@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2020 at 10:30 PM
+-- Generation Time: Feb 10, 2020 at 10:23 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -185,15 +185,20 @@ CREATE TABLE `faqs` (
   `question_ar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `question_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_active` tinyint(1) NOT NULL,
-  `question_category_id` bigint(20) UNSIGNED NOT NULL
+  `question_category_id` bigint(20) UNSIGNED NOT NULL,
+  `is_common` tinyint(1) NOT NULL,
+  `slug_ar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `faqs`
 --
 
-INSERT INTO `faqs` (`id`, `description_ar`, `description_en`, `created_at`, `updated_at`, `question_ar`, `question_en`, `is_active`, `question_category_id`) VALUES
-(1, '<p>jjjj<img alt=\"\" src=\"http://localhost/orkida/uploads/contents/1_1581282615.png\" style=\"height:75px; width:50px\" /></p>', '<p><img alt=\"\" src=\"http://localhost/orkida/uploads/contents/Admin_1581282638.png\" style=\"height:50px; width:50px\" /></p>', NULL, NULL, 'dfgjjj', 'jjjj', 0, 3);
+INSERT INTO `faqs` (`id`, `description_ar`, `description_en`, `created_at`, `updated_at`, `question_ar`, `question_en`, `is_active`, `question_category_id`, `is_common`, `slug_ar`, `slug_en`) VALUES
+(1, '<p>jjjj<img alt=\"\" src=\"http://localhost/orkida/uploads/contents/1_1581282615.png\" style=\"height:75px; width:50px\" /></p>', '<p><img alt=\"\" src=\"http://localhost/orkida/uploads/contents/Admin_1581282638.png\" style=\"height:50px; width:50px\" /></p>', NULL, NULL, 'dfgjjj', 'jjjj', 0, 3, 0, '', ''),
+(2, '<p>kkkk</p>', '<p>hhh</p>', NULL, NULL, 'kkk', 'hhh', 1, 3, 0, '', ''),
+(3, '<p>jjj</p>', '<p>kkk</p>', NULL, NULL, 'jjj', 'kkk', 1, 3, 1, 'jjj-ssd', 'kkn-ikijh');
 
 -- --------------------------------------------------------
 
@@ -305,7 +310,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (63, '2020_02_09_184843_create_question_categories_table', 25),
 (65, '2020_02_09_185154_edit_faqs_structure_table', 26),
 (66, '2020_02_09_204623_edit_question_categories_structure_table', 27),
-(67, '2020_02_09_211651_add_sub_pest_pest_libraries_table', 28);
+(67, '2020_02_09_211651_add_sub_pest_pest_libraries_table', 28),
+(69, '2020_02_10_210621_add_is_common_field_faqs_table', 29);
 
 -- --------------------------------------------------------
 
@@ -731,7 +737,7 @@ ALTER TABLE `company_valuables`
 -- AUTO_INCREMENT for table `faqs`
 --
 ALTER TABLE `faqs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -749,7 +755,7 @@ ALTER TABLE `meta_tags`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `orders`

@@ -76,6 +76,12 @@
                                             <textarea rows="2" cols="30" name="description_ar" class="form-control" required>{{ $faq->description_ar }}</textarea>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">slug ar</label>
+                                        <div class="col-md-4">
+                                            <input type="text" value="{{ $faq->slug_ar }}" name="slug_ar" required class="form-control">
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="tab-pane" id="tab_1_2">
@@ -90,6 +96,18 @@
                                         <div class="col-md-8">
                                             <textarea rows="2" cols="30" name="description_en" class="form-control" required>{{ $faq->description_en }}</textarea>
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">slug en</label>
+                                        <div class="col-md-4">
+                                            <input type="text" value="{{ $faq->slug_en }}" name="slug_en" required class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">شائع</label>
+                                    <div class="col-md-4">
+                                        <input data-onstyle="danger" @if($faq->is_common) ? checked : "" @endif type="checkbox" name="is_common"  data-toggle="toggle">
                                     </div>
                                 </div>
                                 <div class="form-group">

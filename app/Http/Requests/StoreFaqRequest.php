@@ -24,8 +24,13 @@ class StoreFaqRequest extends FormRequest
     public function rules()
     {
         return [
-            'description_ar'=>'required',
+            'question_ar'=>'required',
+            'question_en'=>'required',
             'description_en'=>'required',
+            'description_en'=>'required',
+            'question_category_id'=>'required',
+            'slug_ar'=>'required',
+            'slug_en'=>'required',
         ];
     }
 }
