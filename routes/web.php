@@ -53,6 +53,8 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
     //Pest libraries
     Route::Resource('/pest_libraries', 'PestLibraryController');
     Route::Post('/pest_libraries/sort', 'PestLibraryController@sortPestLibrariesTypes');
+    //Pest bites
+    Route::Resource('/pest_bites', 'PestBiteController');
     //Sliders
     Route::Post('/sliders/store', 'SliderController@store');
     Route::Post('/sliders/update', 'SliderController@update');

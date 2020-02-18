@@ -127,6 +127,33 @@
     </ul>
 </li>
 
+<li class="nav-item {{Request::is('adminpanel/pest_bites', 'adminpanel/pest_bites/*', 'adminpanel/pest_bites/create') ? 'start active open':'' }}">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <span class="icon">
+            <i class="fas fa-pastafarianism"></i>
+         </span>
+        <span class="title">أنواع اللدغات</span>
+        <span class="selected"></span>
+        <span class="arrow open"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item {{Request::is('adminpanel/pest_bites/create') ? 'start active open':'' }}">
+            <a href="{{ url('adminpanel/pest_bites/create') }}" class="nav-link nav-toggle">
+                <i class="fas fa-angle-left"></i>
+                <span class="title">أضافة لدغه</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+        <li class="nav-item {{Request::is('adminpanel/pest_bites') ? 'start active open':'' }}">
+            <a href="{{ url('adminpanel/pest_bites') }}" class="nav-link nav-toggle">
+                <i class="fas fa-angle-left"></i>
+                <span class="title">مشاهدة أنواع اللدغات</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+    </ul>
+</li>
+
 <li class="nav-item {{Request::is('adminpanel/ads') ? 'start active open':'' }}">
     <a href="{{ url('adminpanel/ads') }}" class="nav-link nav-toggle">
         <span class="icon">
