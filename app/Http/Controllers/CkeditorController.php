@@ -20,7 +20,7 @@ class CkeditorController extends Controller
             $extension = $request->file('upload')->getClientOriginalExtension();
 
             //filename to store
-            $filenametostore = $filename.'_'.time().'.'.$extension;
+            $filenametostore = $filename.'.'.$extension;
 
             //Upload File
             $file->move('uploads/contents/', $filenametostore);
