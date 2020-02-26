@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2020 at 10:23 PM
+-- Generation Time: Feb 21, 2020 at 11:31 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -98,7 +98,8 @@ CREATE TABLE `article_types` (
 --
 
 INSERT INTO `article_types` (`id`, `category`, `is_active`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'nnn', 0, 'nn', NULL, NULL);
+(1, 'nnn', 0, 'nn', NULL, NULL),
+(2, 'jjj', 1, 'jjj', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -120,16 +121,18 @@ CREATE TABLE `blogs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `meta_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `article_id` bigint(20) UNSIGNED NOT NULL
+  `article_id` bigint(20) UNSIGNED NOT NULL,
+  `keywords` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `blogs`
 --
 
-INSERT INTO `blogs` (`id`, `name`, `image`, `meta_title`, `image_alt`, `description_ar`, `sort`, `is_active`, `slug`, `viewers`, `created_at`, `updated_at`, `meta_description`, `article_id`) VALUES
-(9, ';;;;k', 'uploads/articles/thumb/1581125852bc556651bdd8432c081c2352e18ddeb4image.png', 'kkk', 'kk', '<p>kkk</p>', 1, 1, 'kkkk', NULL, NULL, NULL, 'kk', 1),
-(10, 'kkkk', 'uploads/articles/thumb/1581179346b55b229fe15a0b8429a4af4e3625985fimage.png', 'kk', 'kkk', '<p><img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/cpanel_1581181264.png\" style=\"height:483px; width:494px\" />kkk<img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/Capture_1581179306.png\" style=\"height:10px; width:50px\" /></p>', 2, 1, 'kkk', NULL, NULL, NULL, 'kkk', 1);
+INSERT INTO `blogs` (`id`, `name`, `image`, `meta_title`, `image_alt`, `description_ar`, `sort`, `is_active`, `slug`, `viewers`, `created_at`, `updated_at`, `meta_description`, `article_id`, `keywords`) VALUES
+(9, ';;;;k', 'uploads/articles/thumb/1581125852bc556651bdd8432c081c2352e18ddeb4image.png', 'kkk', 'kk', '<p>kkk</p>', 1, 1, 'kkkk', NULL, NULL, NULL, 'kk', 1, ''),
+(10, 'kkkk', 'uploads/articles/thumb/1581179346b55b229fe15a0b8429a4af4e3625985fimage.png', 'kk', 'kkk', '<p><img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/cpanel_1581181264.png\" style=\"height:483px; width:494px\" />kkk<img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/Capture_1581179306.png\" style=\"height:10px; width:50px\" /></p>', 2, 1, 'kkk', NULL, NULL, NULL, 'kkk', 1, ''),
+(11, 'kkk', 'uploads/articles/thumb/1582319939b36adac6cec4df7d096fc121d69591e8image.png', 'kkk', 'kkk', '<p>kkk</p>', 3, 1, 'kk', NULL, NULL, NULL, 'kkk', 2, 'kkk');
 
 -- --------------------------------------------------------
 
@@ -247,7 +250,11 @@ INSERT INTO `meta_tags` (`id`, `service_id`, `blog_id`, `created_at`, `updated_a
 (53, NULL, 9, '2020-02-07 23:37:32', '2020-02-07 23:37:32', 'k'),
 (54, 12, NULL, '2020-02-08 14:12:37', '2020-02-08 14:12:37', 'jjj'),
 (55, 13, NULL, '2020-02-08 14:27:11', '2020-02-08 14:27:11', 'jj'),
-(57, NULL, 10, '2020-02-08 15:03:43', '2020-02-08 15:03:43', 'kkk');
+(57, NULL, 10, '2020-02-08 15:03:43', '2020-02-08 15:03:43', 'kkk'),
+(58, 14, NULL, '2020-02-18 20:10:30', '2020-02-18 20:10:30', 'kkk'),
+(59, NULL, 11, '2020-02-21 19:18:59', '2020-02-21 19:18:59', 'kkk'),
+(61, 15, NULL, '2020-02-21 19:27:34', '2020-02-21 19:27:34', 'JJJJ'),
+(63, 16, NULL, '2020-02-21 20:17:08', '2020-02-21 20:17:08', 'jjj');
 
 -- --------------------------------------------------------
 
@@ -311,7 +318,14 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (65, '2020_02_09_185154_edit_faqs_structure_table', 26),
 (66, '2020_02_09_204623_edit_question_categories_structure_table', 27),
 (67, '2020_02_09_211651_add_sub_pest_pest_libraries_table', 28),
-(69, '2020_02_10_210621_add_is_common_field_faqs_table', 29);
+(69, '2020_02_10_210621_add_is_common_field_faqs_table', 29),
+(71, '2020_02_18_205221_create_pest_bites_table', 30),
+(72, '2020_02_21_203844_add_keywords_services_table', 31),
+(73, '2020_02_21_204414_add_keywords_sbogs_tbale', 31),
+(74, '2020_02_21_204437_add_keywords_sp_est_librariestatble', 31),
+(75, '2020_02_21_205140_add_knew_column__st_lbites_bale', 32),
+(77, '2020_02_21_220340_add_meta_tag_description_services_table', 33),
+(78, '2020_02_21_221826_add_meta_tag_description_pest_libraries_table', 34);
 
 -- --------------------------------------------------------
 
@@ -352,6 +366,34 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pest_bites`
+--
+
+CREATE TABLE `pest_bites` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pest_type_ar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pest_type_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `insect_bites_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `insect_bites_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notes_ar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notes_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `sting_appearance_ar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sting_appearance_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pest_bites`
+--
+
+INSERT INTO `pest_bites` (`id`, `image`, `pest_type_ar`, `pest_type_en`, `insect_bites_ar`, `insect_bites_en`, `notes_ar`, `notes_en`, `created_at`, `updated_at`, `sting_appearance_ar`, `sting_appearance_en`) VALUES
+(1, 'uploads/pest_bites/158231971276e7d2b08c81b3c597e1af120a7a290fimage.png', 'kjkj', 'bb', 'jkjjk', 'bbb', '<p>jkjkj</p>', '<p>bbb</p>', NULL, NULL, 'kjj', 'bbb');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pest_libraries`
 --
 
@@ -360,7 +402,7 @@ CREATE TABLE `pest_libraries` (
   `name_ar` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name_en` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_description_ar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image_alt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `description_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -371,17 +413,23 @@ CREATE TABLE `pest_libraries` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `slug_ar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_title` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sub_pest` int(11) DEFAULT NULL
+  `meta_title_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sub_pest` int(11) DEFAULT NULL,
+  `keywords_ar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keywords_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_title_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_description_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `pest_libraries`
 --
 
-INSERT INTO `pest_libraries` (`id`, `name_ar`, `name_en`, `image`, `meta_description`, `image_alt`, `description_ar`, `description_en`, `sort`, `is_active`, `home_order`, `created_at`, `updated_at`, `slug_ar`, `slug_en`, `meta_title`, `sub_pest`) VALUES
-(1, 'pest1', 'pest1', 'uploads/pest_libraries/158119927108c8ba7d0c7b973ef4ecc1b37644fdd8image.png', 'jjj', 'jjhjj', '<p>pest1</p>', '<p>pest1</p>', 1, 0, 0, NULL, NULL, 'nnn-kkkk', 'mmm-ikii', 'jjj', NULL),
-(2, 'pest2', 'pest2', 'uploads/pest_libraries/1581283329c760702ccbef18ab8a13e95443fa1c76image.png', 'jjj', 'jjhjj', '<p>pest2</p>', '<p>pest2</p>', 2, 1, 0, NULL, NULL, 'nnn-kkkk', 'mmm-ikii', 'jjj', 1);
+INSERT INTO `pest_libraries` (`id`, `name_ar`, `name_en`, `image`, `meta_description_ar`, `image_alt`, `description_ar`, `description_en`, `sort`, `is_active`, `home_order`, `created_at`, `updated_at`, `slug_ar`, `slug_en`, `meta_title_ar`, `sub_pest`, `keywords_ar`, `keywords_en`, `meta_title_en`, `meta_description_en`) VALUES
+(1, 'pest1', 'pest1', 'uploads/pest_libraries/158119927108c8ba7d0c7b973ef4ecc1b37644fdd8image.png', 'jjj', 'jjhjj', '<p>pest1</p>', '<p>pest1</p>', 1, 0, 0, NULL, NULL, 'nnn-kkkk', 'mmm-ikii', 'jjj', NULL, '', '', '', ''),
+(2, 'pest2', 'pest2', 'uploads/pest_libraries/1581283329c760702ccbef18ab8a13e95443fa1c76image.png', 'jjj', 'jjhjj', '<p>pest2</p>', '<p>pest2</p>', 2, 1, 0, NULL, NULL, 'nnn-kkkk', 'mmm-ikii', 'jjj', 1, '', '', '', ''),
+(3, 'll', 'mm', 'uploads/pest_libraries/158232063832351abc5bc6a8ae22328a34c4df4d5fimage.png', 'lllmmm', 'mm', '<p>lll</p>', '<p>mmm</p>', 3, 1, 0, NULL, NULL, 'll', 'mmm', 'm', NULL, 'lll', 'mm', '', ''),
+(4, 'aa', 'cc', 'uploads/pest_libraries/1582323874912efbef6aa11099a2cea339dc203382image.png', 'aa', 'aa', '<p>aa</p>', '<p>cc</p>', 4, 1, 0, NULL, NULL, 'aa', 'cc', 'aa', NULL, 'aa', 'cc', 'cc', 'cc');
 
 -- --------------------------------------------------------
 
@@ -415,8 +463,8 @@ CREATE TABLE `services` (
   `name_ar` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name_en` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `meta_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_title_ar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_description_ar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `category_id` bigint(20) UNSIGNED NOT NULL,
   `phone` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `sort` tinyint(1) NOT NULL DEFAULT '0',
@@ -428,18 +476,25 @@ CREATE TABLE `services` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `description_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `description_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sub_service` int(11) DEFAULT NULL
+  `sub_service` int(11) DEFAULT NULL,
+  `keywords_ar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keywords_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_title_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta_description_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `services`
 --
 
-INSERT INTO `services` (`id`, `name_ar`, `name_en`, `image`, `meta_title`, `meta_description`, `category_id`, `phone`, `sort`, `is_active`, `home_order`, `slug_ar`, `slug_en`, `created_at`, `updated_at`, `description_ar`, `description_en`, `sub_service`) VALUES
-(10, 'ممم', 'ممم', 'uploads/services/15811258290022c7d4f20897ed44eab8137f01936fimage.png', 'ننن', 'ننن', 1, '5555', 1, 1, 0, 'ممم', 'مم', NULL, NULL, '<p>مممم</p>', '<p>ممم</p>', NULL),
-(11, 'bb', 'ننن', 'uploads/services/1581120772b467892c584b14a6347d08105b2d3732image.png', 'تنتن', 'تتت', 1, '4545', 2, 1, 0, 'ممم', 'نمن', NULL, NULL, '<p>ممم</p>', '<p>ننن</p>', NULL),
-(12, 'kkkk', 'kkk', 'uploads/services/15811783568dd0b1f9f00a327b4fed1c324c74a942image.png', 'jjj', 'jj', 1, '56566', 3, 1, 0, 'kjjj', 'nkjknjk', NULL, NULL, '<p><img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/Admin_1581178330.png\" style=\"height:60px; width:60px\" /></p>', '<h3><img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/1_1581178297.png\" style=\"height:75px; width:50px\" /></h3>', NULL),
-(13, 'بب', 'kkk', 'uploads/services/15811792319eae7bf441c9a8dceb1671c26e961171image.png', 'jj', 'jjj', 1, '8488', 4, 1, 0, 'kkk-kkk', 'nn', NULL, NULL, '<p>sfefe<img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/Admin_1581179193.png\" style=\"height:60px; width:60px\" /></p>', '<p>knjkjn<img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/logo_1581179219.png\" style=\"height:66px; width:225px\" /></p>', NULL);
+INSERT INTO `services` (`id`, `name_ar`, `name_en`, `image`, `meta_title_ar`, `meta_description_ar`, `category_id`, `phone`, `sort`, `is_active`, `home_order`, `slug_ar`, `slug_en`, `created_at`, `updated_at`, `description_ar`, `description_en`, `sub_service`, `keywords_ar`, `keywords_en`, `meta_title_en`, `meta_description_en`) VALUES
+(10, 'ممم', 'ممم', 'uploads/services/15811258290022c7d4f20897ed44eab8137f01936fimage.png', 'ننن', 'ننن', 1, '5555', 1, 1, 0, 'ممم', 'مم', NULL, NULL, '<p>مممم</p>', '<p>ممم</p>', NULL, '', '', '', ''),
+(11, 'bb', 'ننن', 'uploads/services/1581120772b467892c584b14a6347d08105b2d3732image.png', 'تنتن', 'تتت', 1, '4545', 2, 1, 0, 'ممم', 'نمن', NULL, NULL, '<p>ممم</p>', '<p>ننن</p>', NULL, '', '', '', ''),
+(12, 'kkkk', 'kkk', 'uploads/services/15811783568dd0b1f9f00a327b4fed1c324c74a942image.png', 'jjj', 'jj', 1, '56566', 3, 1, 0, 'kjjj', 'nkjknjk', NULL, NULL, '<p><img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/Admin_1581178330.png\" style=\"height:60px; width:60px\" /></p>', '<h3><img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/1_1581178297.png\" style=\"height:75px; width:50px\" /></h3>', NULL, '', '', '', ''),
+(13, 'بب', 'kkk', 'uploads/services/15811792319eae7bf441c9a8dceb1671c26e961171image.png', 'jj', 'jjj', 1, '8488', 4, 1, 0, 'kkk-kkk', 'nn', NULL, NULL, '<p>sfefe<img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/Admin_1581179193.png\" style=\"height:60px; width:60px\" /></p>', '<p>knjkjn<img alt=\"\" src=\"http://localhost/orkida/public/storage/uploads/logo_1581179219.png\" style=\"height:66px; width:225px\" /></p>', NULL, '', '', '', ''),
+(14, 'lll', 'mmm', 'uploads/services/1582063830e49866f4aa778efa3a3e3078d3dbbd0dimage.png', 'kkk', 'kkk', 1, '77878', 5, 1, 0, 'lll', 'ss', NULL, NULL, '<p>llll</p>', '<p>mmmm<img alt=\"\" src=\"http://localhost/orkida/uploads/contents/cpanel_1582063820.png\" style=\"height:196px; width:200px\" /></p>', NULL, '', '', '', ''),
+(15, 'kkk', 'MKNJK', 'uploads/services/1582320308e23b2f86723e8858ca0cdcb972e2c3ecimage.png', 'JJJH', 'JHJH', 1, '555', 6, 1, 0, 'KKKK', 'KJKKJ', NULL, NULL, '<p>KKKK</p>', '<p>JKJK</p>', NULL, 'nnnn', 'kl', '', ''),
+(16, 'kkk', 'vvv', 'uploads/services/1582323402ffd6f0dd68977ac844ee03936b71b7adimage.png', 'kk', 'kk', 1, '85585', 7, 1, 0, 'kk', 'vvvv', NULL, NULL, '<p>kkk</p>', '<p>vvv</p>', NULL, 'kk', 'vvvv', 'vvv', 'vvv');
 
 -- --------------------------------------------------------
 
@@ -643,6 +698,12 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indexes for table `pest_bites`
+--
+ALTER TABLE `pest_bites`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `pest_libraries`
 --
 ALTER TABLE `pest_libraries`
@@ -713,13 +774,13 @@ ALTER TABLE `ads`
 -- AUTO_INCREMENT for table `article_types`
 --
 ALTER TABLE `article_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -749,13 +810,13 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `meta_tags`
 --
 ALTER TABLE `meta_tags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -764,10 +825,16 @@ ALTER TABLE `orders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `pest_bites`
+--
+ALTER TABLE `pest_bites`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `pest_libraries`
 --
 ALTER TABLE `pest_libraries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `question_categories`
@@ -779,7 +846,7 @@ ALTER TABLE `question_categories`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `service_types`

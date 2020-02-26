@@ -78,17 +78,23 @@ class OurServiceController  extends Controller {
      */
     public function edit(int $id): View
     {
-        $serviceTags = [];
+        $serviceTagsEn = [];
+        $serviceTagsAr = [];
         $categories = Category::get();
         $services = Service::where('id', '!=', $id)->get();
         $service = $this->ourServiceService->getService($id);
         $tags = $this->metaTagService->getTags($id, 'services');
         for ($i = 0; $i < count($tags); $i++){
-            $serviceTags[$i] = $tags[$i]->tag;
+            if($tags[$i]->lang == 'EN')
+                $serviceTagsEn[$i] = $tags[$i]->tag;
+            else
+                $serviceTagsAr[$i] = $tags[$i]->tag;
         }
-        $displayedTags = implode(",", $serviceTags);
+        $displayedTagsEn = implode(",", $serviceTagsEn);
+        $displayedTagsAr = implode(",", $serviceTagsAr);
         return view('services.edit')
-            ->with('displayedTags',$displayedTags)
+            ->with('displayedTagsEn',$displayedTagsEn)
+            ->with('displayedTagsAr',$displayedTagsAr)
             ->with('service',$service)
             ->with('edit_modal', '')
             ->with('categories', $categories)

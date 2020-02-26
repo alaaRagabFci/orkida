@@ -11,6 +11,6 @@ class PestBite extends Model
      *
      * @var string
      */
-    protected $fillable = ['image', 'pest_type_ar', 'pest_type_en', 'insect_bites_ar', 'insect_bites_en', 'notes_ar', 'notes_en'];
+    protected $fillable = ['image', 'pest_type_ar', 'pest_type_en', 'insect_bites_ar', 'insect_bites_en', 'notes_ar', 'notes_en', 'sting_appearance_ar', 'sting_appearance_en'];
     public $timestamps  = false;
 }

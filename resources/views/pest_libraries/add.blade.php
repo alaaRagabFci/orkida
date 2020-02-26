@@ -98,6 +98,24 @@
                                             <input type="text" value="{{ old('slug_ar') }}" name="slug_ar" required class="form-control">
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">الكلمة الأفتتاحيه</label>
+                                        <div class="col-md-4">
+                                            <input type="text" value="{{ old('keywords_ar') }}" name="keywords_ar" required class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Meta title ar</label>
+                                        <div class="col-md-4">
+                                            <input type="text" value="{{ old('meta_title_ar') }}" name="meta_title_ar" required class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Meta description ar</label>
+                                        <div class="col-md-4">
+                                            <textarea rows="2" cols="30" name="meta_description_ar" class="form-control" required>{{ old('meta_description_ar') }}</textarea>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="tab-pane" id="tab_1_2">
@@ -119,24 +137,30 @@
                                             <input type="text" value="{{ old('slug_en') }}" name="slug_en" required class="form-control">
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">الكلمة الأفتتاحيه</label>
+                                        <div class="col-md-4">
+                                            <input type="text" value="{{ old('keywords_en') }}" name="keywords_en" required class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Meta title en</label>
+                                        <div class="col-md-4">
+                                            <input type="text" value="{{ old('meta_title_en') }}" name="meta_title_en" required class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Meta description en</label>
+                                        <div class="col-md-4">
+                                            <textarea rows="2" cols="30" name="meta_description_en" class="form-control" required>{{ old('meta_description_en') }}</textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Image alt</label>
                                 <div class="col-md-4">
                                     <input type="text" value="{{ old('image_alt') }}" name="image_alt" required class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Meta title</label>
-                                <div class="col-md-4">
-                                <input type="text" value="{{ old('meta_title') }}" name="meta_title" required class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Meta description</label>
-                                <div class="col-md-4">
-                                <textarea rows="2" cols="30" name="meta_description" class="form-control" required>{{ old('meta_description') }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">

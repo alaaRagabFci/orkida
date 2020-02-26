@@ -27,6 +27,8 @@ class StorePestBiteRequest extends FormRequest
             'image'    =>'sometimes|image|mimes:jpg,png,jpeg,JPG,PNG,JPEG',
             'pest_type_ar'=>'required',
             'pest_type_en'=>'required',
+            'sting_appearance_ar'=>'required',
+            'sting_appearance_en'=>'required',
             'insect_bites_ar'=>'required',
             'insect_bites_en'=>'required',
             'notes_ar'=>'required',

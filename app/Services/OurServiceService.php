@@ -78,11 +78,20 @@ class OurServiceService
         $parameters['slug_en'] = str_replace(' ', '-', $parameters['slug_en']);
         $serviceId = $service->create($parameters)->id;
         if($service){
-            $tags = explode (",", $parameters['tags']);
-            foreach ($tags as $tag){
+            $tags_ar = explode (",", $parameters['tags_ar']);
+            foreach ($tags_ar as $tag){
                 $metaTag = new MetaTag();
                 $metaTag->tag = $tag;
                 $metaTag->service_id = $serviceId;
+                $metaTag->lang = 'AR';
+                $metaTag->save();
+            }
+            $tags_en = explode (",", $parameters['tags_en']);
+            foreach ($tags_en as $tag){
+                $metaTag = new MetaTag();
+                $metaTag->tag = $tag;
+                $metaTag->service_id = $serviceId;
+                $metaTag->lang = 'EN';
                 $metaTag->save();
             }
         }
@@ -136,11 +145,20 @@ class OurServiceService
         $service->update($parameters);
         if($service){
             MetaTag::where('service_id', $parameters['id'])->delete();
-            $tags = explode (",", $parameters['tags']);
-            foreach ($tags as $tag){
+            $tags_ar = explode (",", $parameters['tags_ar']);
+            foreach ($tags_ar as $tag){
                 $metaTag = new MetaTag();
                 $metaTag->tag = $tag;
                 $metaTag->service_id = $parameters['id'];
+                $metaTag->lang = 'AR';
+                $metaTag->save();
+            }
+            $tags_en = explode (",", $parameters['tags_en']);
+            foreach ($tags_en as $tag){
+                $metaTag = new MetaTag();
+                $metaTag->tag = $tag;
+                $metaTag->service_id = $parameters['id'];
+                $metaTag->lang = 'EN';
                 $metaTag->save();
             }
         }

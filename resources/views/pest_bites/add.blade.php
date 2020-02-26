@@ -70,6 +70,12 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tab_1_1">
                                     <div class="form-group">
+                                        <label class="control-label col-md-3">مظهر اللدغه</label>
+                                        <div class="col-md-4">
+                                            <input type="text" value="{{ old('sting_appearance_ar') }}" name="sting_appearance_ar" required class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                     <label class="control-label col-md-3">نوع الحشرة</label>
                                     <div class="col-md-4">
                                         <input type="text" value="{{ old('pest_type_ar') }}" name="pest_type_ar" required class="form-control">
@@ -90,6 +96,12 @@
                                 </div>
 
                                 <div class="tab-pane" id="tab_1_2">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Sting appearence</label>
+                                        <div class="col-md-4">
+                                            <input type="text" value="{{ old('sting_appearance_en') }}" name="sting_appearance_en" required class="form-control">
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Pest type</label>
                                         <div class="col-md-4">

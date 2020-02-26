@@ -91,6 +91,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="control-label col-md-3">الكلمة الأفتتاحيه</label>
+                                <div class="col-md-4">
+                                    <input type="text" value="{{ $blog->keywords }}" name="keywords" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="control-label col-md-3">Meta title</label>
                                 <div class="col-md-4">
                                     <input type="text" value="{{ $blog->meta_title }}" name="meta_title" required class="form-control">
