@@ -9,7 +9,6 @@ class Service extends Model
     protected $fillable = ['name_ar', 'name_en', 'description_ar', 'description_en', 'image', 'sort',
         'meta_title_ar', 'meta_description_ar', 'category_id', 'phone', 'slug_ar', 'slug_en', 'is_active', 'sub_service',
         'keywords_ar', 'keywords_en', 'meta_title_en', 'meta_description_en'];
-    public $timestamps  = false;
 
     public function getCategory()
     {

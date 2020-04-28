@@ -13,5 +13,4 @@ class QuestionCategory extends Model
      */
     protected $table = 'question_categories';
     protected $fillable = ['category_ar', 'category_en'];
-    public $timestamps  = false;
 }

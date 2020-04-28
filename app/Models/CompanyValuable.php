@@ -13,5 +13,4 @@ class CompanyValuable extends Model
      */
     protected $table = 'company_valuables';
     protected $fillable = ['title_ar', 'title_en', 'desc_ar', 'desc_en', 'icon'];
-    public $timestamps  = false;
 }

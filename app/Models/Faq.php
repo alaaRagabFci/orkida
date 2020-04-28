@@ -12,5 +12,4 @@ class Faq extends Model
     {
         return $this->belongsTo('App\Models\QuestionCategory','question_category_id','id');
     }
-    public $timestamps  = false;
 }

@@ -13,5 +13,4 @@ class ArticleType extends Model
      */
     protected $table = 'article_types';
     protected $fillable = ['category', 'slug', 'is_active'];
-    public $timestamps  = false;
 }

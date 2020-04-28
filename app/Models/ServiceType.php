@@ -14,7 +14,6 @@ class ServiceType extends Model
     protected $table = 'service_types';
     protected $fillable = ['name_ar', 'name_en', 'image', 'sort',
         'image_title', 'image_alt', 'service_id', 'is_active'];
-    public $timestamps  = false;
 
     public function getService()
     {
