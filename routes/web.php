@@ -12,6 +12,10 @@
 */
 
 //Adminpanel
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
     Route::post('ckeditor/image_upload', 'CkeditorController@upload')->name('upload');
     //Dashboard
