@@ -19,7 +19,7 @@ $factory->define(Service::class, function (Faker $faker) {
     return [
         'name_ar' => $faker->name,
         'name_en' => $faker->name,
-        'image' => 'https://via.placeholder.com/150',
+        'image' => 'uploads/services/service.jpg',
         'meta_title_ar' => $faker->name(),
         'meta_title_en' => $faker->name(),
         'description_ar' => $faker->text(),

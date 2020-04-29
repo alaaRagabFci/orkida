@@ -21,7 +21,7 @@ $factory->define(CompanyValuable::class, function (Faker $faker) {
         'title_en' => $faker->name,
         'desc_ar' => $faker->text(),
         'desc_en' => $faker->text(),
-        'icon' => 'https://via.placeholder.com/150',
+        'icon' => 'uploads/about_us/article.png',
         'created_at' => now(), 
         'updated_at' => now()
     ];

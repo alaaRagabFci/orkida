@@ -25,7 +25,7 @@ $factory->define(PestBite::class, function (Faker $faker) {
         'notes_en' => $faker->text(),
         'sting_appearance_ar' => $faker->name,
         'sting_appearance_en' => $faker->name,
-        'image' => 'https://via.placeholder.com/150',
+        'image' => 'uploads/pest_bites/article.png',
         'created_at' => now(), 
         'updated_at' => now()
     ];

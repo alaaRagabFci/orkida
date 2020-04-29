@@ -10,7 +10,7 @@ class UtilityService
     public function __construct(Request $request)
     {
         $this->request = $request;
-        $this->validExtensions = array("jpg", "png", "jpeg", "GIF");
+        $this->validExtensions = array("jpg", "png", "jpeg", "GIF", "webp");
     }
 
     /**

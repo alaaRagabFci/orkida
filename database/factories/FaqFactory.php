@@ -25,7 +25,7 @@ $factory->define(Faq::class, function (Faker $faker) {
         'is_common' => $faker->boolean(),
         'slug_ar' => $faker->slug(),
         'slug_en' => $faker->slug(),
-        'question_category_id' => factory(App\Models\QuestionCategory::class),
+        'question_category_id' => $faker->numberBetween(1, 4),
         'created_at' => now(), 
         'updated_at' => now()
     ];

@@ -18,7 +18,7 @@ use Faker\Generator as Faker;
 $factory->define(Blog::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'image' => 'https://via.placeholder.com/150',
+        'image' => 'uploads/articles/thumb/article.png',
         'meta_title' => $faker->name(),
         'image_alt' => $faker->name(),
         'description_ar' => $faker->text(),
@@ -26,7 +26,7 @@ $factory->define(Blog::class, function (Faker $faker) {
         'sort' => $faker->unique()->numberBetween(1,50),
         'slug' => $faker->slug(),
         'meta_description' => $faker->text(),
-        'article_id' => factory(App\Models\ArticleType::class),
+        'article_id' => $faker->numberBetween(1,20),
         'keywords' => $faker->text(),
         'created_at' => now(), 
         'updated_at' => now()
