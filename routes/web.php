@@ -15,8 +15,9 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
+Route::group(['prefix'=>'adminpanel', 'middleware' => ['web'], 'namespace' => 'Admin'], function () {
     Route::post('ckeditor/image_upload', 'CkeditorController@upload')->name('upload');
     //Dashboard
     Route::GET('/', 'UserController@dashboard');
@@ -67,6 +68,13 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web']], function () {
     Route::Post('/company_valuables/store', 'CompanyValuableController@store');
     Route::Post('/company_valuables/update', 'CompanyValuableController@update');
     Route::Resource('/company_valuables', 'CompanyValuableController');
+});
+
+Route::group(['prefix' => LaravelLocalization::setLocale() , 'namespace' => 'Front', 'middleware' =>'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'], function () {
+    Route::GET('/', 'HomeController@home');
+    Route::GET('/nnmm', function(){
+        return view('Front.home_');
+    });
 });
 
 Auth::routes();

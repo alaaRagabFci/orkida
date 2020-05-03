@@ -13,6 +13,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "mcamara/laravel-localization": "^1.5",
         "unisharp/laravel-ckeditor": "^4.7",
         "yajra/laravel-datatables-oracle": "^9.8"
     },
@@ -41,6 +42,11 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+
+            "app/Helpers/lang.php"
+    
         ]
     },
     "autoload-dev": {
