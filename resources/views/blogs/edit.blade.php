@@ -68,8 +68,8 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">العنوان</label>
-                                <div class="col-md-4">
-                                    <input type="text" value="{{ $blog->name }}" name="name" required class="form-control">
+                                <div class="col-md-8">
+                                    <input type="text" value="{{ $blog->name }}" name="name" required class="form-control input-lg">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -81,31 +81,31 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3">slug</label>
                                 <div class="col-md-4">
-                                <textarea rows="5" cols="53" name="slug" class="" required>{{ $blog->slug }}</textarea>
+                                <textarea rows="3" cols="53" name="slug" class="" required>{{ $blog->slug }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Image alt</label>
                                 <div class="col-md-4">
-                                <textarea rows="5" cols="53" name="image_alt" class="" required>{{ $blog->image_alt }}</textarea>
+                                <textarea rows="3" cols="53" name="image_alt" class="" required>{{ $blog->image_alt }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">الكلمة الأفتتاحيه</label>
                                 <div class="col-md-4">
-                                <textarea rows="5" cols="53" name="keywords" class="" required>{{ $blog->keywords }}</textarea>
+                                <textarea rows="3" cols="53" name="keywords" class="" required>{{ $blog->keywords }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Meta title</label>
                                 <div class="col-md-4">
-                                <textarea rows="5" cols="53" name="meta_title" class="" required>{{ $blog->meta_title }}</textarea>
+                                <textarea rows="3" cols="53" name="meta_title" class="" required>{{ $blog->meta_title }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Meta description</label>
                                 <div class="col-md-4">
-                                    <textarea rows="5" cols="53" name="meta_description" class="" required>{{ $blog->meta_description }}</textarea>
+                                    <textarea rows="3" cols="53" name="meta_description" class="" required>{{ $blog->meta_description }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -116,7 +116,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Meta tags</label>
-                                <div class="col-md-4">
+                                <div class="col-md-8">
                                 <input type="text" value="{{ $displayedTags }}"  name="tags" class="form-control input-large" required  data-role="tagsinput">
                                 </div>
                             </div>

@@ -72,20 +72,20 @@
                                 <div class="tab-pane active" id="tab_1_1">
                                     <div class="form-group">
                                         <label class="control-label col-md-3">مظهر اللدغه</label>
-                                        <div class="col-md-4">
-                                            <input type="text" value="{{ $bite->sting_appearance_ar }}" name="sting_appearance_ar" required class="form-control">
+                                        <div class="col-md-8">
+                                            <input type="text" value="{{ $bite->sting_appearance_ar }}" name="sting_appearance_ar" required class="form-control input-lg">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">نوع الحشرة</label>
-                                        <div class="col-md-4">
-                                            <input type="text" value="{{ $bite->pest_type_ar }}" name="pest_type_ar" required class="form-control">
+                                        <div class="col-md-8">
+                                            <input type="text" value="{{ $bite->pest_type_ar }}" name="pest_type_ar" required class="form-control input-lg">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">الأعراض</label>
                                         <div class="col-md-8">
-                                            <textarea rows="2" cols="30" name="insect_bites_ar" class="form-control" required>{{ $bite->insect_bites_ar }}</textarea>
+                                            <textarea rows="3" cols="30" name="insect_bites_ar" class="form-control" required>{{ $bite->insect_bites_ar }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -99,20 +99,20 @@
                                 <div class="tab-pane" id="tab_1_2">
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Sting appearence</label>
-                                        <div class="col-md-4">
-                                            <input type="text" value="{{ $bite->sting_appearance_en }}" name="sting_appearance_en" required class="form-control">
+                                        <div class="col-md-8">
+                                            <input type="text" value="{{ $bite->sting_appearance_en }}" name="sting_appearance_en" required class="form-control input-lg">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Pest type</label>
-                                        <div class="col-md-4">
-                                            <input type="text" value="{{ $bite->pest_type_en }}" name="pest_type_en" required class="form-control">
+                                        <div class="col-md-8">
+                                            <input type="text" value="{{ $bite->pest_type_en }}" name="pest_type_en" required class="form-control input-lg">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Insects</label>
                                         <div class="col-md-8">
-                                            <textarea rows="2" cols="30" name="insect_bites_en" class="form-control" required>{{ $bite->insect_bites_en }}</textarea>
+                                            <textarea rows="3" cols="30" name="insect_bites_en" class="form-control" required>{{ $bite->insect_bites_en }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">

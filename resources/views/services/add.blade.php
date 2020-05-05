@@ -93,8 +93,8 @@
                                 <div class="tab-pane active" id="tab_1_1">
                                     <div class="form-group">
                                     <label class="control-label col-md-3">العنوان</label>
-                                    <div class="col-md-4">
-                                        <input type="text" value="{{ old('name_ar') }}" name="name_ar" required class="form-control">
+                                    <div class="col-md-8">
+                                        <input type="text" value="{{ old('name_ar') }}" name="name_ar" required class="form-control input-lg">
                                     </div>
                                     </div>
                                     <div class="form-group">
@@ -106,32 +106,32 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">slug ar</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="slug_ar" class="" required>{{ old('slug_ar') }}</textarea>
+                                            <textarea rows="3" cols="53" name="slug_ar" class="" required>{{ old('slug_ar') }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">الكلمة الأفتتاحيه</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="keywords_ar" class="" required>{{ old('keywords_ar') }}</textarea>
+                                            <textarea rows="3" cols="53" name="keywords_ar" class="" required>{{ old('keywords_ar') }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta title ar</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="meta_title_ar" class="" required>{{ old('meta_title_ar') }}</textarea>
+                                            <textarea rows="3" cols="53" name="meta_title_ar" class="" required>{{ old('meta_title_ar') }}</textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta description ar</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="meta_description_ar" class="" required>{{ old('meta_description_ar') }}</textarea>
+                                            <textarea rows="3" cols="53" name="meta_description_ar" class="" required>{{ old('meta_description_ar') }}</textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta tags ar</label>
-                                        <div class="col-md-4">
+                                        <div class="col-md-8">
                                             <input type="text" value="{{ old('tags_ar') }}" name="tags_ar" class="form-control input-large" required  data-role="tagsinput">
                                         </div>
                                     </div>
@@ -140,8 +140,8 @@
                                 <div class="tab-pane" id="tab_1_2">
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Title</label>
-                                        <div class="col-md-4">
-                                            <input type="text" value="{{ old('name_en') }}" name="name_en" required class="form-control">
+                                        <div class="col-md-8">
+                                            <input type="text" value="{{ old('name_en') }}" name="name_en" required class="form-control input-lg">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -153,31 +153,31 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">slug en</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="slug_en" class="" required>{{ old('slug_en') }}</textarea>
+                                            <textarea rows="3" cols="53" name="slug_en" class="" required>{{ old('slug_en') }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">الكلمة الأفتتاحيه</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="keywords_en" class="" required>{{ old('keywords_en') }}</textarea>
+                                            <textarea rows="3" cols="53" name="keywords_en" class="" required>{{ old('keywords_en') }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta title en</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="meta_title_en" class="" required>{{ old('meta_title_en') }}</textarea>
+                                            <textarea rows="3" cols="53" name="meta_title_en" class="" required>{{ old('meta_title_en') }}</textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta description en</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="meta_description_en" class="" required>{{ old('meta_description_en') }}</textarea>
+                                            <textarea rows="3" cols="53" name="meta_description_en" class="" required>{{ old('meta_description_en') }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta tags en</label>
-                                        <div class="col-md-4">
+                                        <div class="col-md-8">
                                             <input type="text" value="{{ old('tags_en') }}" name="tags_en" class="form-control input-large" required  data-role="tagsinput">
                                         </div>
                                     </div>

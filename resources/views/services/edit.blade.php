@@ -95,8 +95,8 @@
                                 <div class="tab-pane active" id="tab_1_1">
                                     <div class="form-group">
                                     <label class="control-label col-md-3">العنوان</label>
-                                    <div class="col-md-4">
-                                        <input type="text" value="{{ $service->name_ar }}" name="name_ar" required class="form-control">
+                                    <div class="col-md-8">
+                                        <input type="text" value="{{ $service->name_ar }}" name="name_ar" required class="form-control input-lg">
                                     </div>
                                     </div>
                                     <div class="form-group">
@@ -108,32 +108,32 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">slug ar</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="slug_ar" class="" required>{{ $service->slug_ar }}</textarea>
+                                            <textarea rows="3" cols="53" name="slug_ar" class="" required>{{ $service->slug_ar }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">الكلمة الأفتتاحيه</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="keywords_ar" class="" required>{{ $service->keywords_ar }}</textarea>
+                                            <textarea rows="3" cols="53" name="keywords_ar" class="" required>{{ $service->keywords_ar }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta title ar</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="meta_title_ar" class="" required>{{ $service->meta_title_ar }}</textarea>
+                                            <textarea rows="3" cols="53" name="meta_title_ar" class="" required>{{ $service->meta_title_ar }}</textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta description ar</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="meta_description_ar" class="" required>{{ $service->meta_description_ar }}</textarea>
+                                            <textarea rows="3" cols="53" name="meta_description_ar" class="" required>{{ $service->meta_description_ar }}</textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta tags ar</label>
-                                        <div class="col-md-4">
+                                        <div class="col-md-8">
                                             <input type="text" value="{{ $displayedTagsAr }}"  name="tags_ar" class="form-control input-large" required  data-role="tagsinput">
                                         </div>
                                     </div>
@@ -142,8 +142,8 @@
                                 <div class="tab-pane" id="tab_1_2">
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Title</label>
-                                        <div class="col-md-4">
-                                            <input type="text" value="{{ $service->name_en }}" name="name_en" required class="form-control">
+                                        <div class="col-md-8">
+                                            <input type="text" value="{{ $service->name_en }}" name="name_en" required class="form-control input-lg">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -155,32 +155,32 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">slug en</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="slug_en" class="" required>{{ $service->slug_en }}</textarea>
+                                            <textarea rows="3" cols="53" name="slug_en" class="" required>{{ $service->slug_en }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">الكلمة الأفتتاحيه</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="keywords_en" class="" required>{{ $service->keywords_en }}</textarea>
+                                            <textarea rows="3" cols="53" name="keywords_en" class="" required>{{ $service->keywords_en }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta title en</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="meta_title_en" class="" required>{{ $service->meta_title_en }}</textarea>
+                                            <textarea rows="3" cols="53" name="meta_title_en" class="" required>{{ $service->meta_title_en }}</textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta description en</label>
                                         <div class="col-md-4">
-                                            <textarea rows="5" cols="53" name="meta_description_en" class="" required>{{ $service->meta_description_en }}</textarea>
+                                            <textarea rows="3" cols="53" name="meta_description_en" class="" required>{{ $service->meta_description_en }}</textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta tags en</label>
-                                        <div class="col-md-4">
+                                        <div class="col-md-8">
                                             <input type="text" value="{{ $displayedTagsEn }}"  name="tags_en" class="form-control input-large" required  data-role="tagsinput">
                                         </div>
                                     </div>
