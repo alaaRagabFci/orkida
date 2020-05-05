@@ -20,6 +20,9 @@ return [
         'blog' => 'المدونة',
         'aboutUs' => 'من نحن',
         'changeLang' => 'تغيير اللغه',
+        'orkida' => 'أوركيدا',
+        'otherPests' => 'أفات أخري',
+        'pestBites' => 'أنواع اللدغات',
     ],
     'orderService' => [
         'order' => 'طلب خدمة',

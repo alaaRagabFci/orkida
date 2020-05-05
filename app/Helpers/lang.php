@@ -1,10 +1,8 @@
 <?php 
 
-function getLocalizableColumn($column)
+function getLocalizableColumn($obj, string $column): string
 {
 	$lang = app()->getLocale();
-
 	$textTrans = $column.'_'.$lang;
-    dd($textTrans);
-	return $textTrans;
+	return $obj->$textTrans;
 }

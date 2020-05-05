@@ -72,9 +72,10 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web'], 'namespace' => 'A
 
 Route::group(['prefix' => LaravelLocalization::setLocale() , 'namespace' => 'Front', 'middleware' =>'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'], function () {
     Route::GET('/', 'HomeController@home');
-    Route::GET('/nnmm', function(){
-        return view('Front.home_');
-    });
+    Route::GET('/cc', 'HomeController@home');
+    Route::POST('contact', 'HomeController@sendMessage');
+    Route::GET('search', 'HomeController@search');
+    Route::GET('site-search', 'HomeController@siteSearch');
 });
 
 Auth::routes();

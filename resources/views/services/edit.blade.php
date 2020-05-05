@@ -108,26 +108,26 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">slug ar</label>
                                         <div class="col-md-4">
-                                            <input type="text" value="{{ $service->slug_ar }}" name="slug_ar" required class="form-control">
+                                            <textarea rows="5" cols="53" name="slug_ar" class="" required>{{ $service->slug_ar }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">الكلمة الأفتتاحيه</label>
                                         <div class="col-md-4">
-                                            <input type="text" value="{{ $service->keywords_ar }}" name="keywords_ar" required class="form-control">
+                                            <textarea rows="5" cols="53" name="keywords_ar" class="" required>{{ $service->keywords_ar }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta title ar</label>
                                         <div class="col-md-4">
-                                            <input type="text" value="{{ $service->meta_title_ar }}" name="meta_title_ar" required class="form-control">
+                                            <textarea rows="5" cols="53" name="meta_title_ar" class="" required>{{ $service->meta_title_ar }}</textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta description ar</label>
                                         <div class="col-md-4">
-                                            <textarea rows="2" cols="30" name="meta_description_ar" class="form-control" required>{{ $service->meta_description_ar }}</textarea>
+                                            <textarea rows="5" cols="53" name="meta_description_ar" class="" required>{{ $service->meta_description_ar }}</textarea>
                                         </div>
                                     </div>
 
@@ -155,26 +155,26 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">slug en</label>
                                         <div class="col-md-4">
-                                            <input type="text" value="{{ $service->slug_en }}" name="slug_en" required class="form-control">
+                                            <textarea rows="5" cols="53" name="slug_en" class="" required>{{ $service->slug_en }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">الكلمة الأفتتاحيه</label>
                                         <div class="col-md-4">
-                                            <input type="text" value="{{ $service->keywords_en }}" name="keywords_en" required class="form-control">
+                                            <textarea rows="5" cols="53" name="keywords_en" class="" required>{{ $service->keywords_en }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta title en</label>
                                         <div class="col-md-4">
-                                            <input type="text" value="{{ $service->meta_title_en }}" name="meta_title_en" required class="form-control">
+                                            <textarea rows="5" cols="53" name="meta_title_en" class="" required>{{ $service->meta_title_en }}</textarea>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Meta description en</label>
                                         <div class="col-md-4">
-                                            <textarea rows="2" cols="30" name="meta_description_en" class="form-control" required>{{ $service->meta_description_en }}</textarea>
+                                            <textarea rows="5" cols="53" name="meta_description_en" class="" required>{{ $service->meta_description_en }}</textarea>
                                         </div>
                                     </div>
 

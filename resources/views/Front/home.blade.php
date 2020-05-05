@@ -11,11 +11,11 @@
         <div class="first d-flex justify-content-center align-items-center">
             <p class="mb-0">{{ __('home.orderService.wantService') }}</p>
             <div class="select">
-                <select class="custom-select" id="inputGroupSelect01">
+                <select name="searchService" class="custom-select" id="inputGroupSelect01">
                     <option selected> {{ __('home.orderService.selectService') }}</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    @foreach($pestControls as $pestControl)
+                    <option value="{{ getLocalizableColumn($pestControl, 'slug') }}">{{ getLocalizableColumn($pestControl, 'name') }}</option>
+                    @endforeach
                 </select>
                 <i class="fa fa-chevron-left"></i>
             </div>
@@ -28,7 +28,7 @@
                 <i class="fas fa-phone"></i>
                 <div>
                     <span>{{ __('home.orderService.usePhone') }}</span>
-                    <p>056 300 35 30</p>
+                    <p>{{ count($sitePhones) > 0 ? $sitePhones[0]->phone : '01000000000' }}</p>
                 </div>
             </section>
             <section class="d-flex">
@@ -43,112 +43,28 @@
     </section>
     <!-- services -->
     <section id="services">
-        <h3 class="title_1">{{ __('home.services') }}<img class="dots w-100" src="assets/img/Dots.svg" alt="">
+        <h3 class="title_1">{{ __('home.services') }}<img class="dots w-100" src="{{ asset('/assets/img/Dots.svg')}}" alt="">
         </h3>
         <div class="container-fluid">
             <div class="row services">
+                @foreach($services as $service)
                 <div class="col-lg-4">
                     <section class="backdrop">
                         <div class="overlay_filter"></div>
-                        <a href="pest_control.html">
-                            <img src="assets/img/services/Img1.png" alt="">
-                            <h3 class="mb-0 w-100">مكافحة الآفات</h3>
+                        <a href="{{ app()->getLocale() }}/services/{{getLocalizableColumn($service, 'slug')}}">
+                            <img src="{{ config("app.baseUrl").$service->image }}" alt=" {{ $service->image }}">
+                            <h3 class="mb-0 w-100">{{ getLocalizableColumn($service, 'name') }}</h3>
                         </a>
                         <div class="info_text">
-                            <h6 class="text-center"> مكافاه الافئات </h6>
-                            <small class="text-center">مع كل يوم، نثبت دائماً أننا الأفضل في مجال مكافحة الحشرات لما نقدمه من خدمة إحترافية وخبرة عالية ونسعى دائماً لتحقيق الأفضل لك ولأسرتك، من خلال أسرع مكافحة لكافة أنواع الحشرات لنوفر لك منزل آمن وبيئة نظيفة..
-                            </small>
+                            <h6 class="text-center"> {{ getLocalizableColumn($service, 'name') }} </h6>
+                            <small class="text-center">{{ charsLimit(getLocalizableColumn($service, 'description'), 80) }}</small>
                         </div>
                         <div class="more">
-                            <a href="pest_control.html"> مزيد من التفاصيل </a>
+                            <a href="pest_control.html"> {{ __('home.seeAll.seeAllServices') }} </a>
                         </div>
                     </section>
                 </div>
-                <div class="col-lg-4">
-                    <section class="backdrop">
-                        <div class="overlay_filter"></div>
-                        <a href="">
-                            <img src="assets/img/services/Img2.png" alt="">
-                            <h3 class="mb-0 w-100 ">تنسيق حدائق</h3>
-                        </a>
-                        <div class="info_text">
-                            <h6 class="text-center"> مكافاه الافئات </h6>
-                            <small class="text-center">مع كل يوم، نثبت دائماً أننا الأفضل في مجال مكافحة الحشرات لما نقدمه من خدمة إحترافية وخبرة عالية ونسعى دائماً لتحقيق الأفضل لك ولأسرتك، من خلال أسرع مكافحة لكافة أنواع الحشرات لنوفر لك منزل آمن وبيئة نظيفة..
-                            </small>
-                        </div>
-                        <div class="more">
-                            <a href="#"> قراءه المزيد </a>
-                        </div>
-                    </section>
-                </div>
-                <div class="col-lg-4">
-                    <section class="backdrop">
-                        <div class="overlay_filter"></div>
-                        <a href="">
-                            <img src="assets/img/services/Img3.png" alt="">
-                            <h3 class="mb-0 w-100 ">تنسيق حدائق</h3>
-                        </a>
-                        <div class="info_text">
-                            <h6 class="text-center"> مكافاه الافئات </h6>
-                            <small class="text-center">مع كل يوم، نثبت دائماً أننا الأفضل في مجال مكافحة الحشرات لما نقدمه من خدمة إحترافية وخبرة عالية ونسعى دائماً لتحقيق الأفضل لك ولأسرتك، من خلال أسرع مكافحة لكافة أنواع الحشرات لنوفر لك منزل آمن وبيئة نظيفة..
-                            </small>
-                        </div>
-                        <div class="more">
-                            <a href="#"> قراءه المزيد </a>
-                        </div>
-                    </section>
-                </div>
-                <div class="col-lg-4">
-                    <section class="backdrop">
-                        <div class="overlay_filter"></div>
-                        <a href="">
-                            <img src="assets/img/services/Img4.png" alt="">
-                            <h3 class="mb-0 w-100 ">تنسيق حدائق</h3>
-                        </a>
-                        <div class="info_text">
-                            <h6 class="text-center"> مكافاه الافئات </h6>
-                            <small class="text-center">مع كل يوم، نثبت دائماً أننا الأفضل في مجال مكافحة الحشرات لما نقدمه من خدمة إحترافية وخبرة عالية ونسعى دائماً لتحقيق الأفضل لك ولأسرتك، من خلال أسرع مكافحة لكافة أنواع الحشرات لنوفر لك منزل آمن وبيئة نظيفة..
-                            </small>
-                        </div>
-                        <div class="more">
-                            <a href="#"> قراءه المزيد </a>
-                        </div>
-                    </section>
-                </div>
-                <div class="col-lg-4">
-                    <section class="backdrop">
-                        <div class="overlay_filter"></div>
-                        <a href="">
-                            <img src="assets/img/services/Img5.png" alt="">
-                            <h3 class="mb-0 w-100 ">تنسيق حدائق</h3>
-                        </a>
-                        <div class="info_text">
-                            <h6 class="text-center"> مكافاه الافئات </h6>
-                            <small class="text-center">مع كل يوم، نثبت دائماً أننا الأفضل في مجال مكافحة الحشرات لما نقدمه من خدمة إحترافية وخبرة عالية ونسعى دائماً لتحقيق الأفضل لك ولأسرتك، من خلال أسرع مكافحة لكافة أنواع الحشرات لنوفر لك منزل آمن وبيئة نظيفة..
-                            </small>
-                        </div>
-                        <div class="more">
-                            <a href="#"> قراءه المزيد </a>
-                        </div>
-                    </section>
-                </div>
-                <div class="col-lg-4">
-                    <section class="backdrop">
-                        <div class="overlay_filter"></div>
-                        <a href="">
-                            <img src="assets/img/services/Img6.png" alt="">
-                            <h3 class="mb-0 w-100 ">تنسيق حدائق</h3>
-                        </a>
-                        <div class="info_text">
-                            <h6 class="text-center"> مكافاه الافئات </h6>
-                            <small class="text-center">مع كل يوم، نثبت دائماً أننا الأفضل في مجال مكافحة الحشرات لما نقدمه من خدمة إحترافية وخبرة عالية ونسعى دائماً لتحقيق الأفضل لك ولأسرتك، من خلال أسرع مكافحة لكافة أنواع الحشرات لنوفر لك منزل آمن وبيئة نظيفة..
-                            </small>
-                        </div>
-                        <div class="more">
-                            <a href="#"> قراءه المزيد </a>
-                        </div>
-                    </section>
-                </div>
+                @endforeach
                 <div class="w-100">
                     <a href="services.html" class="mr-auto btn-border d-block">
                     {{ __('home.seeAll.seeAllServices') }}
@@ -160,172 +76,47 @@
     </section>
 
     <section id="video">
-        <img class="shield-img" src="../assets/img/Shield (1).svg " alt=" ">
+        <img class="shield-img" src="{{ asset('/assets/img/Shield (1).svg')}}" alt=" ">
         <div class="d-flex align-items-center ">
             <div>
-                <h3>يشرفنا تعاملكم مع اوركيدا</h3>
-                <p>مع كل يوم، نثبت دائماً أننا الأفضل في مجال مكافحة الحشرات لما نقدمه من خدمة إحترافية وخبرة عالية ونسعى دائماً لتحقيق الأفضل لك ولأسرتك، من خلال أسرع مكافحة لكافة أنواع الحشرات لنوفر لك منزل آمن وبيئة نظيفة..
-                </p>
+                <h3>{{ getLocalizableColumn($about, 'home_title') }}</h3>
+                <p>{{ charsLimit(getLocalizableColumn($about, 'home_description'), 300) }}</p>
                 <button class="btn-main">{{ __('home.menu.aboutUs') }}</button>
             </div>
             <div class="video-wrapper">
-                <video src="https://www.youtube.com/watch?v=H1BQeRBmvC0 " poster="../assets/img/man-standing-next-to-his-van.png "></video>
+                <video src="{{ $about->video }} " poster="{{ asset('/assets/img/man-standing-next-to-his-van.png')}}"></video>
             </div>
         </div>
     </section>
     <!-- start slider here -->
 
     <section class="slider" id="slider">
-        <h3 class="title_1">{{ __('home.menu.pestLibrary') }} <img class="dots w-100" src="assets/img/Dots.svg " alt=" "></h3>
+        <h3 class="title_1">{{ __('home.menu.pestLibrary') }} <img class="dots w-100" src="{{ asset('/assets/img/Dots.svg')}}" alt=" "></h3>
 
         <div class="outer">
             <div id="big" class="owl-carousel owl-theme">
+            @foreach($pestLibraries as $pestLibrary)
                 <div class="item ">
-                    <img src="assets/img/img1.jpg ">
+                    <img src="{{ config("app.baseUrl").$pestLibrary->image }}" alt=" {{ $pestLibrary->image_alt }}">
                     <div class="overlay "></div>
                     <div class="info ">
-                        <h1> النمل الأبيض </h1>
-                        <p>
-                            عرَّف النمل الأبيض (بالإنجليزية: Termite) بكونه مجموعة من الحشرات آكلة السليولوز (بالإنجليزية: cellulose)، كما ويشار إليه باسم "النمل الأبيض " كونه لا ينتمي إلى فصيلة النمل العادي، على الرغم من أن نظامه الاجتماعي يتماثل مع النظام الخاص بالنمل والنحل،
-                        </p>
-                        <a href="# " class="raedMore ">المزيد من التفاصيل <i class="fa fa-chevron-left "></i></a>
+                        <h1> {{ getLocalizableColumn($pestLibrary, 'name') }} </h1>
+                        <p>{{ charsLimit(getLocalizableColumn($pestLibrary, 'description'), 150) }}</p>
+                        <a href="# " class="raedMore ">{{ __('home.seeAll.seeAllPestLibraries') }} <i class="fa fa-chevron-left "></i></a>
                     </div>
                 </div>
-                <div class="item ">
-                    <img src="assets/img/img2.jpg ">
-                    <div class="overlay "></div>
-                    <div class="info ">
-                        <h1> النمل الأبيض </h1>
-                        <p>
-                            عرَّف النمل الأبيض (بالإنجليزية: Termite) بكونه مجموعة من الحشرات آكلة السليولوز (بالإنجليزية: cellulose)، كما ويشار إليه باسم "النمل الأبيض " كونه لا ينتمي إلى فصيلة النمل العادي، على الرغم من أن نظامه الاجتماعي يتماثل مع النظام الخاص بالنمل والنحل،
-                        </p>
-                        <a href="# " class="raedMore ">المزيد من التفاصيل <i class="fa fa-chevron-left "></i></a>
-                    </div>
-                </div>
-                <div class="item ">
-                    <img src="assets/img/img1.jpg ">
-                    <div class="overlay "></div>
-                    <div class="info ">
-                        <h1> النمل الأبيض </h1>
-                        <p>
-                            عرَّف النمل الأبيض (بالإنجليزية: Termite) بكونه مجموعة من الحشرات آكلة السليولوز (بالإنجليزية: cellulose)، كما ويشار إليه باسم "النمل الأبيض " كونه لا ينتمي إلى فصيلة النمل العادي، على الرغم من أن نظامه الاجتماعي يتماثل مع النظام الخاص بالنمل والنحل،
-                        </p>
-                        <a href="# " class="raedMore "> المزيد من التفاصيل <i class="fa fa-chevron-left "></i></a>
-                    </div>
-                </div>
-                <div class="item ">
-                    <img src="assets/img/img2.jpg ">
-                    <div class="overlay "></div>
-                    <div class="info ">
-                        <h1> النمل الأبيض </h1>
-                        <p>
-                            عرَّف النمل الأبيض (بالإنجليزية: Termite) بكونه مجموعة من الحشرات آكلة السليولوز (بالإنجليزية: cellulose)، كما ويشار إليه باسم "النمل الأبيض " كونه لا ينتمي إلى فصيلة النمل العادي، على الرغم من أن نظامه الاجتماعي يتماثل مع النظام الخاص بالنمل والنحل،
-                        </p>
-                        <a href="# " class="raedMore "> المزيد من التفاصيل <i class="fa fa-chevron-left "></i></a>
-                    </div>
-                </div>
-                <div class="item ">
-                    <img src="assets/img/img1.jpg ">
-                    <div class="overlay "></div>
-                    <div class="info ">
-                        <h1> النمل الأبيض </h1>
-                        <p>
-                            عرَّف النمل الأبيض (بالإنجليزية: Termite) بكونه مجموعة من الحشرات آكلة السليولوز (بالإنجليزية: cellulose)، كما ويشار إليه باسم "النمل الأبيض " كونه لا ينتمي إلى فصيلة النمل العادي، على الرغم من أن نظامه الاجتماعي يتماثل مع النظام الخاص بالنمل والنحل،
-                        </p>
-                        <a href="# " class="raedMore "> المزيد من التفاصيل <i class="fa fa-chevron-left "></i></a>
-                    </div>
-                </div>
-                <div class="item ">
-                    <img src="assets/img/img2.jpg ">
-                    <div class="overlay "></div>
-                    <div class="info ">
-                        <h1> النمل الأبيض </h1>
-                        <p>
-                            عرَّف النمل الأبيض (بالإنجليزية: Termite) بكونه مجموعة من الحشرات آكلة السليولوز (بالإنجليزية: cellulose)، كما ويشار إليه باسم "النمل الأبيض " كونه لا ينتمي إلى فصيلة النمل العادي، على الرغم من أن نظامه الاجتماعي يتماثل مع النظام الخاص بالنمل والنحل،
-                        </p>
-                        <a href="# " class="raedMore "> المزيد من التفاصيل <i class="fa fa-chevron-left "></i></a>
-                    </div>
-                </div>
-                <div class="item ">
-                    <img src="assets/img/img1.jpg ">
-                    <div class="overlay "></div>
-                    <div class="info ">
-                        <h1> النمل الأبيض </h1>
-                        <p>
-                            عرَّف النمل الأبيض (بالإنجليزية: Termite) بكونه مجموعة من الحشرات آكلة السليولوز (بالإنجليزية: cellulose)، كما ويشار إليه باسم "النمل الأبيض " كونه لا ينتمي إلى فصيلة النمل العادي، على الرغم من أن نظامه الاجتماعي يتماثل مع النظام الخاص بالنمل والنحل،
-                        </p>
-                        <a href="# " class="raedMore ">المزيد من التفاصيل <i class="fa fa-chevron-left "></i></a>
-                    </div>
-                </div>
-                <div class="item ">
-                    <img src="assets/img/img2.jpg ">
-                    <div class="overlay "></div>
-                    <div class="info ">
-                        <h1> النمل الأبيض </h1>
-                        <p>
-                            عرَّف النمل الأبيض (بالإنجليزية: Termite) بكونه مجموعة من الحشرات آكلة السليولوز (بالإنجليزية: cellulose)، كما ويشار إليه باسم "النمل الأبيض " كونه لا ينتمي إلى فصيلة النمل العادي، على الرغم من أن نظامه الاجتماعي يتماثل مع النظام الخاص بالنمل والنحل،
-                        </p>
-                        <a href="# " class="raedMore ">المزيد من التفاصيل <i class="fa fa-chevron-left "></i></a>
-                    </div>
-                </div>
+            @endforeach    
             </div>
             <div id="thumbs" class="owl-carousel owl-theme">
+            @foreach($pestLibraries as $pestLibrary)
                 <div class="item">
-                    <img src="assets/img/img1.jpg">
+                    <img src="{{ config("app.baseUrl").$pestLibrary->image }}" alt=" {{ $pestLibrary->image_alt }}">
                     <div class="overlay "></div>
                     <div class="info_thumbs ">
-                        <h6> النمل الابيض </h6>
+                        <h6> {{ getLocalizableColumn($pestLibrary, 'name') }} </h6>
                     </div>
                 </div>
-                <div class="item ">
-                    <img src="assets/img/img2.jpg ">
-                    <div class="overlay "></div>
-                    <div class="info_thumbs ">
-                        <h6> الصراصير </h6>
-                    </div>
-                </div>
-                <div class="item ">
-                    <img src="assets/img/img1.jpg ">
-                    <div class="overlay "></div>
-                    <div class="info_thumbs ">
-                        <h6> النمل الابيض </h6>
-                    </div>
-                </div>
-                <div class="item ">
-                    <img src="assets/img/img2.jpg ">
-                    <div class="overlay "></div>
-                    <div class="info_thumbs ">
-                        <h6> الصراصير </h6>
-                    </div>
-                </div>
-                <div class="item ">
-                    <img src="assets/img/img1.jpg ">
-                    <div class="overlay "></div>
-                    <div class="info_thumbs ">
-                        <h6> النمل الابيض </h6>
-                    </div>
-                </div>
-                <div class="item ">
-                    <img src="assets/img/img2.jpg ">
-                    <div class="overlay "></div>
-                    <div class="info_thumbs ">
-                        <h6> الصراصير </h6>
-                    </div>
-                </div>
-                <div class="item ">
-                    <img src="assets/img/img1.jpg ">
-                    <div class="overlay "></div>
-                    <div class="info_thumbs ">
-                        <h6> النمل الابيض </h6>
-                    </div>
-                </div>
-                <div class="item ">
-                    <img src="assets/img/img2.jpg ">
-                    <div class="overlay "></div>
-                    <div class="info_thumbs ">
-                        <h6> الصراصير </h6>
-                    </div>
-                </div>
+            @endforeach    
             </div>
         </div>
         <div class="padding-80 mt-4">
@@ -337,8 +128,9 @@
     </section>
 
     <!-- <section class="library "></section> -->
+    @if(app()->getLocale() == 'ar')
     <section id="articles" class="article">
-        <h3 class="title_1">{{ __('home.latestArticles') }}<img class="dots w-100 " src="assets/img/Dots.svg " alt=" ">
+        <h3 class="title_1">{{ __('home.latestArticles') }}<img class="dots w-100 " src="{{ asset('/assets/img/Dots.svg')}}" alt=" ">
         </h3>
         <div class="container-fluid">
             <div class="row services">
@@ -347,10 +139,10 @@
                         <div class="slider-item">
                             <div class="item">
                                 <div class="article-img">
-                                    <img src="assets/img/download@2x.png" alt=" ">
+                                    <img src="{{ config("app.baseUrl").$latestBlog->image }}" alt=" {{ $latestBlog->image_alt }}">
                                     <article>
-                                        <h4>النمل الأبيض و طرق لتخلص منه</h4>
-                                        <p>الثلاثاء 22 / 6 / 2019</p>
+                                        <h4>{{ $latestBlog->name }}</h4>
+                                        <p>{{ date('d-m-Y', strtotime($latestBlog->created_at)) }}</p>
                                     </article>
                                 </div>
                             </div>
@@ -359,54 +151,20 @@
                 </div>
                 <div class="col-lg-5 col-md-12">
                     <div class="gallery-slider-nav">
+                    @foreach($blogs as $blog)
                         <div class="slider-item d-flex">
                             <div class="item_thumb">
-                                <img src="assets/img/download.png" alt="">
+                                <img src="{{ config("app.baseUrl").$blog->image }}" alt=" {{ $blog->image_alt }}">
                             </div>
                             <div class="article_info">
-                                <h4>طرق التنظيف الأكثر فاعلية</h4>
-                                <p class="mb-3 ">تنظيف بالبخار أصبح أداة التنظيف المفضلة لدى العديد من الأشخاص وخاصة هؤلاء الذين يعانون من الربو والحساسية تجاه المواد والمنظفات الكيميائية.</p>
+                                <h4>{{ $blog->name }}</h4>
+                                <p class="mb-3 ">{{ charsLimit($blog->description_ar, 70) }}</p>
                                 <p class="m-0">
-                                    الثلاثاء 22 / 6 / 2019
+                                {{ date('d-m-Y', strtotime($blog->created_at)) }}
                                 </p>
                             </div>
                         </div>
-                        <div class="slider-item d-flex">
-                            <div class="item_thumb">
-                                <img src="assets/img/bigstock-Plumber-160449857-1024x791.png" alt="">
-                            </div>
-                            <div class="article_info">
-                                <h4>طرق التنظيف الأكثر فاعلية</h4>
-                                <p class="mb-3 ">تنظيف بالبخار أصبح أداة التنظيف المفضلة لدى العديد من الأشخاص وخاصة هؤلاء الذين يعانون من الربو والحساسية تجاه المواد والمنظفات الكيميائية.</p>
-                                <p class="m-0">
-                                    الثلاثاء 22 / 6 / 2019
-                                </p>
-                            </div>
-                        </div>
-                        <div class="slider-item d-flex">
-                            <div class="item_thumb">
-                                <img src="assets/img/Pros-and-Cons-of-Using-Professional-Movers-in-New-York-City.png" alt="">
-                            </div>
-                            <div class="article_info">
-                                <h4>طرق التنظيف الأكثر فاعلية</h4>
-                                <p class="mb-3 ">تنظيف بالبخار أصبح أداة التنظيف المفضلة لدى العديد من الأشخاص وخاصة هؤلاء الذين يعانون من الربو والحساسية تجاه المواد والمنظفات الكيميائية.</p>
-                                <p class="m-0">
-                                    الثلاثاء 22 / 6 / 2019
-                                </p>
-                            </div>
-                        </div>
-                        <div class="slider-item d-flex">
-                            <div class="item_thumb">
-                                <img src="assets/img/download.png" alt="">
-                            </div>
-                            <div class="article_info">
-                                <h4>طرق التنظيف الأكثر فاعلية</h4>
-                                <p class="mb-3 ">تنظيف بالبخار أصبح أداة التنظيف المفضلة لدى العديد من الأشخاص وخاصة هؤلاء الذين يعانون من الربو والحساسية تجاه المواد والمنظفات الكيميائية.</p>
-                                <p class="m-0">
-                                    الثلاثاء 22 / 6 / 2019
-                                </p>
-                            </div>
-                        </div>
+                    @endforeach    
                     </div>
                     <div class="arrow-container-postion web">
                         <a href="#" class="prev slick-arrow"> <i class="fa fa-angle-right"></i> </a>
@@ -428,34 +186,37 @@
             </div>
         </div>
     </section>
+    @else
+    <br><br>
+    @endif
     <section id="contact">
         <div class="right-section ">
             <h3 class="web ">{{ __('home.contactUsSection.happyContact') }}</h3>
             <h3 class="mob text-center">{{ __('home.contactUsSection.saveServiceForYouMob') }}</h3>
             <div class="all-items">
                 <div class="item d-flex">
-                    <img src="../assets/img/contact/icon1.svg " alt=" ">
+                    <img src="{{ asset('/assets/img/contact/icon1.svg')}}" alt=" ">
                     <div>
                         <h4>{{ __('home.contactUsSection.safe_active') }}</h4>
                         <p>{{ __('home.contactUsSection.safe_active_desc') }}</p>
                     </div>
                 </div>
                 <div class="item d-flex ">
-                    <img src="../assets/img/contact/icon2.svg " alt=" ">
+                    <img src="{{ asset('/assets/img/contact/icon2.svg')}} " alt=" ">
                     <div>
                         <h4>{{ __('home.contactUsSection.guarantee') }}</h4>
                         <p>{{ __('home.contactUsSection.guarantee_desc') }}</p>
                     </div>
                 </div>
                 <div class="item d-flex ">
-                    <img src="../assets/img/contact/icon3.svg " alt=" ">
+                    <img src="{{ asset('/assets/img/contact/icon3.svg')}} " alt=" ">
                     <div>
                         <h4>{{ __('home.contactUsSection.suitableService') }}</h4>
                         <p>{{ __('home.contactUsSection.suitableService_desc') }}</p>
                     </div>
                 </div>
                 <div class="item d-flex ">
-                    <img src="../assets/img/contact/icon4.svg " alt=" ">
+                    <img src="{{ asset('/assets/img/contact/icon4.svg')}} " alt=" ">
                     <div>
                         <h4>{{ __('home.contactUsSection.aboutUs') }}</h4>
                         <p>{{ __('home.contactUsSection.aboutUs') }}</p>
@@ -464,26 +225,34 @@
             </div>
             <div class="d-flex call-loction ">
                 <div>
-                    <h4><img src="../assets/img/noun_call.svg " alt=" "> {{ __('home.orderService.usePhone') }}</h4>
-                    <p>056 30 03 530</p>
+                    <h4><img src="{{ asset('/assets/img/noun_call.svg')}} " alt=" "> {{ __('home.orderService.usePhone') }}</h4>
+                    <p>{{ count($sitePhones) > 0 ? $sitePhones[0]->phone : '01000000000' }}</p>
                 </div>
                 <div>
-                    <h4><img src="../assets/img/noun_place_1989108.svg " alt=" "> {{ __('home.contactUsSection.address') }} </h4>
-                    <p>مدينة جدة ، شارع الأمام الشافعي</p>
+                    <h4><img src="{{ asset('/assets/img/noun_place_1989108.svg')}} " alt=" "> {{ __('home.contactUsSection.address') }} </h4>
+                    <p>{{ getLocalizableColumn($settings, 'location') }}</p>
                 </div>
             </div>
         </div>
         <h3 class="mob ">{{ __('home.contactUsSection.happyContact') }}</h3>
-        <div class="form ">
-            <form action=" ">
+        <div class="form">
+        @if (\Session::has('msg'))
+            <div class="alert alert-success">
+                <ul>
+                    <li>{!! \Session::get('msg') !!}</li>
+                </ul>
+            </div>
+        @endif
+            <form action="{{ app()->getLocale() }}/contact" method="post">
+                @csrf
                 <label for="fname">{{ __('home.contactUsSection.contactForm.name') }}</label>
-                <input type="text" id="fname" class="form-control">
+                <input required type="text" name="fname" id="fname" class="form-control">
                 <label for="phone ">{{ __('home.contactUsSection.contactForm.mobile') }}</label>
-                <input type="phone " id="phone" class="form-control">
+                <input required type="phone"  name="phone" id="phone" class="form-control">
                 <label for="email ">{{ __('home.contactUsSection.contactForm.email') }}</label>
-                <input type="email" id="email" class="form-control">
+                <input required type="email" name="email" id="email" class="form-control">
                 <label for="msg">{{ __('home.contactUsSection.contactForm.topic') }}</label>
-                <textarea id="msg" class="form-control"></textarea>
+                <textarea required id="msg"  name="topic" class="form-control" rows="4" cols="50"></textarea>
                 <button class="btn-main mt-2 " type="submit ">{{ __('home.contactUsSection.contactForm.sendBtn') }}</button>
             </form>
         </div>

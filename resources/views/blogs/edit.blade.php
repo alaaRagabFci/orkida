@@ -75,37 +75,37 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3">الوصف</label>
                                 <div class="col-md-8">
-                                    <textarea rows="2" cols="30" name="description_ar" class="form-control ckeditor" required>{{ $blog->description_ar }}</textarea>
+                                    <textarea rows="2" cols="30" name="description_ar" class="ckeditor" required>{{ $blog->description_ar }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">slug</label>
                                 <div class="col-md-4">
-                                    <input type="text" value="{{ $blog->slug }}" name="slug" required class="form-control">
+                                <textarea rows="5" cols="53" name="slug" class="" required>{{ $blog->slug }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Image alt</label>
                                 <div class="col-md-4">
-                                    <input type="text" value="{{ $blog->image_alt }}" name="image_alt" required class="form-control">
+                                <textarea rows="5" cols="53" name="image_alt" class="" required>{{ $blog->image_alt }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">الكلمة الأفتتاحيه</label>
                                 <div class="col-md-4">
-                                    <input type="text" value="{{ $blog->keywords }}" name="keywords" required class="form-control">
+                                <textarea rows="5" cols="53" name="keywords" class="" required>{{ $blog->keywords }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Meta title</label>
                                 <div class="col-md-4">
-                                    <input type="text" value="{{ $blog->meta_title }}" name="meta_title" required class="form-control">
+                                <textarea rows="5" cols="53" name="meta_title" class="" required>{{ $blog->meta_title }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3">Meta description</label>
                                 <div class="col-md-4">
-                                    <textarea rows="2" cols="30" name="meta_description" class="form-control" required>{{ $blog->meta_description }}</textarea>
+                                    <textarea rows="5" cols="53" name="meta_description" class="" required>{{ $blog->meta_description }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">

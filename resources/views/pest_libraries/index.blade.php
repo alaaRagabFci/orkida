@@ -36,6 +36,7 @@
           </div>
               <table class="table table-striped table-bordered table-hover table-header-fixed" id="pests">
                 <thead>
+                <th class="col-md-1">id</th>
                 <th class="col-md-1">الترتيب</th>
                 <th class="col-md-1">العنوان</th>
                 <th class="col-md-1">Title</th>
@@ -46,6 +47,7 @@
                 <tbody class="row_position">
                 @foreach ($tableData->getData()->data as $row)
                   <tr>
+                    <td>{{  $row->id }}</td>
                     <td>{{  $row->sort }}</td>
                     <td>{{  $row->name_ar }}</td>
                     <td>{{  $row->name_en }}</td>
@@ -108,6 +110,7 @@
                     'autoWidth'   : false,
                     "ajax": {{ $tableData->getData()->recordsFiltered }},
                     "columns": [
+                        {data: 'id', name: 'id'},
                         {data: 'sort', name: 'sort'},
                         {data: 'name_ar', name: 'name_ar'},
                         {data: 'name_en', name: 'name_en'},
@@ -115,7 +118,7 @@
                         {data: 'slug_ar', name: 'slug_ar'},
                         {data: 'actions', name: 'actions', orderable: false, searchable: false}
                     ],
-                    order: [ [0, 'asc'] ]
+                    order: [ [0, 'desc'] ]
                 })
             });
         </script>

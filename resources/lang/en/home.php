@@ -19,6 +19,9 @@ return [
         'blog' => 'Blog',
         'aboutUs' => 'About Us',
         'changeLang' => 'Change Language',
+        'orkida' => 'Orkida for',
+        'otherPests' => 'Other pests',
+        'pestBites' => 'Pest bites',
     ],
     'orderService' => [
         'order' => 'Service Request',
@@ -64,7 +67,7 @@ return [
         'tweetsBy' => 'Tweets by',
         'seeOnTweeter' => 'Watch on Twitter',
         'siteCategories' => 'Sections of the site',
-        'faqsCommon' => 'Most frequently asked questions',
+        'faqsCommon' => 'Most frequently questions',
         'aboutOrkida' => 'About orkida',
         'policy' => 'Use policy',
         'privacy' => 'Privacy policy',
