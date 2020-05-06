@@ -28,10 +28,10 @@ table#t01 th {
     <h2>Service order</h2>
     <table style="width:100%">
   <tr>
-    <th>FullName</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Topic</th>
+    <th>الأسم</th>
+    <th>البريد الألكتروني</th>
+    <th>رقم الهاتف</th>
+    <th>الأستفسار</th>
   </tr>
   <tr>
     <td>{{ $fname }}</td>

@@ -7,6 +7,24 @@ return [
             'keywords' => 'Okrida Company, Pest control in Jeddah',
             'description' => 'Orkida Pest Control Company in Jeddah is a 100% Saudi company under Saudi ownership, uses approved safe pesticides and prepares its domestic service for an insect-free environment'
         ],
+        'about' => [
+            'title' => 'About us',
+            'keywords' => 'Okrida Company, Pest control in Jeddah Orkida Pest for Pest Control',
+            'description' => 'Orkida Pest for Pest Control'
+        ],
+        'contact' => [
+            'title' => 'Contact us',
+            'keywords' => 'Okrida Company, Pest control in Jeddah contact us,contact,message',
+            'description' => 'Contact us any time you want'
+        ],
+        'faqs' => [
+            'title' => 'common questions',
+            'keywords' => 'Top 5 questions this year, Top 5 questions this season',
+            'description' => 'Top 5 questions this year, Top 5 questions this season',
+        ],
+        'faqQuestion' => [
+            'description' => 'We at Orchidea help our clients to answer the most common questions about household pests. We have experts in answering and providing solutions and information about insects in terms of their damages, the reasons for their presence and the nature of life they have. You can help you answer all questions about insects in your home.',
+        ],
     ],
     'menu' => [
         'searchTxt' => 'Type what you want to search on the site',
@@ -22,6 +40,8 @@ return [
         'orkida' => 'Orkida for',
         'otherPests' => 'Other pests',
         'pestBites' => 'Pest bites',
+        'index' => 'Home',
+        'readMore' => 'Read more...',
     ],
     'orderService' => [
         'order' => 'Service Request',
@@ -55,11 +75,13 @@ return [
             'email' => 'Email',
             'mobile' => 'Phone',
             'topic' => 'Your message',
+            'question' => 'The Question',
             'sendBtn' => 'Send',
         ]
     ],
     'subscriptions' => [
         'subscribe' => 'Subscribe to receive the latest news and offers from Orkida',
+        'subscribeContact' => 'Subscribe to our newsletter',
         'subscribeBtn' => 'Subscribe',
         'emailPlaceHolder' => 'Email',
     ],
@@ -71,7 +93,28 @@ return [
         'aboutOrkida' => 'About orkida',
         'policy' => 'Use policy',
         'privacy' => 'Privacy policy',
+        'followUs' => 'Follow us',
         'copyRight' => 'All rights reserved 2020 © Orkida Pest Control',
+    ],
+    'about' => [
+        'aboutCompany' => 'About our company',
+        'aboutCompanyTitle' => 'Orkida Pest for Pest Control',
+        'goal' => 'Mission of company', 
+        'vision' => 'Vision of company', 
+        'valuable' => 'Our four core values are',
+        'contactWithUs' => 'Contact us to request the service',
+        'earliestTime' => 'Send us a message and we will contact you as soon as possible',
+    ],
+    'faqs' => [
+        'most' => 'Most',
+        'CommonQuestions' => 'Frequently asked questions',
+        'CommonQuestionBelong' => 'Questions for',
+        'q' => 'Q',
+        'a' => '*',
+        'categories' => 'Categories',
+        'askQuestion' => 'Ask your question',
+        'noQuestionFound' => 'No questions found.',
+        'fillFormMsg' => 'Still have nott found an answer to your question? Fill out the form below and we will get back to you directly',
     ],
 
 ];

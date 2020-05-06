@@ -51,7 +51,7 @@
                 <div class="col-lg-4">
                     <section class="backdrop">
                         <div class="overlay_filter"></div>
-                        <a href="{{ app()->getLocale() }}/services/{{getLocalizableColumn($service, 'slug')}}">
+                        <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($service, 'slug') )}}">
                             <img src="{{ config("app.baseUrl").$service->image }}" alt=" {{ $service->image }}">
                             <h3 class="mb-0 w-100">{{ getLocalizableColumn($service, 'name') }}</h3>
                         </a>
@@ -60,17 +60,19 @@
                             <small class="text-center">{{ charsLimit(getLocalizableColumn($service, 'description'), 80) }}</small>
                         </div>
                         <div class="more">
-                            <a href="pest_control.html"> {{ __('home.seeAll.seeAllServices') }} </a>
+                            <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($service, 'slug') )}}"> {{ __('home.menu.readMore') }} </a>
                         </div>
                     </section>
                 </div>
                 @endforeach
+                @if(count($services) > 0)
                 <div class="w-100">
-                    <a href="services.html" class="mr-auto btn-border d-block">
+                    <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}" class="mr-auto btn-border d-block">
                     {{ __('home.seeAll.seeAllServices') }}
                         <i class="fa fa-chevron-left "></i>
                     </a>
                 </div>
+                @endif
             </div>
         </div>
     </section>
@@ -81,7 +83,7 @@
             <div>
                 <h3>{{ getLocalizableColumn($about, 'home_title') }}</h3>
                 <p>{{ charsLimit(getLocalizableColumn($about, 'home_description'), 300) }}</p>
-                <button class="btn-main">{{ __('home.menu.aboutUs') }}</button>
+                <a href="{{ url(app()->getLocale().'/about-us') }}"><button class="btn-main">{{ __('home.menu.aboutUs') }}</button></a>
             </div>
             <div class="video-wrapper">
                 <video src="{{ $about->video }} " poster="{{ asset('/assets/img/man-standing-next-to-his-van.png')}}"></video>
@@ -102,7 +104,7 @@
                     <div class="info ">
                         <h1> {{ getLocalizableColumn($pestLibrary, 'name') }} </h1>
                         <p>{{ charsLimit(getLocalizableColumn($pestLibrary, 'description'), 150) }}</p>
-                        <a href="# " class="raedMore ">{{ __('home.seeAll.seeAllPestLibraries') }} <i class="fa fa-chevron-left "></i></a>
+                        <a href="{{ url(app()->getLocale() .'/pest-libraries/'.getLocalizableColumn($pestLibrary, 'slug') ) }}" class="raedMore ">{{ __('home.seeAll.seeAllPestLibraries') }} <i class="fa fa-chevron-left "></i></a>
                     </div>
                 </div>
             @endforeach    
@@ -120,7 +122,7 @@
             </div>
         </div>
         <div class="padding-80 mt-4">
-            <a href="pest_library.html" class="mr-auto btn-border d-block">
+            <a href="{{ url(app()->getLocale() .'/pest-libraries' ) }}" class="mr-auto btn-border d-block">
             {{ __('home.seeAll.seeAllPestLibraries') }}
                     <i class="fa fa-chevron-left "></i>
                 </a>
@@ -178,7 +180,7 @@
                     <a href="#" class="next slick-arrow"> <i class="fa fa-angle-left"></i> </a>
                 </div>
                 <div class="w-100 mt-2">
-                    <a href="blog.html" class="mr-auto btn-border d-block">
+                    <a href="{{ url(app()->getLocale().'/blog') }}" class="mr-auto btn-border d-block">
                     {{ __('home.seeAll.seeAllArticles') }}
                         <i class="fa fa-chevron-left"></i>
                     </a>
@@ -243,7 +245,7 @@
                 </ul>
             </div>
         @endif
-            <form action="{{ app()->getLocale() }}/contact" method="post">
+            <form action="{{ url(app()->getLocale() .'/contact') }}" method="post">
                 @csrf
                 <label for="fname">{{ __('home.contactUsSection.contactForm.name') }}</label>
                 <input required type="text" name="fname" id="fname" class="form-control">

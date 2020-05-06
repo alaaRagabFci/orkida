@@ -83,7 +83,7 @@
                                     </a>
                                 @endforeach
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ app()->getLocale() }}/contact-us">
+                                    <a class="dropdown-item" href="{{ url(app()->getLocale() .'/contact-us') }}">
                                     {{ __('home.menu.contactUs') }} <img class="other_call" src="{{ asset('/assets/img/mob/noun_Mail_1571628.svg')}}" alt="">
                                     </a>
                                 </div>
@@ -106,7 +106,7 @@
                         <ul class="navbar-nav">
                             <li class="active">
                                 <div class="btn-group">
-                                    <a href="{{ app()->getLocale() }}/services/Pest-Control-Company-in-Jeddah" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fa fa-chevron-down"></i> {{ __('home.menu.pestControl') }}
                                     </a>
                                     <div class="dropdown-menu midmenu">
@@ -114,7 +114,7 @@
                                             <div class="col-lg-4 col-6 border_left">
                                             @foreach($pestControls as $key => $pestControl)
                                             <!-- {{ $key++ }} -->
-                                                <a class="dropdown-item" href="{{ app()->getLocale() }}/services/{{getLocalizableColumn($pestControl, 'slug')}}"> {{ getLocalizableColumn($pestControl, 'name') }}</a>
+                                                <a class="dropdown-item" href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControl, 'slug') )}}"> {{ getLocalizableColumn($pestControl, 'name') }}</a>
                                                 @if($key % 5 == 0)
                                                     </div>
                                                     @if($key != count($pestControls))
@@ -123,15 +123,15 @@
                                                 @endif
                                             @endforeach
                                             @if(count($pestControls) % 5 != 0) 
-                                            <a class="dropdown-item" href="{{ app()->getLocale() }}/services/{{getLocalizableColumn($pestControlObj, 'slug')}}"> {{ getLocalizableColumn($pestControlObj, 'name') }} </a>
-                                            <a class="dropdown-item" href="{{ app()->getLocale() }}/pest-libraries"> {{ __('home.menu.otherPests') }} </a>
-                                            <a class="dropdown-item" href="{{ app()->getLocale() }}/faqs"> {{ __('home.footer.faqsCommon') }}</a>
+                                            <a class="dropdown-item" href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}"> {{ getLocalizableColumn($pestControlObj, 'name') }} </a>
+                                            <a class="dropdown-item" href="{{ url(app()->getLocale() .'/pest-libraries' ) }}"> {{ __('home.menu.otherPests') }} </a>
+                                            <a class="dropdown-item" href="{{ url(app()->getLocale() .'/faqs' ) }}"> {{ __('home.footer.faqsCommon') }}</a>
                                             </div>
                                             @else 
                                             <div class="col-lg-4 col-6 border_left">
-                                                <a class="dropdown-item" href="{{ app()->getLocale() }}/services/{{getLocalizableColumn($pestControlObj, 'slug')}}"> {{ getLocalizableColumn($pestControlObj, 'name') }} </a>
-                                                <a class="dropdown-item" href="{{ app()->getLocale() }}/pest-libraries"> {{ __('home.menu.otherPests') }} </a>
-                                                <a class="dropdown-item" href="{{ app()->getLocale() }}/faqs"> {{ __('home.footer.faqsCommon') }}</a>
+                                                <a class="dropdown-item" href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}"> {{ getLocalizableColumn($pestControlObj, 'name') }} </a>
+                                                <a class="dropdown-item" href="{{ url(app()->getLocale() .'/pest-libraries' ) }}"> {{ __('home.menu.otherPests') }} </a>
+                                                <a class="dropdown-item" href="{{ url(app()->getLocale() .'/faqs' ) }}"> {{ __('home.footer.faqsCommon') }}</a>
                                             </div>  
                                             @endif     
                                         </div>
@@ -140,7 +140,7 @@
                             </li>
                             <li>
                                 <div class="btn-group">
-                                    <a href="{{ app()->getLocale() }}/pest-libraries" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a href="{{ url(app()->getLocale() .'/pest-libraries' )}}" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fa fa-chevron-down"></i> {{ __('home.menu.pestLibrary') }}
                                     </a>
                                     <div class="dropdown-menu midmenu">
@@ -148,7 +148,7 @@
                                         <div class="col-lg-4 col-6 border_left">
                                         @foreach($pestLibrariesMenu as $key => $pestLibrary)
                                             <!-- {{ $key++ }} -->
-                                                <a class="dropdown-item" href="{{ app()->getLocale() }}/services/{{getLocalizableColumn($pestLibrary, 'slug')}}"> {{ getLocalizableColumn($pestLibrary, 'name') }} </a>
+                                                <a class="dropdown-item" href="{{ url(app()->getLocale() .'/pest-libraries/'.getLocalizableColumn($pestLibrary, 'slug') )}}"> {{ getLocalizableColumn($pestLibrary, 'name') }} </a>
                                                 @if($key % 5 == 0)
                                                     </div>
                                                     @if($key != count($pestLibrariesMenu))
@@ -157,13 +157,13 @@
                                                 @endif
                                         @endforeach
                                         @if(count($pestLibrariesMenu) % 5 != 0) 
-                                            <a class="dropdown-item" href="{{ app()->getLocale() }}/pest-bites"> {{ __('home.menu.pestBites') }} </a>
-                                            <a class="dropdown-item" href="{{ app()->getLocale() }}/pest-libraries"> {{ __('home.menu.otherPests') }} </a>
+                                            <a class="dropdown-item" href="{{ url(app()->getLocale() .'/pest-bites' )}}"> {{ __('home.menu.pestBites') }} </a>
+                                            <a class="dropdown-item" href="{{ url(app()->getLocale() .'/pest-libraries' )}}"> {{ __('home.menu.otherPests') }} </a>
                                             </div>
                                         @else 
                                         <div class="col-lg-4 col-6 border_left">
-                                                <a class="dropdown-item" href="{{ app()->getLocale() }}/pest-bites"> انواع الدغات </a>
-                                                <a class="dropdown-item" href="#"> افات اخرى </a>
+                                                <a class="dropdown-item" href="{{ url(app()->getLocale() .'/pest-bites' )}}"> {{ __('home.menu.pestBites') }} </a>
+                                                <a class="dropdown-item" href="{{ url(app()->getLocale() .'/pest-libraries' )}}"> {{ __('home.menu.otherPests') }} </a>
                                         </div>   
                                         @endif    
                                         </div>
@@ -172,27 +172,27 @@
                             </li>
                             <li>
                                 <div class="btn-group">
-                                    <a href="{{ app()->getLocale() }}/services" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a href="{{ url(app()->getLocale() .'/services' )}}" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fa fa-chevron-down"></i> {{ __('home.menu.otherServices') }}
                                     </a>
                                     <div class="dropdown-menu">
                                     @foreach($otherServices as $key => $otherService)
-                                        <a class="dropdown-item" href="{{ app()->getLocale() }}/services/{{getLocalizableColumn($otherService, 'slug')}}"> {{ getLocalizableColumn($otherService, 'name') }} </a>
+                                        <a class="dropdown-item" href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($otherService, 'slug') )}}"> {{ getLocalizableColumn($otherService, 'name') }} </a>
                                     @endforeach  
                                     </div>
                                 </div>
                             </li>
                             @if(app()->getLocale() == 'ar')
                             <li>
-                                <a class="nav-link" href="{{ app()->getLocale() }}/blog">{{ __('home.menu.blog') }}</a>
+                                <a class="nav-link" href="{{ url(app()->getLocale() .'/blog') }}">{{ __('home.menu.blog') }}</a>
                             </li>
                             @endif
                             <li>
-                                <a class="nav-link" href="{{ app()->getLocale() }}/about-us">{{ __('home.menu.aboutUs') }}</a>
+                                <a class="nav-link" href="{{ url(app()->getLocale() .'/about-us' )}}">{{ __('home.menu.aboutUs') }}</a>
                             </li>
                             <div class="dropdown-divider mob mt-4"></div>
                             <li class="mob email">
-                                <a href="{{ app()->getLocale() }}/contact-us" class="nav-link"> {{ __('home.menu.contactUs') }} </a>
+                                <a href="{{ url(app()->getLocale() .'/contact-us') }}" class="nav-link"> {{ __('home.menu.contactUs') }} </a>
                                 <a href="#"><img src="{{ asset('/assets/img/mob/noun_Mail_1571628.svg')}}" alt=""></a>
                             </li>
                             <li class="mob call pb-4 mb-2">
@@ -224,7 +224,7 @@
                                 @if(request()->is(app()->getLocale()))
                                     <img src="{{ asset('/assets/img/noun_call_2443019.svg')}}" alt=""></a>
                                 @else
-                                    <img src="{{ asset('/assets/img/mob/noun_call_2443019.svg')}}" alt=""></a>
+                                    <img src="{{ asset('/assets/img/tw/call.svg')}}" alt=""></a>
                                 @endif
                                 </button>
                             <div class="dropdown-menu">
@@ -234,7 +234,7 @@
                                 </a>
                             @endforeach
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ app()->getLocale() }}/contact-us">
+                                <a class="dropdown-item" href="{{ url(app()->getLocale() .'/contact-us') }}">
                                     <i class="fa fa-envelope"></i> {{ __('home.menu.contactUs') }}
                                 </a>
                             </div>
@@ -259,7 +259,7 @@
                 <div class="carousel-item {{$key == 0 ? 'active' : ''}}">
                     <img src="{{ config("app.baseUrl").$slider->image }}" alt=" {{ $slider->alt }}">
                     <div class="carousel-caption">
-                        <a href="{{ app()->getLocale() }}/contact-us">
+                        <a href="{{ url(app()->getLocale() .'/contact-us') }}">
                         <button class="btn-main services_order">
                         {{ __('home.orderService.order') }}
                             <i class="fa fa-angle-left"></i>
@@ -304,18 +304,18 @@
             <div class="last d-flex ">
                 <div>
                     <p>{{ __('home.footer.siteCategories') }}</p>
-                    <a href="{{ app()->getLocale() }}/services/Pest-Control-Company-in-Jeddah">{{ __('home.menu.pestControl') }}</a>
-                    <a href="{{ app()->getLocale() }}/pest-libraries">{{ __('home.menu.pestLibrary') }}</a>
-                    <a href="{{ app()->getLocale() }}/services">{{ __('home.menu.otherServices') }}</a>
-                    <a href="{{ app()->getLocale() }}/blog">{{ __('home.menu.blog') }}</a>
-                    <a href="{{ app()->getLocale() }}/faqs">{{ __('home.footer.faqsCommon') }}</a>
+                    <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}">{{ __('home.menu.pestControl') }}</a>
+                    <a href="{{ url(app()->getLocale() .'/pest-libraries') }}">{{ __('home.menu.pestLibrary') }}</a>
+                    <a href="{{ url(app()->getLocale() .'/services') }}">{{ __('home.menu.otherServices') }}</a>
+                    <a href="{{ url(app()->getLocale() .'/blog' ) }}">{{ __('home.menu.blog') }}</a>
+                    <a href="{{ url(app()->getLocale() .'/faqs') }}">{{ __('home.footer.faqsCommon') }}</a>
                 </div>
                 <div>
                     <p>{{ __('home.footer.aboutOrkida') }}</p>
-                    <a href="{{ app()->getLocale() }}/about-us">{{ __('home.menu.aboutUs') }}</a>
-                    <a href="{{ app()->getLocale() }}/contact-us">{{ __('home.menu.contactUs') }}</a>
-                    <a href="{{ app()->getLocale() }}/policy">{{ __('home.footer.policy') }}</a>
-                    <a href="{{ app()->getLocale() }}/privacy">{{ __('home.footer.privacy') }}</a>
+                    <a href="{{ url(app()->getLocale() .'/about-us') }}">{{ __('home.menu.aboutUs') }}</a>
+                    <a href="{{ url(app()->getLocale() .'/contact-us') }}">{{ __('home.menu.contactUs') }}</a>
+                    <a href="{{ url(app()->getLocale() .'/policy') }}">{{ __('home.footer.policy') }}</a>
+                    <a href="{{ url(app()->getLocale() .'/privacy') }}">{{ __('home.footer.privacy') }}</a>
                 </div>
             </div>
         </div>

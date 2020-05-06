@@ -10,7 +10,7 @@ class UtilityService
     public function __construct(Request $request)
     {
         $this->request = $request;
-        $this->validExtensions = array("jpg", "png", "jpeg", "GIF", "webp");
+        $this->validExtensions = array("jpg", "png", "jpeg", "GIF", "webp", "svg", "txt");
     }
 
     /**
@@ -31,14 +31,17 @@ class UtilityService
 
         // Allow certain file formats
         if(!in_array($extension, $this->validExtensions)) {
-            $errors[] = $file->guessExtension() . " extension not allowed, only JPG, JPEG, PNG, GIF files are allowed.";
+            $errors[] = $file->guessExtension() . " extension not allowed, only JPG, JPEG, PNG, GIF, SVG files are allowed.";
         }
 
         // Check if erros is greater than 0
         if (count($errors) > 0) {
             return array('status' => false, 'errors' => $errors);
         } else {
-            $filename=time().md5(uniqid(rand(), true))."image" .".png";
+            if($extension == 'txt' || $extension == 'svg')
+                $filename=time().md5(uniqid(rand(), true))."svg" .".svg";
+            else    
+                $filename=time().md5(uniqid(rand(), true))."image" .".png";
             $file->move('uploads/'.$type.'/', $filename);
 //            $this->request->getSchemeAndHttpHost(). $this->request->getBasePath() .
             $fullPath = 'uploads/'.$type. '/' .$filename;

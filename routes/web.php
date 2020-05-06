@@ -73,9 +73,13 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web'], 'namespace' => 'A
 Route::group(['prefix' => LaravelLocalization::setLocale() , 'namespace' => 'Front', 'middleware' =>'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'], function () {
     Route::GET('/', 'HomeController@home');
     Route::GET('/cc', 'HomeController@home');
+    Route::get('contact-us', 'HomeController@contactUs');
     Route::POST('contact', 'HomeController@sendMessage');
     Route::GET('search', 'HomeController@search');
     Route::GET('site-search', 'HomeController@siteSearch');
+    Route::GET('about-us', 'HomeController@aboutUs');
+    Route::GET('faqs', 'HomeController@faqs');
+    Route::GET('faqs/{slug}', 'HomeController@getQuestion');
 });
 
 Auth::routes();
