@@ -25,7 +25,7 @@
                 <tbody>
                   @foreach ($tableData->getData()->data as $row)
                   <tr>
-                    <td>{{  $row->message }}</td>
+                    <td>{!!  $row->message !!}</td>
                     <td>{{  $row->is_benefit }}</td>
                   </tr>
                   @endforeach
@@ -42,6 +42,7 @@
       @section('scripts')
       <script type="text/javascript">
        $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
         oTable = $('#messages').DataTable({
           "processing": true,
           "serverSide": true,

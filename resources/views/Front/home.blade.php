@@ -57,7 +57,7 @@
                         </a>
                         <div class="info_text">
                             <h6 class="text-center"> {{ getLocalizableColumn($service, 'name') }} </h6>
-                            <small class="text-center">{{ charsLimit(getLocalizableColumn($service, 'description'), 80) }}</small>
+                            <small class="text-center">{!! charsLimit(getLocalizableColumn($service, 'description'), 150) !!}</small>
                         </div>
                         <div class="more">
                             <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($service, 'slug') )}}"> {{ __('home.menu.readMore') }} </a>
@@ -103,7 +103,7 @@
                     <div class="overlay "></div>
                     <div class="info ">
                         <h1> {{ getLocalizableColumn($pestLibrary, 'name') }} </h1>
-                        <p>{{ charsLimit(getLocalizableColumn($pestLibrary, 'description'), 150) }}</p>
+                        <p>{!! charsLimit(getLocalizableColumn($pestLibrary, 'description'), 150) !!}</p>
                         <a href="{{ url(app()->getLocale() .'/pest-libraries/'.getLocalizableColumn($pestLibrary, 'slug') ) }}" class="raedMore ">{{ __('home.seeAll.seeAllPestLibraries') }} <i class="fa fa-chevron-left "></i></a>
                     </div>
                 </div>
@@ -160,7 +160,7 @@
                             </div>
                             <div class="article_info">
                                 <h4>{{ $blog->name }}</h4>
-                                <p class="mb-3 ">{{ charsLimit($blog->description_ar, 70) }}</p>
+                                <p class="mb-3 ">{!! charsLimit($blog->description_ar, 70) !!}</p>
                                 <p class="m-0">
                                 {{ date('d-m-Y', strtotime($blog->created_at)) }}
                                 </p>
@@ -220,8 +220,8 @@
                 <div class="item d-flex ">
                     <img src="{{ asset('/assets/img/contact/icon4.svg')}} " alt=" ">
                     <div>
-                        <h4>{{ __('home.contactUsSection.aboutUs') }}</h4>
-                        <p>{{ __('home.contactUsSection.aboutUs') }}</p>
+                        <h4>{{ __('home.contactUsSection.professionalService') }}</h4>
+                        <p>{{ __('home.contactUsSection.professionalService_desc') }}</p>
                     </div>
                 </div>
             </div>

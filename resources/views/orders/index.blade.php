@@ -32,7 +32,7 @@
                     <td>{{  $row->email }}</td>
                     <td>{{  $row->phone }}</td>
                     <td>{{  $row->topic_title }}</td>
-                    <td>{{  $row->message }}</td>
+                    <td>{!!  $row->message !!}</td>
                   </tr>
                   @endforeach
                 </tbody>
@@ -48,6 +48,7 @@
       @section('scripts')
       <script type="text/javascript">
        $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
         oTable = $('#orders').DataTable({
           "processing": true,
           "serverSide": true,

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Blog, CompanyValuable, Faq, PestLibrary, QuestionCategory, Service, Slider};
+use App\Models\{Blog, CompanyValuable, Faq, MetaTag, PestLibrary, QuestionCategory, Service, Slider};
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
@@ -73,8 +73,7 @@ class HomeController extends Controller
     {
         $query = request()->query();
         if($query){
-            $categoryColumn = app()->getLocale() == 'ar' ? 'category_ar' : 'category_en';
-            $categoryObj = QuestionCategory::where($categoryColumn, $query)->first();
+            $categoryObj = QuestionCategory::where('category_ar', $query)->orWhere('category_en', $query)->first();
             if($categoryObj)
                 $commonQuestions = Faq::where(['question_category_id'=> $categoryObj->id, 'is_active' => 1])->get();
             else
@@ -89,9 +88,24 @@ class HomeController extends Controller
 
     public function getQuestion($faqSlug): View
     {
-        $slug = app()->getLocale() == 'ar' ? 'slug_ar' : 'slug_en';
-        $question = Faq::where($slug, $faqSlug)->firstOrFail();
+        $question = Faq::where('slug_ar', $faqSlug)->orWhere('slug_en', $faqSlug)->firstOrFail();
         $categories = QuestionCategory::get();
         return view('Front.questionDetails',compact('categories', 'question'));
+    }
+
+    public function getService($serviceSlug): View
+    {
+        $serviceDetails = Service::where('slug_ar', $serviceSlug)->orWhere('slug_en', $serviceSlug)->firstOrFail();
+        $lang = app()->getLocale() == 'ar' ? 'AR' : 'EN';
+        $tags = MetaTag::where(['service_id' => $serviceDetails->id, 'lang' => $lang])->get(); 
+        $relatedArticles = MetaTag::where('service_id', null)->whereIn('tag', $tags->pluck('tag'))->get();
+        $subServices = Service::where(['is_active' => 1, 'sub_service' => $serviceDetails->id])->get();
+        
+        return view('Front.service-details',[
+            'serviceDetails' => $serviceDetails,
+            'subServices' => $subServices,
+            'relatedArticles' => $relatedArticles,
+            'tags' => $tags,
+        ]);
     }
 }

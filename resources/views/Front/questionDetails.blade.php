@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="Ans d-flex">
                                         <h1> {{ __('home.faqs.a') }} </h1>
-                                        <p>{{ getLocalizableColumn($question, 'description') }}</p>
+                                        {!! getLocalizableColumn($question, 'description') !!}
                                     </div>
                                 </div>
                             </div>

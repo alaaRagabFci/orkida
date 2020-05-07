@@ -12,4 +12,8 @@ class MetaTag extends Model
      * @var string
      */
     protected $table = 'meta_tags';
+
+    public function blog(){
+        return $this->belongsTo(Blog::class);
+    }
 }

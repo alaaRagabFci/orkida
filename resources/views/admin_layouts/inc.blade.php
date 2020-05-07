@@ -288,6 +288,7 @@
         });
     })
 
+    CKEDITOR.config.autoParagraph = false;
     CKEDITOR.replace( 'description_ar', {
         filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
         filebrowserUploadMethod: 'form',

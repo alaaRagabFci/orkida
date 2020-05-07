@@ -23,6 +23,10 @@ class OrderService
      */
     public function datatables($orders)
     {
-        return Datatables::of($orders)->make(true);
+        return Datatables::of($orders)
+        ->editColumn('message', function (Order $order)
+        {
+            return '<span data-toggle="tooltip" data-placement="top" title="'.$order->message.'">'.charsLimit($order->message, 20).'</span>';
+        })->rawColumns(['message'])->make(true);
     }
 }

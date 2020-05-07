@@ -25,6 +25,7 @@
         <link rel="stylesheet" href="{{ asset('/assets/css/style_en.css')}}">
         <link rel="stylesheet" href="{{ asset('/assets/css/responsive_en.css')}}">
     @endif
+    @yield('styles')
 </head>
 
 <body class="other_pages_body bg-gray">
@@ -337,6 +338,7 @@
         @endif    
     @endif
     <script src="{{ asset('/assets/js/main.js')}}"></script>
+    @yield('scripts')
 </body>
 
 </html>

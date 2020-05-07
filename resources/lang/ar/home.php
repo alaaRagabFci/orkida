@@ -117,5 +117,17 @@ return [
         'noQuestionFound' => 'لأ توجد أسئله.',
         'fillFormMsg' => 'ما زلت لم تجد إجابة على سؤالك؟ املأ النموذج أدناه وسنعاود الرد عليك مباشرة',
     ],
+    'service' => [
+        'types' => 'أنواع',
+        'other' => 'الأخري',
+        'shareContent' => 'مشاركة المحتوي',
+        'discount' => 'أستمتع بخصم',
+        'discountValue' => '20%',
+        'onAllServices' => 'علي جميع الخدمات',
+        'monthEnd' => 'حتي نهاية الشهر',
+        'tags' => 'علامات',
+        'relatedArticles' => 'مقالات ذات صلة',
+        'noArticlesFound' => 'لأ توجد مقالات ذات صلة.',
+    ],
 
 ];

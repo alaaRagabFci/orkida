@@ -116,5 +116,17 @@ return [
         'noQuestionFound' => 'No questions found.',
         'fillFormMsg' => 'Still have nott found an answer to your question? Fill out the form below and we will get back to you directly',
     ],
+    'service' => [
+        'types' => 'Types of',
+        'other' => 'Other',
+        'shareContent' => 'Share',
+        'discount' => 'Enjoy a discount',
+        'discountValue' => '20%',
+        'onAllServices' => 'For all services',
+        'monthEnd' => 'Until the end of the month',
+        'tags' => 'Tags',
+        'relatedArticles' => 'Related articles',
+        'noArticlesFound' => 'No related articles found.',
+    ],
 
 ];
