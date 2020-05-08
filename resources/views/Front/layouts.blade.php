@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="robots" content="index,follow"><meta name="description" content="Discover and buy electronics, computers, apparel &amp; accessories, shoes, watches, furniture, home and kitchen goods, beauty &amp; personal care, grocery, gourmet food &amp; more. Enjoy great deals, fastest delivery and cash on delivery | Souq.com">
+    <meta name="robots" content="index,follow">
     @yield('meta')
     <title>@yield('title')</title>
     <link rel="shortcut icon" type="image/png" href="{{ asset('/assets/favicon.png')}}" />

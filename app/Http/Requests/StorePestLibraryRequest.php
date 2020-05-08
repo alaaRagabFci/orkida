@@ -24,7 +24,7 @@ class StorePestLibraryRequest extends FormRequest
     public function rules()
     {
         return [
-            'image'    =>'sometimes|image|mimes:jpg,png,jpeg,JPG,PNG,JPEG',
+            // 'image'    =>'sometimes|image|mimes:jpg,png,jpeg,JPG,PNG,JPEG,GIF,gif,webp,WEBP,svg,SVG',
             'name_ar'=>'required',
             'name_en'=>'required',
             'image_alt'=>'required',

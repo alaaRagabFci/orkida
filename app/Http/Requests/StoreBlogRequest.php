@@ -25,7 +25,7 @@ class StoreBlogRequest extends FormRequest
     {
         return [
             'article_id'=>'required',
-            'image'    =>'sometimes|image|mimes:jpg,png,jpeg,JPG,PNG,JPEG',
+            // 'image'    =>'sometimes|image|mimes:jpg,png,jpeg,JPG,PNG,JPEG,GIF,gif,webp,WEBP,svg,SVG',
             'name'=>'required',
             'image_alt'=>'required',
             'keywords'=>'required',

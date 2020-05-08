@@ -87,6 +87,32 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-9">
+                        @if($serviceDetails->id == 19)
+                        <div class="bg-info no-padding-with-col">
+                        @if(count($subServices) > 0)
+                            <h2 class="title-pest-details"> {{ __('home.service.types') }} {{ getLocalizableColumn($serviceDetails, 'name') }} {{ __('home.service.other') }} </h2>
+                            <div class="row">
+                            @foreach($subServices as $subService)
+                                <div class="col-lg-3 col-md-6 col-6">
+                                    <div class="blocks">
+                                        <img src="{{ config("app.baseUrl").$subService->image }}" alt=" {{ $subService->image }}">
+                                        <h3><a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($subService, 'slug') )}}"> {{ getLocalizableColumn($subService, 'name') }} </a></h3>
+                                    </div>
+                                </div>
+                            @endforeach  
+                                <div class="col-lg-3 col-md-6 col-6">
+                                    <div class="blocks-border">
+                                        <img src="{{ asset('/assets/img/pest-library/noun_Bug_1675490.png')}}">
+                                        <h3><a href="{{ url(app()->getLocale() .'/pest-libraries') }}">{{ __('home.menu.otherPests') }} </a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
+                            <div class="row">
+                                {!! getLocalizableColumn($serviceDetails, 'description') !!}
+                            </div>
+                        </div>
+                        @else
                         <div class="bg-info no-padding-with-col">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -96,7 +122,6 @@
                                             <h2 class="title-pest-details"> {{ __('home.service.types') }} {{ getLocalizableColumn($serviceDetails, 'name') }} {{ __('home.service.other') }} </h2>
                                         </div>
                                         @endif
-                                        @if($serviceDetails->id != 19)
                                         <div class="col-md-6 align-center">
                                             <div class="share-links">
                                                 <img src="{{ asset('/assets/img/pest-library/noun_Share_1571617.svg')}}">
@@ -122,34 +147,17 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        @endif
                                     </div>
                                     <div class="row">
                                         @foreach($subServices as $subService)
-                                        @if($serviceDetails->id != 19)
                                         <div class="col-lg-3 col-6">
                                             <div class="block-img">
                                                 <img class="img" src="{{ config("app.baseUrl").$subService->image }}" alt=" {{ $subService->image }}">
                                                 <h3 class="blockImg-title"> {{ getLocalizableColumn($subService, 'name') }} </h3>
                                             </div>
                                         </div>
-                                        @else
-                                        <div class="col-lg-3 col-md-6 col-6">
-                                            <div class="blocks">
-                                                <img src="{{ config("app.baseUrl").$subService->image }}" alt=" {{ $subService->image }}">
-                                                <h3><a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($subService, 'slug') )}}"> {{ getLocalizableColumn($subService, 'name') }} </a></h3>
-                                            </div>
-                                        </div>
-                                        @endif
+
                                         @endforeach
-                                        @if($serviceDetails->id == 19)
-                                        <div class="col-lg-3 col-md-6 col-6">
-                                            <div class="blocks-border">
-                                                <img src="{{ asset('/assets/img/pest-library/noun_Bug_1675490.png')}}">
-                                                <h3><a href="{{ url(app()->getLocale() .'/pest-libraries') }}">{{ __('home.menu.otherPests') }} </a></h3>
-                                            </div>
-                                        </div>
-                                        @endif
                                     </div>
                                     <div class="row">
                                         <div class="col-12 p-0">
@@ -159,6 +167,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                         <!-- @if(count($tags) > 0)
                         <div class="row">
                             <div class="col-md-12">

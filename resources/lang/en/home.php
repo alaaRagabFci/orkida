@@ -25,6 +25,11 @@ return [
         'faqQuestion' => [
             'description' => 'We at Orchidea help our clients to answer the most common questions about household pests. We have experts in answering and providing solutions and information about insects in terms of their damages, the reasons for their presence and the nature of life they have. You can help you answer all questions about insects in your home.',
         ],
+        'blog' => [
+            'title' => 'Orkida blogs',
+            'keywords' => 'Okrida Company, Pest control in Jeddah',
+            'description' => 'Okrida Company, Pest control in Jeddah',
+        ],
     ],
     'menu' => [
         'searchTxt' => 'Type what you want to search on the site',

@@ -25,7 +25,7 @@ class StoreServiceRequest extends FormRequest
     {
         return [
             'category_id'=>'required',
-            'image'    =>'sometimes|image|mimes:jpg,png,jpeg,JPG,PNG,JPEG',
+            // 'image'    =>'sometimes|image|mimes:jpg,png,jpeg,JPG,PNG,JPEG,GIF,gif,webp,WEBP,svg,SVG',
             'name_ar'=>'required',
             'name_en'=>'required',
             'meta_title_ar'=>'required',

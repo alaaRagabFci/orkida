@@ -24,7 +24,7 @@ class StorePestBiteRequest extends FormRequest
     public function rules()
     {
         return [
-            'image'    =>'sometimes|image|mimes:jpg,png,jpeg,JPG,PNG,JPEG',
+            // 'image'    =>'sometimes|image|mimes:jpg,png,jpeg,JPG,PNG,JPEG,GIF,gif,webp,WEBP,svg,SVG',
             'pest_type_ar'=>'required',
             'pest_type_en'=>'required',
             'sting_appearance_ar'=>'required',

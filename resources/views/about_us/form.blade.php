@@ -31,6 +31,12 @@
 </div>
 
 <div class="form-group">
+    <label for="exampleInputPassword1">فيديو الصفحة الرئيسيه</label>
+    <input type="text" name="video" required class="form-control">
+    <span class="help-block with-errors errorName"></span>
+</div>
+
+<div class="form-group">
     <label for="exampleInputPassword1">عنوان من نحن الرئيسيه</label>
     <input type="text" name="home_title_ar" required class="form-control">
     <span class="help-block with-errors errorName"></span>

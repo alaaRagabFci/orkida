@@ -10,7 +10,7 @@ class UtilityService
     public function __construct(Request $request)
     {
         $this->request = $request;
-        $this->validExtensions = array("jpg", "png", "jpeg", "GIF", "webp", "svg", "txt");
+        $this->validExtensions = array("jpg", "JPG", "png","PNG", "jpeg", "JPEG", "GIF","gif", "webp"," WEBP", "svg","SVG", "txt", "bin");
     }
 
     /**
@@ -31,7 +31,7 @@ class UtilityService
 
         // Allow certain file formats
         if(!in_array($extension, $this->validExtensions)) {
-            $errors[] = $file->guessExtension() . " extension not allowed, only JPG, JPEG, PNG, GIF, SVG files are allowed.";
+            $errors[] = $file->guessExtension() . " extension not allowed, only JPG, JPEG, PNG, GIF, SVG, WEBP files are allowed.";
         }
 
         // Check if erros is greater than 0
@@ -40,6 +40,8 @@ class UtilityService
         } else {
             if($extension == 'txt' || $extension == 'svg')
                 $filename=time().md5(uniqid(rand(), true))."svg" .".svg";
+            else if($extension == 'bin' || $extension == 'webp')    
+                $filename=time().md5(uniqid(rand(), true))."webp" .".webp";
             else    
                 $filename=time().md5(uniqid(rand(), true))."image" .".png";
             $file->move('uploads/'.$type.'/', $filename);

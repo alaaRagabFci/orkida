@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Blog, CompanyValuable, Faq, MetaTag, PestLibrary, QuestionCategory, Service, Slider};
+use App\Models\{ArticleType, Blog, CompanyValuable, Faq, MetaTag, PestLibrary, QuestionCategory, Service, Slider};
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
@@ -50,8 +50,8 @@ class HomeController extends Controller
         $serviceSlug = request()->query();
         $slug = app()->getLocale() == 'ar' ? 'slug_ar' : 'slug_en';
         $name = app()->getLocale() == 'ar' ? 'name_ar' : 'name_en';
-        $services = Service::where($slug, $serviceSlug['searchService'])->orWhere($name, $serviceSlug['searchService'])->get();
-        $pestLibraries = PestLibrary::where($slug, $serviceSlug['searchService'])->orWhere($name, $serviceSlug['searchService'])->get();
+        $services = Service::where($slug, 'like', $serviceSlug['searchService'].'%')->orWhere($name, 'like', $serviceSlug['searchService'].'%')->get();
+        $pestLibraries = PestLibrary::where($slug, 'like', $serviceSlug['searchService'].'%')->orWhere($name, 'like', $serviceSlug['searchService'].'%')->get();
         return view('Front.search',[
             'services' => $services,
             'pestLibraries' => $pestLibraries
@@ -106,6 +106,41 @@ class HomeController extends Controller
             'subServices' => $subServices,
             'relatedArticles' => $relatedArticles,
             'tags' => $tags,
+        ]);
+    }
+
+    public function blogs(): View{
+        $articleTypes = ArticleType::where('is_active', 1)->get();
+        $text = request()->query();
+        if(isset($text['searchText']) && $text['searchText'] != ""){
+            $headerBlog = Blog::where('name', 'like',$text['searchText'].'%')->orWhere('slug', 'like', $text['searchText'].'%')->first();
+            if($headerBlog)
+                $blogs = Blog::where('name', $text['searchText'])->orWhere('slug', $text['searchText'])->where('id', '!=', $headerBlog->id)->latest()->paginate(9);
+            else
+                $blogs = [];
+
+        }else{
+            $headerBlog = Blog::orderBy('sort', 'ASC')->first();
+            $blogs = Blog::where('is_active', 1)->where('id', '!=', $headerBlog->id)->latest()->paginate(8);  
+        }
+
+        return  view('Front.blogs',[
+            'headerBlog' => $headerBlog,
+            'blogs' => $blogs,
+            'articleTypes' => $articleTypes
+        ]);
+    }
+
+    public function blogsCategory($slug): View{
+        $articleTypes = ArticleType::where('is_active', 1)->get();
+        $type = ArticleType::where('slug', $slug)->first();
+        $headerBlog = Blog::where('article_id', $type->id)->orderBy('sort', 'ASC')->first();
+        $blogs = Blog::where(['is_active' => 1, 'article_id' => $type->id])->where('id', '!=', $headerBlog->id)->latest()->paginate(8);
+
+        return  view('Front.blogs',[
+            'headerBlog' => $headerBlog,
+            'blogs' => $blogs,
+            'articleTypes' => $articleTypes
         ]);
     }
 }
