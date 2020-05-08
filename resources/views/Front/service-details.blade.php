@@ -34,11 +34,13 @@
                                                 <a href="{{ url('/') }}">{{ __('home.menu.index') }}</a>
                                                 </li>
                                                 <li class="breadcrumb-item">
-                                                <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}">{{ __('home.services') }}</a>
+                                                <a href="{{ url(app()->getLocale() .'/services/')}}">{{ __('home.services') }}</a>
                                                 </li>
+                                                <!-- @if($serviceDetails->id != 19)
                                                 <li class="breadcrumb-item">
-                                                    <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}"> {{ getLocalizableColumn($serviceDetails->getCategory, 'name') }} </a>
+                                                    {{ getLocalizableColumn($serviceDetails->getCategory, 'name') }}
                                                 </li>
+                                                @endif -->
                                                 <li class="breadcrumb-item active" aria-current="page"> {{ getLocalizableColumn($serviceDetails, 'name') }} </li>
                                             </ol>
                                         </nav>
@@ -94,11 +96,12 @@
                                             <h2 class="title-pest-details"> {{ __('home.service.types') }} {{ getLocalizableColumn($serviceDetails, 'name') }} {{ __('home.service.other') }} </h2>
                                         </div>
                                         @endif
+                                        @if($serviceDetails->id != 19)
                                         <div class="col-md-6 align-center">
                                             <div class="share-links">
                                                 <img src="{{ asset('/assets/img/pest-library/noun_Share_1571617.svg')}}">
                                                 <span> {{ __('home.service.shareContent') }}  : </span>
-                                                <div id="share" class="social-meida mr-3">
+                                                <div id="share" class="mr-3">
                                                     <!-- <ul>
                                                         <li>
                                                             <a href="#" title="facebook"><i class="fas fa-envelope"></i></a>
@@ -119,16 +122,34 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @endif
                                     </div>
                                     <div class="row">
                                         @foreach($subServices as $subService)
+                                        @if($serviceDetails->id != 19)
                                         <div class="col-lg-3 col-6">
                                             <div class="block-img">
                                                 <img class="img" src="{{ config("app.baseUrl").$subService->image }}" alt=" {{ $subService->image }}">
                                                 <h3 class="blockImg-title"> {{ getLocalizableColumn($subService, 'name') }} </h3>
                                             </div>
                                         </div>
+                                        @else
+                                        <div class="col-lg-3 col-md-6 col-6">
+                                            <div class="blocks">
+                                                <img src="{{ config("app.baseUrl").$subService->image }}" alt=" {{ $subService->image }}">
+                                                <h3><a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($subService, 'slug') )}}"> {{ getLocalizableColumn($subService, 'name') }} </a></h3>
+                                            </div>
+                                        </div>
+                                        @endif
                                         @endforeach
+                                        @if($serviceDetails->id == 19)
+                                        <div class="col-lg-3 col-md-6 col-6">
+                                            <div class="blocks-border">
+                                                <img src="{{ asset('/assets/img/pest-library/noun_Bug_1675490.png')}}">
+                                                <h3><a href="{{ url(app()->getLocale() .'/pest-libraries') }}">{{ __('home.menu.otherPests') }} </a></h3>
+                                            </div>
+                                        </div>
+                                        @endif
                                     </div>
                                     <div class="row">
                                         <div class="col-12 p-0">
@@ -138,7 +159,7 @@
                                 </div>
                             </div>
                         </div>
-                        @if(count($tags) > 0)
+                        <!-- @if(count($tags) > 0)
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="tagsBlock">
@@ -156,7 +177,7 @@
                                 </div>
                             </div>
                         </div>
-                        @endif
+                        @endif -->
                         @if(app()->getLocale() == 'ar')
                         <div class="articels-box">
                             <h3 class="mb-4"> {{ __('home.service.relatedArticles') }} </h3>
@@ -298,7 +319,7 @@
                 showLabel: false,
                 showCount: false,
                 shareIn: "popup",
-                shares: ["twitter", "facebook","linkedin", "pinterest"]
+                shares: ["twitter","linkedin", "pinterest", "facebook"]
             });
 </script>
 @endsection

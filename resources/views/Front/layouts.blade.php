@@ -260,12 +260,12 @@
                 <div class="carousel-item {{$key == 0 ? 'active' : ''}}">
                     <img src="{{ config("app.baseUrl").$slider->image }}" alt=" {{ $slider->alt }}">
                     <div class="carousel-caption">
-                        <a href="{{ url(app()->getLocale() .'/contact-us') }}">
+                        <!-- <a href="{{ url(app()->getLocale() .'/contact-us') }}"> -->
                         <button class="btn-main services_order">
                         {{ __('home.orderService.order') }}
                             <i class="fa fa-angle-left"></i>
                         </button>
-                        </a>
+                        <!-- </a> -->
                         <h1>{{ __('home.menu.orkida') }}</h1>
                         <h3>{{ getLocalizableColumn($slider, 'title') }}</h3>
                     </div>
@@ -307,7 +307,7 @@
                     <p>{{ __('home.footer.siteCategories') }}</p>
                     <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}">{{ __('home.menu.pestControl') }}</a>
                     <a href="{{ url(app()->getLocale() .'/pest-libraries') }}">{{ __('home.menu.pestLibrary') }}</a>
-                    <a href="{{ url(app()->getLocale() .'/services') }}">{{ __('home.menu.otherServices') }}</a>
+                    <!-- <a href="{{ url(app()->getLocale() .'/services') }}">{{ __('home.menu.otherServices') }}</a> -->
                     <a href="{{ url(app()->getLocale() .'/blog' ) }}">{{ __('home.menu.blog') }}</a>
                     <a href="{{ url(app()->getLocale() .'/faqs') }}">{{ __('home.footer.faqsCommon') }}</a>
                 </div>

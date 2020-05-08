@@ -57,6 +57,7 @@ return [
         'seeAllServices' => 'مشاهدة جميع الخدمات',
         'seeAllPestLibraries' => 'مشاهدة جميع الفئات',
         'seeAllArticles' => 'مشاهدة جميع المقالات',
+        'moreDetails' => 'المزيد من التفاصيل',
     ],
     'latestArticles' => 'احدث المقالات',
     'contactUsSection' => [

@@ -57,7 +57,7 @@
                         </a>
                         <div class="info_text">
                             <h6 class="text-center"> {{ getLocalizableColumn($service, 'name') }} </h6>
-                            <small class="text-center">{!! strip_tags(charsLimit(getLocalizableColumn($service, 'description'), 150)) !!} </small>
+                            <small class="text-center">{!! charsLimit(strip_tags(getLocalizableColumn($service, 'description')), 240) !!} </small>
                         </div>
                         <div class="more">
                             <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($service, 'slug') )}}"> {{ __('home.menu.readMore') }} </a>
@@ -103,8 +103,8 @@
                     <div class="overlay "></div>
                     <div class="info ">
                         <h1> {{ getLocalizableColumn($pestLibrary, 'name') }} </h1>
-                        <p>{!! charsLimit(getLocalizableColumn($pestLibrary, 'description'), 150) !!}</p>
-                        <a href="{{ url(app()->getLocale() .'/pest-libraries/'.getLocalizableColumn($pestLibrary, 'slug') ) }}" class="raedMore ">{{ __('home.seeAll.seeAllPestLibraries') }} <i class="fa fa-chevron-left "></i></a>
+                        <p>{!! charsLimit(strip_tags(getLocalizableColumn($pestLibrary, 'description')), 240) !!}</p>
+                        <a href="{{ url(app()->getLocale() .'/pest-libraries/'.getLocalizableColumn($pestLibrary, 'slug') ) }}" class="raedMore ">{{ __('home.seeAll.moreDetails') }} <i class="fa fa-chevron-left "></i></a>
                     </div>
                 </div>
             @endforeach    
@@ -160,7 +160,7 @@
                             </div>
                             <div class="article_info">
                                 <h4>{{ $blog->name }}</h4>
-                                <p class="mb-3 ">{!! strip_tags(charsLimit($blog->description_ar, 70)) !!}</p>
+                                <p class="mb-3 ">{!! charsLimit(strip_tags($blog->description_ar), 200) !!}</p>
                                 <p class="m-0">
                                 {{ date('d-m-Y', strtotime($blog->created_at)) }}
                                 </p>

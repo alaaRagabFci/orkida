@@ -1,13 +1,17 @@
 .jssocials-share-twitter .jssocials-share-link {
   background: #ccc;
-  margin: 0 5px;
+  margin: 0 3px;
+  width: 32.91px;
+  height: 34px;
   }
   .jssocials-share-twitter .jssocials-share-link:hover {
     background: #0087ba; }
 
 .jssocials-share-facebook .jssocials-share-link {
-  margin: 0 5px;
+  margin: 0 3px;
   background: #ccc;
+  width: 32.91px;
+  height: 34px;
   }
   .jssocials-share-facebook .jssocials-share-link:hover {
     background: #2d4373; }
@@ -19,7 +23,7 @@
 
 .jssocials-share-linkedin .jssocials-share-link {
   background: #ccc;
-  margin: 0 5px;
+  /* margin: 0 5px; */
   }
   .jssocials-share-linkedin .jssocials-share-link:hover {
     background: #005983; }
@@ -27,9 +31,9 @@
 .jssocials-share-pinterest .jssocials-share-link {
   background: #ccc;
   /* padding: 3px; */
-  margin: 0 5px;
-  width: 30px;
-  height: 30px;
+  /* margin: 0 0px; */
+  width: 32.91px;
+  height: 34px;
   }
   .jssocials-share-pinterest .jssocials-share-link:hover {
     background: #9f191f; }

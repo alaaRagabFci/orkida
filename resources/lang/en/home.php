@@ -56,6 +56,7 @@ return [
         'seeAllServices' => 'See all services',
         'seeAllPestLibraries' => 'See all pests',
         'seeAllArticles' => 'See all articles',
+        'moreDetails' => 'More details',
     ],
     'latestArticles' => 'Latest News',
     'contactUsSection' => [
