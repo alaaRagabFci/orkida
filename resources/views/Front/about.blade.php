@@ -119,7 +119,7 @@
                                     </a>
                                     <div class="info_text">
                                         <h6 class="text-center"> {{ getLocalizableColumn($service, 'name') }} </h6>
-                                        <small class="text-center">{!! charsLimit(getLocalizableColumn($service, 'description'), 80) !!}</small>
+                                        <small class="text-center">{!! strip_tags(charsLimit(getLocalizableColumn($service, 'description'), 80)) !!}</small>
                                     </div>
                                     <div class="more">
                                         <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($service, 'slug') )}}"> {{ __('home.menu.readMore') }} </a>

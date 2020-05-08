@@ -57,7 +57,7 @@
                         </a>
                         <div class="info_text">
                             <h6 class="text-center"> {{ getLocalizableColumn($service, 'name') }} </h6>
-                            <small class="text-center">{!! charsLimit(getLocalizableColumn($service, 'description'), 150) !!}</small>
+                            <small class="text-center">{!! strip_tags(charsLimit(getLocalizableColumn($service, 'description'), 150)) !!} </small>
                         </div>
                         <div class="more">
                             <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($service, 'slug') )}}"> {{ __('home.menu.readMore') }} </a>
@@ -160,7 +160,7 @@
                             </div>
                             <div class="article_info">
                                 <h4>{{ $blog->name }}</h4>
-                                <p class="mb-3 ">{!! charsLimit($blog->description_ar, 70) !!}</p>
+                                <p class="mb-3 ">{!! strip_tags(charsLimit($blog->description_ar, 70)) !!}</p>
                                 <p class="m-0">
                                 {{ date('d-m-Y', strtotime($blog->created_at)) }}
                                 </p>

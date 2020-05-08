@@ -4,9 +4,9 @@
 <meta name="keywords" content="{{ getLocalizableColumn($serviceDetails, 'keywords') }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <meta name="description" content="{{ getLocalizableColumn($serviceDetails, 'meta_description') }}">
-<meta property="og:url" content="http://orkidapest.com/"/>
+<meta property="og:url" content="http://orkidapest.com/orkidaFront/"/>
 <meta property="og:title" content="{{ getLocalizableColumn($serviceDetails, 'meta_title') }}"/>
-<meta property="og:image" content="https://orkidapest.com/uploads/services/2018-09-18_10-15-52_XjHDX4Am96.jpg"/>
+<meta property="og:image" content="{{ config("app.baseUrl").$serviceDetails->image }}"/>
 <meta property="og:site_name" content="Orkida pest"/>
 <meta property="og:description" content="{{ getLocalizableColumn($serviceDetails, 'meta_description') }}"/>
 @endsection
@@ -177,7 +177,7 @@
                                         </div>
                                         <div class="card-body">
                                             <p class="card-text">
-                                            {!! charsLimit($relatedArticle->blog->description_ar, 150) !!}
+                                            {!! strip_tags(charsLimit($relatedArticle->blog->description_ar, 150)) !!}
                                             </p>
                                             <span class="date"> {{ date('d-m-Y', strtotime($relatedArticle->blog->created_at)) }} </span>
                                             <a href="{{ url(app()->getLocale() .'/blog/'.$relatedArticle->blog->slug)}}" class="read-more">  {{ __('home.menu.readMore') }} <i class="fa fa-angle-left"></i></a>
