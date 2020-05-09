@@ -118,6 +118,9 @@ class HomeController extends Controller
 
     public function blogs(): View
     {
+        if(app()->getLocale() == 'en')
+            abort(404);
+
         $articleTypes = ArticleType::where('is_active', 1)->get();
         $text = request()->query();
         if (isset($text['searchText']) && $text['searchText'] != "") {
@@ -140,6 +143,9 @@ class HomeController extends Controller
 
     public function blogsCategory($slug): View
     {
+        if(app()->getLocale() == 'en')
+            abort(404);
+
         $articleTypes = ArticleType::where('is_active', 1)->get();
         $type = ArticleType::where('slug', $slug)->first();
         $headerBlog = Blog::where('article_id', $type->id)->orderBy('sort', 'ASC')->take(2)->get();
@@ -157,6 +163,9 @@ class HomeController extends Controller
 
     public function blogDetails($slug): View
     {
+        if(app()->getLocale() == 'en')
+            abort(404);
+
         $blog = Blog::where('slug', $slug)->first();
         $blog->viewers += 1;
         $blog->save();

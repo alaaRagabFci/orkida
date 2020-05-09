@@ -30,6 +30,11 @@ return [
             'keywords' => 'Okrida Company, Pest control in Jeddah',
             'description' => 'Okrida Company, Pest control in Jeddah',
         ],
+        '404' => [
+            'title' => 'Page Not Found',
+            'keywords' => 'Okrida Company, Pest control in Jeddah Page Not Found',
+            'description' => 'Page Not Found',
+        ],
     ],
     'menu' => [
         'searchTxt' => 'Type what you want to search on the site',
@@ -133,6 +138,11 @@ return [
         'tags' => 'Tags',
         'relatedArticles' => 'Related articles',
         'noArticlesFound' => 'No related articles found.',
+    ],
+    '404' => [
+        'pageError' => 'An error occurred on the page',
+        'reEnter' => 'Try to re-enter the page and return to the home page',
+        'backHome' => 'Back to home',
     ],
 
 ];
