@@ -169,7 +169,7 @@ class HomeController extends Controller
                 foreach ($tags as $tag) {
                     $query->orWhere('tag', 'LIKE', '%' . $tag->tag . '%');
                 }
-            })->get();
+            })->take(6)->get();
         } else {
             $relatedArticles = [];
         }
