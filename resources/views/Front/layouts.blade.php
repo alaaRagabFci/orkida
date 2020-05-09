@@ -200,6 +200,7 @@
                                 <a href="tel:{{ count($sitePhones) > 0 ? $sitePhones[0]->phone : '01000000000' }}" class="nav-link"> {{ count($sitePhones) > 0 ? $sitePhones[0]->phone : '01000000000' }} </a>
                                 <a href="tel:{{ count($sitePhones) > 0 ? $sitePhones[0]->phone : '01000000000' }}"><img src="{{ asset('/assets/img/mob/noun_call_2443019.svg')}}" alt=""></a>
                             </li>
+                            @if(!request()->is('ar/blog', 'ar/blog/*', 'categories/*'))
                             <div class="dropdown-divider mob mt-4"></div>
                             <li class="mob">
                                 <a href="#" class="nav-link">{{ __('home.menu.changeLang') }}</a>
@@ -209,6 +210,7 @@
                             <a href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}"><img src="{{ asset('/assets/img/Flag-AR.svg')}}" alt="AR"></a>
                             @endif 
                             </li>
+                            @endif
                         </ul>
                     </div>
 
@@ -240,11 +242,13 @@
                                 </a>
                             </div>
                         </div>
+                        @if(!request()->is('ar/blog', 'ar/blog/*', 'ar/categories/*'))    
                     @if(app()->getLocale() == 'ar')
                         <a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}"><img src="{{ asset('/assets/img/Flag-EN.svg')}}" alt=""></a>
                     @else
                         <a href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}"><img src="{{ asset('/assets/img/Flag-AR.svg')}}" alt="AR"></a>
                     @endif 
+                    @endif
                     </div>
                 </nav>
                 @if(request()->is(app()->getLocale()))

@@ -106,7 +106,7 @@
                                     <p class="card-text">
                                     {!! charsLimit(strip_tags($headerBlog[1]->description_ar), 240) !!}
                                     </p>
-                                    <span class="date"> {{ $headerBlog[1]->created_at }}  </span>
+                                    <span class="date">  {{ date('d-m-Y', strtotime($headerBlog[1]->created_at)) }}  </span>
                                     <a href="{{ url(app()->getLocale() .'/blog/'.$headerBlog[1]->slug) }}" class="read-more">  قراءة المزيد <i class="fa fa-angle-left"></i></a>
                             </div>
                         </div>
@@ -133,7 +133,7 @@
                                         <p class="card-text">
                                         {!! charsLimit(strip_tags($blog->description_ar), 240) !!}
                                         </p>
-                                        <span class="date"> {{ $blog->created_at }} </span>
+                                        <span class="date"> {{ date('d-m-Y', strtotime($blog->created_at)) }} </span>
                                         <a href="{{ url(app()->getLocale() .'/blog/'.$blog->slug) }}" class="read-more">  قراءة المزيد <i class="fa fa-angle-left"></i></a>
                                     </div>
                                 </div>

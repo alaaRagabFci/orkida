@@ -79,6 +79,7 @@ class BlogService
                 $metaTag = new MetaTag();
                 $metaTag->tag = $tag;
                 $metaTag->blog_id = $blogId;
+                $metaTag->lang = 'AR';
                 $metaTag->save();
             }
         }

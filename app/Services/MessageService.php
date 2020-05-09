@@ -26,7 +26,7 @@ class MessageService
         return Datatables::of($messages)
             ->editColumn('message', function (Message $message)
             {
-                return '<span data-toggle="tooltip" data-placement="top" title="'.$message->message.'">'.charsLimit($message->message, 20).'</span>';
+                return '<span data-toggle="tooltip" data-placement="top" title="'.$message->message.'">'.charsLimit($message->message, 60).'</span>';
             })
             ->editColumn('is_benefit', function (Message $message){
                 if($message->is_benefit == 1)

@@ -133,7 +133,7 @@ return [
         'monthEnd' => 'حتي نهاية الشهر',
         'tags' => 'علامات',
         'relatedArticles' => 'مقالات ذات صلة',
-        'noArticlesFound' => 'لأ توجد مقالات ذات صلة.',
+        'noArticlesFound' => 'لا توجد مقالات ذات صلة.',
     ],
 
 ];

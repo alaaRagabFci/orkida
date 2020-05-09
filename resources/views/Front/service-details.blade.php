@@ -1,10 +1,10 @@
 @extends('Front.layouts')
-@section('title', getLocalizableColumn($serviceDetails, 'meta_title'))
+@section('title', getLocalizableColumn($serviceDetails, 'name'))
 @section('meta')
 <meta name="keywords" content="{{ getLocalizableColumn($serviceDetails, 'keywords') }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <meta name="description" content="{{ getLocalizableColumn($serviceDetails, 'meta_description') }}">
-<meta property="og:url" content="http://orkidapest.com/orkidaFront/"/>
+<meta property="og:url" content="http://orkidapest.com/"/>
 <meta property="og:title" content="{{ getLocalizableColumn($serviceDetails, 'meta_title') }}"/>
 <meta property="og:image" content="{{ config("app.baseUrl").$serviceDetails->image }}"/>
 <meta property="og:site_name" content="Orkida pest"/>
@@ -187,7 +187,7 @@
                             </div>
                         </div>
                         @endif -->
-                        @if(app()->getLocale() == 'ar')
+                        @if(app()->getLocale() == 'ar' && count($relatedArticles) > 0)
                         <div class="articels-box">
                             <h3 class="mb-4"> {{ __('home.service.relatedArticles') }} </h3>
                             <div class="row">
@@ -227,6 +227,8 @@
                                 @endif
                             </div>
                         </div>
+                        @else
+                        <h3>{{ __('home.service.noArticlesFound') }}</h3>
                         @endif
                     </div>
                     <div class="col-lg-3">

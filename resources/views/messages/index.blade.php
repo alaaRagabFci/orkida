@@ -19,12 +19,14 @@
       <div class="portlet-body">
               <table class="table table-striped table-bordered table-hover" id="messages">
                 <thead>
-                  <th class="col-md-1">الرساله</th>
-                  <th class="col-md-1">نعم أم لا</th>
+                  <th class="col-md-1">id</th>
+                  <th class="col-md-5">الرساله</th>
+                  <th class="col-md-2">نعم أم لا</th>
                 </thead>
                 <tbody>
                   @foreach ($tableData->getData()->data as $row)
                   <tr>
+                    <td>{{  $row->id }}</td>
                     <td>{!!  $row->message !!}</td>
                     <td>{{  $row->is_benefit }}</td>
                   </tr>
@@ -56,9 +58,11 @@
           'autoWidth'   : false,
           "ajax": {{ $tableData->getData()->recordsFiltered }},
           "columns": [
+          {data: 'id', name: 'id'},
           {data: 'message', name: 'message'},
           {data: 'is_benefit', name: 'is_benefit'}
-          ]
+          ],
+          order: [ [0, 'desc'] ]
         })
       });
     </script>
