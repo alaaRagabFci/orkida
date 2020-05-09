@@ -113,15 +113,15 @@ class HomeController extends Controller
         $articleTypes = ArticleType::where('is_active', 1)->get();
         $text = request()->query();
         if(isset($text['searchText']) && $text['searchText'] != ""){
-            $headerBlog = Blog::where('name', 'like',$text['searchText'].'%')->orWhere('slug', 'like', $text['searchText'].'%')->first();
-            if($headerBlog)
-                $blogs = Blog::where('name', $text['searchText'])->orWhere('slug', $text['searchText'])->where('id', '!=', $headerBlog->id)->latest()->paginate(9);
+            $headerBlog = Blog::where('name', 'like',$text['searchText'].'%')->orWhere('slug', 'like', $text['searchText'].'%')->take(2)->get();
+            if(count($headerBlog) > 1)
+                $blogs = Blog::whereNotIn('id', $headerBlog->pluck('id'))->where('name', 'like', $text['searchText'].'%')->orWhere('slug', 'like', $text['searchText'].'%')->latest()->paginate(10);
             else
                 $blogs = [];
 
-        }else{
-            $headerBlog = Blog::orderBy('sort', 'ASC')->first();
-            $blogs = Blog::where('is_active', 1)->where('id', '!=', $headerBlog->id)->latest()->paginate(8);  
+            }else{
+            $headerBlog = Blog::orderBy('sort', 'ASC')->take(2)->get();
+            $blogs = Blog::where('is_active', 1)->whereNotIn('id', $headerBlog->pluck('id'))->latest()->paginate(10);  
         }
 
         return  view('Front.blogs',[
@@ -134,8 +134,11 @@ class HomeController extends Controller
     public function blogsCategory($slug): View{
         $articleTypes = ArticleType::where('is_active', 1)->get();
         $type = ArticleType::where('slug', $slug)->first();
-        $headerBlog = Blog::where('article_id', $type->id)->orderBy('sort', 'ASC')->first();
-        $blogs = Blog::where(['is_active' => 1, 'article_id' => $type->id])->where('id', '!=', $headerBlog->id)->latest()->paginate(8);
+        $headerBlog = Blog::where('article_id', $type->id)->orderBy('sort', 'ASC')->take(2)->get();
+        if(count($headerBlog) > 1)
+            $blogs = Blog::where(['is_active' => 1, 'article_id' => $type->id])->whereNotIn('id', $headerBlog->pluck('id'))->latest()->paginate(10);
+        else
+            $blogs = [];
 
         return  view('Front.blogs',[
             'headerBlog' => $headerBlog,

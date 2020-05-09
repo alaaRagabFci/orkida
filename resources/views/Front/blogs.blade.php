@@ -9,18 +9,18 @@
 
 <!-- start content of page -->
 <div class="wrapper_content">
-    @if($headerBlog)
+    @if(count($headerBlog) > 0)
     <section class="beardcamp">
         <div class="beardcamp_img">
-            <img src="{{ config("app.baseUrl").$headerBlog->image }}" alt=" {{ $headerBlog->image_alt }}">
+            <img src="{{ config("app.baseUrl").$headerBlog[0]->image }}" alt=" {{ $headerBlog[0]->image_alt }}">
             <div class="beardcamp_info">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-4 col-md-4">
                             <div class="right_text mobile-text">
-                                <h3 class="mb-0"> {{ $headerBlog->name }} </h3>
-                                <span class="date color-dark"> {{ date('d-m-Y', strtotime($headerBlog->created_at)) }} </span>
-                                <a class="no-bg no-shadow mobile" href="{{ url(app()->getLocale() .'/blog/'.$headerBlog->slug )}}"> {{ __('home.menu.readMore') }} <i class="fa fa-angle-left"></i></a>
+                                <h3 class="mb-0"> {{ $headerBlog[0]->name }} </h3>
+                                <span class="date color-dark"> {{ date('d-m-Y', strtotime($headerBlog[0]->created_at)) }} </span>
+                                <a class="no-bg no-shadow mobile" href="{{ url(app()->getLocale() .'/blog/'.$headerBlog[0]->slug )}}"> {{ __('home.menu.readMore') }} <i class="fa fa-angle-left"></i></a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 text-center">
@@ -31,7 +31,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 text-left">
                             <div class="left_text">
-                                <a class="no-bg no-shadow web postion_top color-dark" href="{{ url(app()->getLocale() .'/blog/'.$headerBlog->slug )}}"> {{ __('home.menu.readMore') }} <i class="fa fa-angle-left"></i></a>
+                                <a class="no-bg no-shadow web postion_top color-dark" href="{{ url(app()->getLocale() .'/blog/'.$headerBlog[0]->slug )}}"> {{ __('home.menu.readMore') }} <i class="fa fa-angle-left"></i></a>
                             </div>
                         </div>
                     </div>
@@ -56,8 +56,7 @@
             </div>
         </div>
     </div>
-    @else
-    <h2>لا توجد مقالات أخري</h2>
+
     @endif
     @else
     <br>
@@ -81,16 +80,16 @@
                             </div>
                         </form>
                     </div>
-                    @if($headerBlog)
-                    <!-- <div class="bg-info mt-4 no-shadow border p-0">
+                    @if(count($headerBlog) > 1)
+                    <div class="bg-info mt-4 no-shadow border p-0">
                         <div class="row">
                             <div class="col-lg-5 col-md-6 pr-0">
                                 <div class="image-area">
-                                    <a href="blog_details.html">
-                                        <img class="card-img-top" src="assets/img/services/Img2.png" alt="Card image cap">
+                                    <a href="{{ url(app()->getLocale() .'/blog/'.$headerBlog[1]->slug )}}">
+                                        <img class="card-img-top" src="{{ config("app.baseUrl").$headerBlog[1]->image }}" alt=" {{ $headerBlog[1]->image_alt }}">
                                         <div class="card-img-overlay">
                                             <p class="card-title-overlay">
-                                                <img src="assets/img/pest-library/noun_Cockroach_323508.svg"> مكافحة الحشرات
+                                            <img src="{{ asset('/assets/img/pest-library/noun_Cockroach_323508.svg')}}"> {{ $headerBlog[1]->getArticleType->category }}
                                             </p>
                                         </div>
                                     </a>
@@ -99,21 +98,19 @@
                             </div>
                             <div class="col-lg-7 col-md-6">
                                 <h3 class="card-body">
-                                    <a href="blog_details.html">
+                                    <a href="{{ url(app()->getLocale() .'/blog/'.$headerBlog[1]->slug )}}">
                                         <h3 class="card-title">
-                                            النمل الأبيض و طرق التخلص منه
+                                        {{ $headerBlog[1]->name }}
                                         </h3>
                                     </a>
                                     <p class="card-text">
-                                        من بين كل الحشرات والقوارض والآفات الأخرى التي تزعج وتضايق أصحاب المنازل في كل مكان لا يوجد أخطر من النمل الأبيض (الأرضة). فقط النمل الأبيض بمفرده يمكنه تدمير أساس المنزل كله في بضع سنوات. أول أعمال النمل الأبيض التدميرية قد لا يمكن ملاحظتها في أول خمس
-                                        سنوات من التفشي وبعد هذا قد يكون الوقت متأخرًا جدًا لإنقاذ ما يمكن إنقاذه. قد يكون منزلك شديد الأهمية لك أو هو كل ما تملكه، ولهذا من المهم أن تتخذ خطوات مناسبة لحماية منزلك من النمل الأبيض وتخليص منزلك منه على
-                                        الفور إذا كان موجودًا بالفعل.
+                                    {!! charsLimit(strip_tags($headerBlog[1]->description_ar), 240) !!}
                                     </p>
-                                    <span class="date"> الثلاثاء 22 / 6 / 2019 </span>
-                                    <a href="blog_details.html" class="read-more">  قراءة المزيد <i class="fa fa-angle-left"></i></a>
+                                    <span class="date"> {{ $headerBlog[1]->created_at }}  </span>
+                                    <a href="{{ url(app()->getLocale() .'/blog/'.$headerBlog[1]->slug) }}" class="read-more">  قراءة المزيد <i class="fa fa-angle-left"></i></a>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="articels-box articels-box-without-bg">
                         <div class="row">
                         @foreach($blogs as $blog)
@@ -134,7 +131,7 @@
                                     </div>
                                     <div class="card-body">
                                         <p class="card-text">
-                                        {!! charsLimit(strip_tags($blog->description_ar), 100) !!}
+                                        {!! charsLimit(strip_tags($blog->description_ar), 240) !!}
                                         </p>
                                         <span class="date"> {{ $blog->created_at }} </span>
                                         <a href="{{ url(app()->getLocale() .'/blog/'.$blog->slug) }}" class="read-more">  قراءة المزيد <i class="fa fa-angle-left"></i></a>
