@@ -126,7 +126,7 @@ return [
         'CommonQuestions' => 'Frequently asked questions',
         'CommonQuestionBelong' => 'Questions for',
         'q' => 'Q',
-        'a' => '*',
+        'a' => 'A',
         'categories' => 'Categories',
         'askQuestion' => 'Ask your question',
         'noQuestionFound' => 'No questions found.',

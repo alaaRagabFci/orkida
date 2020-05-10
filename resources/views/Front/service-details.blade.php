@@ -76,9 +76,6 @@
                                     <li class="breadcrumb-item">
                                     <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}">{{ __('home.services') }}</a>
                                     </li>
-                                    <li class="breadcrumb-item">
-                                    <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}"> {{ getLocalizableColumn($serviceDetails->getCategory, 'name') }} </a>
-                                    </li>
                                     <li class="breadcrumb-item active" aria-current="page"> {{ getLocalizableColumn($serviceDetails, 'name') }} </li>
                                 </ol>
                             </nav>

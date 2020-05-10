@@ -91,8 +91,9 @@ class HomeController extends Controller
     public function getQuestion($faqSlug): View
     {
         $question = Faq::where('slug_ar', $faqSlug)->orWhere('slug_en', $faqSlug)->firstOrFail();
+        $category = QuestionCategory::where('id', $question->question_category_id)->first();
         $categories = QuestionCategory::get();
-        return view('Front.questionDetails', compact('categories', 'question'));
+        return view('Front.questionDetails', compact('categories', 'question', 'category'));
     }
 
     public function getService($serviceSlug): View

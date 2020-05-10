@@ -35,7 +35,7 @@
                                             <h1> {{ __('home.faqs.most') }} </h1>
                                         </div>
                                         <div class="mid-text">
-                                            <h2> {{ __('home.faqs.CommonQuestionBelong') }} </h2>
+                                            <h2> {{ __('home.faqs.CommonQuestionBelong').getLocalizableColumn($category, 'category') }}  </h2>
                                         </div>
                                     </div>
                                 </div>
@@ -57,8 +57,8 @@
                                     <h1> {{ __('home.faqs.categories') }} </h1>
                                     <ul class="">
                                         <li>
-                                            @foreach($categories as $category)
-                                            <a href="{{ url(app()->getLocale().'/faqs?category='.getLocalizableColumn($category, 'category')) }}"> {{ getLocalizableColumn($category, 'category') }} </a>
+                                            @foreach($categories as $cat)
+                                            <a class="{{ getLocalizableColumn($cat, 'category') == getLocalizableColumn($category, 'category') ? 'categorySelected' : ''  }}" href="{{ url(app()->getLocale().'/faqs?category='.getLocalizableColumn($cat, 'category')) }}"> {{ getLocalizableColumn($cat, 'category') }} </a>
                                             @endforeach
                                         </li>
                                     </ul>

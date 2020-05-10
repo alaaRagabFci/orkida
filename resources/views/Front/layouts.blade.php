@@ -47,12 +47,12 @@
     <header class="{{request()->is(app()->getLocale()) ? 'homePage' : 'other_Pages' }}">
         <div id="openSearch" class="bg-info mt-4 mobile-search-web  mobile">
             <h6 class="title-wdight"> {{ __('home.menu.searchTxtMob') }} </h6>
-            <form>
+            <form method="get" action="{{ url(app()->getLocale() .'/site-search') }}">
                 <div class="form-group">
-                    <input type="text " class="form-control " id=" " placeholder=" ">
+                    <input name="txt" type="text " class="form-control " id=" " placeholder=" ">
                 </div>
                 <div class="form-group">
-                    <button class="btn-main btn-bg-pink w-100">{{ __('home.menu.searchBtn') }}</button>
+                    <button type="submit" class="btn-main btn-bg-pink w-100">{{ __('home.menu.searchBtn') }}</button>
                 </div>
             </form>
         </div>
