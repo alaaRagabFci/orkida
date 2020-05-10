@@ -227,7 +227,8 @@ class HomeController extends Controller
     }
 
     public function matchedBlogsTags($tag): View{
+        $articleTypes = ArticleType::where('is_active', 1)->get();
         $relatedArticles = MetaTag::where('service_id', null)->where('tag', 'LIKE', '%' . str_replace('-', ' ', trim($tag)) . '%')->latest()->paginate(2);
-        return view('Front.tags', compact('relatedArticles', 'tag'));
+        return view('Front.tags', compact('relatedArticles', 'tag', 'articleTypes'));
     }
 }
