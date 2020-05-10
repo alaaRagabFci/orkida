@@ -118,7 +118,7 @@ class HomeController extends Controller
 
     public function blogs(): View
     {
-        if(app()->getLocale() == 'en')
+        if (app()->getLocale() == 'en')
             abort(404);
 
         $articleTypes = ArticleType::where('is_active', 1)->get();
@@ -143,7 +143,7 @@ class HomeController extends Controller
 
     public function blogsCategory($slug): View
     {
-        if(app()->getLocale() == 'en')
+        if (app()->getLocale() == 'en')
             abort(404);
 
         $articleTypes = ArticleType::where('is_active', 1)->get();
@@ -163,10 +163,10 @@ class HomeController extends Controller
 
     public function blogDetails($slug): View
     {
-        if(app()->getLocale() == 'en')
+        if (app()->getLocale() == 'en')
             abort(404);
 
-        $blog = Blog::where('slug', $slug)->first();
+        $blog = Blog::where('slug', $slug)->firstOrFail();
         $blog->viewers += 1;
         $blog->save();
 
@@ -213,5 +213,14 @@ class HomeController extends Controller
         $message->save();
 
         return redirect()->back()->with('msg', 'تم أرسال تعليقك بنجاح.');
+    }
+
+    public function services(): View
+    {
+        $services = Service::where(['category_id' => 2, 'is_active' => 1])->orderBy('id', 'ASC')->get();
+
+        return  view('Front.services', [
+            'services' => $services,
+        ]);
     }
 }

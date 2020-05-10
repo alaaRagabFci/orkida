@@ -80,6 +80,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale() , 'namespace' => 'Fro
     Route::GET('about-us', 'HomeController@aboutUs');
     Route::GET('faqs', 'HomeController@faqs');
     Route::GET('faqs/{slug}', 'HomeController@getQuestion');
+    Route::GET('services', 'HomeController@services');
     Route::GET('services/{slug}', 'HomeController@getService');
     Route::GET('blog', 'HomeController@blogs');
     Route::GET('categories/{slug}', 'HomeController@blogsCategory');

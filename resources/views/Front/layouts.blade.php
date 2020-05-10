@@ -113,24 +113,23 @@
                                     <div class="dropdown-menu midmenu">
                                         <div class="row">
                                             <div class="col-lg-4 col-6 border_left">
+                                            <a class="dropdown-item" href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}"> {{ getLocalizableColumn($pestControlObj, 'name') }} </a>
                                             @foreach($pestControls as $key => $pestControl)
                                             <!-- {{ $key++ }} -->
                                                 <a class="dropdown-item" href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControl, 'slug') )}}"> {{ getLocalizableColumn($pestControl, 'name') }}</a>
-                                                @if($key % 5 == 0)
+                                                @if(($key + 1) % 5 == 0)
                                                     </div>
                                                     @if($key != count($pestControls))
                                                         <div class="col-lg-4 col-6 border_left">
                                                     @endif        
                                                 @endif
                                             @endforeach
-                                            @if(count($pestControls) % 5 != 0) 
-                                            <a class="dropdown-item" href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}"> {{ getLocalizableColumn($pestControlObj, 'name') }} </a>
+                                            @if((count($pestControls) + 1) % 5 != 0) 
                                             <a class="dropdown-item" href="{{ url(app()->getLocale() .'/pest-libraries' ) }}"> {{ __('home.menu.otherPests') }} </a>
                                             <a class="dropdown-item" href="{{ url(app()->getLocale() .'/faqs' ) }}"> {{ __('home.footer.faqsCommon') }}</a>
                                             </div>
                                             @else 
                                             <div class="col-lg-4 col-6 border_left">
-                                                <a class="dropdown-item" href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}"> {{ getLocalizableColumn($pestControlObj, 'name') }} </a>
                                                 <a class="dropdown-item" href="{{ url(app()->getLocale() .'/pest-libraries' ) }}"> {{ __('home.menu.otherPests') }} </a>
                                                 <a class="dropdown-item" href="{{ url(app()->getLocale() .'/faqs' ) }}"> {{ __('home.footer.faqsCommon') }}</a>
                                             </div>  

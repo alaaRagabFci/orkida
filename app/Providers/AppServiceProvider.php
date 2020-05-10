@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
         $sitePhones = SitePhone::all();
         $about = AboutUs::first();
         $pestControlObj = Service::where(['category_id' => 1, 'is_active' => 1, 'sub_service' => null])->first();
-        $pestControls = Service::where(['is_active' => 1, 'sub_service' => $pestControlObj->id])->latest()->get();
+        $pestControls = Service::where(['is_active' => 1, 'sub_service' => $pestControlObj->id])->orderBy('id', 'ASC')->get();
         $otherServices = Service::where(['category_id' => 2, 'is_active' => 1, 'sub_service' => null])->orderBy('sort', 'ASC')->get();
         $pestLibrariesMenu = PestLibrary::where(['sub_pest' => null, 'is_active' => 1])->orderBy('sort', 'ASC')->take(12)->get();
 

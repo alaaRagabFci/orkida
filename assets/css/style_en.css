@@ -1945,6 +1945,7 @@ footer .last div:last-child {
     letter-spacing: 0;
     opacity: 1;
     display: block;
+    color: white;
 }
 
 .offset-3 {
