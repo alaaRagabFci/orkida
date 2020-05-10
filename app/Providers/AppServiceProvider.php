@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         $settings = Setting::first();
-        $services = Service::orderBy('sort', 'ASC')->take(6)->get();
+        $homeServices = Service::orderBy('sort', 'ASC')->take(6)->get();
         $sitePhones = SitePhone::all();
         $about = AboutUs::first();
         $pestControlObj = Service::where(['category_id' => 1, 'is_active' => 1, 'sub_service' => null])->first();
@@ -44,7 +44,7 @@ class AppServiceProvider extends ServiceProvider
                 'pestLibrariesMenu' => $pestLibrariesMenu,
                 'otherServices' => $otherServices,
                 'pestControlObj' => $pestControlObj,
-                'services' => $services,
+                'homeServices' => $homeServices,
             ]
         );
     }

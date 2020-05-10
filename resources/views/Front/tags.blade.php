@@ -1,9 +1,9 @@
 @extends('Front.layouts')
-@section('title',__('home.meta.services.title'))
+@section('title', $tag)
 @section('meta')
-<meta name="keywords" content="{{ __('home.meta.services.keywords') }}">
+<meta name="keywords" content="شركة اوركيدا, شركة اوركيدا لمكافحة الحشرات,شركات مكافحة حشرات بجدة ">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-<meta name="description" content="{{ __('home.meta.services.description') }}">
+<meta name="description" content="شركة اوركيدا, شركة اوركيدا لمكافحة الحشرات,شركات مكافحة حشرات بجدة ">
 @endsection
 @section('content')
 <div class="wrapper_content">
@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4">
                             <div class="right_text">
-                                <h3 class="mb-0"> {{ __('home.services') }} </h3>
+                                <h3 class="mb-0"> {{ __('home.blog') }} </h3>
                                 <nav aria-label="breadcrumb no-bg">
                                     <ol class="breadcrumb no-bg p-0 mb-0">
                                         <li class="breadcrumb-item">
@@ -50,25 +50,30 @@
                 <section id="services">
                     <div class="container-fluid p-0">
                         <div class="row services">
-                            @foreach($allServices as $service)
+                            @foreach($relatedArticles as $relatedArticle)
                             <div class="col-lg-4">
                                 <section class="backdrop ">
                                     <div class="overlay_filter "></div>
-                                    <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($service, 'slug') )}}">
-                                        <img src="{{ config("app.baseUrl").$service->image }}" alt=" {{ $service->image }}">
-                                        <h3 class="mb-0 w-100">{{ getLocalizableColumn($service, 'name') }}</h3>
+                                    <a href="{{ url(app()->getLocale() .'/blog/'.$relatedArticle->blog->slug )}}">
+                                        <img src="{{ config("app.baseUrl").$relatedArticle->blog->image }}" alt=" {{ $relatedArticle->blog->image_alt }}">
+                                        <h3 class="mb-0 w-100">{{ $relatedArticle->blog->name }}</h3>
                                     </a>
                                     <div class="info_text ">
-                                        <h6 class="text-center "> {{ getLocalizableColumn($service, 'name') }} </h6>
-                                        <small class="text-center ">{!! charsLimit(strip_tags(getLocalizableColumn($service, 'description')), 240) !!} 
+                                        <h6 class="text-center "> {{ $relatedArticle->blog->name }} </h6>
+                                        <small class="text-center "> {!! charsLimit(strip_tags($relatedArticle->blog->description_ar), 240) !!} 
                                         </small>
                                     </div>
                                     <div class="more ">
-                                        <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($service, 'slug') )}}"> {{ __('home.menu.readMore') }} </a>
+                                        <a href="{{ url(app()->getLocale() .'/blog/'.$relatedArticle->blog->slug )}}"> {{ __('home.menu.readMore') }} </a>
                                     </div>
                                 </section>
                             </div>
                             @endforeach
+                        </div>
+                        <div class="main-pagination d-flex justify-content-center">
+                            <nav>
+                            {{ $relatedArticles->links() }}
+                            </nav>
                         </div>
                     </div>
                 </section>

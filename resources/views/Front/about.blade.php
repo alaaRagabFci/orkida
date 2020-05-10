@@ -109,7 +109,7 @@
                     </h3>
                     <div class="container-fluid">
                         <div class="row services">
-                        @foreach($services as $service)
+                        @foreach($homeServices as $service)
                             <div class="col-lg-4">
                                 <section class="backdrop">
                                     <div class="overlay_filter"></div>
@@ -127,7 +127,7 @@
                                 </section>
                             </div>
                         @endforeach    
-                        @if(count($services) > 0)
+                        @if(count($homeServices) > 0)
                             <div class="w-100 ml-3">
                             <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}" class="mr-auto btn-border d-block">
                                 {{ __('home.seeAll.seeAllServices') }}

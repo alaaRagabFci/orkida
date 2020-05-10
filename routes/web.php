@@ -85,6 +85,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale() , 'namespace' => 'Fro
     Route::GET('blog', 'HomeController@blogs');
     Route::GET('categories/{slug}', 'HomeController@blogsCategory');
     Route::GET('blog/{slug}', 'HomeController@blogDetails');
+    Route::GET('blog/tags/{tag}', 'HomeController@matchedBlogsTags');
     Route::POST('user-opinion', 'HomeController@userOpinion');
 });
 
