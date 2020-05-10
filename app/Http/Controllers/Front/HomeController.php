@@ -47,14 +47,16 @@ class HomeController extends Controller
 
     public function siteSearch(): View
     {
+        $articleTypes = ArticleType::where('is_active', 1)->get();
         $serviceSlug = request()->query();
         $slug = app()->getLocale() == 'ar' ? 'slug_ar' : 'slug_en';
         $name = app()->getLocale() == 'ar' ? 'name_ar' : 'name_en';
-        $services = Service::where($slug, 'like', $serviceSlug['searchService'] . '%')->orWhere($name, 'like', $serviceSlug['searchService'] . '%')->get();
-        $pestLibraries = PestLibrary::where($slug, 'like', $serviceSlug['searchService'] . '%')->orWhere($name, 'like', $serviceSlug['searchService'] . '%')->get();
+        $servicesResult = Service::where($slug, 'like', '%'.$serviceSlug['txt'] . '%')->orWhere($name, 'like', '%'.$serviceSlug['txt'] . '%')->get();
+        $pestLibrariesResult = PestLibrary::where($slug, 'like', '%'.$serviceSlug['txt'] . '%')->orWhere($name, 'like', '%'.$serviceSlug['txt'] . '%')->get();
         return view('Front.search', [
-            'services' => $services,
-            'pestLibraries' => $pestLibraries
+            'servicesResult' => $servicesResult,
+            'pestLibrariesResult' => $pestLibrariesResult,
+            'articleTypes' => $articleTypes,
         ]);
     }
 
@@ -124,9 +126,9 @@ class HomeController extends Controller
         $articleTypes = ArticleType::where('is_active', 1)->get();
         $text = request()->query();
         if (isset($text['searchText']) && $text['searchText'] != "") {
-            $headerBlog = Blog::where('name', 'like', $text['searchText'] . '%')->orWhere('slug', 'like', $text['searchText'] . '%')->take(2)->get();
+            $headerBlog = Blog::where('name', 'like', '%'.$text['searchText'] . '%')->orWhere('slug', 'like', '%'.$text['searchText'] . '%')->take(2)->get();
             if (count($headerBlog) > 1)
-                $blogs = Blog::whereNotIn('id', $headerBlog->pluck('id'))->where('name', 'like', $text['searchText'] . '%')->orWhere('slug', 'like', $text['searchText'] . '%')->latest()->paginate(10);
+                $blogs = Blog::whereNotIn('id', $headerBlog->pluck('id'))->where('name', 'like', '%'.$text['searchText'] . '%')->orWhere('slug', 'like', '%'.$text['searchText'] . '%')->latest()->paginate(10);
             else
                 $blogs = [];
         } else {

@@ -37,8 +37,10 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
             <p>{{ __('home.menu.searchTxt') }}</p>
-            <input type="text" name="searchService" class="form-control" name="search" id="">
-            <button class="btn-main">{{ __('home.menu.searchBtn') }}</button>
+            <form method="get" action="{{ url(app()->getLocale() .'/site-search') }}">
+            <input type="text" name="txt" class="form-control" name="search" id="">
+            <button type="submit" class="btn-main">{{ __('home.menu.searchBtn') }}</button>
+            </form>
         </div>
     </div>
     <!-- start header -->

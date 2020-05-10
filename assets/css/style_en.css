@@ -3269,3 +3269,28 @@ footer .last div:last-child {
     border-radius: 25px;
     background: rgba(0, 0, 0, 0.3);
 }
+
+
+/****************************** start search reuselt page ********************/
+
+.search-title {
+    padding-top: 30px;
+    position: relative;
+}
+
+.search-title h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #212529;
+    padding-bottom: 20px;
+}
+
+.search-title:after {
+    position: absolute;
+    content: "";
+    background: rgba(0, 0, 0, 0.2);
+    height: 1px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}

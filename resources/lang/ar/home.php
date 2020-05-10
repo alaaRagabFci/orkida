@@ -144,11 +144,17 @@ return [
         'tags' => 'علامات',
         'relatedArticles' => 'مقالات ذات صلة',
         'noArticlesFound' => 'لا توجد مقالات ذات صلة.',
+        'noLibraryFoundSearch' => 'لا توجد نتائج بحث خاصه بمكتبة الأفات.',
+        'noServicesFoundSearch' => 'لا توجد نتائج بحث خاصه بالخدمات.',
     ],
     '404' => [
         'pageError' => 'حدث خطأ في الصفحة',
         'reEnter' => 'حاول إعادة الدخول علي الصفحة و الرجوع الي الصفحة الرئيسية',
         'backHome' => 'الرجوع الي الرئيسية',
+    ],
+    'search' => [
+        'serviceSearchText' => 'بحث فى الخدمات',
+        'librarySearchText' => 'بحث فى مكتبة الأفات',
     ],
 
 ];

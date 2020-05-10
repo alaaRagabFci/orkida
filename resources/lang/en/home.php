@@ -143,11 +143,17 @@ return [
         'tags' => 'Tags',
         'relatedArticles' => 'Related articles',
         'noArticlesFound' => 'No related articles found.',
+        'noLibraryFoundSearch' => 'There are no pest libraries search results.',
+        'noServicesFoundSearch' => 'There are no search results for services.',
     ],
     '404' => [
         'pageError' => 'An error occurred on the page',
         'reEnter' => 'Try to re-enter the page and return to the home page',
         'backHome' => 'Back to home',
+    ],
+    'search' => [
+        'serviceSearchText' => 'Search services',
+        'librarySearchText' => 'Search in the pest library',
     ],
 
 ];

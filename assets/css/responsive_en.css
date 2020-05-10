@@ -1253,6 +1253,10 @@
     .sitemap .border_left {
         padding-right: 15px;
     }
+    /****************** search page ************/
+    .search-title {
+        padding-top: 0;
+    }
 }
 
 
