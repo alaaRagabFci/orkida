@@ -16,13 +16,13 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4">
                             <div class="right_text">
-                                <h3 class="mb-0"> {{ __('home.blog') }} </h3>
+                                <h3 class="mb-0"> {{ __('home.menu.blog') }} </h3>
                                 <nav aria-label="breadcrumb no-bg">
                                     <ol class="breadcrumb no-bg p-0 mb-0">
                                         <li class="breadcrumb-item">
                                             <a href="{{ url('/') }}">{{ __('home.menu.index') }}</a>
                                         </li>
-                                        <li class="breadcrumb-item active" aria-current="page"> {{ __('home.services') }} </li>
+                                        <li class="breadcrumb-item active" aria-current="page"> {{ __('home.menu.blog') }} </li>
                                     </ol>
                                 </nav>
                             </div>
