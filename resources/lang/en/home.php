@@ -40,6 +40,11 @@ return [
             'keywords' => 'Okrida Company, Pest control in Jeddah services',
             'description' => 'Orkida Pest Control Company  in Jeddah is a 100% Saudi company under Saudi ownership, uses approved safe pesticides and prepares its domestic service for an insect-free environment',
         ],
+        'pestBites' => [
+            'title' => 'Pest bites',
+            'keywords' => 'Okrida Company, Pest control in Jeddah pest bites',
+            'description' => 'Orkida Pest Control Company  in Jeddah is a 100% Saudi company under Saudi ownership, uses approved safe pesticides and prepares its domestic service for an insect-free environment',
+        ],
     ],
     'menu' => [
         'searchTxt' => 'Type what you want to search on the site',
@@ -160,6 +165,11 @@ return [
     ],
     'privacy' => [
         'privacyInstructure' => 'PRIVACY INFORMATION',
+    ],
+    'pestBites' => [
+        'sting_appearance' => 'Sting appearance',
+        'insect_bites' => 'Sting symptoms',
+        'notes' => 'Notes',
     ],
 
 ];

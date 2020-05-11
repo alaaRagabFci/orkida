@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Models\{ArticleType, Blog, CompanyValuable, Faq, Message, MetaTag, PestLibrary, QuestionCategory, Service, Slider};
+use App\Models\{ArticleType, Blog, CompanyValuable, Faq, Message, MetaTag, PestBite, PestLibrary, QuestionCategory, Service, Slider};
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
@@ -234,6 +234,11 @@ class HomeController extends Controller
         $articleTypes = ArticleType::where('is_active', 1)->get();
         $relatedArticles = MetaTag::where('service_id', null)->where('tag', 'LIKE', '%' . str_replace('-', ' ', trim($tag)) . '%')->latest()->paginate(2);
         return view('Front.tags', compact('relatedArticles', 'tag', 'articleTypes'));
+    }
+
+    public function pestBites(): View{
+        $pestBites = PestBite::get();
+        return view('Front.pest-bites', compact('pestBites'));
     }
     
 }
