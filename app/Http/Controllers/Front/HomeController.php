@@ -140,7 +140,8 @@ class HomeController extends Controller
         return  view('Front.blogs', [
             'headerBlog' => $headerBlog,
             'blogs' => $blogs,
-            'articleTypes' => $articleTypes
+            'articleTypes' => $articleTypes,
+            'text' => $text,
         ]);
     }
 
@@ -160,7 +161,9 @@ class HomeController extends Controller
         return  view('Front.blogs', [
             'headerBlog' => $headerBlog,
             'blogs' => $blogs,
-            'articleTypes' => $articleTypes
+            'articleTypes' => $articleTypes,
+            'text' => ['categories'],
+            'type' => $type
         ]);
     }
 
