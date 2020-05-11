@@ -156,5 +156,11 @@ return [
         'serviceSearchText' => 'بحث فى الخدمات',
         'librarySearchText' => 'بحث فى مكتبة الأفات',
     ],
+    'policy' => [
+        'policyInstructure' => 'تعليمات الأستخدام',
+    ],
+    'privacy' => [
+        'privacyInstructure' => 'معلومات الخصوصية',
+    ],
 
 ];

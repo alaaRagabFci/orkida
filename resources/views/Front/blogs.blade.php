@@ -86,7 +86,7 @@
         </div>
     </div>
     @else
-    <h3>لا توجد مقالات.</h3>
+    <h3 align="center">لا توجد مقالات.</h3>
     @endif
     <section class="section-info blogs">
         <div class="container-fluid">

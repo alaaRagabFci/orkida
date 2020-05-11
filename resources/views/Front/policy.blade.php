@@ -1,5 +1,5 @@
 @extends('Front.layouts')
-@section('title',__('home.meta.about.title'))
+@section('title',__('home.footer.policy'))
 @section('meta')
 <meta name="keywords" content="{{ __('home.meta.about.keywords') }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
@@ -16,14 +16,14 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-4 web">
                                 <div class="right_text">
-                                    <h3 class="mb-0"> {{ __('home.menu.aboutUs') }} </h3>
+                                    <h3 class="mb-0"> {{ __('home.footer.policy') }} </h3>
                                     <div class="web">
                                         <nav aria-label="breadcrumb no-bg">
                                             <ol class="breadcrumb no-bg p-0 mb-0">
                                                 <li class="breadcrumb-item">
                                                     <a href="{{ url('/') }}">{{ __('home.menu.index') }}</a>
                                                 </li>
-                                                <li class="breadcrumb-item active" aria-current="page">{{ __('home.menu.aboutUs') }}</li>
+                                                <li class="breadcrumb-item active" aria-current="page">{{ __('home.footer.policy') }}</li>
                                             </ol>
                                         </nav>
                                     </div>
@@ -31,7 +31,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4 text-center">
                                 <div class="center_text">
-                                    <p> {{ __('home.about.aboutCompany') }} </p>
+                                    <p> {{ __('home.policy.policyInstructure') }} </p>
                                     <h4> {{ __('home.about.aboutCompanyTitle') }} </h4>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                                     <li class="breadcrumb-item">
                                     <a href="{{ url('/') }}">{{ __('home.menu.index') }}</a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page"> {{ __('home.menu.aboutUs') }} </li>
+                                    <li class="breadcrumb-item active" aria-current="page"> {{ __('home.footer.policy') }} </li>
                                 </ol>
                             </nav>
                         </div>
@@ -66,78 +66,14 @@
                         <div class="bg-info">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h3 class="title_dots"> {{ __('home.menu.aboutUs') }} <img class="dots w-100" src="{{ asset('/assets/img/Dots.svg')}}" alt="">
+                                    <h3 class="title_dots"> {{ __('home.footer.policy') }} <img class="dots w-100" src="{{ asset('/assets/img/Dots.svg')}}" alt="">
                                     </h3>
-                                    <p>{{ getLocalizableColumn($about, 'desc') }}</p>
+                                    <p>{{ getLocalizableColumn($about, 'policy') }}</p>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="boxs">
-                                        <img src="{{ asset('/assets/img/new/noun_Mission_2191323.svg')}}">
-                                        <h4 class="text-center"> {{ __('home.about.goal') }} </h4>
-                                        <p>{{ getLocalizableColumn($about, 'goal') }}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="boxs">
-                                        <img src="{{ asset('/assets/img/new/noun_Mission_2191323.svg')}}">
-                                        <h4 class="text-center"> {{ __('home.about.vision') }} </h4>
-                                        <p>{{ getLocalizableColumn($about, 'vision') }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="dropdown-divider"></div>
-                            <h2 class="title_2"> {{ __('home.about.valuable') }} </h2>
-                            <div class="row mt-4">
-                            @foreach($companyValuables as $companyValuable)
-                                <div class="col-lg-3">
-                                    <div class="boxs">
-                                        <img src="{{ config("app.baseUrl").$companyValuable->icon }}" alt=" {{ $companyValuable->icon }} ">
-                                        <h4 class="text-center"> {{ getLocalizableColumn($companyValuable, 'title') }} </h4>
-                                        <p>{{ getLocalizableColumn($companyValuable, 'desc') }}</p>
-                                    </div>
-                                </div>
-                            @endforeach    
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- services -->
-                <section id="services">
-                    <h3>{{ __('home.services') }}<img class="dots w-100" src="{{ asset('/assets/img/Dots.svg')}}" alt="">
-                    </h3>
-                    <div class="container-fluid">
-                        <div class="row services">
-                        @foreach($homeServices as $service)
-                            <div class="col-lg-4">
-                                <section class="backdrop">
-                                    <div class="overlay_filter"></div>
-                                    <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($service, 'slug') )}}">
-                                        <img src="{{ config("app.baseUrl").$service->image }}" alt=" {{ $service->image }}">
-                                        <h3 class="mb-0 w-100">{{ getLocalizableColumn($service, 'name') }}</h3>
-                                    </a>
-                                    <div class="info_text">
-                                        <h6 class="text-center"> {{ getLocalizableColumn($service, 'name') }} </h6>
-                                        <small class="text-center">{!! charsLimit(strip_tags(getLocalizableColumn($service, 'description')), 240) !!}</small>
-                                    </div>
-                                    <div class="more">
-                                        <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($service, 'slug') )}}"> {{ __('home.menu.readMore') }} </a>
-                                    </div>
-                                </section>
-                            </div>
-                        @endforeach    
-                        @if(count($homeServices) > 0)
-                            <div class="w-100 ml-3">
-                            <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}" class="mr-auto btn-border d-block">
-                                {{ __('home.seeAll.seeAllServices') }}
-                                    <i class="fa fa-chevron-left "></i>
-                            </a>
-                            </div>
-                        @endif
-                        </div>
-                    </div>
-                </section>
                 <!-- contact -->
                 <section class="contact-about">
                     <img class="shield-img" src="{{ asset('/assets/img/new/noun_Phone_2717579.svg')}}" alt="">

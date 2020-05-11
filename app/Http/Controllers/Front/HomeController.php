@@ -235,4 +235,5 @@ class HomeController extends Controller
         $relatedArticles = MetaTag::where('service_id', null)->where('tag', 'LIKE', '%' . str_replace('-', ' ', trim($tag)) . '%')->latest()->paginate(2);
         return view('Front.tags', compact('relatedArticles', 'tag', 'articleTypes'));
     }
+    
 }

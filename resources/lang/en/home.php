@@ -107,7 +107,7 @@ return [
         'siteCategories' => 'Sections of the site',
         'faqsCommon' => 'Most frequently questions',
         'aboutOrkida' => 'About orkida',
-        'policy' => 'Use policy',
+        'policy' => 'TERMS OF USE',
         'privacy' => 'Privacy policy',
         'followUs' => 'Follow us',
         'copyRight' => 'All rights reserved 2020 © Orkida Pest Control',
@@ -154,6 +154,12 @@ return [
     'search' => [
         'serviceSearchText' => 'Search services',
         'librarySearchText' => 'Search in the pest library',
+    ],
+    'policy' => [
+        'policyInstructure' => 'TERMS OF USE',
+    ],
+    'privacy' => [
+        'privacyInstructure' => 'PRIVACY INFORMATION',
     ],
 
 ];

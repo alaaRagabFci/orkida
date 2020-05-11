@@ -17,15 +17,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-Route::group(['prefix'=>'adminpanel', 'middleware' => ['web'], 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => 'adminpanel', 'middleware' => ['web'], 'namespace' => 'Admin'], function () {
     Route::post('ckeditor/image_upload', 'CkeditorController@upload')->name('upload');
     //Dashboard
     Route::GET('/', 'UserController@dashboard');
     //Profile
-    Route::get('/profile/{id}' , 'UserController@profile');
-    Route::post('/updateProfile' ,'UserController@updateProfile');
-    Route::post('/setAvatar' , 'UserController@updateAdminImage');
-    Route::post('/setPassword' , 'UserController@setPassword');
+    Route::get('/profile/{id}', 'UserController@profile');
+    Route::post('/updateProfile', 'UserController@updateProfile');
+    Route::post('/setAvatar', 'UserController@updateAdminImage');
+    Route::post('/setPassword', 'UserController@setPassword');
     //Settings
     Route::Post('/settings/update', 'SettingController@update');
     Route::Resource('/settings', 'SettingController');
@@ -70,7 +70,7 @@ Route::group(['prefix'=>'adminpanel', 'middleware' => ['web'], 'namespace' => 'A
     Route::Resource('/company_valuables', 'CompanyValuableController');
 });
 
-Route::group(['prefix' => LaravelLocalization::setLocale() , 'namespace' => 'Front', 'middleware' =>'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'], function () {
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'namespace' => 'Front', 'middleware' => 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'], function () {
     Route::GET('/', 'HomeController@home');
     Route::GET('/cc', 'HomeController@home');
     Route::get('contact-us', 'HomeController@contactUs');
@@ -87,8 +87,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale() , 'namespace' => 'Fro
     Route::GET('blog/{slug}', 'HomeController@blogDetails');
     Route::GET('blog/tags/{tag}', 'HomeController@matchedBlogsTags');
     Route::POST('user-opinion', 'HomeController@userOpinion');
+    Route::GET('policy', function () {
+        return view('Front.policy');
+    });
+    Route::GET('privacy', function () {
+        return view('Front.privacy');
+    });
 });
 
 Auth::routes();
-
-
