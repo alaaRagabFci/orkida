@@ -80,7 +80,7 @@ return [
     'services' => 'الخدمات',
     'seeAll' => [
         'seeAllServices' => 'مشاهدة جميع الخدمات',
-        'seeAllPestLibraries' => 'مشاهدة جميع الفئات',
+        'seeAllPestLibraries' => 'مشاهدة جميع الأفات',
         'seeAllArticles' => 'مشاهدة جميع المقالات',
         'moreDetails' => 'المزيد من التفاصيل',
     ],
