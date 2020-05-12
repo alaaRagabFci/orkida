@@ -176,5 +176,6 @@ return [
         'insect_bites' => 'Sting symptoms',
         'notes' => 'Notes',
     ],
+    'share' => 'Share content',
 
 ];

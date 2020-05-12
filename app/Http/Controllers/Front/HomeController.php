@@ -246,5 +246,13 @@ class HomeController extends Controller
         $pestLibraries = PestLibrary::where(['is_active' => 1, 'sub_pest' => null])->orderBy('sort', 'ASC')->paginate(20);
         return view('Front.pest-libraries', compact('pestLibraries', 'page'));
     }
+
+    public function getPestLibrary($slug): View{
+        $pestLibrary = PestLibrary::where('slug_ar', $slug)->orWhere('slug_en', $slug)->firstOrFail();
+        $subBestLibraries = PestLibrary::where(['is_active' => 1, 'sub_pest' => $pestLibrary->id])->get();
+        $subPestLibraries = PestLibrary::where(['is_active' => 1, 'sub_pest' => $pestLibrary->id])->get();
+
+        return view('Front.pest-details', compact('pestLibrary', 'page', 'subBestLibraries', 'subPestLibraries'));
+    }
     
 }
