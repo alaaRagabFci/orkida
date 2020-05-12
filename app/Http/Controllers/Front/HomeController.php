@@ -240,5 +240,11 @@ class HomeController extends Controller
         $pestBites = PestBite::get();
         return view('Front.pest-bites', compact('pestBites'));
     }
+
+    public function pestLibraries(): View{
+        $page = request()->query();
+        $pestLibraries = PestLibrary::where(['is_active' => 1, 'sub_pest' => null])->orderBy('sort', 'ASC')->paginate(20);
+        return view('Front.pest-libraries', compact('pestLibraries', 'page'));
+    }
     
 }

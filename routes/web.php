@@ -88,6 +88,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'namespace' => 'Fron
     Route::GET('blog/tags/{tag}', 'HomeController@matchedBlogsTags');
     Route::POST('user-opinion', 'HomeController@userOpinion');
     Route::GET('pest-bites', 'HomeController@pestBites');
+    Route::GET('pest-libraries', 'HomeController@pestLibraries');
     Route::GET('policy', function () {
         return view('Front.policy');
     });
