@@ -20,7 +20,7 @@
     <div class="wrapper_content">
         <section class="beardcamp">
             <div class="beardcamp_img">
-                <img src="{{ asset('/assets/img/pest-control/Bg.png')}}">
+                <img src="{{ config("app.baseUrl").$serviceDetails->image }}" alt=" {{ $serviceDetails->image }}">
                 <div class="beardcamp_info">
                     <div class="container-fluid">
                         <div class="row">

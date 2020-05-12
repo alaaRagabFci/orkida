@@ -28,9 +28,9 @@
                             <div class="col-lg-12">
                                 <div class="row">
                                     <div class="col-lg-6 pr-0">
-                                        <a href="pest_control_details.html">
+                                        <!-- <a href="pest_control_details.html"> -->
                                             <h1 class="title-pest-details"> {{ __('home.menu.pestBites') }} </h1>
-                                        </a>
+                                        <!-- </a> -->
                                     </div>
                                     <!-- <div class="col-lg-6 align-end">
                                         <div class="share-links web">

@@ -74,61 +74,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- contact -->
-                <section class="contact-about">
-                    <img class="shield-img" src="{{ asset('/assets/img/new/noun_Phone_2717579.svg')}}" alt="">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="contact-about-body">
-                                <div class="title">
-                                    <h1> {{ __('home.about.contactWithUs') }} </h1>
-                                    <p class="text">{{ __('home.about.earliestTime') }}</p>
-                                </div>
-                                <div class="col-lg-6 offset-3">
-                                @if (\Session::has('msg'))
-                                    <div class="alert alert-success">
-                                        <ul>
-                                            <li>{!! \Session::get('msg') !!}</li>
-                                        </ul>
-                                    </div>
-                                @endif
-                                    <form class="mt-5" action="{{ url(app()->getLocale() .'/contact') }}" method="post">
-                                        @csrf
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label class="label-name"> {{ __('home.contactUsSection.contactForm.name') }} </label>
-                                                <input type="text" required name="fname" class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label class="label-name"> {{ __('home.contactUsSection.contactForm.mobile') }} </label>
-                                                <input type="text" required name="phone" class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label class="label-name"> {{ __('home.contactUsSection.contactForm.email') }} </label>
-                                                <input type="text" required name="email" class="form-control" placeholder="">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label class="label-name"> {{ __('home.orderService.selectService') }} </label>
-                                                <select name="topic" required class="form-control nice-select">
-                                                @foreach($pestControls as $pestControl)
-                                                    <option value="{{ getLocalizableColumn($pestControl, 'slug') }}">{{ getLocalizableColumn($pestControl, 'name') }}</option>
-                                                @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="form-group m-auto">
-                                                <button type="submit" class="btn btn-form-contact mt-4">{{ __('home.contactUsSection.contactForm.sendBtn') }}</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <div class="other-contact mt-5">
-                                        <p> {{ __('home.orderService.usePhone') }} </p>
-                                        <a href="tel:{{ count($sitePhones) > 0 ? $sitePhones[0]->phone : '01000000000' }}" class="phone"> <i class="fa fa-phone"></i> {{ count($sitePhones) > 0 ? $sitePhones[0]->phone : '01000000000' }} </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
             </div>
         </section>
     </div>

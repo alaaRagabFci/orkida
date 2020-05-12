@@ -206,7 +206,7 @@
                             <li class="mob">
                                 <a href="#" class="nav-link">{{ __('home.menu.changeLang') }}</a>
                             @if(app()->getLocale() == 'ar')
-                            <a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}"><img src="{{ asset('/assets/img/Flag-EN.svg')}}" alt=""></a>
+                            <a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}"><img src="{{ asset('/assets/img/Flag-EN.svg')}}" alt="EN"></a>
                             @else
                             <a href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}"><img src="{{ asset('/assets/img/Flag-AR.svg')}}" alt="AR"></a>
                             @endif 
@@ -245,7 +245,7 @@
                         </div>
                         @if(!request()->is('ar/blog', 'ar/blog/*', 'ar/categories/*'))    
                     @if(app()->getLocale() == 'ar')
-                        <a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}"><img src="{{ asset('/assets/img/Flag-EN.svg')}}" alt=""></a>
+                        <a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}"><img src="{{ asset('/assets/img/Flag-EN.svg')}}" alt="EN"></a>
                     @else
                         <a href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}"><img src="{{ asset('/assets/img/Flag-AR.svg')}}" alt="AR"></a>
                     @endif 
