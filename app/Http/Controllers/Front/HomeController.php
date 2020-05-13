@@ -257,7 +257,7 @@ class HomeController extends Controller
 
     public function getServiceByTag($tag): View
     {
-        $metaTag = MetaTag::where('tag', $tag)->firstOrFail();
+        $metaTag = MetaTag::where('tag', str_replace('-', ' ', trim($tag)))->firstOrFail();
         $serviceDetails = Service::where('id', $metaTag->service_id)->firstOrFail();
         $tags = MetaTag::where(['service_id' => $serviceDetails->id, 'lang' => 'AR'])->get();
         if (count($tags) > 0) {

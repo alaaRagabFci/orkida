@@ -175,7 +175,7 @@
                                 <ul>
                                     @foreach($tags as $tag)
                                     <li>
-                                        <a href="{{ url(app()->getLocale() .'/services/tags/'. $tag->tag )}}">
+                                        <a href="{{ url(app()->getLocale() .'/services/tags/'. str_replace(' ', '-', trim($tag->tag)) )}}">
                                             <img src="{{ asset('/assets/img/pest-library/noun_Cockroach_3235082.svg')}}"> {{ $tag->tag }}
                                         </a>
 
