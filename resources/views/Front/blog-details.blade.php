@@ -78,7 +78,7 @@
                                                 <ul class="row">
                                                     <li class="col-6 p-0">
                                                         <img src="{{ asset('/assets/img/blog/noun_Pencil_2159875.svg')}}">
-                                                        <span class="title"> بواسطة : <span class="subtitle"> HESHAM MAHMOUD </span> </span>
+                                                        <span class="title"> بواسطة : <span class="subtitle"> HESHAM </span> </span>
                                                     </li>
                                                     <li class="col-6 p-0">
                                                         <img src="{{ asset('/assets/img/blog/noun_Calendar_2750395.svg')}}">

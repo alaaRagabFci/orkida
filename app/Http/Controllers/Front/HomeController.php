@@ -176,7 +176,7 @@ class HomeController extends Controller
         $blog->viewers += 1;
         $blog->save();
 
-        $latestArticles = Blog::where('id', '!=', $blog->id)->latest()->take(4)->get();
+        $latestArticles = Blog::where('id', '!=', $blog->id)->latest()->take(6)->get();
 
         $tags = MetaTag::where('blog_id', $blog->id)->get();
         if (count($tags) > 0) {
@@ -269,11 +269,9 @@ class HomeController extends Controller
         } else {
             $relatedArticles = [];
         }
-        $subServices = Service::where(['is_active' => 1, 'sub_service' => $serviceDetails->id])->get();
 
-        return view('Front.service-details', [
+        return view('Front.service-tag', [
             'serviceDetails' => $serviceDetails,
-            'subServices' => $subServices,
             'relatedArticles' => $relatedArticles,
             'tags' => $tags,
         ]);

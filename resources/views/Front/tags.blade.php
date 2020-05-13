@@ -109,7 +109,7 @@
                         </form>
                     </div>
                     <div class="bg-info mt-4 pest-library ">
-                        <h6 class="title-wdight"> klkkالاقسام </h6>
+                        <h6 class="title-wdight"> الاقسام </h6>
                         <ul class="list ">
                             @foreach($articleTypes as $articleType)
                             <li>

@@ -130,7 +130,7 @@
                                         </h3>
                                     </a>
                                     <p class="card-text">
-                                        {!! charsLimit(strip_tags($headerBlog[1]->description_ar), 240) !!}
+                                        {!! charsLimit(strip_tags($headerBlog[1]->description_ar), 300) !!}
                                     </p>
                                     <span class="date"> {{ date('d-m-Y', strtotime($headerBlog[1]->created_at)) }} </span>
                                     <a href="{{ url(app()->getLocale() .'/blog/'.$headerBlog[1]->slug) }}" class="read-more"> قراءة المزيد <i class="fa fa-angle-left"></i></a>

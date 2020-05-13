@@ -20,7 +20,7 @@
 <div class="wrapper_content">
     <section class="beardcamp">
         <div class="beardcamp_img">
-            <img src="{{ config("app.baseUrl").$serviceDetails->image }}" alt=" {{ $serviceDetails->image }}">
+            <img src="{{ asset('/assets/img/pest-library/Bg.png')}}">
             <div class="beardcamp_info">
                 <div class="container-fluid">
                     <div class="row">
@@ -84,108 +84,34 @@
             </div>
             <div class="row">
                 <div class="col-lg-9">
-                    @if($serviceDetails->id == 19)
-                    <div class="bg-info no-padding-with-col">
-                        @if(count($subServices) > 0)
-                        <h2 class="title-pest-details"> {{ __('home.service.types') }} {{ getLocalizableColumn($serviceDetails, 'name') }} {{ __('home.service.other') }} </h2>
+                <div class="articels-box articels-box-without-bg">
                         <div class="row">
-                            @foreach($subServices as $subService)
-                            <div class="col-lg-3 col-md-6 col-6">
-                                <div class="blocks">
-                                    <img src="{{ config("app.baseUrl").$subService->image }}" alt=" {{ $subService->image }}">
-                                    <h3><a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($subService, 'slug') )}}"> {{ getLocalizableColumn($subService, 'name') }} </a></h3>
-                                </div>
-                            </div>
-                            @endforeach
-                            <div class="col-lg-3 col-md-6 col-6">
-                                <div class="blocks-border">
-                                    <img src="{{ asset('/assets/img/pest-library/noun_Bug_1675490.png')}}">
-                                    <h3><a href="{{ url(app()->getLocale() .'/pest-libraries') }}">{{ __('home.menu.otherPests') }} </a></h3>
-                                </div>
-                            </div>
-                        </div>
-                        @endif
-                        <div class="row">
-                            {!! getLocalizableColumn($serviceDetails, 'description') !!}
-                        </div>
-                    </div>
-                    @else
-                    <div class="bg-info no-padding-with-col">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="row">
-                                    @if(count($subServices) > 0)
-                                    <div class="col-lg-6 pr-0">
-                                        <h2 class="title-pest-details"> {{ __('home.service.types') }} {{ getLocalizableColumn($serviceDetails, 'name') }} {{ __('home.service.other') }} </h2>
-                                    </div>
-                                    @endif
-                                    <div class="col-md-6 align-center">
-                                        <div class="share-links">
-                                            <img src="{{ asset('/assets/img/pest-library/noun_Share_1571617.svg')}}">
-                                            <span> {{ __('home.service.shareContent') }} : </span>
-                                            <div id="share" class="mr-3">
-                                                <!-- <ul>
-                                                        <li>
-                                                            <a href="#" title="facebook"><i class="fas fa-envelope"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" title="linkedin"><i class="fab fa-linkedin-in"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" title="pinterest"><i class="fab fa-pinterest-p"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" title="facebook"><i class="fab fa-facebook-f"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" title="twitter"><i class="fab fa-twitter"></i></a>
-                                                        </li>
-                                                    </ul> -->
+                            <div class="col-lg-6 col-md-6">
+                                <div class="card">
+                                    <div class="image-area">
+                                        <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($serviceDetails, 'slug') )}}">
+                                            <img class="card-img-top" src="{{ config("app.baseUrl").$serviceDetails->image }}" alt=" {{ $serviceDetails->image }}">
+                                            <div class="card-img-overlay">
+                                                <p class="card-title-overlay">
+                                                    <img src="{{ asset('/assets/img/pest-library/noun_Cockroach_323508.svg')}}"> {{ getLocalizableColumn($serviceDetails->getCategory, 'name') }}
+                                                </p>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    @foreach($subServices as $subService)
-                                    <div class="col-lg-3 col-6">
-                                        <div class="block-img">
-                                            <img class="img" src="{{ config("app.baseUrl").$subService->image }}" alt=" {{ $subService->image }}">
-                                            <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($subService, 'slug') )}}">
-                                                <h3 class="blockImg-title"> {{ getLocalizableColumn($subService, 'name') }} </h3>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    @endforeach
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        {!! getLocalizableColumn($serviceDetails, 'description') !!}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endif
-                    @if(count($tags) > 0)
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="tagsBlock">
-                                <h3> {{ __('home.service.tags') }} </h3>
-                                <ul>
-                                    @foreach($tags as $tag)
-                                    <li>
-                                        <a href="{{ url(app()->getLocale() .'/services/tags/'. str_replace(' ', '-', trim($tag->tag)) )}}">
-                                            <img src="{{ asset('/assets/img/pest-library/noun_Cockroach_3235082.svg')}}"> {{ $tag->tag }}
                                         </a>
-
-                                    </li>
-                                    @endforeach
-                                </ul>
+                                        <h3 class="card-title">
+                                        {{ getLocalizableColumn($serviceDetails, 'name') }}
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                        {!! charsLimit(strip_tags(getLocalizableColumn($serviceDetails, 'description')), 240) !!} 
+                                        </p>
+                                        <span class="date"> {{ date('d-m-Y', strtotime($serviceDetails->created_at)) }} </span>
+                                        <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($serviceDetails, 'slug') )}}" class="read-more">  {{ __('home.menu.readMore') }} <i class="fa fa-angle-left"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    @endif
                     @if(app()->getLocale() == 'ar' && count($relatedArticles) > 0)
                     <div class="articels-box">
                         <h3 class="mb-4"> {{ __('home.service.relatedArticles') }} </h3>
