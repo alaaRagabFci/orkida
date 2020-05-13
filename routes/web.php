@@ -82,6 +82,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'namespace' => 'Fron
     Route::GET('faqs/{slug}', 'HomeController@getQuestion');
     Route::GET('services', 'HomeController@services');
     Route::GET('services/{slug}', 'HomeController@getService');
+    Route::GET('services/tags/{tag}', 'HomeController@getServiceByTag');
     Route::GET('blog', 'HomeController@blogs');
     Route::GET('categories/{slug}', 'HomeController@blogsCategory');
     Route::GET('blog/{slug}', 'HomeController@blogDetails');

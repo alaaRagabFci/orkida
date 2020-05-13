@@ -254,5 +254,29 @@ class HomeController extends Controller
 
         return view('Front.pest-details', compact('pestLibrary', 'page', 'subBestLibraries', 'subPestLibraries'));
     }
+
+    public function getServiceByTag($tag): View
+    {
+        $metaTag = MetaTag::where('tag', $tag)->firstOrFail();
+        $serviceDetails = Service::where('id', $metaTag->service_id)->firstOrFail();
+        $tags = MetaTag::where(['service_id' => $serviceDetails->id, 'lang' => 'AR'])->get();
+        if (count($tags) > 0) {
+            $relatedArticles = MetaTag::where('service_id', null)->where(function ($query) use ($tags) {
+                foreach ($tags as $tag) {
+                    $query->orWhere('tag', 'LIKE', '%' . $tag->tag . '%');
+                }
+            })->get();
+        } else {
+            $relatedArticles = [];
+        }
+        $subServices = Service::where(['is_active' => 1, 'sub_service' => $serviceDetails->id])->get();
+
+        return view('Front.service-details', [
+            'serviceDetails' => $serviceDetails,
+            'subServices' => $subServices,
+            'relatedArticles' => $relatedArticles,
+            'tags' => $tags,
+        ]);
+    }
     
 }
