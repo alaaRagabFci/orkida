@@ -255,10 +255,10 @@
                 @if(request()->is(app()->getLocale()))
                 <!-- social media -->
                 <div class="social-media d-flex flex-column align-items-center justify-content-between">
-                    <a href=""><img src="{{ asset('/assets/img/icon1.svg')}}" alt=""></a>
-                    <a href=""><img src="{{ asset('/assets/img/icon2.svg')}}" alt=""></a>
-                    <a href=""><img src="{{ asset('/assets/img/icon3.svg')}}" alt=""></a>
-                    <a href=""><img src="{{ asset('/assets/img/icon4.svg')}}" alt=""></a>
+                    <a href="{{ $settings->facebook_url }}"><img src="{{ asset('/assets/img/icon1.svg')}}" alt=""></a>
+                    <a href="{{ $settings->twitter_url }}"><img src="{{ asset('/assets/img/icon2.svg')}}" alt=""></a>
+                    <a href="{{ $settings->linkedin_url }}"><img src="{{ asset('/assets/img/icon3.svg')}}" alt=""></a>
+                    <a href="{{ $settings->youtube_url }}"><img src="{{ asset('/assets/img/icon4.svg')}}" alt=""></a>
                 </div>
                 <a class="scroll" href="#main"><img src="{{ asset('/assets/img/Scroll.svg')}}" alt=""></a>
                 @foreach($sliders as $key => $slider)

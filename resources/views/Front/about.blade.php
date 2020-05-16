@@ -129,7 +129,7 @@
                         @endforeach    
                         @if(count($homeServices) > 0)
                             <div class="w-100 ml-3">
-                            <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}" class="mr-auto btn-border d-block">
+                            <a href="{{ url(app()->getLocale() .'/services' )}}" class="mr-auto btn-border d-block">
                                 {{ __('home.seeAll.seeAllServices') }}
                                     <i class="fa fa-chevron-left "></i>
                             </a>

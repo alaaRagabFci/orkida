@@ -8,7 +8,7 @@
                     <!-- BEGIN PAGE BASE CONTENT -->
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                              <a href="{{ url('messages') }}">
+                              <a href="{{ url('adminpanel/messages') }}">
                             <div class="dashboard-stat2 bordered">
                                 <div class="display">
                                     <div class="number">
@@ -35,7 +35,7 @@
                         </a>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                             <a href="{{ url('blogs') }}">
+                             <a href="{{ url('adminpanel/blogs') }}">
                             <div class="dashboard-stat2 bordered">
                                 <div class="display">
                                     <div class="number">
@@ -62,7 +62,7 @@
                         </a>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                             <a href="{{ url('services') }}">
+                             <a href="{{ url('adminpanel/services') }}">
                             <div class="dashboard-stat2 bordered">
                                 <div class="display">
                                     <div class="number">
@@ -89,7 +89,7 @@
                         </a>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                             <a href="{{ url('orders') }}">
+                             <a href="{{ url('adminpanel/orders') }}">
                             <div class="dashboard-stat2 bordered">
                                 <div class="display">
                                     <div class="number">
