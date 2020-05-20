@@ -167,7 +167,7 @@
                         </div>
                     </div>
                     @endif
-                    @if(count($tags) > 0)
+                    {{-- @if(count($tags) > 0)
                     <div class="row">
                         <div class="col-md-12">
                             <div class="tagsBlock">
@@ -185,7 +185,7 @@
                             </div>
                         </div>
                     </div>
-                    @endif
+                    @endif --}}
                     @if(app()->getLocale() == 'ar' && count($relatedArticles) > 0)
                     <div class="articels-box">
                         <h3 class="mb-4"> {{ __('home.service.relatedArticles') }} </h3>

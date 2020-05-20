@@ -181,6 +181,7 @@
                                     @foreach($otherServices as $key => $otherService)
                                         <a class="dropdown-item" href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($otherService, 'slug') )}}"> {{ getLocalizableColumn($otherService, 'name') }} </a>
                                     @endforeach  
+                                        <a class="dropdown-item" href="{{ url(app()->getLocale() .'/services') }}"> {{ __('home.menu.otherServices') }} </a>
                                     </div>
                                 </div>
                             </li>
