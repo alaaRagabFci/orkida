@@ -33,6 +33,7 @@ class AboutUsController extends Controller {
               ->with('tableData', $tableData);
     }
 
+
     /**
      * Edit client.
      * requirements={
