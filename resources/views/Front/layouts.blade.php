@@ -266,7 +266,6 @@
                 <div class="carousel-item {{$key == 0 ? 'active' : ''}}">
                     <img src="{{ config("app.baseUrl").$slider->image }}" alt=" {{ $slider->alt }}">
                     <div class="carousel-caption">
-                        <!-- <button href="{{ url(app()->getLocale() .'/contact-us') }}"> -->
                         <a href="{{ url(app()->getLocale() .'/contact-us') }}" class="services_order">
                         {{ __('home.orderService.order') }}
                             <i class="fa fa-angle-left"></i>

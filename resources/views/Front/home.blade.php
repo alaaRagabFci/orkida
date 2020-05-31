@@ -8,11 +8,11 @@
 @section('content')
         <!-- order service -->
     <section id="main">
-        <form>
+        {{-- <form> --}}
             <div class="first d-flex justify-content-center align-items-center">
                 <p class="mb-0">{{ __('home.orderService.wantService') }}</p>
                 <div class="select">
-                    <select name="searchService" class="custom-select" id="inputGroupSelect01">
+                    <select onchange="getServiceLink(this);" name="searchService" class="custom-select" id="inputGroupSelect01">
                         <option selected> {{ __('home.orderService.selectService') }}</option>
                         @foreach($pestControls as $pestControl)
                         <option value="{{ getLocalizableColumn($pestControl, 'slug') }}">{{ getLocalizableColumn($pestControl, 'name') }}</option>
@@ -20,7 +20,7 @@
                     </select>
                     <i class="fa fa-chevron-left"></i>
                 </div>
-                <button type="submit" class="btn-main"> {{ __('home.menu.searchBtn') }} </button>
+                <a href="#" id="serviceLink"><button type="button" class="btn-main"> {{ __('home.menu.searchBtn') }} </button></a>
             </div>
             <div class="second d-flex justify-content-center align-items-center">
                 <p>{{ __('home.menu.contactUs') }}</p>
@@ -41,7 +41,7 @@
                     </div>
                 </section>
             </div>
-        </form>
+        {{-- </form> --}}
     </section>
     <!-- services -->
     <section id="services">
@@ -88,8 +88,7 @@
                 <a href="{{ url(app()->getLocale().'/about-us') }}"><button class="btn-main">{{ __('home.menu.aboutUs') }}</button></a>
             </div>
             <div class="video-wrapper">
-                <!-- <video  src="{{ $about->video }} " poster="{{ asset('/assets/img/man-standing-next-to-his-van.png')}}"></video> -->
-                <iframe width="628" height="330" src="https://www.youtube.com/embed/G8KpPw303PY?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                <iframe width="628" height="330" src="{{ $about->video }}" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -146,7 +145,7 @@
                                 <div class="article-img">
                                     <img src="{{ config("app.baseUrl").$latestBlog->image }}" alt=" {{ $latestBlog->image_alt }}">
                                     <article>
-                                        <a href="#"><h4>{{ $latestBlog->name }}</h4></a>
+                                        <a href="{{ url(app()->getLocale() .'/blog/'.$latestBlog->slug) }}"><h4>{{ $latestBlog->name }}</h4></a>
                                         <p>{{ date('d-m-Y', strtotime($latestBlog->created_at)) }}</p>
                                     </article>
                                 </div>
@@ -159,12 +158,12 @@
                     @foreach($blogs as $blog)
                         <div class="slider-item d-flex">
                             <div class="item_thumb">
-                                <a href="#">
+                                <a href="{{ url(app()->getLocale() .'/blog/'.$blog->slug) }}">
                                     <img src="{{ config("app.baseUrl").$blog->image }}" alt=" {{ $blog->image_alt }}">
                                 </a>
                             </div>
                             <div class="article_info">
-                                <a href="#"><h4>{{ $blog->name }}</h4></a>
+                                <a href="{{ url(app()->getLocale() .'/blog/'.$blog->slug) }}"><h4>{{ $blog->name }}</h4></a>
                                 <p class="mb-3 ">{!! charsLimit(strip_tags($blog->description_ar), 200) !!}</p>
                                 <p class="m-0">
                                 {{ date('d-m-Y', strtotime($blog->created_at)) }}
@@ -271,4 +270,12 @@
             <input type="email" placeholder="{{ __('home.subscriptions.emailPlaceHolder') }} ">
         </div>
     </section>
+@endsection
+@section('scripts')
+<script>
+  function getServiceLink(selected){
+      var option = document.getElementById('serviceLink');
+      option.href = "{{ url(app()->getLocale() .'/services')}}" + "/" + selected.value;
+  }  
+</script>
 @endsection

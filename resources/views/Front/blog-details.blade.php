@@ -301,13 +301,13 @@
                                 <div class="articels-box wdight">
                                 @foreach($latestArticles as $latestArticle)
                                     <div class="card no-bg no-shadow">
-                                        <a href="#">
+                                        <a href="{{ url(app()->getLocale() .'/blog/'.$latestArticle->slug) }}">
                                             <div class="image-area">
                                                 <img class="card-img-top" src="{{ config("app.baseUrl").$latestArticle->image }}">
                                             </div>
                                         </a>
                                         <div class="card-body p-0">
-                                            <a href="#">
+                                            <a href="{{ url(app()->getLocale() .'/blog/'.$latestArticle->slug) }}">
                                                 <div class="card-title ">
                                                 {{ $latestArticle->name }}
                                                 </div>
