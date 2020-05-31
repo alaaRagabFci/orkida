@@ -252,7 +252,7 @@ class HomeController extends Controller
         $subBestLibraries = PestLibrary::where(['is_active' => 1, 'sub_pest' => $pestLibrary->id])->get();
         $subPestLibraries = PestLibrary::where(['is_active' => 1, 'sub_pest' => $pestLibrary->id])->get();
 
-        return view('Front.pest-details', compact('pestLibrary', 'page', 'subBestLibraries', 'subPestLibraries'));
+        return view('Front.pest-details', compact('pestLibrary', 'subBestLibraries', 'subPestLibraries'));
     }
 
     public function getServiceByTag($tag): View
