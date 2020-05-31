@@ -101,7 +101,7 @@ class HomeController extends Controller
         $serviceDetails = Service::where('slug_ar', $serviceSlug)->orWhere('slug_en', $serviceSlug)->firstOrFail();
         $tags = MetaTag::where(['service_id' => $serviceDetails->id, 'lang' => 'AR'])->get();
         if (count($tags) > 0) {
-            $relatedArticles = MetaTag::where('service_id', null)->where(function ($query) use ($tags) {
+            $relatedArticles = MetaTag::where('service_id', null)->groupBy('blog_id')->where(function ($query) use ($tags) {
                 foreach ($tags as $tag) {
                     $query->orWhere('tag', 'LIKE', '%' . $tag->tag . '%');
                 }

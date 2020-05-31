@@ -211,7 +211,7 @@
                                     </a>
                                     <div class="card-body">
                                         <p class="card-text">
-                                            {!! strip_tags(charsLimit($relatedArticle->blog->description_ar, 150)) !!}
+                                            {!! charsLimit(strip_tags($relatedArticle->blog->description_ar), 150) !!}
                                         </p>
                                         <span class="date"> {{ date('d-m-Y', strtotime($relatedArticle->blog->created_at)) }} </span>
                                         <a href="{{ url(app()->getLocale() .'/blog/'.$relatedArticle->blog->slug)}}" class="read-more"> {{ __('home.menu.readMore') }} <i class="fa fa-angle-left"></i></a>
