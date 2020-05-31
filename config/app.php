@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     |
     */
-    'baseUrl' => 'http://localhost:8080/orkida/',
+    'baseUrl' => 'http://localhost/orkida/',
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost:8080/orkida'),
+    'url' => env('APP_URL', 'http://localhost/orkida'),
 
     'asset_url' => env('ASSET_URL', null),
 
