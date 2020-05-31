@@ -9,13 +9,13 @@ body {
     text-align: right;
 }
 
-.categorySelected{
+.categorySelected {
     text-decoration: none;
     color: #FFFFFF;
     background: #1E1B4D 0% 0% no-repeat padding-box;
     opacity: 1;
     border-right: 12px solid #bc1c86 !important;
-    padding-right: 10px;
+    padding-right: 10px !important;
 }
 
 .btn:focus,
@@ -114,7 +114,8 @@ button:visited {
 .services_order {
     font: 400 20px Cairo !important;
     padding: 3px 30px;
-    height: auto;
+    margin-bottom: 20px !important;
+    display: inline-block;
 }
 
 .services_order i {
@@ -369,15 +370,14 @@ header .carousel-caption {
     text-align: right;
 }
 
-header .carousel-caption button {
+header .carousel-caption .services_order {
     background: #BC1C86;
     color: white;
     border: 0;
     border-radius: 24px;
 }
 
-header .carousel-caption h3,
-header .carousel-caption button {
+header .carousel-caption h3 {
     font-size: 25px;
     font-weight: 600;
     margin: 0;
@@ -527,6 +527,7 @@ header .carousel-inner img {
 #articles .services section img {
     object-fit: cover;
     width: 100%;
+    height: 383px;
 }
 
 #services .services section h3,
@@ -1073,10 +1074,20 @@ header .carousel-inner img {
 }
 
 .slider-item .item .article-img {
-    height: 455px;
-    position: relative;
+    height: 490px;
     text-align: right;
-    display: block
+    display: block;
+    position: relative;
+}
+
+.slider-item .item .article-img:after {
+    position: absolute;
+    content: "";
+    background: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .slider-item .item .article-img img {
@@ -1090,6 +1101,7 @@ header .carousel-inner img {
     position: absolute;
     right: 40px;
     bottom: 40px;
+    z-index: 2;
 }
 
 .slider-item .item .article-img article h4 {
@@ -1459,7 +1471,7 @@ footer .last div:last-child {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 9999;
+    z-index: 99999;
     top: 0;
     left: 0;
     background-color: black;
@@ -1472,12 +1484,13 @@ footer .last div:last-child {
     padding: 15px;
     position: relative;
     top: 25%;
-    width: 100%;
+    width: 50%;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
 
 .overlay-content p {
@@ -1490,7 +1503,7 @@ footer .last div:last-child {
     border-radius: 3px;
     max-width: 400px;
     width: 100%;
-    margin: 20px 0;
+    margin: 20px auto;
     height: 48px;
 }
 
@@ -1668,11 +1681,25 @@ footer .last div:last-child {
 
 .beardcamp {
     position: relative;
+    z-index: 3;
 }
 
 .beardcamp img {
     position: relative;
     width: 100%;
+    height: 308px;
+    object-fit: cover;
+    position: relative;
+}
+
+.beardcamp:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    content: "";
+    width: 100%;
+    height: 100%;
 }
 
 .beardcamp_info h3 {
@@ -1681,6 +1708,8 @@ footer .last div:last-child {
     color: #FFFFFF;
     opacity: 1;
     line-height: 50px;
+    position: relative;
+    z-index: 3;
 }
 
 .breadcrumb .breadcrumb-item a {
@@ -1689,6 +1718,8 @@ footer .last div:last-child {
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 0.6;
+    position: relative;
+    z-index: 3;
 }
 
 .beardcamp_info_other .breadcrumb .breadcrumb-item a {
@@ -1697,6 +1728,8 @@ footer .last div:last-child {
     letter-spacing: 0;
     color: #545454;
     opacity: 0.6;
+    position: relative;
+    z-index: 3;
 }
 
 .beardcamp_info_other .breadcrumb .breadcrumb-item {
@@ -1714,6 +1747,8 @@ footer .last div:last-child {
     opacity: 0.6;
     content: "/";
     padding-left: 0.5rem;
+    position: relative;
+    z-index: 3;
 }
 
 .beardcamp_info_other .breadcrumb-item+.breadcrumb-item::before {
@@ -1723,6 +1758,8 @@ footer .last div:last-child {
     opacity: 0.6;
     content: "/";
     padding-left: 0.5rem;
+    position: relative;
+    z-index: 3;
 }
 
 .right_text {
@@ -1735,6 +1772,8 @@ footer .last div:last-child {
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
+    position: relative;
+    z-index: 3;
 }
 
 .beardcamp_info .center_text p {
@@ -1742,6 +1781,8 @@ footer .last div:last-child {
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
+    position: relative;
+    z-index: 3;
 }
 
 .left_text {
@@ -1757,6 +1798,7 @@ footer .last div:last-child {
     padding: 5px 45px;
     position: relative;
     top: 65px;
+    z-index: 3;
 }
 
 .beardcamp_info .left_text a:hover {
@@ -2173,7 +2215,7 @@ footer .last div:last-child {
 
 .Questions .mid-text h2 {
     text-align: right;
-    font: Bold 40px Cairo;
+    font: Bold 30px Cairo;
     letter-spacing: -1px;
     color: #BC1C86;
     opacity: 1;
@@ -2294,7 +2336,7 @@ footer .last div:last-child {
 .Answer .Ask h1 {
     margin-left: 10px;
     text-align: right;
-    font: 900 45px Cairo;
+    font: 900 40px Cairo;
     letter-spacing: 0;
     color: #BC1C86;
     opacity: 1;
@@ -2302,7 +2344,7 @@ footer .last div:last-child {
 
 .Answer .Ask h6 {
     text-align: right;
-    font: Bold 30px/56px Cairo;
+    font: Bold 20px/56px Cairo;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2347,6 +2389,8 @@ footer .last div:last-child {
 
 .breadcrumb-item.active {
     color: white;
+    position: relative;
+    z-index: 3;
 }
 
 .blocks {
@@ -2362,7 +2406,7 @@ footer .last div:last-child {
     top: 0;
     left: 0;
     background: transparent linear-gradient(180deg, #26226200 0%, #262262 100%) 0% 0% no-repeat padding-box;
-    border-radius: 5px;
+    border-radius: 10px;
     opacity: 0.7;
     width: 100%;
     height: 100%;
@@ -2371,9 +2415,12 @@ footer .last div:last-child {
 
 .blocks img {
     width: 100%;
+    height: 191px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
-.blocks a {
+.blocks .name-link {
     position: absolute;
     bottom: 20px;
     width: 100%;
@@ -2384,7 +2431,7 @@ footer .last div:last-child {
     color: #FFFFFF;
 }
 
-.blocks a:hover {
+.blocks .name-link:hover {
     text-decoration: none;
 }
 
@@ -2821,8 +2868,8 @@ footer .last div:last-child {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    padding-bottom: 20px;
-    text-align: right;
+    padding: 20px;
+    text-align: center;
     font: 600 17px Cairo;
     letter-spacing: 0.4px;
     color: #FFFFFF;
@@ -2886,6 +2933,11 @@ footer .last div:last-child {
     position: relative;
 }
 
+.hero .hero-img {
+    height: 441px !important;
+    object-fit: cover;
+}
+
 .hero .card-img-overlay {
     padding: 0 !important;
     bottom: 10%;
@@ -2910,10 +2962,11 @@ footer .last div:last-child {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 191px;
     border: 1px solid #ccc;
     margin-bottom: 10px;
     width: 100%;
+    object-fit: cover;
 }
 
 .block-img .blockImg-title {

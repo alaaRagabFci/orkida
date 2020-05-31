@@ -37,9 +37,9 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
             <p>{{ __('home.menu.searchTxt') }}</p>
-            <form method="get" action="{{ url(app()->getLocale() .'/site-search') }}">
-            <input type="text" name="txt" class="form-control" name="search" id="">
-            <button type="submit" class="btn-main">{{ __('home.menu.searchBtn') }}</button>
+            <form class="w-100" method="get" action="{{ url(app()->getLocale() .'/site-search') }}">
+                <input type="text" name="txt" class="form-control" name="search" id="">
+                <button type="submit" class="btn-main">{{ __('home.menu.searchBtn') }}</button>
             </form>
         </div>
     </div>
@@ -266,11 +266,11 @@
                 <div class="carousel-item {{$key == 0 ? 'active' : ''}}">
                     <img src="{{ config("app.baseUrl").$slider->image }}" alt=" {{ $slider->alt }}">
                     <div class="carousel-caption">
-                        <!-- <a href="{{ url(app()->getLocale() .'/contact-us') }}"> -->
-                        <button class="btn-main services_order">
+                        <!-- <button href="{{ url(app()->getLocale() .'/contact-us') }}"> -->
+                        <a href="{{ url(app()->getLocale() .'/contact-us') }}" class="services_order">
                         {{ __('home.orderService.order') }}
                             <i class="fa fa-angle-left"></i>
-                        </button>
+                        </a>
                         <!-- </a> -->
                         <h1>{{ __('home.menu.orkida') }}</h1>
                         <h3>{{ getLocalizableColumn($slider, 'title') }}</h3>

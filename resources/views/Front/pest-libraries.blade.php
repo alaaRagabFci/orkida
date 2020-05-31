@@ -53,7 +53,7 @@
                             <div class="col-lg-3 col-md-6 col-6">
                                 <div class="blocks">
                                     <img src="{{ config("app.baseUrl").$pestLibrary->image }}" alt=" {{ $pestLibrary->image_alt }}">
-                                    <h3><a href="{{ url(app()->getLocale() .'/pest-libraries/'.getLocalizableColumn($pestLibrary, 'slug') ) }}"> {{ getLocalizableColumn($pestLibrary, 'name') }} </a></h3>
+                                    <h3><a class="name-link" href="{{ url(app()->getLocale() .'/pest-libraries/'.getLocalizableColumn($pestLibrary, 'slug') ) }}"> {{ getLocalizableColumn($pestLibrary, 'name') }} </a></h3>
                                 </div>
                             </div>
                             @endforeach
@@ -79,7 +79,7 @@
                                                 <h1> {{ __('home.subscriptions.subscribeContact') }} </h1>
                                                 <form>
                                                     <div class="form-group">
-                                                        <label class="label-name"> {{ __('home.subscriptions.emailPlaceHolder') }} </label>
+                                                        <label class="label-name color-dark"> {{ __('home.subscriptions.emailPlaceHolder') }} </label>
                                                         <input type="text" class="form-control" placeholder="">
                                                     </div>
                                                     <div class="form-group m-auto text-center">

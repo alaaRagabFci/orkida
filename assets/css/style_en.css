@@ -1,7 +1,7 @@
 @import 'bootstrap.min.css';
 body {
     overflow-x: hidden;
-    font-family: 'Cairo', sans-serif;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     background: white;
     color: #262262;
     line-height: 1.5;
@@ -9,13 +9,13 @@ body {
     text-align: left;
 }
 
-.categorySelected{
+.categorySelected {
     text-decoration: none;
     color: #FFFFFF;
     background: #1E1B4D 0% 0% no-repeat padding-box;
     opacity: 1;
     border-left: 12px solid #bc1c86 !important;
-    padding-left: 10px;
+    padding-left: 10px !important
 }
 
 .btn:focus,
@@ -127,7 +127,7 @@ button:visited {
 }
 
 .services_order {
-    font: 400 20px Cairo !important;
+    font: 400 20px !important;
     padding: 3px 30px;
     height: auto;
 }
@@ -368,15 +368,16 @@ header .carousel-caption {
     text-align: left;
 }
 
-header .carousel-caption button {
+header .carousel-caption .services_order {
     background: #BC1C86;
     color: white;
     border: 0;
     border-radius: 24px;
+    margin-bottom: 20px !important;
+    display: inline-block;
 }
 
-header .carousel-caption p,
-header .carousel-caption button {
+header .carousel-caption p {
     font-size: 25px;
     font-weight: 600;
     margin: 0;
@@ -528,6 +529,7 @@ header .carousel-inner img {
 #articles .services section img {
     object-fit: cover;
     width: 100%;
+    height: 383px;
 }
 
 #services .services section h3,
@@ -911,14 +913,14 @@ header .carousel-inner img {
 
 .info h1 {
     text-align: left;
-    font: Bold 60px/112px Cairo;
+    font: Bold 60px/112px;
     letter-spacing: 0;
     color: #FFFFFF;
     margin-bottom: 0;
 }
 
 .info p {
-    font: 100 16px/30px Cairo;
+    font: 100 16px/30px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
@@ -928,7 +930,7 @@ header .carousel-inner img {
 .info a {
     border: 1px solid #FFFFFF;
     border-radius: 5px;
-    font: 100 15px/29px Cairo;
+    font: 100 15px/29px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
@@ -1084,10 +1086,20 @@ header .carousel-inner img {
 }
 
 .slider-item .item .article-img {
-    height: 455px;
+    height: 490px;
     position: relative;
     text-align: right;
     display: block
+}
+
+.slider-item .item .article-img:after {
+    position: absolute;
+    content: "";
+    background: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .slider-item .item .article-img img {
@@ -1101,6 +1113,7 @@ header .carousel-inner img {
     right: 40px;
     bottom: 40px;
     text-align: left;
+    z-index: 2;
 }
 
 .slider-item .item .article-img article h4 {
@@ -1480,7 +1493,7 @@ footer .last div:last-child {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 9999;
+    z-index: 99999;
     top: 0;
     right: 0;
     background-color: black;
@@ -1493,8 +1506,9 @@ footer .last div:last-child {
     padding: 15px;
     position: relative;
     top: 25%;
-    width: 100%;
+    width: 50%;
     text-align: center;
+    margin: 0 auto;
 }
 
 .overlay-content p {
@@ -1682,33 +1696,52 @@ footer .last div:last-child {
     position: relative;
 }
 
+.beardcamp:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    content: "";
+    width: 100%;
+    height: 100%;
+}
+
 .beardcamp img {
     position: relative;
     width: 100%;
+    height: 308px;
+    object-fit: cover;
+    position: relative;
 }
 
 .beardcamp_info h3 {
-    font: Bold 32px Cairo;
+    font: Bold 32px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
     line-height: 50px;
+    position: relative;
+    z-index: 3;
 }
 
 .breadcrumb .breadcrumb-item a {
     text-align: right;
-    font: Regular 16px/30px Cairo;
+    font: Regular 16px/30px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 0.6;
+    position: relative;
+    z-index: 3;
 }
 
 .beardcamp_info_other .breadcrumb .breadcrumb-item a {
     text-align: right;
-    font: Regular 16px/30px Cairo;
+    font: Regular 16px/30px;
     letter-spacing: 0;
     color: #545454;
     opacity: 0.6;
+    position: relative;
+    z-index: 3;
 }
 
 .beardcamp_info_other .breadcrumb .breadcrumb-item {
@@ -1726,6 +1759,8 @@ footer .last div:last-child {
     opacity: 0.6;
     content: "/";
     padding-left: 0.5rem;
+    position: relative;
+    z-index: 3;
 }
 
 .beardcamp_info_other .breadcrumb-item+.breadcrumb-item::before {
@@ -1735,6 +1770,8 @@ footer .last div:last-child {
     opacity: 0.6;
     content: "/";
     padding-left: 0.5rem;
+    position: relative;
+    z-index: 3;
 }
 
 .right_text {
@@ -1743,17 +1780,21 @@ footer .last div:last-child {
 }
 
 .beardcamp_info .center_text h4 {
-    font: Bold 30px/24px Cairo;
+    font: Bold 30px/24px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
+    position: relative;
+    z-index: 3;
 }
 
 .beardcamp_info .center_text p {
-    font: 500 26px Cairo;
+    font: 500 26px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
+    position: relative;
+    z-index: 3;
 }
 
 .left_text {
@@ -1769,6 +1810,7 @@ footer .last div:last-child {
     padding: 5px 45px;
     position: relative;
     top: 65px;
+    z-index: 3;
 }
 
 .beardcamp_info .left_text a:hover {
@@ -1782,7 +1824,7 @@ footer .last div:last-child {
 
 .bg-info p {
     text-align: center;
-    font: 100 16px/30px Cairo;
+    font: 100 16px/30px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -1801,7 +1843,7 @@ footer .last div:last-child {
 }
 
 .boxs h4 {
-    font: Bold 20px Cairo;
+    font: Bold 20px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -1809,7 +1851,7 @@ footer .last div:last-child {
 
 .boxs p {
     margin-top: 10px;
-    font: 100 16px Cairo;
+    font: 100 16px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -1817,7 +1859,7 @@ footer .last div:last-child {
 
 .bg-info .title_2 {
     text-align: center;
-    font: Bold 30px Cairo;
+    font: Bold 30px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -1855,7 +1897,7 @@ footer .last div:last-child {
 
 .contact-about-body .title h1 {
     text-align: center;
-    font: Bold 26px/49px Cairo;
+    font: Bold 26px/49px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
@@ -1864,7 +1906,7 @@ footer .last div:last-child {
 
 .contact-about-body .title p {
     text-align: center;
-    font: SemiBold 18px/33px Cairo;
+    font: SemiBold 18px/33px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
@@ -1929,7 +1971,7 @@ footer .last div:last-child {
 }
 
 .maps-info-list ul li a {
-    font: 100 18px/30px cairo;
+    font: 100 18px/30px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
@@ -1941,7 +1983,7 @@ footer .last div:last-child {
 
 .label-name {
     text-align: left;
-    font: 600 16px/30px Cairo;
+    font: 600 16px/30px;
     letter-spacing: 0;
     opacity: 1;
     display: block;
@@ -1962,7 +2004,7 @@ footer .last div:last-child {
 
 .nice-select .current {
     text-align: right;
-    font: 600 16px Cairo;
+    font: 600 16px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -1974,7 +2016,7 @@ footer .last div:last-child {
     border: 2px solid #BC1C86;
     border-radius: 24px;
     text-align: center;
-    font: 600 18px/33px Cairo;
+    font: 600 18px/33px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
@@ -1993,7 +2035,7 @@ footer .last div:last-child {
 
 .other-contact p {
     text-align: center;
-    font: SemiBold 18px/33px Cairo;
+    font: SemiBold 18px/33px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
@@ -2003,7 +2045,7 @@ footer .last div:last-child {
     background: #BC1C86 0% 0% no-repeat padding-box;
     border: 2px solid #BC1C86;
     border-radius: 5px;
-    font: 600 18px/33px Cairo;
+    font: 600 18px/33px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
@@ -2039,7 +2081,7 @@ footer .last div:last-child {
 
 .newsPapper .title-news h1 {
     text-align: center;
-    font: Bold 26px Cairo;
+    font: Bold 26px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2047,7 +2089,7 @@ footer .last div:last-child {
 
 .newsPapper .label-name {
     text-align: left;
-    font: 600 14px Cairo;
+    font: 600 14px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2101,7 +2143,7 @@ footer .last div:last-child {
 
 .social-meida p {
     text-align: center;
-    font: 600 17px Cairo;
+    font: 600 17px;
     letter-spacing: 0px;
     color: #545454;
     opacity: 1;
@@ -2177,7 +2219,7 @@ footer .last div:last-child {
 
 .Questions .big-text h1 {
     text-align: left;
-    font: Bold 102px Cairo;
+    font-size: 102px;
     letter-spacing: -1px;
     color: #BC1C86;
     opacity: 1;
@@ -2186,7 +2228,7 @@ footer .last div:last-child {
 
 .Questions .mid-text h2 {
     text-align: left;
-    font: Bold 40px Cairo;
+    font: Bold 30px;
     letter-spacing: -1px;
     color: #BC1C86;
     opacity: 1;
@@ -2206,7 +2248,7 @@ footer .last div:last-child {
 
 .Questions .faq-list li a {
     text-align: right;
-    font: Bold 20px Cairo;
+    font: Bold 20px;
     letter-spacing: 0px;
     color: #545454;
     opacity: 1;
@@ -2217,14 +2259,14 @@ footer .last div:last-child {
 }
 
 .Questions .title h1 {
-    font: Bold 24px/45px Cairo;
+    font: Bold 24px/45px;
     letter-spacing: 0;
     color: #BC1C86;
     opacity: 1;
 }
 
 .Questions .title p {
-    font: 600 16px/30px Cairo;
+    font: 600 16px/30px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2257,7 +2299,7 @@ footer .last div:last-child {
 
 .category-list .title-list h1 {
     text-align: left;
-    font: 600 26px Cairo;
+    font: 600 26px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
@@ -2275,7 +2317,7 @@ footer .last div:last-child {
 .category-list ul li a {
     display: block;
     text-align: left;
-    font: 300 16px Cairo;
+    font: 300 16px;
     letter-spacing: 0;
     color: #ffffffbd;
     opacity: 1;
@@ -2307,7 +2349,7 @@ footer .last div:last-child {
 .Answer .Ask h1 {
     margin-right: 10px;
     text-align: left;
-    font: 900 45px Cairo;
+    font: 900 40px;
     letter-spacing: 0;
     color: #BC1C86;
     opacity: 1;
@@ -2315,7 +2357,7 @@ footer .last div:last-child {
 
 .Answer .Ask h6 {
     text-align: left;
-    font: Bold 30px/56px Cairo;
+    font: Bold 20px/56px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2329,7 +2371,7 @@ footer .last div:last-child {
 .Answer .Ans h1 {
     margin-right: 10px;
     text-align: left;
-    font: 900 45px Cairo;
+    font: 900 45px;
     letter-spacing: 0;
     color: #BC1C86;
     opacity: 1;
@@ -2337,12 +2379,12 @@ footer .last div:last-child {
 
 .Answer .Ans p {
     text-align: left;
-    font: 100 16px Cairo;
+    font: 100 16px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
     position: relative;
-    top: 35px;
+    top: 10px;
 }
 
 .Answer strong {
@@ -2352,7 +2394,7 @@ footer .last div:last-child {
 
 .Answer p {
     text-align: left;
-    font: 100 16px Cairo;
+    font: 100 16px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2360,6 +2402,8 @@ footer .last div:last-child {
 
 .breadcrumb-item.active {
     color: white;
+    position: relative;
+    z-index: 3;
 }
 
 .blocks {
@@ -2375,7 +2419,7 @@ footer .last div:last-child {
     top: 0;
     left: 0;
     background: transparent linear-gradient(180deg, #26226200 0%, #262262 100%) 0% 0% no-repeat padding-box;
-    border-radius: 5px;
+    border-radius: 10px;
     opacity: 0.7;
     width: 100%;
     height: 100%;
@@ -2384,15 +2428,18 @@ footer .last div:last-child {
 
 .blocks img {
     width: 100%;
+    height: 191px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
-.blocks a {
+.blocks .name-link {
     position: absolute;
     bottom: 20px;
     width: 100%;
     left: 0;
     z-index: 2;
-    font: 300 18px/33px Cairo;
+    font: 300 18px/33px;
     letter-spacing: 0.36px;
     color: #FFFFFF;
 }
@@ -2418,7 +2465,7 @@ footer .last div:last-child {
 
 .blocks-border a {
     text-align: center;
-    font: 600 18px/33px Cairo;
+    font: 600 18px/33px;
     letter-spacing: 0.36px;
     color: #BC1C86;
     opacity: 1;
@@ -2451,7 +2498,7 @@ footer .last div:last-child {
 
 .bg-info.pest-library .media-body h1 {
     text-align: left;
-    font: 500 16px/25px Cairo;
+    font: 500 16px/25px;
     letter-spacing: 0px;
     color: #545454;
     opacity: 1;
@@ -2463,7 +2510,7 @@ footer .last div:last-child {
 }
 
 .bg-info.pest-library .media-body p span {
-    font: 100 12px/24px Cairo;
+    font: 100 12px/24px;
     letter-spacing: 0px;
     color: #BCBCBC;
     opacity: 1;
@@ -2472,7 +2519,7 @@ footer .last div:last-child {
 }
 
 .bg-info.pest-library .media-body p a {
-    font: 100 12px/24px Cairo;
+    font: 100 12px/24px;
     letter-spacing: 0px;
     color: #BC1C86;
     opacity: 1;
@@ -2487,7 +2534,7 @@ footer .last div:last-child {
 
 .bg-info.pest-library .social-meida h6 {
     text-align: left;
-    font: 600 20px/37px Cairo;
+    font: 600 20px/37px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2518,7 +2565,7 @@ footer .last div:last-child {
 }
 
 .ads-info h1 {
-    font: 900 32px/60px Cairo;
+    font: 900 32px/60px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
@@ -2534,7 +2581,7 @@ footer .last div:last-child {
 }
 
 .ads-info p {
-    font: 300 22px/42px Cairo;
+    font: 300 22px/42px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
@@ -2577,7 +2624,7 @@ footer .last div:last-child {
 
 .ads-newPapper .title-news h1 {
     text-align: center;
-    font: Bold 26px/49px Cairo;
+    font: Bold 26px/49px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2602,7 +2649,7 @@ footer .last div:last-child {
 
 .title-pest-details {
     text-align: left;
-    font: Bold 22px Cairo;
+    font: Bold 22px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2637,7 +2684,7 @@ footer .last div:last-child {
 }
 
 .share-links span {
-    font: 600 16px/30px Cairo;
+    font: 600 16px/30px;
     letter-spacing: 0.32px;
     color: #545454;
     opacity: 1;
@@ -2653,7 +2700,7 @@ footer .last div:last-child {
 }
 
 .main-title-cart {
-    font: Bold 26px/49px Cairo;
+    font: Bold 26px/49px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2673,7 +2720,7 @@ footer .last div:last-child {
 }
 
 .accordion-head a {
-    font: Bold 18px/33px Cairo;
+    font: Bold 18px/33px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2698,7 +2745,7 @@ footer .last div:last-child {
 
 .card-body ul li {
     text-align: left;
-    font: 300 16px/33px Cairo;
+    font: 300 16px/33px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2706,7 +2753,7 @@ footer .last div:last-child {
 
 .card-body ul li strong {
     text-align: left;
-    font: 600 18px/33px Cairo;
+    font: 600 18px/33px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2716,7 +2763,7 @@ footer .last div:last-child {
 
 .tagsBlock h3 {
     text-align: left;
-    font: Bold 26px/49px Cairo;
+    font: Bold 26px/49px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2747,7 +2794,7 @@ footer .last div:last-child {
 
 .tagsBlock ul li a {
     text-align: left;
-    font: 500 14px/26px Cairo;
+    font: 500 14px/26px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2764,7 +2811,7 @@ footer .last div:last-child {
 
 .articels-box h3 {
     text-align: left;
-    font: Bold 26px/49px Cairo;
+    font: Bold 26px/49px;
     letter-spacing: 0.52px;
     color: #545454;
     opacity: 1;
@@ -2818,7 +2865,7 @@ footer .last div:last-child {
     display: inline;
     padding: 5px 20px;
     text-align: left;
-    font: 300 15px Cairo;
+    font: 300 15px;
     letter-spacing: 0;
     color: #FFFFFF;
 }
@@ -2834,9 +2881,9 @@ footer .last div:last-child {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    padding-bottom: 20px;
-    text-align: left;
-    font: 600 17px Cairo;
+    padding: 20px;
+    text-align: center;
+    font: 600 17px;
     letter-spacing: 0.4px;
     color: #FFFFFF;
 }
@@ -2848,7 +2895,7 @@ footer .last div:last-child {
 
 .blogs .card-body .card-title {
     text-align: left;
-    font: 600 17px Cairo;
+    font: 600 17px;
     letter-spacing: 0.4px;
     color: #545454;
 }
@@ -2861,7 +2908,7 @@ footer .last div:last-child {
 .articels-box .card .card-body .card-text,
 .blogs .card-body .card-text {
     text-align: left;
-    font: Regular 16px Cairo;
+    font: Regular 16px;
     letter-spacing: 0.32px;
     color: #545454;
     opacity: 1;
@@ -2870,7 +2917,7 @@ footer .last div:last-child {
 .articels-box .card .card-body .date,
 .blogs .card-body .date {
     text-align: left;
-    font: 300 12px Cairo;
+    font: 300 12px;
     letter-spacing: 0;
     color: #BCBCBC;
     opacity: 1;
@@ -2879,7 +2926,7 @@ footer .last div:last-child {
 .articels-box .card .card-body .read-more,
 .blogs .card-body .read-more {
     float: right;
-    font: 400 13px Cairo;
+    font: 400 13px;
     letter-spacing: 0;
     color: #BC1C86;
     opacity: 1;
@@ -2898,6 +2945,11 @@ footer .last div:last-child {
 
 .hero {
     position: relative;
+}
+
+.hero .hero-img {
+    height: 441px;
+    object-fit: cover;
 }
 
 .hero .card-img-overlay {
@@ -2924,15 +2976,16 @@ footer .last div:last-child {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 191px;
     border: 1px solid #ccc;
     margin-bottom: 10px;
     width: 100%;
+    object-fit: cover;
 }
 
 .block-img .blockImg-title {
     text-align: center;
-    font: 600 14px Cairo;
+    font: 600 14px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -2972,7 +3025,7 @@ footer .last div:last-child {
 
 .ImgError p {
     text-align: center;
-    font: 300 16px Cairo;
+    font: 300 16px;
     letter-spacing: 0px;
     color: #545454;
     opacity: 1;
@@ -2983,7 +3036,7 @@ footer .last div:last-child {
     border: 2px solid #BC1C86;
     border-radius: 24px;
     text-align: center;
-    font: 600 16px Cairo;
+    font: 600 16px;
     letter-spacing: 0;
     color: #FFFFFF;
     opacity: 1;
@@ -3024,7 +3077,7 @@ footer .last div:last-child {
 
 .title-wdight {
     text-align: left;
-    font: 600 20px Cairo;
+    font: 600 20px;
     letter-spacing: 0;
     color: #545454;
     opacity: 1;
@@ -3075,7 +3128,7 @@ footer .last div:last-child {
 
 .list li a {
     text-align: left;
-    font: 300 16px Cairo;
+    font: 300 16px;
     letter-spacing: 0px;
     color: #808080;
     opacity: 1;
@@ -3123,7 +3176,7 @@ footer .last div:last-child {
 
 .more-links ul li .title {
     text-align: left;
-    font: 300 14px Cairo;
+    font: 300 14px;
     letter-spacing: 0.28px;
     color: #666666;
     opacity: 1;
@@ -3150,6 +3203,61 @@ footer .last div:last-child {
     text-align: center;
     display: block;
     margin-bottom: 10px;
+}
+
+
+/************* Start Other Pest Bites ***************/
+
+.table {
+    table-layout: fixed;
+}
+
+.table .fisrt-td {
+    padding: 0;
+    border: 0;
+    border-width: 0;
+}
+
+.table-bordered {
+    border: 0;
+}
+
+.table thead th {
+    text-align: center;
+    font: Bold 17px/25px;
+    letter-spacing: 0px;
+    color: #545454;
+    opacity: 1;
+    border-bottom: 0;
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+}
+
+.bg-pink {
+    background: #BC1C86 0% 0% no-repeat padding-box !important;
+    border-radius: 0px 5px 0px 0px;
+    opacity: 1;
+    color: #fff !important;
+    border-bottom: 0 !important;
+    border-left: 0 !important;
+    border-top: 0 !important;
+}
+
+.table-bordered td,
+.table-bordered th {
+    border: 1px solid #B3B3B3;
+}
+
+.table_list {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.table_list li {
+    text-align: left;
+    font: 400 14px/26px;
+    letter-spacing: 0px;
+    color: #545454;
+    opacity: 1;
 }
 
 

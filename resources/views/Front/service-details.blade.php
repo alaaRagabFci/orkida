@@ -87,19 +87,22 @@
                     @if($serviceDetails->id == 19)
                     <div class="bg-info no-padding-with-col">
                         @if(count($subServices) > 0)
-                        <h2 class="title-pest-details"> {{ __('home.service.types') }} {{ getLocalizableColumn($serviceDetails, 'name') }} {{ __('home.service.other') }} </h2>
+                        <h2 class="title-pest-details mb-4"> {{ __('home.service.types') }} {{ getLocalizableColumn($serviceDetails, 'name') }} {{ __('home.service.other') }} </h2>
                         <div class="row">
                             @foreach($subServices as $subService)
                             <div class="col-lg-3 col-md-6 col-6">
                                 <div class="blocks">
-                                    <img src="{{ config("app.baseUrl").$subService->image }}" alt=" {{ $subService->image }}">
-                                    <h3><a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($subService, 'slug') )}}"> {{ getLocalizableColumn($subService, 'name') }} </a></h3>
+                                    <a href="#" class="img-link"> 
+                                        <img src="{{ config("app.baseUrl").$subService->image }}" alt=" {{ $subService->image }}"> 
+                                    </a>
+                                    
+                                    <h3><a class="name-link" href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($subService, 'slug') )}}"> {{ getLocalizableColumn($subService, 'name') }} </a></h3>
                                 </div>
                             </div>
                             @endforeach
                             <div class="col-lg-3 col-md-6 col-6">
                                 <div class="blocks-border">
-                                    <img src="{{ asset('/assets/img/pest-library/noun_Bug_1675490.png')}}">
+                                    <a href="#"><img src="{{ asset('/assets/img/pest-library/noun_Bug_1675490.png')}}"></a>
                                     <h3><a href="{{ url(app()->getLocale() .'/pest-libraries') }}">{{ __('home.menu.otherPests') }} </a></h3>
                                 </div>
                             </div>
@@ -193,17 +196,19 @@
                             @forelse($relatedArticles as $relatedArticle)
                             <div class="col-lg-4 col-md-6">
                                 <div class="card">
-                                    <div class="image-area">
-                                        <img class="card-img-top" src="{{ config("app.baseUrl").$relatedArticle->blog->image }}" alt=" {{ $relatedArticle->blog->image_alt }}">
-                                        <div class="card-img-overlay">
-                                            <p class="card-title-overlay">
-                                                <img src="{{ asset('/assets/img/pest-library/noun_Cockroach_323508.svg')}}"> {{ $relatedArticle->blog->getArticleType->category }}
-                                            </p>
+                                    <a href="#" rel="dofollow">
+                                        <div class="image-area">
+                                            <img class="card-img-top" src="{{ config("app.baseUrl").$relatedArticle->blog->image }}" alt=" {{ $relatedArticle->blog->image_alt }}">
+                                            <div class="card-img-overlay">
+                                                <p class="card-title-overlay">
+                                                    <img src="{{ asset('/assets/img/pest-library/noun_Cockroach_323508.svg')}}"> {{ $relatedArticle->blog->getArticleType->category }}
+                                                </p>
+                                            </div>
+                                            <h3 class="card-title">
+                                                {{ $relatedArticle->blog->name }}
+                                            </h3>
                                         </div>
-                                        <h3 class="card-title">
-                                            {{ $relatedArticle->blog->name }}
-                                        </h3>
-                                    </div>
+                                    </a>
                                     <div class="card-body">
                                         <p class="card-text">
                                             {!! strip_tags(charsLimit($relatedArticle->blog->description_ar, 150)) !!}
@@ -306,7 +311,7 @@
                             </div>
                             <form class="mt-5">
                                 <div class="form-group">
-                                    <label class="label-name"> {{ __('home.subscriptions.emailPlaceHolder') }} </label>
+                                    <label class="label-name color-dark"> {{ __('home.subscriptions.emailPlaceHolder') }} </label>
                                     <input type="text" class="form-control" placeholder="">
                                 </div>
                                 <div class="form-group m-auto text-center">

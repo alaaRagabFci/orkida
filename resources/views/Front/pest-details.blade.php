@@ -99,8 +99,8 @@
                     <div class="bg-info no-padding-with-col">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="hero>">
-                                    <img class="w-100" src="{{ config("app.baseUrl").$pestLibrary->image }}" alt=" {{ $pestLibrary->image_alt }}">
+                                <div class="hero">
+                                    <img class="w-100 hero-img" src="{{ config("app.baseUrl").$pestLibrary->image }}" alt=" {{ $pestLibrary->image_alt }}">
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6 pr-0">
@@ -402,7 +402,7 @@
                             </div>
                             <form class="mt-5">
                                 <div class="form-group">
-                                    <label class="label-name"> {{ __('home.subscriptions.emailPlaceHolder') }} </label>
+                                    <label class="label-name color-dark"> {{ __('home.subscriptions.emailPlaceHolder') }} </label>
                                     <input type="text" class="form-control" placeholder="">
                                 </div>
                                 <div class="form-group m-auto text-center">

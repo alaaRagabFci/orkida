@@ -43,7 +43,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="hero">
-                                    <img class="w-100" src="{{ config("app.baseUrl").$blog->image }}" alt=" {{ $blog->image_alt }}">
+                                    <img class="w-100 hero-img" src="{{ config("app.baseUrl").$blog->image }}" alt=" {{ $blog->image_alt }}">
                                     <div class="card-img-overlay">
                                         <p class="card-title-overlay">
                                             <img src="{{ asset('/assets/img/blog/Cleaning-light.svg')}}"> {{ $blog->getArticleType->category }}
@@ -301,13 +301,17 @@
                                 <div class="articels-box wdight">
                                 @foreach($latestArticles as $latestArticle)
                                     <div class="card no-bg no-shadow">
-                                        <div class="image-area">
-                                            <img class="card-img-top" src="{{ config("app.baseUrl").$latestArticle->image }}">
-                                        </div>
-                                        <div class="card-body p-0">
-                                            <div class="card-title ">
-                                            {{ $latestArticle->name }}
+                                        <a href="#">
+                                            <div class="image-area">
+                                                <img class="card-img-top" src="{{ config("app.baseUrl").$latestArticle->image }}">
                                             </div>
+                                        </a>
+                                        <div class="card-body p-0">
+                                            <a href="#">
+                                                <div class="card-title ">
+                                                {{ $latestArticle->name }}
+                                                </div>
+                                            </a>
                                             <p class="card-text ">
                                             {!! charsLimit(strip_tags($blog->description_ar), 70) !!}
                                             </p>

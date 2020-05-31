@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="boxs">
-                                        <img src="{{ asset('/assets/img/new/noun_Mission_2191323.svg')}}">
+                                        <img src="{{ asset('/assets/img/eye.png')}}">
                                         <h4 class="text-center"> {{ __('home.about.vision') }} </h4>
                                         <p>{{ getLocalizableColumn($about, 'vision') }}</p>
                                     </div>
@@ -105,7 +105,8 @@
                 </div>
                 <!-- services -->
                 <section id="services">
-                    <h3>{{ __('home.services') }}<img class="dots w-100" src="{{ asset('/assets/img/Dots.svg')}}" alt="">
+                    <h3 class="title_1">{{ __('home.services') }}
+                        <img class="dots w-100" src="{{ asset('/assets/img/Dots.svg')}}" alt="">
                     </h3>
                     <div class="container-fluid">
                         <div class="row services">

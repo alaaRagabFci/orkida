@@ -19,7 +19,7 @@
                         <div class="col-lg-4 col-md-4">
                             <div class="right_text mobile-text">
                                 <h3 class="mb-0"> {{ $headerBlog[0]->name }} </h3>
-                                <span class="date color-dark"> {{ date('d-m-Y', strtotime($headerBlog[0]->created_at)) }} </span>
+                                <span class="date"> {{ date('d-m-Y', strtotime($headerBlog[0]->created_at)) }} </span>
                                 <a class="no-bg no-shadow mobile" href="{{ url(app()->getLocale() .'/blog/'.$headerBlog[0]->slug )}}"> {{ __('home.menu.readMore') }} <i class="fa fa-angle-left"></i></a>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 text-left">
                             <div class="left_text">
-                                <a class="no-bg no-shadow web postion_top color-dark" href="{{ url(app()->getLocale() .'/blog/'.$headerBlog[0]->slug )}}"> {{ __('home.menu.readMore') }} <i class="fa fa-angle-left"></i></a>
+                                <a class="no-bg no-shadow web postion_top" href="{{ url(app()->getLocale() .'/blog/'.$headerBlog[0]->slug )}}"> {{ __('home.menu.readMore') }} <i class="fa fa-angle-left"></i></a>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col-12">
                     <nav aria-label="breadcrumb no-bg">
-                        <ol class="breadcrumb no-bg p-0 mb-0">
+                        <ol class="breadcrumb no-bg p-0 mb-0 mt-3">
                             <li class="breadcrumb-item">
                                 <a href="{{ url('/') }}">{{ __('home.menu.index') }}</a>
                             </li>
@@ -86,7 +86,7 @@
         </div>
     </div>
     @else
-    <h3 align="center">لا توجد مقالات.</h3>
+    <h3 class="text-center">لا توجد مقالات.</h3>
     @endif
     <section class="section-info blogs">
         <div class="container-fluid">
@@ -96,10 +96,12 @@
                         <h6 class="title-wdight"> البحث في المدونة </h6>
                         <form action="{{ url(app()->getLocale() .'/blog') }}" method="get">
                             <!-- @csrf -->
-                            <div class="form-group mb-0 ">
-                                <div class="input-group-prepend ">
-                                    <div class="input-group-text ">
-                                        <button type="submit"><img src="{{ asset('/assets/img/blog/noun_Search_2680509.svg')}} "></button>
+                            <div class="form-group mb-0">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <button type="submit" class="no-bg no-border">
+                                            <img src="{{ asset('/assets/img/blog/noun_Search_2680509.svg')}} ">
+                                        </button>
                                     </div>
                                 </div>
                                 <input type="text " required name="searchText" class="form-control " id=" " placeholder=" ">
@@ -183,7 +185,9 @@
                             <div class="form-group mb-0 ">
                                 <div class="input-group-prepend ">
                                     <div class="input-group-text ">
-                                        <button type="submit"> <img src="{{ asset('/assets/img/blog/noun_Search_2680509.svg')}} "></button>
+                                        <button type="submit" class="no-bg no-border"> 
+                                            <img src="{{ asset('/assets/img/blog/noun_Search_2680509.svg')}} ">
+                                        </button>
                                     </div>
                                 </div>
                                 <input type="text " required name="searchText" class="form-control " id=" " placeholder=" ">
@@ -277,7 +281,7 @@
                             </div>
                             <form class="mt-5">
                                 <div class="form-group">
-                                    <label class="label-name"> {{ __('home.subscriptions.emailPlaceHolder') }} </label>
+                                    <label class="label-name color-dark"> {{ __('home.subscriptions.emailPlaceHolder') }} </label>
                                     <input type="text" class="form-control" placeholder="">
                                 </div>
                                 <div class="form-group m-auto text-center">

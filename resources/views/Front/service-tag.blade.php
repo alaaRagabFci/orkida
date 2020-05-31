@@ -232,7 +232,7 @@
                             </div>
                             <form class="mt-5">
                                 <div class="form-group">
-                                    <label class="label-name"> {{ __('home.subscriptions.emailPlaceHolder') }} </label>
+                                    <label class="label-name color-dark"> {{ __('home.subscriptions.emailPlaceHolder') }} </label>
                                     <input type="text" class="form-control" placeholder="">
                                 </div>
                                 <div class="form-group m-auto text-center">
