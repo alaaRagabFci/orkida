@@ -2895,9 +2895,9 @@ footer .last div:last-child {
 
 .articels-box .card .card-body .card-text,
 .blogs .card-body .card-text {
-    text-align: justify;
+    /* text-align: justify !important; */
     font: 400 16px Cairo;
-    letter-spacing: 0.32px;
+    /* letter-spacing: 0.32px; */
     color: #545454;
     opacity: 1;
 }
