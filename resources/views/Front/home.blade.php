@@ -11,14 +11,14 @@
         <form>
             <div class="first d-flex justify-content-center align-items-center">
                 <p class="mb-0">{{ __('home.orderService.wantService') }}</p>
-                <div class="select">
-                    <select name="searchService" class="custom-select" id="inputGroupSelect01">
+                <div class="">
+                    <select name="searchService" class="form-control nice-select main-select" id="inputGroupSelect01">
                         <option selected> {{ __('home.orderService.selectService') }}</option>
                         @foreach($pestControls as $pestControl)
                         <option value="{{ getLocalizableColumn($pestControl, 'slug') }}">{{ getLocalizableColumn($pestControl, 'name') }}</option>
                         @endforeach
                     </select>
-                    <i class="fa fa-chevron-left"></i>
+                    <!-- <i class="fa fa-chevron-left"></i> -->
                 </div>
                 <button type="submit" class="btn-main"> {{ __('home.menu.searchBtn') }} </button>
             </div>
