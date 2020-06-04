@@ -423,7 +423,7 @@ header .carousel-inner img {
 
 #main .select {
     position: relative;
-    height: 48px;
+    height: auto;
 }
 
 #main .select i {
@@ -437,9 +437,11 @@ header .carousel-inner img {
     border: 1px solid #ccc;
     border-radius: 30px;
     background: #FAFAFA;
-    color: #BC1C86;
-    width: 180px;
-    margin-right: 20px;
+    width: 219px;
+    margin-right: 15px;
+    padding-right: 14px;
+    font-size: 16px;
+    height: 46px;
 }
 
 #main button {
@@ -2893,8 +2895,8 @@ footer .last div:last-child {
 
 .articels-box .card .card-body .card-text,
 .blogs .card-body .card-text {
-    text-align: right;
-    font: Regular 16px Cairo;
+    text-align: justify;
+    font: 400 16px Cairo;
     letter-spacing: 0.32px;
     color: #545454;
     opacity: 1;

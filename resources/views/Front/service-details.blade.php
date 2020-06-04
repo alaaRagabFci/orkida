@@ -92,7 +92,7 @@
                             @foreach($subServices as $subService)
                             <div class="col-lg-3 col-md-6 col-6">
                                 <div class="blocks">
-                                    <a href="#" class="img-link"> 
+                                    <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($subService, 'slug') )}}" class="img-link"> 
                                         <img src="{{ config("app.baseUrl").$subService->image }}" alt=" {{ $subService->image }}"> 
                                     </a>
                                     
@@ -102,7 +102,7 @@
                             @endforeach
                             <div class="col-lg-3 col-md-6 col-6">
                                 <div class="blocks-border">
-                                    <a href="#"><img src="{{ asset('/assets/img/pest-library/noun_Bug_1675490.png')}}"></a>
+                                    <a href="{{ url(app()->getLocale() .'/pest-libraries') }}"><img src="{{ asset('/assets/img/pest-library/noun_Bug_1675490.png')}}"></a>
                                     <h3><a href="{{ url(app()->getLocale() .'/pest-libraries') }}">{{ __('home.menu.otherPests') }} </a></h3>
                                 </div>
                             </div>
@@ -127,23 +127,6 @@
                                             <img src="{{ asset('/assets/img/pest-library/noun_Share_1571617.svg')}}">
                                             <span> {{ __('home.service.shareContent') }} : </span>
                                             <div id="share" class="mr-3">
-                                                <!-- <ul>
-                                                        <li>
-                                                            <a href="#" title="facebook"><i class="fas fa-envelope"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" title="linkedin"><i class="fab fa-linkedin-in"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" title="pinterest"><i class="fab fa-pinterest-p"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" title="facebook"><i class="fab fa-facebook-f"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#" title="twitter"><i class="fab fa-twitter"></i></a>
-                                                        </li>
-                                                    </ul> -->
                                             </div>
                                         </div>
                                     </div>
@@ -152,7 +135,9 @@
                                     @foreach($subServices as $subService)
                                     <div class="col-lg-3 col-6">
                                         <div class="block-img">
+                                            <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($subService, 'slug') )}}" class="img-link"> 
                                             <img class="img" src="{{ config("app.baseUrl").$subService->image }}" alt=" {{ $subService->image }}">
+                                            </a>
                                             <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($subService, 'slug') )}}">
                                                 <h3 class="blockImg-title"> {{ getLocalizableColumn($subService, 'name') }} </h3>
                                             </a>
@@ -196,7 +181,7 @@
                             @forelse($relatedArticles as $relatedArticle)
                             <div class="col-lg-4 col-md-6">
                                 <div class="card">
-                                    <a href="#" rel="dofollow">
+                                    <a href="{{ url(app()->getLocale() .'/blog/'.$relatedArticle->blog->slug)}}" rel="dofollow">
                                         <div class="image-area">
                                             <img class="card-img-top" src="{{ config("app.baseUrl").$relatedArticle->blog->image }}" alt=" {{ $relatedArticle->blog->image_alt }}">
                                             <div class="card-img-overlay">
@@ -211,7 +196,7 @@
                                     </a>
                                     <div class="card-body">
                                         <p class="card-text">
-                                            {!! strip_tags(charsLimit($relatedArticle->blog->description_ar, 150)) !!}
+                                            {!! charsLimit(strip_tags($relatedArticle->blog->description_ar), 150) !!}
                                         </p>
                                         <span class="date"> {{ date('d-m-Y', strtotime($relatedArticle->blog->created_at)) }} </span>
                                         <a href="{{ url(app()->getLocale() .'/blog/'.$relatedArticle->blog->slug)}}" class="read-more"> {{ __('home.menu.readMore') }} <i class="fa fa-angle-left"></i></a>
@@ -241,16 +226,16 @@
                             <h6> {{ __('home.menu.contactUs') }} </h6>
                             <ul>
                                 <li class="facebook">
-                                    <a href="{{ $settings->facebook_url }}" title="facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a target="_blank" href="{{ $settings->facebook_url }}" title="facebook"><i class="fab fa-facebook-f"></i></a>
                                 </li>
                                 <li class="twitter">
-                                    <a href="{{ $settings->twitter_url }}" title="twitter"><i class="fab fa-twitter"></i></a>
+                                    <a target="_blank" href="{{ $settings->twitter_url }}" title="twitter"><i class="fab fa-twitter"></i></a>
                                 </li>
                                 <li class="instagram">
-                                    <a href="{{ $settings->instagram_url }}" title="instagram"><i class="fab fa-instagram"></i></a>
+                                    <a target="_blank" href="{{ $settings->instagram_url }}" title="instagram"><i class="fab fa-instagram"></i></a>
                                 </li>
                                 <li class="youtube">
-                                    <a href="{{ $settings->youtube_url }}" title="youtube"><i class="fab fa-youtube"></i></a>
+                                    <a target="_blank" href="{{ $settings->youtube_url }}" title="youtube"><i class="fab fa-youtube"></i></a>
                                 </li>
                             </ul>
                         </div>

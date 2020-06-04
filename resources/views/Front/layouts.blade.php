@@ -256,17 +256,16 @@
                 @if(request()->is(app()->getLocale()))
                 <!-- social media -->
                 <div class="social-media d-flex flex-column align-items-center justify-content-between">
-                    <a href="{{ $settings->facebook_url }}"><img src="{{ asset('/assets/img/icon1.svg')}}" alt=""></a>
-                    <a href="{{ $settings->twitter_url }}"><img src="{{ asset('/assets/img/icon2.svg')}}" alt=""></a>
-                    <a href="{{ $settings->linkedin_url }}"><img src="{{ asset('/assets/img/icon3.svg')}}" alt=""></a>
-                    <a href="{{ $settings->youtube_url }}"><img src="{{ asset('/assets/img/icon4.svg')}}" alt=""></a>
+                    <a target="_blank" href="{{ $settings->facebook_url }}"><img src="{{ asset('/assets/img/icon1.svg')}}" alt=""></a>
+                    <a target="_blank" href="{{ $settings->twitter_url }}"><img src="{{ asset('/assets/img/icon2.svg')}}" alt=""></a>
+                    <a target="_blank" href="{{ $settings->linkedin_url }}"><img src="{{ asset('/assets/img/icon3.svg')}}" alt=""></a>
+                    <a target="_blank" href="{{ $settings->youtube_url }}"><img src="{{ asset('/assets/img/icon4.svg')}}" alt=""></a>
                 </div>
                 <a class="scroll" href="#main"><img src="{{ asset('/assets/img/Scroll.svg')}}" alt=""></a>
                 @foreach($sliders as $key => $slider)
                 <div class="carousel-item {{$key == 0 ? 'active' : ''}}">
                     <img src="{{ config("app.baseUrl").$slider->image }}" alt=" {{ $slider->alt }}">
                     <div class="carousel-caption">
-                        <!-- <button href="{{ url(app()->getLocale() .'/contact-us') }}"> -->
                         <a href="{{ url(app()->getLocale() .'/contact-us') }}" class="services_order">
                         {{ __('home.orderService.order') }}
                             <i class="fa fa-angle-left"></i>
@@ -291,18 +290,18 @@
                 <img src="{{ asset('/assets/img/logo2.png')}}" alt=" ">
                 <p>{{ charsLimit(getLocalizableColumn($about, 'desc'), 300) }}</p>
                 <div class="social d-flex ">
-                    <a href="{{ $settings->youtube_url }}"><img src="{{ asset('/assets/img/social/icon5.svg')}}" alt=" "></a>
-                    <a href="{{ $settings->linkedin_url }}"><img src="{{ asset('/assets/img/social/icon4.svg')}}" alt=" "></a>
-                    <a href="{{ $settings->instagram_url }}"><img src="{{ asset('/assets/img/social/icon3.svg')}}" alt=" "></a>
-                    <a href="{{ $settings->twitter_url }}"><img src="{{ asset('/assets/img/social/icon2.svg')}}" alt=" "></a>
-                    <a href="{{ $settings->facebook_url }}"><img src="{{ asset('/assets/img/social/icon1.svg')}}" alt=" "></a>
+                    <a target="_blank" href="{{ $settings->youtube_url }}"><img src="{{ asset('/assets/img/social/icon5.svg')}}" alt=" "></a>
+                    <a target="_blank" href="{{ $settings->linkedin_url }}"><img src="{{ asset('/assets/img/social/icon4.svg')}}" alt=" "></a>
+                    <a target="_blank" href="{{ $settings->instagram_url }}"><img src="{{ asset('/assets/img/social/icon3.svg')}}" alt=" "></a>
+                    <a target="_blank" href="{{ $settings->twitter_url }}"><img src="{{ asset('/assets/img/social/icon2.svg')}}" alt=" "></a>
+                    <a target="_blank" href="{{ $settings->facebook_url }}"><img src="{{ asset('/assets/img/social/icon1.svg')}}" alt=" "></a>
                 </div>
             </div>
             <div class="twitter ">
                 <div class="d-flex justify-content-between ">
                     <span>{{ __('home.footer.tweetsBy') }}</span>
                     <a href="{{ url('/') }}">‎@OrkidaPest</a>
-                    <a href="{{ $settings->twitter_url }}">{{ __('home.footer.seeOnTweeter') }}</a>
+                    <a target="_blank" href="{{ $settings->twitter_url }}">{{ __('home.footer.seeOnTweeter') }}</a>
                 </div>
                 <article class="tw-example ">
                 <a class="twitter-timeline" data-lang="ar" data-width="400"  data-height="250" href="https://twitter.com/OrkidaPest">Tweets by OrkidaPest</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
