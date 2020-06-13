@@ -200,7 +200,15 @@
                             @foreach($articleTypes as $articleType)
                             <li>
                                 <a href="{{ url(app()->getLocale() .'/categories/'.$articleType->slug) }}">
-                                    <img src="{{ asset('/assets/img/blog/noun_Cockroach_323508.svg')}} "> {{ $articleType->category }}
+                                    @if($articleType->id == 4)
+                                        <img src="{{ asset('/assets/img/blog/noun_Cockroach_323508.svg')}} "> {{ $articleType->category }}
+                                    @elseif($articleType->id == 5)   
+                                        <img src="{{ asset('/assets/img/blog/Cleaning.svg')}} "> {{ $articleType->category }}
+                                    @elseif($articleType->id == 7)      
+                                        <img src="{{ asset('/assets/img/blog/furnit.svg')}} "> {{ $articleType->category }}
+                                    @else
+                                        <img src="{{ asset('/assets/img/blog/pipe.svg')}} "> {{ $articleType->category }}
+                                    @endif    
                                 </a>
                             </li>
                             @endforeach

@@ -37,7 +37,7 @@
                     <i class="fas fa-envelope"></i>
                     <div>
                         <span>{{ __('home.orderService.useMessage') }}</span>
-                        <p>{{ __('home.orderService.sendMessage') }}</p>
+                        <p onclick="scrollContactUs()">{{ __('home.orderService.sendMessage') }}</p>
                     </div>
                 </section>
             </div>
@@ -273,6 +273,12 @@
 @endsection
 @section('scripts')
 <script>
+    function scrollContactUs(){
+        $('html,body').animate({
+        scrollTop: $("#contact").offset().top},
+        '2000');
+    }
+
   function getServiceLink(selected){
       var option = document.getElementById('serviceLink');
       option.href = "{{ url(app()->getLocale() .'/services')}}" + "/" + selected.value;
