@@ -126,13 +126,14 @@ class HomeController extends Controller
 
         $articleTypes = ArticleType::where('is_active', 1)->get();
         $text = request()->query();
-        if (isset($text['searchText']) && $text['searchText'] != "") {
+        if (isset($text['searchText']) && $text['searchText'] != "" ) {
             $headerBlog = Blog::where('name', 'like', '%'.$text['searchText'] . '%')->orWhere('slug', 'like', '%'.$text['searchText'] . '%')->take(2)->get();
             if (count($headerBlog) > 1)
                 $blogs = Blog::whereNotIn('id', $headerBlog->pluck('id'))->where('name', 'like', '%'.$text['searchText'] . '%')->orWhere('slug', 'like', '%'.$text['searchText'] . '%')->latest()->paginate(10);
             else
                 $blogs = [];
         } else {
+            $text = [];
             $headerBlog = Blog::orderBy('sort', 'ASC')->take(2)->get();
             $blogs = Blog::where('is_active', 1)->whereNotIn('id', $headerBlog->pluck('id'))->latest()->paginate(10);
         }

@@ -86,7 +86,7 @@
                                                         </ul>
                                                     </td>
                                                     <td data-column="{{ __('home.pestBites.notes') }}">
-                                                        {!! charsLimit(strip_tags(getLocalizableColumn($pestBite, 'notes')), 2000) !!}
+                                                        {!! getLocalizableColumn($pestBite, 'notes') !!}
                                                     </td>
                                                 </tr>
 
