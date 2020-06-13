@@ -8,8 +8,8 @@
     @yield('meta')
     <title>@yield('title')</title>
     <link rel="shortcut icon" type="image/png" href="{{ asset('/assets/favicon.png')}}" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <link href="https://fonts.googleapis.com/css?family=Cairo:300,400,600,700,900&display=swap&subset=arabic" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/assets/css/font-awesome.min.css')}}">
+    <link href="{{ asset('/assets/css/cairo-fonts.css')}}" rel="stylesheet">
     <link href="{{ asset('/assets/css/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{ asset('/assets/css/owl.theme.default.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/assets/css/nice-select.css')}}">
@@ -19,11 +19,11 @@
     @endif
 
     @if(app()->getLocale() == 'ar')
-        <link rel="stylesheet" href="{{ asset('/assets/css/style_ar.css')}}">
-        <link rel="stylesheet" href="{{ asset('/assets/css/responsive.css')}}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/style_ar.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/responsive.min.css')}}">
     @else
-        <link rel="stylesheet" href="{{ asset('/assets/css/style_en.css')}}">
-        <link rel="stylesheet" href="{{ asset('/assets/css/responsive_en.css')}}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/style_en.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/responsive_en.min.css')}}">
     @endif
     @yield('styles')
 </head>
@@ -329,13 +329,13 @@
             <span>{{ __('home.footer.copyRight') }}</span>
         </div>
     </footer>
-    <script src="{{ asset('/assets/js/jquery.js')}}"></script>
+    <script src="{{ asset('/assets/js/jquery.min.js')}}"></script>
     <script src="{{ asset('/assets/js/popper.js')}}"></script>
     <script src="{{ asset('/assets/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('/assets/js/owl.carousel.min.js')}}"></script>
     <script src="{{ asset('/assets/js/jquery.nice-select.min.js')}}"></script>
     @if(request()->is(app()->getLocale()))
-        <script src="{{ asset('/assets/js/slick-carousel.js')}}"></script>
+        <script src="{{ asset('/assets/js/slick-carousel.min.js')}}"></script>
         @if(app()->getLocale() == 'ar')
             <script src="{{ asset('/assets/js/slick_ar.js')}}"></script>
         @else    

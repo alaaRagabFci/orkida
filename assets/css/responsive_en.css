@@ -669,7 +669,7 @@
         display: none !important;
     }
     .gallery-slider-nav {
-        margin-top: 100px;
+        margin-top: 20px;
     }
     .gallery-slider-nav .slider-item .item_thumb img {
         width: 90px;
@@ -686,6 +686,13 @@
         color: #545454;
         font-size: 13px;
         margin-bottom: 10px !important;
+        display: block;
+        display: -webkit-box;
+        height: 55px;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .more-buttons .arrow-container {
         float: none;
@@ -1164,6 +1171,18 @@
     /************ Start Pest Library page css ***********/
     .blocks img {
         width: 100%;
+        height: 110px;
+    }
+    .blocks .name-link {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        right: 0;
+        z-index: 2;
+        font: 600 13px Cairo;
+        letter-spacing: 0.36px;
+        color: #FFFFFF;
+        padding: 0 5px;
     }
     .blocks a {
         font-size: 15px;
@@ -1263,6 +1282,31 @@
     /****************** search page ************/
     .search-title {
         padding-top: 0;
+    }
+    /****************** start new code **************/
+    .no-padding-with-col p {
+        margin-right: 0 !important;
+    }
+    .no-padding-with-col p img {
+        height: 100%;
+    }
+    .hero .hero-img {
+        height: 100% !important;
+        object-fit: cover;
+    }
+    .no-padding-with-col h2 {
+        padding-right: 15px !important;
+    }
+    .no-padding-with-col ul li,
+    .no-padding-with-col ol li {
+        padding-right: 15px;
+    }
+    #services .services section img,
+    #articles .services section img {
+        height: 250px;
+    }
+    .boxs {
+        margin-top: 20px;
     }
 }
 
