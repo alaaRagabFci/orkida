@@ -226,16 +226,16 @@
                             <h6> {{ __('home.menu.contactUs') }} </h6>
                             <ul>
                                 <li class="facebook">
-                                    <a target="_blank" href="{{ $settings->facebook_url }}" title="facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a target="_blank" href="{{ $settings->facebook_url }}" title="facebook"><i class="fa fa-facebook-f"></i></a>
                                 </li>
                                 <li class="twitter">
-                                    <a target="_blank" href="{{ $settings->twitter_url }}" title="twitter"><i class="fab fa-twitter"></i></a>
+                                    <a target="_blank" href="{{ $settings->twitter_url }}" title="twitter"><i class="fa fa-twitter"></i></a>
                                 </li>
                                 <li class="instagram">
-                                    <a target="_blank" href="{{ $settings->instagram_url }}" title="instagram"><i class="fab fa-instagram"></i></a>
+                                    <a target="_blank" href="{{ $settings->instagram_url }}" title="instagram"><i class="fa fa-instagram"></i></a>
                                 </li>
                                 <li class="youtube">
-                                    <a target="_blank" href="{{ $settings->youtube_url }}" title="youtube"><i class="fab fa-youtube"></i></a>
+                                    <a target="_blank" href="{{ $settings->youtube_url }}" title="youtube"><i class="fa fa-youtube"></i></a>
                                 </li>
                             </ul>
                         </div>

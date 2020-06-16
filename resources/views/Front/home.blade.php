@@ -26,7 +26,7 @@
                 <p>{{ __('home.menu.contactUs') }}</p>
                 <section class="d-flex">
                     <!-- <img src="assets/img/noun_Phone_2717579.svg" alt=""> -->
-                    <i class="fas fa-phone"></i>
+                    <i class="fa fa-phone"></i>
                     <div>
                         <span>{{ __('home.orderService.usePhone') }}</span>
                         <p>{{ count($sitePhones) > 0 ? $sitePhones[0]->phone : '01000000000' }}</p>
@@ -34,7 +34,7 @@
                 </section>
                 <section class="d-flex">
                     <!-- <img src="assets/img/noun_Mail_2698285.svg" alt=""> -->
-                    <i class="fas fa-envelope"></i>
+                    <i class="fa fa-envelope"></i>
                     <div>
                         <span>{{ __('home.orderService.useMessage') }}</span>
                         <p onclick="scrollContactUs()">{{ __('home.orderService.sendMessage') }}</p>

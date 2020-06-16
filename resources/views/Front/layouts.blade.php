@@ -19,11 +19,11 @@
     @endif
 
     @if(app()->getLocale() == 'ar')
-        <link rel="stylesheet" href="{{ asset('/assets/css/style_ar.min.css')}}">
-        <link rel="stylesheet" href="{{ asset('/assets/css/responsive.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/style_ar.css')}}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/responsive.css')}}">
     @else
-        <link rel="stylesheet" href="{{ asset('/assets/css/style_en.min.css')}}">
-        <link rel="stylesheet" href="{{ asset('/assets/css/responsive_en.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/style_en.css')}}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/responsive_en.css')}}">
     @endif
     @yield('styles')
 </head>
@@ -307,7 +307,7 @@
                 <a class="twitter-timeline" data-lang="ar" data-width="400"  data-height="250" href="https://twitter.com/OrkidaPest">Tweets by OrkidaPest</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </article>
             </div>
-            <div class="last d-flex ">
+            <div class="last d-flex">
                 <div>
                     <p>{{ __('home.footer.siteCategories') }}</p>
                     <a href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($pestControlObj, 'slug') )}}">{{ __('home.menu.pestControl') }}</a>
