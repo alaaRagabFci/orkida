@@ -221,7 +221,7 @@
                                                 <img src="{{ config("app.baseUrl").$latestArticle->image }}"></a>
                                         </div>
                                         <div class="media-body">
-                                            <a href="blog.html">
+                                            <a href="{{ url(app()->getLocale() .'/blog/'.$latestArticle->slug) }}">
                                                 <h1>{{ $latestArticle->name }}</h1>
                                             </a>
                                             <p class="m-0 w-100">

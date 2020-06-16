@@ -116,7 +116,7 @@ return [
         'tweetsBy' => 'تغريدات بواسطة',
         'seeOnTweeter' => 'مشاهدة على تويتر',
         'siteCategories' => 'اقسام الموقع',
-        'faqsCommon' => 'أكثر الأسئلة المكررة',
+        'faqsCommon' => 'الأسئله الشائعة',
         'aboutOrkida' => 'عن اوركيدا',
         'policy' => 'سياسية الاستخدام',
         'privacy' => 'سياسية الخصوصية',
@@ -134,7 +134,7 @@ return [
     ],
     'faqs' => [
         'most' => 'أكثر',
-        'CommonQuestions' => 'الأسئلة المكررة',
+        'CommonQuestions' => 'الأسئله الشائعة',
         'CommonQuestionBelong' => 'الأسئلة الخاصة ب',
         'q' => 'سـ',
         'a' => 'جـ',
