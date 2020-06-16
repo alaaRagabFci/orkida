@@ -125,16 +125,16 @@
                             <h6> تواصل معنا </h6>
                             <ul>
                             <li class="facebook">
-                                <a href="{{ $settings->facebook_url }}" title="facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="{{ $settings->facebook_url }}" title="facebook"><i class="fa fa-facebook-f"></i></a>
                             </li>
                             <li class="twitter">
-                                <a href="{{ $settings->twitter_url }}" title="twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="{{ $settings->twitter_url }}" title="twitter"><i class="fa fa-twitter"></i></a>
                             </li>
                             <li class="instagram">
-                                <a href="{{ $settings->instagram_url }}" title="instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="{{ $settings->instagram_url }}" title="instagram"><i class="fa fa-instagram"></i></a>
                             </li>
                             <li class="youtube">
-                                <a href="{{ $settings->youtube_url }}" title="youtube"><i class="fab fa-youtube"></i></a>
+                                <a href="{{ $settings->youtube_url }}" title="youtube"><i class="fa fa-youtube"></i></a>
                             </li>
                             </ul>
                         </div>
