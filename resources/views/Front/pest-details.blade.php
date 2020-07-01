@@ -139,7 +139,7 @@
                                     <div class="col-lg-3 col-md-6 col-6">
                                     <div class="blocks">
                                         <img src="{{ config("app.baseUrl").$subPestLibrary->image }}" alt=" {{ $subPestLibrary->image_alt }}">
-                                        <h3><a href="{{ url(app()->getLocale() .'/pest-libraries/'.getLocalizableColumn($subPestLibrary, 'slug') )}}"> {{ getLocalizableColumn($subPestLibrary, 'name') }} </a></h3>
+                                        <h3><a class="name-link" href="{{ url(app()->getLocale() .'/pest-libraries/'.getLocalizableColumn($subPestLibrary, 'slug') )}}"> {{ getLocalizableColumn($subPestLibrary, 'name') }} </a></h3>
                                     </div>
                                 </div>
 
