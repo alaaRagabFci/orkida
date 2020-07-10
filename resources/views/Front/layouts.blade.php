@@ -61,10 +61,10 @@
             <ul class="carousel-indicators">
             @foreach($sliders as $key => $slider)
                 <li data-target="#demo" data-slide-to="{{ $key }}" class="{{ $key == 0 ? 'active' : '' }}"></li>
-            @endforeach    
+            @endforeach
             </ul>
             <div class="carousel-inner">
-        @endif        
+        @endif
                 <!-- nav bar -->
                 <nav class="navbar navbar-expand-md" id="{{request()->is(app()->getLocale()) ? 'NavBar' : '' }}">
                     <a class="navbar-brand" href="{{ url('/') }}">
@@ -76,13 +76,13 @@
                             <img class="img img_search" onclick="openNavSearch()" src="{{ asset('/assets/img/tw/noun_Search_2680509.svg')}}" alt="">
                             <div class="dropdown">
                                 <button type="button" class="nav-link btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img class="img_call" src="{{ asset('/assets/img/tw/call.svg')}}" alt="">  
+                                    <img class="img_call" src="{{ asset('/assets/img/tw/call.svg')}}" alt="">
                                 </button>
 
                                 <div class="dropdown-menu">
                                 @foreach($sitePhones as $phone)
                                     <a class="dropdown-item" href="tel:{{ $phone->phone }}">
-                                    {{ $phone->phone }}  <img class="other_call center" src="{{ asset('/assets/img/tw/call.svg')}}" alt=""> 
+                                    {{ $phone->phone }}  <img class="other_call center" src="{{ asset('/assets/img/tw/call.svg')}}" alt="">
                                     </a>
                                 @endforeach
                                     <div class="dropdown-divider"></div>
@@ -123,19 +123,19 @@
                                                     </div>
                                                     @if($key != count($pestControls))
                                                         <div class="col-lg-4 col-6 border_left">
-                                                    @endif        
+                                                    @endif
                                                 @endif
                                             @endforeach
-                                            @if((count($pestControls) + 1) % 5 != 0) 
+                                            @if((count($pestControls) + 1) % 5 != 0)
                                             <a class="dropdown-item" href="{{ url(app()->getLocale() .'/pest-libraries' ) }}"> {{ __('home.menu.otherPests') }} </a>
                                             <a class="dropdown-item" href="{{ url(app()->getLocale() .'/faqs' ) }}"> {{ __('home.footer.faqsCommon') }}</a>
                                             </div>
-                                            @else 
+                                            @else
                                             <div class="col-lg-4 col-6 border_left">
                                                 <a class="dropdown-item" href="{{ url(app()->getLocale() .'/pest-libraries' ) }}"> {{ __('home.menu.otherPests') }} </a>
                                                 <a class="dropdown-item" href="{{ url(app()->getLocale() .'/faqs' ) }}"> {{ __('home.footer.faqsCommon') }}</a>
-                                            </div>  
-                                            @endif     
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -155,19 +155,19 @@
                                                     </div>
                                                     @if($key != count($pestLibrariesMenu))
                                                         <div class="col-lg-4 col-6 border_left">
-                                                    @endif        
+                                                    @endif
                                                 @endif
                                         @endforeach
-                                        @if(count($pestLibrariesMenu) % 5 != 0) 
+                                        @if(count($pestLibrariesMenu) % 5 != 0)
                                             <a class="dropdown-item" href="{{ url(app()->getLocale() .'/pest-bites' )}}"> {{ __('home.menu.pestBites') }} </a>
                                             <a class="dropdown-item" href="{{ url(app()->getLocale() .'/pest-libraries' )}}"> {{ __('home.menu.otherPests') }} </a>
                                             </div>
-                                        @else 
+                                        @else
                                         <div class="col-lg-4 col-6 border_left">
                                                 <a class="dropdown-item" href="{{ url(app()->getLocale() .'/pest-bites' )}}"> {{ __('home.menu.pestBites') }} </a>
                                                 <a class="dropdown-item" href="{{ url(app()->getLocale() .'/pest-libraries' )}}"> {{ __('home.menu.otherPests') }} </a>
-                                        </div>   
-                                        @endif    
+                                        </div>
+                                        @endif
                                         </div>
                                     </div>
                                 </div>
@@ -180,7 +180,7 @@
                                     <div class="dropdown-menu">
                                     @foreach($otherServices as $key => $otherService)
                                         <a class="dropdown-item" href="{{ url(app()->getLocale() .'/services/'.getLocalizableColumn($otherService, 'slug') )}}"> {{ getLocalizableColumn($otherService, 'name') }} </a>
-                                    @endforeach  
+                                    @endforeach
                                         <a class="dropdown-item" href="{{ url(app()->getLocale() .'/services') }}"> {{ __('home.menu.otherServices') }} </a>
                                     </div>
                                 </div>
@@ -210,7 +210,7 @@
                             <a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}"><img src="{{ asset('/assets/img/Flag-EN.svg')}}" alt="EN"></a>
                             @else
                             <a href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}"><img src="{{ asset('/assets/img/Flag-AR.svg')}}" alt="AR"></a>
-                            @endif 
+                            @endif
                             </li>
                             @endif
                         </ul>
@@ -244,12 +244,12 @@
                                 </a>
                             </div>
                         </div>
-                        @if(!request()->is('ar/blog', 'ar/blog/*', 'ar/categories/*'))    
+                        @if(!request()->is('ar/blog', 'ar/blog/*', 'ar/categories/*'))
                     @if(app()->getLocale() == 'ar')
                         <a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}"><img src="{{ asset('/assets/img/Flag-EN.svg')}}" alt="EN"></a>
                     @else
                         <a href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}"><img src="{{ asset('/assets/img/Flag-AR.svg')}}" alt="AR"></a>
-                    @endif 
+                    @endif
                     @endif
                     </div>
                 </nav>
@@ -334,13 +334,14 @@
     <script src="{{ asset('/assets/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('/assets/js/owl.carousel.min.js')}}"></script>
     <script src="{{ asset('/assets/js/jquery.nice-select.min.js')}}"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     @if(request()->is(app()->getLocale()))
         <script src="{{ asset('/assets/js/slick-carousel.min.js')}}"></script>
         @if(app()->getLocale() == 'ar')
             <script src="{{ asset('/assets/js/slick_ar.js')}}"></script>
-        @else    
+        @else
             <script src="{{ asset('/assets/js/slick_en.js')}}"></script>
-        @endif    
+        @endif
     @endif
     <script src="{{ asset('/assets/js/main.js')}}"></script>
     @yield('scripts')

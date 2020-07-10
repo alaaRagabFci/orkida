@@ -181,7 +181,7 @@ class HomeController extends Controller
 
         $tags = MetaTag::where('blog_id', $blog->id)->get();
         if (count($tags) > 0) {
-            $relatedArticles = MetaTag::where('service_id', null)->where('blog_id', '!=',  $blog->id)->where(function ($query) use ($tags) {
+            $relatedArticles = MetaTag::where('service_id', null)->groupBy('blog_id')->where('blog_id', '!=',  $blog->id)->where(function ($query) use ($tags) {
                 foreach ($tags as $tag) {
                     $query->orWhere('tag', 'LIKE', '%' . $tag->tag . '%');
                 }
@@ -277,5 +277,5 @@ class HomeController extends Controller
             'tags' => $tags,
         ]);
     }
-    
+
 }

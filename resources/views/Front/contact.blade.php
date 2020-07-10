@@ -101,6 +101,7 @@
                                                 @endforeach
                                                 </select>
                                             </div>
+                                            <div class="g-recaptcha" data-sitekey="6LfehgcTAAAAABgT9rLAZc0bYDAHbZCYgoZQWxS5"></div>
                                             <div class="form-group m-auto">
                                                 <button type="submit" class="btn btn-form-contact mt-4">{{ __('home.contactUsSection.contactForm.sendBtn') }}</button>
                                             </div>

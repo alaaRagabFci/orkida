@@ -109,7 +109,7 @@
                         <a href="{{ url(app()->getLocale() .'/pest-libraries/'.getLocalizableColumn($pestLibrary, 'slug') ) }}" class="raedMore ">{{ __('home.seeAll.moreDetails') }} <i class="fa fa-chevron-left "></i></a>
                     </div>
                 </div>
-            @endforeach    
+            @endforeach
             </div>
             <div id="thumbs" class="owl-carousel owl-theme">
             @foreach($pestLibraries as $pestLibrary)
@@ -120,7 +120,7 @@
                         <h6> {{ getLocalizableColumn($pestLibrary, 'name') }} </h6>
                     </div>
                 </div>
-            @endforeach    
+            @endforeach
             </div>
         </div>
         <div class="padding-80 mt-4">
@@ -170,7 +170,7 @@
                                 </p>
                             </div>
                         </div>
-                    @endforeach    
+                    @endforeach
                     </div>
                     <div class="arrow-container-postion web">
                         <a href="#" class="prev slick-arrow"> <i class="fa fa-angle-right"></i> </a>
@@ -259,6 +259,7 @@
                 <input required type="email" name="email" id="email" class="form-control">
                 <label for="msg">{{ __('home.contactUsSection.contactForm.topic') }}</label>
                 <textarea required id="msg"  name="topic" class="form-control" rows="4" cols="50"></textarea>
+                <div class="g-recaptcha" data-sitekey="6LfehgcTAAAAABgT9rLAZc0bYDAHbZCYgoZQWxS5"></div>
                 <button class="btn-main mt-2 " type="submit ">{{ __('home.contactUsSection.contactForm.sendBtn') }}</button>
             </form>
         </div>
@@ -282,6 +283,6 @@
   function getServiceLink(selected){
       var option = document.getElementById('serviceLink');
       option.href = "{{ url(app()->getLocale() .'/services')}}" + "/" + selected.value;
-  }  
+  }
 </script>
 @endsection
