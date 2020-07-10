@@ -249,7 +249,7 @@
                 </ul>
             </div>
         @endif
-            <form action="{{ url(app()->getLocale() .'/contact') }}" method="post">
+            <form id="contact-form" action="{{ url(app()->getLocale() .'/contact') }}" method="post">
                 @csrf
                 <label for="fname">{{ __('home.contactUsSection.contactForm.name') }}</label>
                 <input required type="text" name="fname" id="fname" class="form-control">
@@ -259,7 +259,13 @@
                 <input required type="email" name="email" id="email" class="form-control">
                 <label for="msg">{{ __('home.contactUsSection.contactForm.topic') }}</label>
                 <textarea required id="msg"  name="topic" class="form-control" rows="4" cols="50"></textarea>
-                <div class="g-recaptcha" data-sitekey="6LfehgcTAAAAABgT9rLAZc0bYDAHbZCYgoZQWxS5"></div>
+                <!--<div id="html_element"></div>-->
+                <div id="contact-form" class="g-recaptcha" data-sitekey="6LfehgcTAAAAABgT9rLAZc0bYDAHbZCYgoZQWxS5"></div>
+                <div id="contact-form-error" style="display:none;" class="alert alert-danger">
+                <ul style="list-style:none;">
+                    <li>{{ __('home.contactUsSection.robot') }}</li>
+                </ul>
+                </div>
                 <button class="btn-main mt-2 " type="submit ">{{ __('home.contactUsSection.contactForm.sendBtn') }}</button>
             </form>
         </div>
@@ -274,6 +280,13 @@
 @endsection
 @section('scripts')
 <script>
+    $('#contact-form').on('submit', function(e) {
+        if(grecaptcha.getResponse() == "") {
+            e.preventDefault();
+            $('#contact-form-error').show();
+        }
+    });
+
     function scrollContactUs(){
         $('html,body').animate({
         scrollTop: $("#contact").offset().top},

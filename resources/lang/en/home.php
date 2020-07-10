@@ -85,6 +85,7 @@ return [
     ],
     'latestArticles' => 'Latest News',
     'contactUsSection' => [
+        'robot' => 'Please verify that you are not a robot',
         'happyContact' => 'We are pleased to communicate with you',
         'saveServiceForYouMob' => 'We provide you with the fullest service',
         'safe_active' => 'Safety and efficacy',
@@ -125,8 +126,8 @@ return [
     'about' => [
         'aboutCompany' => 'About our company',
         'aboutCompanyTitle' => 'Orkida Pest for Pest Control',
-        'goal' => 'Mission of company', 
-        'vision' => 'Vision of company', 
+        'goal' => 'Mission of company',
+        'vision' => 'Vision of company',
         'valuable' => 'Our four core values are',
         'contactWithUs' => 'Contact us to request the service',
         'earliestTime' => 'Send us a message and we will contact you as soon as possible',

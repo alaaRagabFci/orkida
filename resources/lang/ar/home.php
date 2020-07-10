@@ -86,6 +86,7 @@ return [
     ],
     'latestArticles' => 'احدث المقالات',
     'contactUsSection' => [
+        'robot' => 'يرجى التحقق من أنك لست روبوت',
         'happyContact' => 'يسعدنا تواصلكم معنا',
         'saveServiceForYouMob' => 'نوفر لك الخدمة علي اكمل وجه',
         'safe_active' => 'أمان وفعالية',
@@ -126,8 +127,8 @@ return [
     'about' => [
         'aboutCompany' => 'عن شركتنا',
         'aboutCompanyTitle' => 'اوركيدا لمكافحة الحشرات',
-        'goal' => 'مهمة الشركة', 
-        'vision' => 'رؤية الشركة', 
+        'goal' => 'مهمة الشركة',
+        'vision' => 'رؤية الشركة',
         'valuable' => 'قيمنا الأربعة الجوهرية هي',
         'contactWithUs' => 'تواصل معنا لطلب الخدمة',
         'earliestTime' => 'ارسل لنا رسالة و سوف نقوم بالاتصال بك في اقرب وقت ممكن',

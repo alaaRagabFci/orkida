@@ -78,7 +78,7 @@
                                         </ul>
                                     </div>
                                 @endif
-                                    <form class="" action="{{ url(app()->getLocale() .'/contact') }}" method="post">
+                                    <form id="contact-form" action="{{ url(app()->getLocale() .'/contact') }}" method="post">
                                         @csrf
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
@@ -101,7 +101,14 @@
                                                 @endforeach
                                                 </select>
                                             </div>
+                                            <div class="form-group col-md-12">
                                             <div class="g-recaptcha" data-sitekey="6LfehgcTAAAAABgT9rLAZc0bYDAHbZCYgoZQWxS5"></div>
+                                            <div id="contact-form-error" style="display:none;" class="alert alert-danger">
+                                                <ul style="list-style:none;">
+                                                    <li>{{ __('home.contactUsSection.robot') }}</li>
+                                                </ul>
+                                            </div>
+                                            </div>
                                             <div class="form-group m-auto">
                                                 <button type="submit" class="btn btn-form-contact mt-4">{{ __('home.contactUsSection.contactForm.sendBtn') }}</button>
                                             </div>
@@ -209,4 +216,14 @@
         </section>
     </div>
     <!-- end content of page -->
+@endSection
+@section('scripts')
+<script>
+    $('#contact-form').on('submit', function(e) {
+        if(grecaptcha.getResponse() == "") {
+            e.preventDefault();
+            $('#contact-form-error').show();
+        }
+    });
+</script>
 @endSection
