@@ -53,7 +53,7 @@
                             <div class="form-group mb-0 ">
                                 <div class="input-group-prepend ">
                                     <div class="input-group-text ">
-                                        <button type="submit"><img src="{{ asset('/assets/img/blog/noun_Search_2680509.svg')}} "></button>
+                                        <button class="no-bg no-border" type="submit"><img src="{{ asset('/assets/img/blog/noun_Search_2680509.svg')}} "></button>
                                     </div>
                                 </div>
                                 <input type="text " required name="searchText" class="form-control " id=" " placeholder=" ">
@@ -146,7 +146,7 @@
                             <div class="form-group mb-0 ">
                                 <div class="input-group-prepend ">
                                     <div class="input-group-text ">
-                                        <button type="submit"> <img src="{{ asset('/assets/img/blog/noun_Search_2680509.svg')}} "></button>
+                                        <button class="no-bg no-border" type="submit"> <img src="{{ asset('/assets/img/blog/noun_Search_2680509.svg')}} "></button>
                                     </div>
                                 </div>
                                 <input type="text " required name="searchText" class="form-control " id=" " placeholder=" ">
